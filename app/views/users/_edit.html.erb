@@ -1,0 +1,16 @@
+<% form_for @user do |f| %>
+   <dl><dt>OpenID</dt><dd><%=h @user.identity_url%></dd></dl>
+   <%= f.label :nickname, 'Nickname'%>
+   <%= f.text_field :nickname %><br />
+   <%= f.label :email, 'Email'%>
+   <%= f.text_field :email %><br />
+   <%= f.label :first_name, 'First Name'%>
+   <%= f.text_field :first_name %><br />
+   <%= f.label :last_name, 'Last Name'%>
+   <%= f.text_field :last_name %><br />
+   <%= f.label :country, 'Country'%>
+   <%= f.text_field :country %><br />
+   <%= f.label :zip, 'ZIP code'%>
+   <%= f.text_field :zip %><br />
+   <%= submit_tag %>
+<% end %>
