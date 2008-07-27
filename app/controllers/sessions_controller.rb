@@ -1,22 +1,10 @@
+
 class SessionsController < ApplicationController
   def create
-    if using_open_id?
       open_id_authentication
-    else
-      password_authentication(params[:name], params[:password])
-    end
   end
 
-
   protected
-    def password_authentication(name, password)
-      if @current_user = @account.users.authenticate(params[:name], params[:password])
-        successful_login
-      else
-        failed_login "Sorry, that username/password doesn't work"
-      end
-    end
-
     def open_id_authentication
       authenticate_with_open_id do |result, identity_url|
         if result.successful?
