@@ -35,6 +35,9 @@ ActionController::Routing::Routes.draw do |map|
 
   # See how all your routes lay out with "rake routes"
 
+  # Send the bare URL to the home/index
+  map.connect '', :controller => "home"
+
   map.resource :openid, :member => { :logout => :get }
   
   map.resources :users
