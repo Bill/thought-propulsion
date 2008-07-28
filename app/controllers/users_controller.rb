@@ -7,8 +7,13 @@ class UsersController < ApplicationController
   def create
     params[:user][:identity_url] = session[:identity_url]
     @user = User.new( params[:user])
-    @user.save!
-    render :action => 'show'
+    begin
+      @user.save!
+      render :action => 'show'
+    rescue ActiveRecord::RecordInvalid
+      flash[:error] = @user.errors.full_messages
+      render :action => 'new'
+    end
   end
 
   private

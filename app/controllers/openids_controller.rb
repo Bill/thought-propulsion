@@ -17,7 +17,7 @@ class OpenidsController < ApplicationController
   #log a user out of the system
   def logout
       reset_session
-      redirect_to(:action => 'new')
+      redirect_to home_url
   end
   
   def openid_authentication_callback

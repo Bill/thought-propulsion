@@ -12,9 +12,18 @@
 <body>
    <div class="container">
            <div class="span-24">
+              <div>
+                 <% if @user.blank? %>
+                 <%= render :partial => 'openids/new'%>
+                 <% else %>
+                 <p>welcome <%= @user.nickname %></p>
+                 <% end %>
+              </div>
+              <div>
               <% flash.each do |key, msg| %>
                 <%= msg %>
               <% end %>
+              </div>
            </div>
            <%= yield %>
    </div>
