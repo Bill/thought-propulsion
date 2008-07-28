@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   
+  layout 'home'
+  
   before_filter :authenticated
   
   def create

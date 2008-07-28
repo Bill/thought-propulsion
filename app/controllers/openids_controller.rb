@@ -1,5 +1,7 @@
 class OpenidsController < ApplicationController
 
+  layout 'home'
+  
   def new
     # TODO: show a form requesting the user's OpenID
   end
