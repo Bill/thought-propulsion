@@ -19,15 +19,11 @@
                  <p>welcome <%= @user.nickname %></p>
                  <% end %>
               </div>
-              <% if flash.empty? %>
-                <div id="flash" class="alert" style="display:none"></div>
-              <% else %>  
-                <% flash.each do |key,value| -%>
-                  <div id="flash" class='alert <%= key %>'>
-                    <%=h value %>
-                  </div>
-                <% end -%>
+              <div>
+              <% flash.each do |key, msg| %>
+                <%= msg %>
               <% end %>
+              </div>
            </div>
            <%= yield %>
    </div>
