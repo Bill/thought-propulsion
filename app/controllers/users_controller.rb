@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       @user.save!
       render :action => 'show'
     rescue ActiveRecord::RecordInvalid
-      flash[:error] = @user.errors.full_messages
+      flash.now[:error] = @user.errors.full_messages
       render :action => 'new'
     end
   end
