@@ -72,7 +72,7 @@ class OpenidsController < ApplicationController
           
         rescue OpenID::OpenIDError
           # our flash rendering (application.rhtml) escapes values so we don't have to worry about escaping this URL
-          flash[:error] = "Could not find OpenID server for #{open_id_url}: $!"
+          flash[:error] = "Could not find OpenID server for #{open_id_url}: #{$!}"
         end
 
       rescue Timeout::Error
@@ -81,7 +81,7 @@ class OpenidsController < ApplicationController
       end
 
       # we reach this line only if OpenID::DiscoveryFailure was thrown (or if HTTP method was not POST)
-      render :action => 'new'
+      redirect_to home_url
     end
     
     def after_successful_authentication( member)

@@ -1,3 +1,8 @@
+/* .fieldWithErrors is applied automatically by the Rails framework when a field has errors.
+	see also: Blueprint CSS screen.css rules for .error and friends (I made this rule match that one)
+*/
+.fieldWithErrors input {border:2px solid #ddd; background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
+
 #openid_url {
   background: url(/images/login-bg.gif) no-repeat #FFF 5px;
   padding-left: 25px;
