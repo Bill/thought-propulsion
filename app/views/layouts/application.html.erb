@@ -16,7 +16,7 @@
                  <% if @user.blank? %>
                  <%= render :partial => 'openids/new'%>
                  <% else %>
-                 <p>welcome <%= @user.nickname %></p>
+                 <%= render :partial => 'openids/welcome'%>
                  <% end %>
               </div>
               <% if flash.empty? %>
