@@ -86,7 +86,7 @@ class OpenidsController < ApplicationController
     
     def after_successful_authentication( member)
       associate_authenticated_identity_with_session(member.identity_url)
-      redirect_to( session[:return_to] || url_for(:controller => 'home', :action => 'index', :only_path => false)) 
+      return_to_or_redirect( url_for(:controller => 'home', :action => 'index', :only_path => false))
     end
     
     # OpenID authentication succeeded but this principal is not yet registered with Lumeno.us... help her sign up
@@ -106,7 +106,7 @@ class OpenidsController < ApplicationController
     
     def after_unsuccessful_authentication( message)
       reset_session
-      flash[:error] = message
+      flash.now[:error] = message
       render(:action => 'new')
     end
     

@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   
   layout 'home'
   
-  before_filter :authenticated
+  before_filter :authenticated, :only => [:create]
+  before_filter :registered, :except => [:create]
   
   def create
     params[:user][:identity_url] = session[:identity_url]
@@ -13,17 +14,6 @@ class UsersController < ApplicationController
     rescue ActiveRecord::RecordInvalid
       flash.now[:error] = @user.errors.full_messages
       render :action => 'new'
-    end
-  end
-
-  private
-  def authenticated
-    if session[:identity_url].nil?
-      flash[:error] = "Please log in"
-      redirect_to :controller => 'openids', :action => 'new'
-      false
-    else
-      true
     end
   end
 end
