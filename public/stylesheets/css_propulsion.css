@@ -1,37 +1,25 @@
 body {
 	font-size:75%;
 	color:#fff;
-	background:#23201f;
-	margin-top:0;
-	margin-bottom:0;
-	min-height:100%;
-	}
-
-.head { 
-	background: #FFB500 url(/images/header.png);
-	color: #23201f;
-	height: 150px;
-	width: 100%;
+	background:#23201f url(/images/header.png) repeat-x top left;
+	margin:0;
 	}
 
 .logo {
-	background:url(/images/header_logo.png) no-repeat right;
+	background:url(/images/header_logo.png) no-repeat top right;
 	height: 150px;
 	}
+
+.spacer { height:100px;}
 
 .foot { 
 	background: #FFB500;
 	color: #23201f;
-	height: 18px;
+	height: 36px;
 	width: 100%;
 	position:absolute;
 	bottom:0;
 	left:0;
-	}
-
-.low {
-	position:absolute;
-	bottom:0;
 	}
 
 h1, h2, h3, h4, h5, h6 {color:#FFB500;}
