@@ -2,16 +2,6 @@
 	<div class="spacer"></div>
 	<div class="span-15">
 	
-		<% if flash.empty? %>
-		<div id="flash" class="alert" style="display:none"></div>
-		<% else %>  
-		<% flash.each do |key,value| -%>
-		<div id="flash" class='alert <%= key %>'>
-			<%=h value %>
-		</div>
-		<% end -%>
-		<% end %>
-	
 		<%= yield %>
 		
 <! static test copy to be removed -->
@@ -34,5 +24,16 @@
 <! end test copy -->
 		
 	</div>
-<div class="span-6 last"></div> 
+<div class="span-6 last">
+<div class="spacer"></div>
+		<% if flash.empty? %>
+		<div id="flash" class="alert" style="display:none"></div>
+		<% else %>  
+		<% flash.each do |key,value| -%>
+		<div id="flash" class='alert <%= key %>'>
+			<%=h value %>
+		</div>
+		<% end -%>
+		<% end %>
+</div> 
 <% end %>

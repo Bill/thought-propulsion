@@ -1,23 +1,33 @@
 body {
 	font-size:75%;
-	color:#fff;
-	background:#23201f url(/images/header.png) repeat-x top left;
+	color:#FFFFFF;
+	background:#23201F url(/images/header.png) repeat-x top left;
 	margin:0;
 	}
 
 .logo {
 	background:url(/images/header_logo.png) no-repeat top right;
-	height: 150px;
+	height:150px;
+	}
+	
+.head {
+	color:#23201F;
 	}
 	
 .foot { 
-	background: #FFB500;
-	color: #23201f;
-	height: 18px;
-	width: 100%;
-	position:absolute;
+	background:#FFB500;
+	color:#23201F;
+	height:20px;
+	width:100%;
+	border-top:1px solid #000000;
+	position:fixed;
 	bottom:0;
 	left:0;
+	}
+	
+.foot_content {
+	width:830px;
+	margin:0 auto;
 	}
 
 .spacer { height:100px;}
@@ -33,10 +43,28 @@ a:visited {text-decoration: underline; color:#FFB500;}
 a:active {text-decoration: underline; color:#FFB500;}
 a:hover a:focus {text-decoration: none; color:#FFB500;}
 
-.head a:link {text-decoration: underline; color:#23201f;}
-.head a:visited {text-decoration: underline; color:#23201f;}
-.head a:active {text-decoration: underline; color:#23201f;}
-.head a:hover a:focus {text-decoration: none; color:#23201f;}
+.outer a:link {text-decoration: underline; color:#23201F;}
+.outer a:visited {text-decoration: underline; color:#23201F;}
+.outer a:active {text-decoration: underline; color:#23201F;}
+.outer a:hover a:focus {text-decoration: none; color:#23201F;}
 
 h1, h2, h3, h4, h5, h6 {color:#FFB500;}
 h2 {margin-bottom: -.2em; }
+
+/* login style */
+#openid_url {
+	background-color:#DDDDDD;
+	color:#000000;
+	border: 1px solid#777777;
+	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:10px;
+	width:100px;
+	margin:0px;
+	}
+	
+#login .buttons {
+	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:10px;
+	background-color:#23201F;
+	color:#FFB500;
+	}
