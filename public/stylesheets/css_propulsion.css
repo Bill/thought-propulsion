@@ -9,18 +9,34 @@ body {
 	background:url(/images/header_logo.png) no-repeat top right;
 	height: 150px;
 	}
-
-.spacer { height:100px;}
-
+	
 .foot { 
 	background: #FFB500;
 	color: #23201f;
-	height: 36px;
+	height: 18px;
 	width: 100%;
 	position:absolute;
 	bottom:0;
 	left:0;
 	}
 
+.spacer { height:100px;}
+
+.alert {
+	background:none;
+	border:none;
+	margin-top: -50px;
+	}
+
+a:link {text-decoration: underline; color:#FFB500;}
+a:visited {text-decoration: underline; color:#FFB500;}
+a:active {text-decoration: underline; color:#FFB500;}
+a:hover a:focus {text-decoration: none; color:#FFB500;}
+
+.head a:link {text-decoration: underline; color:#23201f;}
+.head a:visited {text-decoration: underline; color:#23201f;}
+.head a:active {text-decoration: underline; color:#23201f;}
+.head a:hover a:focus {text-decoration: none; color:#23201f;}
+
 h1, h2, h3, h4, h5, h6 {color:#FFB500;}
-h2 {margin-bottom: -.25em; }
+h2 {margin-bottom: -.2em; }
