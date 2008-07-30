@@ -1,0 +1,10 @@
+<span class="adr">
+   <span class='type'><%= address[:type] %></span> address: 
+   <% unless address[:street_address].blank? %>
+   <span class="street-address"><%= address[:street_address] %></span>
+   <% end %>
+   <% unless address[:post_office_box].blank? %>
+   PO Box <span class="post-office-box"><%= address[:post_office_box] %></span>
+   <% end %>
+   <span class="locality"><%= address[:locality] %></span> <span class="region"><%= address[:region] %></span> <span class="postal-code"><%= address[:postal_code] %></span> <span class="country-name"><%= address[:country_name] %></span>
+</span>

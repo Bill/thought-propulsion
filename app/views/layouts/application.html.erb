@@ -24,7 +24,7 @@
 		<% end -%>
 		<% end %>
     	<div class="span-21 head outer">
-			<br /><p><a href="/home">Home</a> | <a href="/about">About</a></p>
+			<br /><p><%= link_to 'Home', home_url %> | <%= link_to 'About', about_url%> | <%= link_to 'Contact', contact_url %></p>
     	</div>
 		<div class="span-21">
 			<%= yield %>

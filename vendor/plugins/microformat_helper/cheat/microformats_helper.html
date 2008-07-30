@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>Microformats Helper Cheat Sheet</title>
+    <style type="text/css">
+body {
+  background: white;
+  font-family: Verdana, "Lucida Grande", Arial, Helvetica, sans-serif;
+  text-align: left;
+  margin: 2em;
+}
+h1 {
+  background: #b90b0a;
+  color: white;
+  padding: 0 0.5em 0.3em 0.5em;
+  font-size: 2em;
+  margin: 0 0 0.5em 0;
+}
+h1.separator {
+  display: none;
+}
+h2 {
+  color: #aba9a8;
+}
+p, dl, dl dt {
+  margin: 0 0 0.5em 0;
+}
+dl dt {
+  font-weight: bold;
+}
+dl dd {
+  margin: 0 0 0.5em 2em;
+}
+dl.compact dt {
+  float: left;
+  clear: both;
+  display: inline;
+  width: 15em;
+  margin: 0;
+  font-weight: normal;
+  font-family: "Courier New";
+}
+dl.compact dd {
+  margin: 0 0 0.3em 15em;
+}
+code, pre {
+  font-family: "Courier New";
+}
+pre {
+  font-weight: bold;
+}
+p.copyright {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 2em;
+}
+br.force-break {
+  display: none;
+}
+@media print {
+  @page {
+    size: 8in 8in;
+    margin: 1cm;
+  }
+  body {
+    font-size: 11pt;
+  }
+  h1 {
+    padding: 0.3cm;
+    font-size: 200%;
+    margin: 0 0 0.6cm 0;
+  }
+  h1.separator {
+    border-top: 0.77cm solid white;
+    display: block;
+    page-break-before: always;
+  }
+  p, dl, dl dt {
+    margin: 0 0 0.3cm 0;
+  }
+  dl dd {
+    margin: 0 0 0.3cm 0.6cm;
+  }
+  dl.compact dt {
+    width: 6cm;
+    margin: 0;
+  }
+  dl.compact dd {
+    margin: 0 0 0.15cm 6cm;
+  }
+  p.copyright {
+    margin-top: 2cm;
+  }
+}
+    </style>
+  </head>
+  <body>
+    <h1>Microformats Helper Cheat Sheet</h1>
+    <h2>hAtom</h2>
+    <dl>
+      <dt><code>&lt;% render_hfeed(options?) do ... end %&gt;<br/>&lt;% render_hentry(id, options?) do ... end %&gt;</code></dt>
+      <dd><p>Render <code>ol</code> with class <code>hfeed</code>, or <code>li</code> with the class <code>hentry</code> and id. Options passed to HTML element.</p></dd>
+      <dt><code>&lt;%= hentry_title(title?, options?) { ... } %&gt;<br/>&lt;%= hentry_content(content?, options?) { ... } %&gt;</code></dt>
+      <dd><p>Returns header with class <code>entry-title</code>, or element with class <code>entry-content</code>. Content pass as argument or returned from block, options passed to wrapping element. Use <code>:level</code> to specify header level (default 2), <code>:tag</code> to specify content element (default <code>p</code>).</p></dd>
+    </dl>
+    <h2>Other</h2>
+    <dl>
+      <dt><code>&lt;%= hcard(values) %&gt;</code></dt>
+      <dd><p>Values:</p>
+        <dl class="compact">
+          <dt>:fn</dt><dd>Formal name</dd>
+          <dt>:given-name</dt><dd>Given name (alternative to <code>:fn</code>)</dd>
+          <dt>:family-name</dt><dd>Family name (alternative to <code>:fn</code>)</dd>
+          <dt>:url</dt><dd>URL of person/entity (results in link)</dd>
+          <dt>:photo</dt><dd>URL of photo, or hash of options for <code>img</code> tag</dd>
+          <dt>:html</dt><dd>Options to pass to wrapper element</dd>
+        </dl>
+      </dd>
+      <dt><code>&lt;%= Time.microformat(type, format?) { ... } %&gt;</code></dt>
+      <dd><p>Formats time using the date/time pattern, returns <code>abbr</code> element. First argument is date/time type (e.g. <code>:published</code>). Human formatted: using second argument (see <code>strftime</code>), result of block, or <code>self.to_s</code>.</p></dd>
+    </dl>
+    <h2>Example</h2>
+    <pre>
+&lt;% render_hfeed do
+  posts.each do |post|
+    render_hentry "post-#{post.id}" do %&gt;
+      &lt;%= hentry_title post.title %&gt;
+      &lt;%= hentry_content post.content %&gt;
+      &lt;p&gt;Published on &lt;%= post.created_on.microformat :published %&gt; by
+        &lt;%= hcard :fn=&gt;post.author, :url=&gt;post.author_url, :class=&gt;"author" %&gt;
+      &lt;/p&gt;&lt;%
+    end
+  end
+end %&gt;
+    </pre>
+    <p class="copyright">&copy; 2006 Assaf Arkin <a href="http://labnotes.org">http://labnotes.org</a><br/>Released under Creative Commons Attribution</p>
+  </body>
+</html>
