@@ -38,8 +38,8 @@ ActionController::Routing::Routes.draw do |map|
   # Send the bare URL to the home/index
   map.home '', :controller => 'home'
   
-  map.resource :about, :controller => 'about'
-  map.resource :contact, :controller => 'contact'
+  map.about 'about', :controller => 'about', :action => 'index'
+  map.contact 'contact', :controller => 'contact', :action => 'index'
   
   map.logout 'logout', :controller => 'openids', :action => 'logout'
 
