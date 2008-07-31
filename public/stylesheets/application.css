@@ -3,11 +3,6 @@
 */
 .fieldWithErrors input {border:2px solid #ddd; background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
 
-#openid_url {
-  background: url(/images/login-bg.gif) no-repeat #FFF 5px;
-  padding-left: 25px;
-}
-
 body {
 	font-size:87%;
 	color: #fff4da;
@@ -58,7 +53,8 @@ h3 {margin-bottom: .1em; }
 
 /* login style */
 #openid_url {
-	background-color:#FFFFFF;
+	background: url(/images/login-bg.gif) no-repeat #FFF 5px;
+	padding-left: 25px;
 	color:#000000;
 	border: 1px solid#777777;
 	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
