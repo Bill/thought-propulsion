@@ -1,9 +1,13 @@
 body {
 	font-size:75%;
-	color:#FFFFFF;
+	color: #fff4da;
 	background:#23201F url(/images/header.png) repeat-x top left;
 	margin:0;
 	}
+	
+body * {
+	line-height: 1.4em;
+}
 	
 .head {
 	color:#23201F;
