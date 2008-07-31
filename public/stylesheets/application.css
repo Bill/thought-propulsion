@@ -86,3 +86,11 @@ vcard Contact styling */
 .adr {
 	display: block;
 	}
+	
+/*
+There's nowhere to put this word in the markup without polluting the pertinent
+hcard structure, so we'll stick it into the presentation.
+*/
+.tel .type:after {
+	content: ' phone: ';
+}

@@ -13,7 +13,7 @@ class ContactController < ApplicationController
         { :type => 'postal', :post_office_box => '19863', :locality => 'Portland', :region => 'Oregon', :postal_code => '97280', :country_name => 'USA'}
         ],
       :emails => [
-        { :type => 'email', :address => 'propeller@thoughtpropulsion.com'}
+        { :type => 'inquiries', :address => 'propeller@thoughtpropulsion.com'}
         ],
       :telephones => [
         {

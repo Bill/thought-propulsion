@@ -1,1 +1,1 @@
-<%= link_to email[:type], "mailto:#{email[:address]}", :class=>'email'%>
+<%= "#{email[:type]} email: " + link_to( email[:address], "mailto:#{email[:address]}", :class=>'email')%>
