@@ -4,7 +4,7 @@
 .fieldWithErrors input {border:2px solid #ddd; background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
 
 /* -------------------------------------------------------------- 
-grid overrides and styling */
+grid overrides and style */
 
 body {
 	color:#FFFFFF;
@@ -32,12 +32,11 @@ body {
 	}
 
 /* -------------------------------------------------------------- 
-copy styles */
+copy style */
 
 .alert {
 	background:none;
 	border:none;
-	margin-top: -50px;
 	}
 
 a:link, a:visited, a:active {text-decoration: underline; color:#FFB500;}
@@ -76,7 +75,7 @@ login style */
 	}
 	
 /* -------------------------------------------------------------- 
-vcard Contact styling */
+vcard Contact style */
 
 .vcard {
 	border-left:2px solid #FFB500;
