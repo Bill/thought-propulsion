@@ -1,51 +1,54 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>Thought Propulsion</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
    <link rel="stylesheet" href="/stylesheets/blueprint/screen.css" type="text/css" media="screen, projection">
-   <link rel="stylesheet" href="/stylesheets/propulsion.css" type="text/css" media="screen, projection">
    <link rel="stylesheet" href="/stylesheets/blueprint/print.css" type="text/css" media="print"> 
    <!--[if IE]><link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->	
 	<%= stylesheet_link_tag 'application' %>
 </head>
 
 <body>
-	<div class="container">
-		<div class="span-15 head">
-			<% if flash.empty? %>
-			<div id="flash" class="span-21 alert" style="display:none"></div>
-			<% else %>  
-			<% flash.each do |key,value| -%>
-			<div id="flash" class='span-21 alert <%= key %>'>
-				<%=h value %>
-			</div>
-			<% end -%>
-			<% end %>
-			<%= link_to 'Home', home_url %> | <%= link_to 'About', about_url%> | <%= link_to 'Contact', contact_url %>
+<div class="container">
+	<div class="head">
+		<% if flash.empty? %>
+		<div id="flash" class="span-21 alert" style="display:none"></div>
+		<% else %>  
+		<% flash.each do |key,value| -%>
+		<div id="flash" class='span-21 alert <%= key %>'>
+			<%=h value %>
 		</div>
-		<div class="span-6 head last">
-			<a href="http://thoughtpropulsion.com/"><img alt="Web applications � built about you" src="/images/header_logo.png"/></a>
-		</div>		
-		<div class="span-21">
-			<%= yield %>
+		<% end -%>
+		<% end %>
+		<div class="span-1 prepend-1"><%= link_to 'Home', home_url %></div>
+		<div class="span-1"><%= link_to 'About', about_url%></div>
+		<div class="span-1"><%= link_to 'Contact', contact_url %></div>
+    	<div class="span-7 prepend-10 last">
+    		<a href="http://thoughtpropulsion.com/"> <img alt="Web applications - built about you" src="/images/logo_top.png"/></a>
 		</div>
-		<div class="span-21">
-			<div class="foot">
-				<div class="foot_content">
-					<div class="span-15">
-						<% if @user.blank? %>
-						<%= render :partial => 'openids/new'%>
-						<% else %>
-						<%= render :partial => 'openids/welcome'%>
-						<% end %>
-					</div>
-					<div class="span-6 last">
-					</div>
-				</div>
-			</div>
-		</div>
+    </div>
+<%= yield %>
+    <div class="span-7 last">
+    	<a href="http://thoughtpropulsion.com/"><img alt="Web applications - built about you" src="/images/logo_bottom.png"/></a>
 	</div>
+    
+	<div class="foot">
+		<div class="span-13 prepend-1">
+<% if @user.blank? %>
+<%= render :partial => 'openids/new'%>
+<% else %>
+<%= render :partial => 'openids/welcome'%>
+<% end %>
+        </div>
+        <div class="span-6">
+			<span class="small">
+				© 2007 Thought Propulsion™, all rights reserved.
+			</span>
+        </div>
+		<div class="span-1"></div>
+    </div>
+</div>
 </body>
 </html>
