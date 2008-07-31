@@ -1,12 +1,9 @@
 body {
-	font-size:75%;
+	font-size:87%;
 	color: #fff4da;
 	background:#23201F url(/images/header.png) repeat-x top left;
 	margin:0;
-	}
-	
-body * {
-	line-height: 1.4em;
+	letter-spacing: .05em;
 }
 	
 .head {
