@@ -4,11 +4,6 @@ body {
 	background:#23201F url(/images/header.png) repeat-x top left;
 	margin:0;
 	}
-
-.logo {
-	background:url(/images/header_logo.png) no-repeat top right;
-	height:150px;
-	}
 	
 .head {
 	color:#23201F;
@@ -30,8 +25,6 @@ body {
 	margin:0 auto;
 	}
 
-.spacer { height:100px;}
-
 .alert {
 	background:none;
 	border:none;
@@ -43,17 +36,18 @@ a:visited {text-decoration: underline; color:#FFB500;}
 a:active {text-decoration: underline; color:#FFB500;}
 a:hover a:focus {text-decoration: none; color:#FFB500;}
 
-.outer a:link {text-decoration: underline; color:#23201F;}
-.outer a:visited {text-decoration: underline; color:#23201F;}
-.outer a:active {text-decoration: underline; color:#23201F;}
-.outer a:hover a:focus {text-decoration: none; color:#23201F;}
+.head a:link, .foot a:link {text-decoration: underline; color:#23201F;}
+.head a:visited, .foot a:visited {text-decoration: underline; color:#23201F;}
+.head a:active, .foot a:active {text-decoration: underline; color:#23201F;}
+.head a:hover a:focus, .foot a:hover a:focus {text-decoration: none; color:#23201F;}
 
 h1, h2, h3, h4, h5, h6 {color:#FFB500;}
-h2 {margin-bottom: -.2em; }
+h2 {margin-bottom: -.1em; }
+h3 {margin-bottom: .1em; }
 
 /* login style */
 #openid_url {
-	background-color:#DDDDDD;
+	background-color:#FFFFFF;
 	color:#000000;
 	border: 1px solid#777777;
 	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -65,6 +59,18 @@ h2 {margin-bottom: -.2em; }
 .button {
 	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size:10px;
-	background-color:#23201F;
-	color:#FFB500;
+	background-color:#FFFFFF;
+	color:#23201F;
+	border:1px solid #777777;
+	}
+
+/* vcard Contact styling */
+
+.vcard {
+	border-left:2px solid #FFB500;
+	padding-left:18px;
+	}
+	
+.adr {
+	display: block;
 	}

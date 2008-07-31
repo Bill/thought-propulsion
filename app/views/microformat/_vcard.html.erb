@@ -1,8 +1,8 @@
 <div class="vcard">
-   <h3 class="fn org url"><%= link_to vcard[:fn], vcard[:url]%></h3>
-   <ul>
+   <h3 class="fn org url"><%= link_to vcard[:fn], vcard[:url]%></h3><br />
+   <p>
    <%= render :partial => 'microformat/address', :collection => vcard[:addresses]%>
-   </ul>
+   </p>
    <p>
    <%= render :partial => 'microformat/email', :collection => vcard[:emails]%>
    </p>
