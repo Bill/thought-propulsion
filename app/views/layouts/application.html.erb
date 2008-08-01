@@ -25,17 +25,17 @@
 				<% end -%>
 				<% end %>
 			</div>
-			<div class="span-1 prepend-1"><%= link_to 'Home', home_url %></div>
-			<div class="span-1"><%= link_to 'About', about_url%></div>
-			<div class="span-1 append-10 last"><%= link_to 'Contact', contact_url %></div>
+			<div class="span-1 prepend-1 navigation"><%= link_to 'Home', home_url %></div>
+			<div class="span-1 navigation"><%= link_to 'About', about_url%></div>
+			<div class="span-1 append-10 navigation last"><%= link_to 'Contact', contact_url %></div>
    		</div>
    			<div class="span-7 last">
-   				<a href="http://thoughtpropulsion.com/"> <img alt="Web applications - built about you" src="/images/logo_top.png"/></a>
+   				<%= link_to '<img alt="Web applications - built about you" src="/images/logo_top.png"/>', home_url %>
 			</div>
     </div>
 <%= yield %>
     <div class="span-7 last">
-    	<a href="http://thoughtpropulsion.com/"><img alt="Web applications - built about you" src="/images/logo_bottom.png"/></a>
+    	<%= link_to '<img alt="Web applications - built about you" src="/images/logo_bottom.png"/>', home_url %>
 	</div>
     
 	<div class="foot">
