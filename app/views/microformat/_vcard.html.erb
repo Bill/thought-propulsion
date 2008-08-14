@@ -1,5 +1,5 @@
 <div class="vcard">
-   <h3 class="fn org"><%= link_to vcard[:fn], vcard[:url], :class => 'url'%></h3>
+   <h2 class="fn org banner_email"><%= link_to vcard[:fn], vcard[:url], :class => 'url'%></h3>
    <div class='addresses'>
    <p class="adr">
    <%= render :partial => 'microformat/address', :collection => vcard[:addresses], :spacer_template => 'microformat/p_address_spacer.html'%>
