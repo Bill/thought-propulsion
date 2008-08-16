@@ -10,7 +10,7 @@ html, body {height: 100%;}
 * html .container {height: 100%;}
 
 body {
-	background:#23201F url(/images/header.png) repeat-x top left;
+	background:<%= @c_b_k4 %> url(/images/header.png) repeat-x top left;
 	color:#999;
 	margin:0;
 	}
@@ -24,13 +24,13 @@ body {
 	}
 	
 .head {
-	color:#23201F;
+	color:<%= @c_b_k4 %>;
 	height:90px;
 	}
 	
 .foot { 
 	background:#f7550c;
-	color:#23201F;
+	color:<%= @c_b_k4 %>;
 	height:20px;
 	width:100%;
 	border-top:1px solid #000000;
@@ -47,7 +47,7 @@ body {
 copy style */
 
 .alert {
-	background:#23201F;
+	background:<%= @c_b_k4 %>;
 	border:1px solid #000000;
 	color:#999;
 	}
@@ -78,7 +78,7 @@ copy style */
 a {text-decoration: none; color:#FFB500;}
 a:hover, a:focus {text-decoration: none; color:#f7550c;}
 
-.head a:link, .foot a:link, .head a:visited, .foot a:visited, .head a:active, .foot a:active {text-decoration: underline; color:#23201F;}
+.head a:link, .foot a:link, .head a:visited, .foot a:visited, .head a:active, .foot a:active {text-decoration: underline; color:<%= @c_b_k4 %>;}
 .head a:hover, .head a:focus, .foot a:hover. .head a:focus {text-decoration: none; color:#23201F;}
 
 h1, h2, h3, h4, h5, h6 {color:#FFFFFF;}
