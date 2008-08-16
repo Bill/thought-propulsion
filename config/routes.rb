@@ -46,6 +46,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :openid, :member => { :logout => :get }
   
   map.resources :users
+  
+  map.resource :stylesheets do |stylesheet|
+    stylesheet.resource :application, :controller => 'application_stylesheet'
+  end
 
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action/:id'
