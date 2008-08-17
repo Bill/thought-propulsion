@@ -29,7 +29,7 @@ module CorkdFormHelper
   end
   
   def corkd_form_start( &proc)
-    concat('<table><tbody>', proc.binding)
+    concat('<table class="form-table"><tbody>', proc.binding)
   end
   def corkd_form_end( &proc)
     concat('</tbody></table>', proc.binding)

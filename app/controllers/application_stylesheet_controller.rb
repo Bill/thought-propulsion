@@ -25,17 +25,17 @@ class ApplicationStylesheetController < ApplicationController
     # You might want to use http://slayeroffice.com/tools/color_palette/ to generate palettes.
     # The purpose of these variables, however is to allow you to change the palette
     # without having to search and replace everything in the CSS.
-    @c_b = UNDEFINED
-    @c_b_w1 = UNDEFINED
-    @c_b_w2 = UNDEFINED
-    @c_b_w3 = UNDEFINED
-    @c_b_w4 = UNDEFINED
-    # @c_b_w4 is simply 'white' in CSS so we don't need a variable for it here
-    @c_b_k1 = UNDEFINED
-    @c_b_k2 = UNDEFINED
-    @c_b_k3 = UNDEFINED
-    @c_b_k4 = '#1F2323'
-    # @c_b_k5 is simply 'black' in CSS so we don't need a variable for it here
+    @c_b = '#1F2323'
+    @c_b_w1 = '#575A5A'
+    @c_b_w2 = '#909292'
+    @c_b_w3 = '#C7C8C8'
+    @c_b_w4 = '#E9EAEA'
+    # @c_b_w5 is simply 'white' in CSS so we don't need a variable for it here
+    @c_b_k1 = '#1A1E1E'
+    @c_b_k2 = '#171A1A'
+    @c_b_k3 = '#101212'
+    @c_b_k4 = '#080909'
+    @c_b_k5 = '#030404'
     
     @c_a = UNDEFINED
     @c_a_w1 = UNDEFINED

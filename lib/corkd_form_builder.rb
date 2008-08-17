@@ -17,7 +17,8 @@ class CorkdFormBuilder < ActionView::Helpers::FormBuilder
     @template.capture do
       locals = {
         :element => yield,
-        :label => label(field, options[:label])
+        :label => label(field, options[:label]),
+        :instructions => options[:instructions]
       }
       if has_errors_on?(field)
         locals.merge!(:error => error_message(field, options))
