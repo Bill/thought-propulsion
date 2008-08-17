@@ -2,6 +2,8 @@ class OpenidsController < ApplicationController
 
   layout 'home'
   
+  include ApplicationHelper # to get company_name method
+  
   def new
     # TODO: show a form requesting the user's OpenID
   end
@@ -91,7 +93,7 @@ class OpenidsController < ApplicationController
     
     # OpenID authentication succeeded but this principal is not yet registered with Lumeno.us... help her sign up
     def after_successful_authentication_of_unregistered_principal( response)
-      flash[:info] = "Your identity has been verified but you're not yet a #{company_name} member -- please register"
+      flash[:info] = "Your identity has been verified but you're not yet a #{company_name} member&mdash;please register"
       registration_info = response.extension_response('http://openid.net/extensions/sreg/1.1', true)
       first_name = last_name = ''
       if registration_info.has_key?('fullname')
@@ -99,7 +101,7 @@ class OpenidsController < ApplicationController
         first_name = parts[0]
         last_name = parts[1] unless parts.size < 2
       end
-      @user = User.new(:identity_url => response.endpoint.claimed_id, :email => registration_info['email'], :first_name => first_name, :last_name => last_name, :zip => registration_info['postcode'], :country => registration_info['country'] )
+      @user = User.new(:identity_url => response.endpoint.claimed_id, :email => registration_info['email'], :first_name => first_name, :last_name => last_name, :zip => registration_info['postcode'], :country => registration_info['country'], :nickname =>  registration_info['nickname'])
       associate_authenticated_identity_with_session( @user.identity_url)
       render :action => 'finish_registration'
     end

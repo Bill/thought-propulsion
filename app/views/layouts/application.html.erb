@@ -16,12 +16,12 @@
 <div class="span-14"><!--can be thought of as left column-->
 	<div class="span-14 last">
 		<% if flash.empty? %>
-		<div id="flash" class="span-13 last alert" style="display:none"></div>
+		<p id="flash" class="span-13 last alert" style="display:none"></p>
 		<% else %>  
 		<% flash.each do |key,value| -%>
-		<div id="flash" class='span-13 last alert <%= key %>'>
-			<%=h value %>
-		</div>
+		<p id="flash" class='span-13 last alert <%= key %>'>
+			<%= value %>
+		</p>
 		<% end -%>
 		<% end %>
 	</div>
