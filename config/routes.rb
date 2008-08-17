@@ -39,6 +39,7 @@ ActionController::Routing::Routes.draw do |map|
   map.home '', :controller => 'home'
   
   map.about 'about', :controller => 'about', :action => 'index'
+  map.why 'why', :controller => 'about', :action => 'index'
   map.contact 'contact', :controller => 'contact', :action => 'index'
   
   map.logout 'logout', :controller => 'openids', :action => 'logout'
