@@ -16,4 +16,10 @@ class UsersController < ApplicationController
       render :action => 'new'
     end
   end
+  
+  protected
+  def page_title
+    @page_title = "Your Account"
+  end
+  
 end

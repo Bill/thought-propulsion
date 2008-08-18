@@ -22,4 +22,10 @@ class ContactController < ApplicationController
         }]
     }
   end
+  
+  protected
+  def page_title
+    @page_title = "Contact"
+  end
+  
 end

@@ -102,7 +102,8 @@ class OpenidsController < ApplicationController
       end
       @user = User.new(:identity_url => response.endpoint.claimed_id, :email => registration_info['email'], :first_name => first_name, :last_name => last_name, :zip => registration_info['postcode'], :country => registration_info['country'], :nickname =>  registration_info['nickname'])
       associate_authenticated_identity_with_session( @user.identity_url)
-      render :action => 'finish_registration'
+      # render :action => 'finish_registration'
+      render :template => 'users/new'
     end
     
     def after_unsuccessful_authentication( message)
@@ -114,5 +115,8 @@ class OpenidsController < ApplicationController
     def associate_authenticated_identity_with_session(identity_url)
         session[:identity_url] = identity_url
     end
-    
+
+    def page_title
+      @page_title = "Signup"
+    end
 end

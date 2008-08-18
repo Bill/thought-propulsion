@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   
   before_filter :load_user
+  before_filter :page_title
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
@@ -23,6 +24,10 @@ class ApplicationController < ActionController::Base
   def return_to_or_redirect( default_destination)
     redirect_to session[:return_to] || default_destination
     session[:return_to] = nil # I know no other way to "clear" a slot in the session!
+  end
+  
+  def page_title
+    @page_title = "iPhone &amp; Web Apps Built About You"
   end
   
   private

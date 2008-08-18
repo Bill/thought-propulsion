@@ -7,6 +7,9 @@ module ApplicationHelper
     "Thought Propulsion&trade;"
   end
   
+  def page_title
+    "iPhone &amp; Web Apps Built About You"
+  end
   
   # def error_handling_form_for(record_or_name_or_array, *args, &proc)
   def error_handling_form_for(record_or_name_or_array, *args, &proc)
