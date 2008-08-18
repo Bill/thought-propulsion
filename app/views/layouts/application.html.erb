@@ -11,51 +11,47 @@
 </head>
 
 <body>
-<div class="container">
+   <div class="container">
+      <div class="span-14 site"><!--can be thought of as left column-->
+         <div class="span-14">
+            <% if flash.empty? %>
+            <p id="flash" class="span-13 last alert" style="display:none"></p>
+            <% else %>  
+            <% flash.each do |key,value| -%>
+            <p id="flash" class='span-13 last alert <%= key %>'>
+               <%= value %>
+            </p>
+            <% end -%>
+            <% end %>
+         </div>
+         <div class="span-14 head">
+            <div class="span-1 prepend-4 navigation"><%= link_to 'Home', home_url %></div>
+            <div class="span-1 navigation"><%= link_to 'Why', why_url%></div>
+            <div class="span-1 append-6 navigation last"><%= link_to 'Contact', contact_url %></div>
+         </div>
+         <div class="span-14 last"><%= yield %></div>
+      </div>
 
-<div class="span-14"><!--can be thought of as left column-->
-	<div class="span-14 last">
-		<% if flash.empty? %>
-		<p id="flash" class="span-13 last alert" style="display:none"></p>
-		<% else %>  
-		<% flash.each do |key,value| -%>
-		<p id="flash" class='span-13 last alert <%= key %>'>
-			<%= value %>
-		</p>
-		<% end -%>
-		<% end %>
-	</div>
+      <div class="span-7 last"> <!--can be thought of as right column, contains only the logo and whitespace-->
+         <%= link_to '<img alt="Web applications - built about you" src="/images/logo.png"/>', home_url %>
+      </div>
 
-	<div class="span-14 head last">
-		<div class="span-1 prepend-4 navigation"><%= link_to 'Home', home_url %></div>
-		<div class="span-1 navigation"><%= link_to 'Why', why_url%></div>
-		<div class="span-1 append-6 navigation last"><%= link_to 'Contact', contact_url %></div>
-   	</div>
-	
-	<div class="span-14 last"><%= yield %></div>
-</div>
+      <div class="push"></div> <!--used to reserve space at bottom of container so foot can float above it-->
+   </div><!--End container-->
 
-	<div class="span-7 last"> <!--can be thought of as right column, contains only the logo and whitespace-->
-   		<%= link_to '<img alt="Web applications - built about you" src="/images/logo.png"/>', home_url %>
-	</div>
-
-<div class="push"></div> <!--used to reserve space at bottom of container so foot can float above it-->
-</div><!--End container-->
-
-<div class="foot"> <!--IE requires this foot div to exist outside the container, because IE is "special" like that-->
-	<div class="span-13 prepend-1">
-	<% if @user.blank? %>
-	<%= render :partial => 'openids/new'%>
-	<% else %>
-	<%= render :partial => 'openids/welcome'%>
-	<% end %>
-	</div>
-	<div class="span-6">
-		<span class="small">
-			&copy; 2008 <%=company_name%>
-		</span>
-	</div>
-</div><!--End Foot-->
-
+   <div class="foot"> <!--IE requires this foot div to exist outside the container, because IE is "special" like that-->
+      <div class="span-13 prepend-1">
+         <% if @user.blank? %>
+         <%= render :partial => 'openids/new'%>
+         <% else %>
+         <%= render :partial => 'openids/welcome'%>
+         <% end %>
+      </div>
+      <div class="span-6 last">
+         <span class="small">
+            &copy; 2008 <%=company_name%>
+         </span>
+      </div>
+   </div><!--End Foot-->
 </body>
 </html>
