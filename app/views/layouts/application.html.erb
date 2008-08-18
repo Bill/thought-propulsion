@@ -11,35 +11,40 @@
 </head>
 
 <body>
-   <div class="container">
-      <div class="span-14 site"><!--can be thought of as left column-->
-         <div class="span-14">
-            <% if flash.empty? %>
-            <p id="flash" class="span-13 last alert" style="display:none"></p>
-            <% else %>  
-            <% flash.each do |key,value| -%>
-            <p id="flash" class='span-13 last alert <%= key %>'>
+      <% if flash.empty? %>
+      <div class='container alerts' style="display:none">
+         <div class='prepend-1 span-13 last'>
+            <p id="flash" class="alert"></p>
+         </div>
+      </div>
+      <% else %>  
+      <% flash.each do |key,value| -%>
+      <div class='container alerts'>
+         <div class='prepend-1 span-13 last'>
+            <p id="flash" class='<%= key %> alert'>
                <%= value %>
             </p>
-            <% end -%>
-            <% end %>
          </div>
+      </div>
+      <% end -%>
+      <% end %>
+   <div class="container no-alerts">
+      <div class='span-14'>
          <div class="span-14 head">
             <div class="span-1 prepend-4 navigation"><%= link_to 'Home', home_url %></div>
             <div class="span-1 navigation"><%= link_to 'Why', why_url%></div>
-            <div class="span-1 append-6 navigation last"><%= link_to 'Contact', contact_url %></div>
+            <div class="span-1 append-6 navigation"><%= link_to 'Contact', contact_url %></div>
          </div>
-         <div class="span-14 last"><%= yield %></div>
+      	<div class="span-13 prepend-1 content">
+            <%= yield %>
+      	</div>
       </div>
-
-      <div class="span-7 last"> <!--can be thought of as right column, contains only the logo and whitespace-->
-         <%= link_to '<img alt="Web applications - built about you" src="/images/logo.png"/>', home_url %>
+   	<div class="span-7 last"> <!--can be thought of as right column, contains only the logo and whitespace-->
+         <%= link_to '<img alt="Thought Propulsion" src="/images/logo.png"/>', home_url %>
       </div>
-
-      <div class="push"></div> <!--used to reserve space at bottom of container so foot can float above it-->
    </div><!--End container-->
 
-   <div class="foot"> <!--IE requires this foot div to exist outside the container, because IE is "special" like that-->
+   <div class="container foot"> <!--IE requires this foot div to exist outside the container, because IE is "special" like that-->
       <div class="span-13 prepend-1">
          <% if @user.blank? %>
          <%= render :partial => 'openids/new'%>
@@ -47,7 +52,7 @@
          <%= render :partial => 'openids/welcome'%>
          <% end %>
       </div>
-      <div class="span-6 last">
+      <div class="span-7 last">
          <span class="small">
             &copy; 2008 <%=company_name%>
          </span>

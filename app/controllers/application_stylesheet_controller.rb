@@ -42,11 +42,23 @@ class ApplicationStylesheetController < ApplicationController
     @c_a_w2 = UNDEFINED
     @c_a_w3 = UNDEFINED
     @c_a_w4 = UNDEFINED
-    # @c_a_w4 is simply 'white' in CSS so we don't need a variable for it here
+    # @c_a_w5 is simply 'white' in CSS so we don't need a variable for it here
     @c_a_k1 = UNDEFINED
     @c_a_k2 = UNDEFINED
     @c_a_k3 = UNDEFINED
     @c_a_k4 = UNDEFINED
     # @c_a_k5 is simply 'black' in CSS so we don't need a variable for it here
+
+    @c_t = '#14ACE1'
+    @c_t_w1 = '#4FC1E9'
+    @c_t_w2 = '#8AD6F1'
+    @c_t_w3 = '#C4EAF7'
+    @c_t_w4 = '#E8F7FD'
+    # @c_t_w5 is simply 'white' in CSS so we don't need a variable for it here
+    @c_t_k1 = '#1192BF'
+    @c_t_k2 = '#0F81A9'
+    @c_t_k3 = '#0A5671'
+    @c_t_k4 = '#052B38'
+    @c_t_k5 = '#021117'
   end
 end

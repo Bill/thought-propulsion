@@ -38,6 +38,11 @@ ActionController::Routing::Routes.draw do |map|
   # Send the bare URL to the home/index
   map.home '', :controller => 'home'
   
+  # these three actions are solely for testing the HTML/CSS layout of the alert div
+  map.error 'error/:msg', :controller => 'home', :action => 'error'
+  map.error 'warn/:msg', :controller => 'home', :action => 'warn'
+  map.error 'inform/:msg', :controller => 'home', :action => 'inform'
+  
   map.about 'about', :controller => 'about', :action => 'index'
   map.why 'why', :controller => 'about', :action => 'index'
   map.contact 'contact', :controller => 'contact', :action => 'index'

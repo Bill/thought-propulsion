@@ -1,60 +1,49 @@
-/* .fieldWithErrors is applied automatically by the Rails framework when a field has errors.
-	see also: Blueprint CSS screen.css rules for .error and friends (I made this rule match that one)
-*/
-.fieldWithErrors input {border:2px solid #ddd; background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
-/* Rails puts this class on the field--let's style it like blueprint .error*/
-.fieldWithErrors label {background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
-
-.instructions { color:<%=@c_b_w1%>}
-
 /* -------------------------------------------------------------- 
 grid overrides and style */
 
-html, body {height: 100%;}
-* html .site {height: 100%;}
-
 body {
-	background:<%= @c_b %> url(/images/header.png) repeat-x top left;
+	background-color: <%= @c_b %>;
+   margin:0;
+}
+.no-alerts {
+	background: <%= @c_b %> url(/images/header.png) repeat-x top left;
 	color:#999;
+}
+.alerts {
+	background:<%= @c_t_w3 %>;
+	border-bottom: solid <%= @c_t_k2%> 2px;
+}
+.no-alerts, .alerts, .foot {
 	margin:0;
-	}
-	
-.site {
-	background: url(/images/header_icon.png) no-repeat top left;
+	width:100%;
+	min-width:830px;
+}
+
+.content {
 	min-height: 100%;
 	height: auto !important;
 	height: 100%;
-	margin: 0 0 -21px 0;
+   margin: 0 0 20px 0;
 	}
 	
 .head {
+	background: url(/images/header_icon.png) no-repeat top left;
 	color:<%= @c_b %>;
 	height:90px;
 	}
 	
 .foot { 
-	background:#f7550c;
+	background-color:#f7550c;
 	color:<%= @c_b %>;
 	height:20px;
-	width:100%;
 	border-top:1px solid #000000;
 	position:fixed;
 	bottom:0;
 	left:0;
 	}
-	
-.push {
-	height: 20px; /* .push must be the same height as .footer */
-}
 
 /* -------------------------------------------------------------- 
 copy style */
-
-.alert {
-	background:<%= @c_b %>;
-	border:1px solid #000000;
-	color:#999;
-	}
 
 .content {margin-top:2em;}
 .content p {padding:0 0 0 10px;}
@@ -141,3 +130,23 @@ forms */
 .form-table tr.last th, .form-table tr.last td {
    border-bottom: none;
 }
+/* .fieldWithErrors is applied automatically by the Rails framework when a field has errors.
+	see also: Blueprint CSS screen.css rules for .error and friends (I made this rule match that one)
+*/
+.fieldWithErrors input {border:2px solid #ddd; background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
+/* Rails puts this class on the field--let's style it like blueprint .error*/
+.fieldWithErrors label {background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
+
+.instructions { color:<%=@c_b_w1%>}
+
+.alert {
+   border:none;
+   margin:0;
+   color: <%= @c_t_k4%>;
+   font-size: 150%;
+   padding: 0.5em 0.5em 0.5em 25px;
+}
+
+.error {
+   background: url(/images/stop.png) no-repeat 0 center;
+   }
