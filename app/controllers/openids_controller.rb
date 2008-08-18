@@ -93,7 +93,6 @@ class OpenidsController < ApplicationController
     
     # OpenID authentication succeeded but this principal is not yet registered with Lumeno.us... help her sign up
     def after_successful_authentication_of_unregistered_principal( response)
-      flash[:info] = "Your identity has been verified but you're not yet a #{company_name} member&mdash;please register"
       registration_info = response.extension_response('http://openid.net/extensions/sreg/1.1', true)
       first_name = last_name = ''
       if registration_info.has_key?('fullname')
