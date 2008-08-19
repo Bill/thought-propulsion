@@ -13,14 +13,14 @@
 <body>
       <% if flash.empty? %>
       <div class='container alerts' style="display:none">
-         <div class='prepend-1 span-13 last'>
+         <div class='prepend-1 span-20 last'>
             <p id="flash" class="alert"></p>
          </div>
       </div>
       <% else %>  
       <% flash.each do |key,value| -%>
       <div class='container alerts'>
-         <div class='prepend-1 span-13 last'>
+         <div class='prepend-1 span-20 last'>
             <p id="flash" class='<%= key %> alert'>
                <%= value %>
             </p>
@@ -45,14 +45,14 @@
    </div><!--End container-->
 
    <div class="container foot"> <!--IE requires this foot div to exist outside the container, because IE is "special" like that-->
-      <div class="span-13 prepend-1">
+      <div class="span-14 prepend-1">
          <% if @user.blank? %>
          <%= render :partial => 'openids/new'%>
          <% else %>
          <%= render :partial => 'openids/welcome'%>
          <% end %>
       </div>
-      <div class="span-7 last">
+      <div class="span-6 last">
          <span class="small">
             &copy; 2008 <%=company_name%>
          </span>

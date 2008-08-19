@@ -12,6 +12,7 @@ body {
 .alerts {
 	background:<%= @c_t_w3 %>;
 	border-bottom: solid <%= @c_t_k2%> 2px;
+	font-size:75%;
 }
 .no-alerts, .alerts, .foot {
 	margin:0;
@@ -48,9 +49,10 @@ copy style */
 .content {margin-top:2em;}
 .content p {padding:0 0 0 10px;}
 .content h1 {
+	min-height:36px;
 	margin:36px 0 6px 0;
 	padding:0 13px 0 36px;
-	background: url(/images/banner_chevron.png) left no-repeat;
+	background: url(/images/banner_chevron.png) top left;
 	}
 
 .content p {padding:0 0 0 10px;}
@@ -62,9 +64,7 @@ a:hover, a:focus {text-decoration: none; color:#f7550c;}
 .head a:hover, .head a:focus, .foot a:hover. .head a:focus {text-decoration: none; color:#23201F;}
 
 h1, h2, h3, h4, h5, h6 {color:#FFFFFF;}
-h3 a {text-decoration: none; color:#fff;}
-h2 {margin-bottom: -.1em;}
-h3 {margin-bottom: .1em;}
+h1 { font-size: 2em; line-height: 1.4; margin-bottom: -.1em; }
 
 img { float:left; margin:0; }
 
@@ -95,10 +95,13 @@ login style */
 vcard Contact style */
 
 .vcard h1 {
-	height:36px;
+	min-height:36px;
 	margin:36px 0 13px 0;
 	padding:0 13px 0 36px;
-	background: url(/images/banner_email.png) left;
+	background: url(/images/banner_email.png) top left;
+	}
+
+.vcard h1 a {text-decoration: none; color:#fff;}
 	}
 	
 .adr {
