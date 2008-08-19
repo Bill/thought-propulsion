@@ -1,9 +1,10 @@
-<%= render :partial => 'forms/field', :locals => {:label=>label, :element=>element, :instructions=>instructions}%>
 <tr>
-<th>
+<th class="field_label">
+<%= label %>
 </th>
-<td class="error">
-<%= error %>
+<td class="form_field">
+<%= element %>
+<p class='instructions'><%= instructions%></p>
+<p class="error"><%= error %></p>
 </td>
 </tr>
-

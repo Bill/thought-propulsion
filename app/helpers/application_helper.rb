@@ -4,7 +4,7 @@ module ApplicationHelper
   include CorkdFormHelper
   
   def company_name
-    "Thought Propulsion&trade;"
+    "Thought Propulsion<span class='trademark'>&trade;</span>"
   end
   
   def page_title

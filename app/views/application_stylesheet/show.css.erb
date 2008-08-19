@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------- 
-grid overrides and style */
+top-level elements */
 
 body {
 	background-color: <%= @c_b %>;
@@ -12,7 +12,6 @@ body {
 .alerts {
 	background:<%= @c_t_w3 %>;
 	border-bottom: solid <%= @c_t_k2%> 2px;
-	font-size:75%;
 }
 .no-alerts, .alerts, .foot {
 	margin:0;
@@ -44,13 +43,42 @@ body {
 	}
 
 /* -------------------------------------------------------------- 
+trademark */
+.trademark {
+   font-size: 0.6em;
+   vertical-align: text-top;
+}
+
+/* -------------------------------------------------------------- 
+alerts */
+
+/*have to reset some properties set on error in screen.css*/
+.alerts .error, .alerts .warn, .alerts .inform {
+   margin:0;
+   padding:0 0 0 25px; /* make room on left for image */
+   border:none;
+}
+
+.alerts .alert {
+   border:none;
+   color: <%= @c_t_k4%>;
+   font-size:1.2em; /*these three properties are from screen.css large rule*/
+   line-height:2.5em;
+   margin-bottom:1.25em;
+}
+
+.alerts .error {
+   background: url(/images/stop.png) no-repeat 0 center;
+   }
+
+/* -------------------------------------------------------------- 
 copy style */
 
 .content {margin-top:2em;}
 .content p {padding:0 0 0 10px;}
 .content h1 {
 	min-height:36px;
-	margin:36px 0 6px 0;
+	margin:1em 0 0.5em 0;
 	padding:0 13px 0 36px;
 	background: url(/images/banner_chevron.png) top left;
 	}
@@ -136,20 +164,12 @@ forms */
 /* .fieldWithErrors is applied automatically by the Rails framework when a field has errors.
 	see also: Blueprint CSS screen.css rules for .error and friends (I made this rule match that one)
 */
-.fieldWithErrors input {border:2px solid #ddd; background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
-/* Rails puts this class on the field--let's style it like blueprint .error*/
-.fieldWithErrors label {background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
+.fieldWithErrors input {border:2px solid <%=@c_t_w2%>; background:<%=@c_t_w3%>;}
+
+.content .error { 
+   color: <%=@c_t%>;
+   background:none; /* these two properties undo blueprint style*/
+   border:none;
+   }
 
 .instructions { color:<%=@c_b_w1%>}
-
-.alert {
-   border:none;
-   margin:0;
-   color: <%= @c_t_k4%>;
-   font-size: 150%;
-   padding: 0.5em 0.5em 0.5em 25px;
-}
-
-.error {
-   background: url(/images/stop.png) no-repeat 0 center;
-   }
