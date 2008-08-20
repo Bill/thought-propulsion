@@ -10,8 +10,8 @@ body {
 	color:#999;
 }
 .alerts {
-	background:<%= @c_t_w3 %>;
-	border-bottom: solid <%= @c_t_k2%> 2px;
+	background:<%= @c_t_k1%>;
+	border-bottom: solid <%= @c_t_k5%> 2px;
 }
 .no-alerts, .alerts, .foot {
 	margin:0;
@@ -55,13 +55,13 @@ alerts */
 /*have to reset some properties set on error in screen.css*/
 .alerts .error, .alerts .warn, .alerts .inform {
    margin:0;
-   padding:0 0 0 25px; /* make room on left for image */
+   padding:0 0 0 40px; /* make room on left for image */
    border:none;
 }
 
 .alerts .alert {
    border:none;
-   color: <%= @c_t_k4%>;
+   color: <%= @c_t_w4%>;
    font-size:1.2em; /*these three properties are from screen.css large rule*/
    line-height:2.5em;
    margin-bottom:1.25em;

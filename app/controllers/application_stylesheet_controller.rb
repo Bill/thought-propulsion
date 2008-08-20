@@ -26,39 +26,39 @@ class ApplicationStylesheetController < ApplicationController
     # The purpose of these variables, however is to allow you to change the palette
     # without having to search and replace everything in the CSS.
     @c_b = '#1F2323'
-    @c_b_w1 = '#575A5A'
-    @c_b_w2 = '#909292'
-    @c_b_w3 = '#C7C8C8'
-    @c_b_w4 = '#E9EAEA'
+    @c_b_w1 = '#4c4f4f'
+    @c_b_w2 = '#797b7b'
+    @c_b_w3 = '#a5a7a7'
+    @c_b_w4 = '#d2d3d3'
     # @c_b_w5 is simply 'white' in CSS so we don't need a variable for it here
-    @c_b_k1 = '#1A1E1E'
-    @c_b_k2 = '#171A1A'
-    @c_b_k3 = '#101212'
-    @c_b_k4 = '#080909'
+    @c_b_k1 = '#191c1c'
+    @c_b_k2 = '#131515'
+    @c_b_k3 = '#0c0e0e'
+    @c_b_k4 = '#060707'
     @c_b_k5 = '#030404'
     
-    @c_a = UNDEFINED
-    @c_a_w1 = UNDEFINED
-    @c_a_w2 = UNDEFINED
-    @c_a_w3 = UNDEFINED
-    @c_a_w4 = UNDEFINED
+    @c_a = '#f8510b'
+    @c_a_w1 = '#f9943c'
+    @c_a_w2 = '#fbc66d'
+    @c_a_w3 = '#fce89d'
+    @c_a_w4 = '#fefcce'
     # @c_a_w5 is simply 'white' in CSS so we don't need a variable for it here
-    @c_a_k1 = UNDEFINED
-    @c_a_k2 = UNDEFINED
-    @c_a_k3 = UNDEFINED
-    @c_a_k4 = UNDEFINED
+    @c_a_k1 = '#c63509'
+    @c_a_k2 = '#951e07'
+    @c_a_k3 = '#630d04'
+    @c_a_k4 = '#320302'
     # @c_a_k5 is simply 'black' in CSS so we don't need a variable for it here
 
-    @c_t = '#14ACE1'
-    @c_t_w1 = '#4FC1E9'
-    @c_t_w2 = '#8AD6F1'
-    @c_t_w3 = '#C4EAF7'
-    @c_t_w4 = '#E8F7FD'
+    @c_t = '#0fa5dd'
+    @c_t_w1 = '#3fb6e4'
+    @c_t_w2 = '#6fc9eb'
+    @c_t_w3 = '#9fdbf1'
+    @c_t_w4 = '#cfedf8'
     # @c_t_w5 is simply 'white' in CSS so we don't need a variable for it here
-    @c_t_k1 = '#1192BF'
-    @c_t_k2 = '#0F81A9'
-    @c_t_k3 = '#0A5671'
-    @c_t_k4 = '#052B38'
+    @c_t_k1 = '#0c83b1'
+    @c_t_k2 = '#096385'
+    @c_t_k3 = '#064258'
+    @c_t_k4 = '#03212c'
     @c_t_k5 = '#021117'
   end
 end
