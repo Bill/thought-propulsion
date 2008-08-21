@@ -43,7 +43,6 @@ ActionController::Routing::Routes.draw do |map|
   map.error 'warn/:msg', :controller => 'home', :action => 'warn'
   map.error 'inform/:msg', :controller => 'home', :action => 'inform'
   
-  map.about 'about', :controller => 'about', :action => 'index'
   map.why 'why', :controller => 'about', :action => 'index'
   map.contact 'contact', :controller => 'contact', :action => 'index'
   
