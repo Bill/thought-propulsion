@@ -14,7 +14,7 @@ module ApplicationHelper
     found = routes.find do |route_name, route|
       route.generate( options, options) # ignore "recall" issues (see Rails route_set.rb)
     end
-    found[0] || ''
+    (found && found[0]) || ''
   end
   
   def company_name
