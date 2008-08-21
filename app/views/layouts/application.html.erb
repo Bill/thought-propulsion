@@ -10,7 +10,7 @@
 	<%= stylesheet_link_tag 'application' %>
 </head>
 
-<body>
+<body class='<%=body_class%>'>
       <% if flash.empty? %>
       <div class='container alerts' style="display:none">
          <div class='prepend-1 span-20 last'>

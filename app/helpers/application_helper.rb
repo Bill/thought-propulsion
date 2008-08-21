@@ -3,6 +3,10 @@ module ApplicationHelper
   
   include CorkdFormHelper
   
+  def body_class
+    controller.class.name.tableize.singularize.dasherize.split('-')[0..-2].join('-')
+  end
+  
   def company_name
     "Thought Propulsion<span class='trademark'>&trade;</span>"
   end
