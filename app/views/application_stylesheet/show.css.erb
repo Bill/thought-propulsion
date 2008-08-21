@@ -3,35 +3,47 @@ top-level elements */
 
 body {
 	background-color: <%= @c_b %>;
-   margin:0;
-}
+	margin:0;
+	}
+	
 .no-alerts {
 	background: <%= @c_b %> url(/images/header.png) repeat-x top left;
-	color:#999;
-}
+	color:<%= @c_b_w4%>
+	}
+	
 .alerts {
 	background:<%= @c_t_k1%>;
 	border-bottom: solid <%= @c_t_k5%> 2px;
-}
+	}
+	
 .no-alerts, .alerts, .foot {
 	margin:0;
 	width:100%;
 	min-width:830px;
-}
+	}
 
 .content {
 	min-height: 100%;
 	height: auto !important;
 	height: 100%;
-   margin: 0 0 20px 0;
+	margin: 0 0 20px 0;
 	}
 	
 .head {
 	background: url(/images/header_icon.png) no-repeat top left;
 	color:<%= @c_b %>;
 	height:90px;
+	position:relative;
 	}
 	
+.navigation {
+	font-weight:bold;
+	word-spacing:15px;
+	margin-left:25px;
+	bottom:4px;
+	position:absolute;
+	}
+
 .foot { 
 	background-color:<%= @c_a %>;
 	color:<%= @c_b %>;
@@ -49,30 +61,30 @@ alerts */
 
 /*have to reset some properties set on error in screen.css*/
 .alerts .error, .alerts .warn, .alerts .inform {
-   margin:0;
-   padding:0 0 0 40px; /* make room on left for image */
-   border:none;
-}
+	margin:0;
+	padding:0 0 0 40px; /* make room on left for image */
+	border:none;
+	}
 
 .alerts .alert {
-   border:none;
-   color: <%= @c_t_w4%>;
-   font-size:1.2em; /*these three properties are from screen.css large rule*/
-   line-height:2.5em;
-   margin-bottom:1.25em;
-}
+	border:none;
+	color: <%= @c_t_w4%>;
+	font-size:1.2em; /*these three properties are from screen.css large rule*/
+	line-height:2.5em;
+	margin-bottom:1.25em;
+	}
 
 .alerts .error {
-   background: url(/images/stop.png) no-repeat 0 center;
-   }
+	background: url(/images/error.png) no-repeat 0 center;
+	}
 
 .alerts .warn {
-   background: url(/images/warn.png) no-repeat 0 center;
-   }
+	background: url(/images/warn.png) no-repeat 0 center;
+	}
 
 .alerts .inform {
-   background: url(/images/inform.png) no-repeat 0 center;
-   }
+	background: url(/images/inform.png) no-repeat 0 center;
+	}
 
 
 
@@ -95,13 +107,11 @@ copy style */
 	font-size: 0.8em;
 	position: relative;
 	top: -0.4em;
-}
+	}
 
 a {text-decoration: none; color:<%= @c_a_w2%>;}
-a:hover, a:focus {text-decoration: none; color:<%= @c_a_w1%>;}
-
-.head a:link, .foot a:link, .head a:visited, .foot a:visited, .head a:active, .foot a:active {text-decoration: underline; color:<%= @c_b %>;}
-.head a:hover, .head a:focus, .foot a:hover. .head a:focus {text-decoration: none; color:#23201F;}
+a:hover, a:focus {text-decoration: none; color:<%= @c_a %>;}
+.head a, .foot a {text-decoration: none; color:<%= @c_a_w5%>;}
 
 h1, h2, h3, h4, h5, h6 {color:<%= @c_a_w5%>;}
 h1 { font-size: 2em; line-height: 1.4; margin-bottom: -.1em; }
@@ -157,7 +167,7 @@ hcard structure, so we'll stick it into the presentation.
 */
 .tel .type:after {
 	content: ' phone: ';
-}
+	}
 
 
 
@@ -166,15 +176,15 @@ forms */
 .form-table p {
    padding: 0;
    margin: 0;
-}
+	}
 .form-table th {
    background:none;
    text-align:right;
    vertical-align:top;
-}
+	}
 .form-table th, .form-table td {
    border-bottom: 1px dotted <%=@c_b_w1%>;
-}
+	}
 .form-table tr.last th, .form-table tr.last td {
    border-bottom: none;
 }
