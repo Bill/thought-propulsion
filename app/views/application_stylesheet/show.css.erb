@@ -33,23 +33,16 @@ body {
 	}
 	
 .foot { 
-	background-color:#f7550c;
+	background-color:<%= @c_a %>;
 	color:<%= @c_b %>;
 	height:20px;
-	border-top:1px solid #000000;
+	border-top:1px solid <%= @c_a_k5%>;
 	position:fixed;
 	bottom:0;
 	left:0;
 	}
 
-/* -------------------------------------------------------------- 
-trademark */
-.trademark {
-	vertical-align: baseline;
-	font-size: 0.8em;
-	position: relative;
-	top: -0.4em;
-}
+
 
 /* -------------------------------------------------------------- 
 alerts */
@@ -97,26 +90,34 @@ copy style */
 
 .content p {padding:0 0 0 10px;}
 
-a {text-decoration: none; color:#FFB500;}
-a:hover, a:focus {text-decoration: none; color:#f7550c;}
+.trademark {
+	vertical-align: baseline;
+	font-size: 0.8em;
+	position: relative;
+	top: -0.4em;
+}
+
+a {text-decoration: none; color:<%= @c_a_w2%>;}
+a:hover, a:focus {text-decoration: none; color:<%= @c_a_w1%>;}
 
 .head a:link, .foot a:link, .head a:visited, .foot a:visited, .head a:active, .foot a:active {text-decoration: underline; color:<%= @c_b %>;}
 .head a:hover, .head a:focus, .foot a:hover. .head a:focus {text-decoration: none; color:#23201F;}
 
-h1, h2, h3, h4, h5, h6 {color:#FFFFFF;}
+h1, h2, h3, h4, h5, h6 {color:<%= @c_a_w5%>;}
 h1 { font-size: 2em; line-height: 1.4; margin-bottom: -.1em; }
 
 img { float:left; margin:0; }
+
 
 
 /* -------------------------------------------------------------- 
 login style */
 
 #openid_url {
-	background: url(/images/login-bg.gif) no-repeat #FFF 5px;
+	background: url(/images/login-bg.gif) no-repeat <%= @c_a_w5%> 5px;
 	padding-left: 25px;
-	color:#000000;
-	border: 1px solid#777777;
+	color:<%= @c_a_k5%>;
+	border: 1px solid <%= @c_b_w2%>;
 	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size:10px;
 	width:100px;
@@ -126,10 +127,12 @@ login style */
 .button {
 	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size:10px;
-	background-color:#FFFFFF;
+	background-color:<%= @c_a_w5%>;
 	color:#23201F;
-	border:1px solid #777777;
+	border:1px solid <%= @c_b_w2%>;
 	}
+	
+	
 	
 /* -------------------------------------------------------------- 
 vcard Contact style */
@@ -141,7 +144,7 @@ vcard Contact style */
 	background: url(/images/banner_email.png) top left;
 	}
 
-.vcard h1 a {text-decoration: none; color:#fff;}
+.vcard h1 a {text-decoration: none; color:<%= @c_a_w5%>;}
 	}
 	
 .adr {
@@ -155,6 +158,8 @@ hcard structure, so we'll stick it into the presentation.
 .tel .type:after {
 	content: ' phone: ';
 }
+
+
 
 /* -------------------------------------------------------------- 
 forms */
