@@ -42,7 +42,7 @@ class ApplicationStylesheetController < ApplicationController
     @c_a_w3 = '#fce89d'
     @c_a_w4 = '#fefcce'
     @c_a_w5 = '#ffffff'
-    # @c_a_w5 is simply 'white' in CSS so we don't need a variable for it here (lies!)
+    # @c_a_w5 is simply 'white' in CSS
     @c_a_k1 = '#c63509'
     @c_a_k2 = '#951e07'
     @c_a_k3 = '#630d04'
