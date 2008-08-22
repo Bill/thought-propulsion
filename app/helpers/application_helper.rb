@@ -4,17 +4,7 @@ module ApplicationHelper
   include CorkdFormHelper
   
   def body_class
-    # This abomination does a reverse-lookup to find the named route (name) from the current
-    # controller and action. The is preferrable to just munging the controller name since often
-    # your named routes (names) evolve somewhat independently of your controller names over time.
-    controller_name = params[:controller]
-    action_name = params[:action]
-    routes = ActionController::Routing::Routes.named_routes.routes
-    options = {:controller => controller_name, :action => action_name}
-    found = routes.find do |route_name, route|
-      route.generate( options, options) # ignore "recall" issues (see Rails route_set.rb)
-    end
-    (found && found[0]) || ''
+    route_name_for :controller => params[:controller], :action => params[:action]
   end
   
   def company_name

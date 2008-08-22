@@ -2,8 +2,6 @@ class ContactController < ApplicationController
   
   layout 'home'
   
-  helper :microformat
-  
   def index
     @vcard = {
       :fn => 'Thought Propulsion',
