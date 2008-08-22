@@ -1,3 +1,6 @@
+
+
+
 /* -------------------------------------------------------------- 
 top-level elements */
 
@@ -35,7 +38,22 @@ body {
 	height:90px;
 	position:relative;
 	}
-	
+
+.foot { 
+	background-color:<%= @c_a %>;
+	color:<%= @c_b %>;
+	height:20px;
+	border-top:1px solid <%= @c_a_k5%>;
+	position:fixed;
+	bottom:0;
+	left:0;
+	}
+
+
+
+/* -------------------------------------------------------------- 
+navigation elements */
+
 .navigation {
 	font-weight:bold;
 	word-spacing:15px;
@@ -46,19 +64,76 @@ body {
 
 .login {
 	color:<%= @c_a_w4%>;
-	left:230px;
+	left:220px;
 	bottom:4px;
 	position:absolute;
 	}
 
-.foot { 
-	background-color:<%= @c_a %>;
-	color:<%= @c_b %>;
-	height:20px;
-	border-top:1px solid <%= @c_a_k5%>;
-	position:fixed;
-	bottom:0;
+ul#nav {
+	position:absolute;
+	margin:0;
 	left:0;
+	bottom:0;
+	width:411px;
+	height:27px;
+	/*overflow: hidden;*/
+	background:transparent url(/images/navigation.gif) no-repeat 0 0;
+	}
+ul#nav li {
+	padding:0;
+	margin:0;
+	display:block;
+	float:left;
+	text-indent:-9999px;	
+	}
+ul#nav li a {
+	border:0;
+	display:block;
+	text-decoration:none;
+	overflow:hidden;
+	background:transparent url(/images/navigation.gif) no-repeat;
+	}
+li#home a {
+	margin-left:31px;
+	width:57px;
+	height:27px;
+	 }
+li#about a {
+	width:49px;
+	height:27px;
+	 }
+li#archive a {
+	width:69px;
+	height:27px;
+	 }
+
+li#home a:link, li#home a:visited {
+	background-position:-31px 0px;
+	 }	 	 	 
+li#home a:hover, li#home a:focus {
+	background-position:-31px -27px;
+	 }
+li#about a:link, li#about a:visited {	
+	background-position:-88px 0px;
+	}
+li#about a:hover, li#about a:focus {	
+	background-position:-88px -27px;
+	}
+li#archive a:link, li#archive a:visited {	
+	background-position: -137px 0px;
+	}
+li#archive a:hover, li#archive a:focus {	
+	background-position: -137px -27px;
+	}
+
+body#home-page ul#nav li#home a {
+	background-position:-31px -54px;
+	}
+body#about-page ul#nav li#about a {
+	background-position:-88px -54px;
+	}
+body#archive-page ul#nav li#archive a {
+	background-position:-137px -54px;
 	}
 
 
