@@ -39,7 +39,14 @@ body {
 .navigation {
 	font-weight:bold;
 	word-spacing:15px;
-	margin-left:25px;
+	left:10px;
+	bottom:4px;
+	position:absolute;
+	}
+
+.login {
+	color:<%= @c_a_w4%>;
+	left:230px;
 	bottom:4px;
 	position:absolute;
 	}
@@ -102,6 +109,13 @@ copy style */
 
 .content p {padding:0 0 0 10px;}
 
+.new_user h1 {
+	min-height:36px;
+	margin:1em 0 0.5em 0;
+	padding:0 13px 0 36px;
+	background: url(/images/banner.png) top left;
+	}
+
 .trademark {
 	vertical-align: baseline;
 	font-size: 0.6em;
@@ -114,19 +128,22 @@ copy style */
    color: <%=  @c_b_w3%>
 }
 
-a {text-decoration: none; border-bottom: 1px dotted <%= @c_a_w1%>; color:<%= @c_a_w1%>;}
-a:hover, a:focus {text-decoration: none; border-bottom: 1px solid <%= @c_a%>; color:<%= @c_a%>; background-color: <%= @c_b_k1%>;}
+a {text-decoration: none; border-bottom: 1px dotted <%= @c_a_k1%>; color:<%= @c_a_w1%>;}
+a:hover, a:focus {text-decoration: none; border-bottom: 1px solid <%= @c_a_w1%>; color:<%= @c_a_w1%>; background-color: <%= @c_b_k1%>;}
 .navigation a {text-decoration: none; border-bottom: none; color:<%= @c_a_w5%>;}
 
 h1, h2, h3, h4, h5, h6 {color:<%= @c_a_w5%>;}
 h1 { font-size: 2em; line-height: 1.4; margin-bottom: -.1em; }
-
 img { float:left; margin:0; }
 
 
 
 /* -------------------------------------------------------------- 
 login style */
+
+div, form {
+	display:inline;
+	}
 
 #openid_url {
 	background: url(/images/login-bg.gif) no-repeat <%= @c_a_w5%> 5px;
@@ -159,7 +176,7 @@ vcard Contact style */
 	background: url(/images/banner_email.png) top left;
 	}
 
-.vcard h1 a {text-decoration: none; color:<%= @c_a_w5%>;}
+.vcard h1 a {text-decoration: none; color:<%= @c_a_w5%>; border-bottom: none; background-color: transparent;
 	}
 	
 .adr {
