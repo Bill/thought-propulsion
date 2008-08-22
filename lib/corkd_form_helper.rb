@@ -1,7 +1,17 @@
 module CorkdFormHelper
 
-  # Guts copied from Rails 2.1.0 form_for. The purpose of this is to let us put a table inside the form
   def corkd_form_for(record_or_name_or_array, *args, &proc)
+    options = args.detect { |argument| argument.is_a?(Hash) }
+    if options.nil?
+      options = {:builder => CorkdFormBuilder}
+      args << options
+    end
+    options[:builder] = CorkdFormBuilder unless options.nil?
+    table_form_for( record_or_name_or_array, *args, &proc)
+  end
+
+  # Guts copied from Rails 2.1.0 form_for. The purpose of this is to let us put a table inside the form
+  def table_form_for(record_or_name_or_array, *args, &proc)
     raise ArgumentError, "Missing block" unless block_given?
 
     options = args.extract_options!

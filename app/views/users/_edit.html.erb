@@ -1,7 +1,7 @@
 <dl><dt>OpenID</dt><dd><%=h @user.identity_url%></dd></dl>
 <p>Your identity has been verified but you're not yet a <%= company_name%> member&mdash;please register:</p>
 
-<% error_handling_form_for( @user) do |f| %>
+<% corkd_form_for( @user) do |f| %>
    <%= f.text_field :nickname, :instructions => 'this&apos;ll be how folks identify you on this site' %>
    <%= f.text_field :email, :instructions => 'you do have one of these, don&apos;t you?' %>
    <%= f.text_field :first_name,  :instructions => ''%>

@@ -15,15 +15,4 @@ module ApplicationHelper
     "iPhone &amp; Web Apps Built About You"
   end
   
-  # def error_handling_form_for(record_or_name_or_array, *args, &proc)
-  def error_handling_form_for(record_or_name_or_array, *args, &proc)
-    options = args.detect { |argument| argument.is_a?(Hash) }
-    if options.nil?
-      options = {:builder => CorkdFormBuilder}
-      args << options
-    end
-    options[:builder] = CorkdFormBuilder unless options.nil?
-    corkd_form_for( record_or_name_or_array, *args, &proc)
-  end
-  
 end
