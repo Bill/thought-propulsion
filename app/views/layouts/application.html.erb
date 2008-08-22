@@ -10,18 +10,18 @@
 	<%= stylesheet_link_tag 'application' %>
 </head>
 
-<body class='<%=body_class%>'>
+<body id="<%=body_class%>">
       <% if flash.empty? %>
-      <div class='container alerts' style="display:none">
-         <div class='prepend-1 span-20 last'>
+      <div class="container alerts" style="display:none">
+         <div class="prepend-1 span-20 last">
             <p id="flash" class="alert"></p>
          </div>
       </div>
       <% else %>  
       <% flash.each do |key,value| -%>
-      <div class='container alerts'>
-         <div class='prepend-1 span-20 last'>
-            <p id="flash" class='<%= key %> alert'>
+      <div class="container alerts">
+         <div class="prepend-1 span-20 last">
+            <p id="flash" class="<%= key %> alert">
                <%= value %>
             </p>
          </div>
@@ -52,7 +52,6 @@
          <%= link_to '<img alt="Thought Propulsion" src="/images/logo.png"/>', home_url %>
       </div>
    </div><!--End container-->
-
    
 </body>
 </html>
