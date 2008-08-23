@@ -11,23 +11,7 @@
 </head>
 
 <body class="<%=body_class%>">
-   <% if flash.empty? %>
-   <div class="container alerts" style="display:none">
-      <div class="prepend-1 span-20 last">
-         <p id="flash" class="alert"></p>
-      </div>
-   </div>
-   <% else %>  
-   <% flash.each do |key,value| -%>
-   <div class="container alerts">
-      <div class="prepend-1 span-20 last">
-         <p id="flash" class="<%= key %> alert">
-            <%= value %>
-         </p>
-      </div>
-   </div>
-   <% end -%>
-   <% end %>
+   <%= render :partial => 'alerts/show'%>
    <div class="container no-alerts">
       <div class="span-14">
          <div class="span-14 head last">

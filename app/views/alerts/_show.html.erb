@@ -1,0 +1,23 @@
+<%
+alert_kinds = %w(error warn inform).collect{|s| s.to_sym}
+alerts_groups = flash.select{|k,v| alert_kinds.include?(k)}
+if alerts_groups.length
+   alerts_groups.each do |alert_kind, alert_group|
+%>
+      <div class="container alerts">
+         <div class="prepend-1 span-20 last">
+            <%= render :partial => 'alerts/alert', :collection => alert_group, :locals => {:alert_kind => alert_kind} %>
+         </div>
+      </div>
+<%
+   end
+else
+%>
+   <div class="container alerts" style="display:none">
+      <div class="prepend-1 span-20 last">
+         <p id="flash" class="alert"></p>
+      </div>
+   </div>
+<% 
+end
+%>

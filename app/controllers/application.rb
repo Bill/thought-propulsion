@@ -2,6 +2,9 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+  
+  ALERT_CATEGORIES = %w(error warn inform).collect{|c| c.to_sym}
+  
   helper :all # include all helpers, all the time
   
   before_filter :load_user
@@ -30,7 +33,31 @@ class ApplicationController < ActionController::Base
     @page_title = "iPhone &amp; Web Apps Built About You"
   end
   
+  def error( msg, now_later = :later)
+    alert( :error, msg, now_later)
+  end
+  def warn( msg, now_later = :later)
+    alert( :warn, msg, now_later)
+  end
+  def inform( msg, now_later = :later)
+    alert( :inform, msg, now_later)
+  end
+
+  def alert( category, msg, now_later = :later)
+    raise ArgumentError("#{category.to_s} is not a valid alert category") unless ALERT_CATEGORIES.include?(category)
+    (now_later == :later ? flash : flash.now)[category] = to_array( flash[category]).concat( to_array( msg))
+  end
+  
+  
   private
+  
+  def to_array(obj)
+    case obj
+      when nil then []
+      when Array then obj
+      else [obj]
+    end
+  end
 
   def load_user
     @user = User.find_by_identity_url( session[:identity_url]) if session[:identity_url]
@@ -39,7 +66,7 @@ class ApplicationController < ActionController::Base
   def authenticated
     if session[:identity_url].nil?
       session[:return_to] = (request.ssl? ? 'https' : 'http') + "://#{request.host}#{request.port.blank? ? '' : ':' + request.port.to_s}" + request.request_uri
-      flash[:error] = "Please log in"
+      error "Please log in", :after_redirect
       redirect_to home_url
       false
     else

@@ -9,18 +9,15 @@ class HomeController < ApplicationController
   
   # these three actions are solely for testing the HTML/CSS layout of the alert div
   def error
-    alert :error
+    alert :error, sanitize( params[:msg])
+    render :action => 'index'
   end
   def warn
-    alert :warn
+    alert :warn, sanitize( params[:msg])
+    render :action => 'index'
   end
   def inform
-    alert :inform
-  end
-  
-  protected
-  def alert( category)
-    flash[category] = sanitize( params[:msg])
-    redirect_to request.referer || home_url
+    alert :inform, sanitize( params[:msg])
+    render :action => 'index'
   end
 end

@@ -14,6 +14,7 @@ class OpenidsController < ApplicationController
   
   def finish_registration
     @user = User.find_by_identity_url( session[:identity_url])
+    redirect_to @user
   end
 
   #log a user out of the system
@@ -74,12 +75,12 @@ class OpenidsController < ApplicationController
           
         rescue OpenID::OpenIDError
           # our flash rendering (application.rhtml) escapes values so we don't have to worry about escaping this URL
-          flash[:error] = "Could not find OpenID server for #{open_id_url}: #{$!}"
+          error "Could not find OpenID server for #{open_id_url}: #{$!}"
         end
 
       rescue Timeout::Error
         # this happens when the user enters an OpenID (URL) that is has no OpenID metadata, or the server spec'd in meta-data is down
-        flash[:error] = "Could not find OpenID server for #{open_id_url} - did you type that correctly?"
+        error "Could not find OpenID server for #{open_id_url} - did you type that correctly?"
       end
 
       # we reach this line only if OpenID::DiscoveryFailure was thrown (or if HTTP method was not POST)
@@ -102,13 +103,13 @@ class OpenidsController < ApplicationController
       end
       @user = User.new(:identity_url => response.endpoint.claimed_id, :email => registration_info['email'], :first_name => first_name, :last_name => last_name, :zip => registration_info['postcode'], :country => registration_info['country'], :nickname =>  registration_info['nickname'])
       associate_authenticated_identity_with_session( @user.identity_url)
-      # render :action => 'finish_registration'
-      render :template => 'users/new'
+      flash[:new_user] = @user
+      redirect_to new_user_path
     end
     
     def after_unsuccessful_authentication( message)
       reset_session
-      flash.now[:error] = message
+      error message, :now
       render(:action => 'new')
     end
     
