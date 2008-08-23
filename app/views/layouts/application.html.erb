@@ -10,45 +10,45 @@
 	<%= stylesheet_link_tag 'application' %>
 </head>
 
-<body id="<%=body_class%>">
-      <% if flash.empty? %>
-      <div class="container alerts" style="display:none">
-         <div class="prepend-1 span-20 last">
-            <p id="flash" class="alert"></p>
-         </div>
+<body class="<%=body_class%>">
+   <% if flash.empty? %>
+   <div class="container alerts" style="display:none">
+      <div class="prepend-1 span-20 last">
+         <p id="flash" class="alert"></p>
       </div>
-      <% else %>  
-      <% flash.each do |key,value| -%>
-      <div class="container alerts">
-         <div class="prepend-1 span-20 last">
-            <p id="flash" class="<%= key %> alert">
-               <%= value %>
-            </p>
-         </div>
+   </div>
+   <% else %>  
+   <% flash.each do |key,value| -%>
+   <div class="container alerts">
+      <div class="prepend-1 span-20 last">
+         <p id="flash" class="<%= key %> alert">
+            <%= value %>
+         </p>
       </div>
-      <% end -%>
-      <% end %>
+   </div>
+   <% end -%>
+   <% end %>
    <div class="container no-alerts">
       <div class="span-14">
          <div class="span-14 head last">
-         <ul id="nav">
-			<li id="home"><%= link_to 'Home', home_url %></li>
-			<li id="why"><%= link_to 'Why', why_url%></li>
-			<li id="contact"><%= link_to 'Contact', contact_url %></li>
-		 </ul>
-		 <div class="span-9 last login">
-			<% if @user.blank? %>
-			<%= render :partial => 'openids/new'%>
-			<% else %>
-			<%= render :partial => 'openids/welcome'%>
-			<% end %>
-		 </div>
+            <ul class="nav">
+               <li class="home"><%= link_to 'Home', home_url %></li>
+               <li class="why"><%= link_to 'Why', why_url%></li>
+               <li class="contact"><%= link_to 'Contact', contact_url %></li>
+            </ul>
+            <div class="span-9 last login">
+               <% if @user.blank? %>
+               <%= render :partial => 'openids/new'%>
+               <% else %>
+               <%= render :partial => 'openids/welcome'%>
+               <% end %>
+            </div>
          </div>
-		<div class="span-13 prepend-1 content last">
+         <div class="span-13 prepend-1 content last">
             <%= yield %>
-      	</div>
+         </div>
       </div>
-   	<div class="span-7 last"> <!--can be thought of as right column, contains only the logo and whitespace-->
+      <div class="span-7 last"> <!--can be thought of as right column, contains only the logo and whitespace-->
          <%= link_to '<img alt="Thought Propulsion" src="/images/logo.png"/>', home_url %>
       </div>
    </div><!--End container-->
