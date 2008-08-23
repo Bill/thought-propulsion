@@ -2,12 +2,14 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Thought Propulsion | <%= @page_title %></title>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+   <title>Thought Propulsion | <%= @page_title %></title>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+   <meta name = "viewport" content = "width = device-width, initial-scale = 0.7">
    <link rel="stylesheet" href="/stylesheets/blueprint/screen.css" type="text/css" media="screen, projection">
-   <link rel="stylesheet" href="/stylesheets/blueprint/print.css" type="text/css" media="print"> 
+   <link rel="stylesheet" href="/stylesheets/blueprint/print.css" type="text/css" media="print">
    <!--[if IE]><link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->	
-	<%= stylesheet_link_tag 'application' %>
+   <%= stylesheet_link_tag 'application' %>
+   <link media="screen" href="/stylesheets/iphone.css" type= "text/css" rel="stylesheet">
 </head>
 
 <body class="<%=body_class%>">
@@ -20,7 +22,7 @@
                <li class="why"><%= link_to 'Why', why_url%></li>
                <li class="contact"><%= link_to 'Contact', contact_url %></li>
             </ul>
-            <div class="last login">
+            <div class="login last">
                <% if @user.blank? %>
                <%= render :partial => 'openids/new'%>
                <% else %>
@@ -32,7 +34,7 @@
             <%= yield %>
          </div>
       </div>
-      <div class="span-7 last"> <!--can be thought of as right column, contains only the logo and whitespace-->
+      <div class="span-7 last ihide"> <!--can be thought of as right column, contains only the logo and whitespace-->
          <%= link_to '<img alt="Thought Propulsion" src="/images/logo.png"/>', home_url %>
       </div>
    </div><!--End container-->

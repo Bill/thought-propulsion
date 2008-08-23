@@ -4,7 +4,7 @@ top-level elements */
 html, body {
    height: 100%;
 }
-
+      
 body {
    background-color: <%= @c_b %>;
    margin:0;
@@ -210,19 +210,16 @@ img { float:left; margin:0; }
 /* -------------------------------------------------------------- 
 login style */
 
-div, form {
-   display:inline;
-}
 
 #openid_url {
    background: url(/images/login-bg.gif) no-repeat <%= @c_a_w5%> 5px;
    padding-left: 25px;
    color:<%= @c_a_k5%>;
-   border: 1px solid <%= @c_b_w2%>;
+   border: 1px solid <%= @c_b_k2%>;
    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
    font-size:10px;
    width:100px;
-   margin:0px;
+
 }
 
 .button {
@@ -230,7 +227,8 @@ div, form {
    font-size:10px;
    background-color:<%= @c_a_w5%>;
    color:#23201F;
-   border:1px solid <%= @c_b_w2%>;
+   border:1px solid <%= @c_b_k2%>;
+
 }
 
 
