@@ -15,12 +15,12 @@
    <div class="container no-alerts">
       <div class="span-14">
          <div class="span-14 head last">
-            <ul class="nav">
+            <ul class="nav prepend-2">
                <li class="home"><%= link_to 'Home', home_url %></li>
                <li class="why"><%= link_to 'Why', why_url%></li>
                <li class="contact"><%= link_to 'Contact', contact_url %></li>
             </ul>
-            <div class="span-9 last login">
+            <div class="last login">
                <% if @user.blank? %>
                <%= render :partial => 'openids/new'%>
                <% else %>

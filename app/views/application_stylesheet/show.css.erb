@@ -64,8 +64,8 @@ navigation elements */
 }
 
 .login {
+   margin-left:260px;
    color:<%= @c_a_w4%>;
-   left:220px;
    bottom:4px;
    position:absolute;
 }
@@ -76,9 +76,9 @@ ul.nav {
    left:0;
    bottom:0;
    width:411px;
-   height:27px;
+   height:26px;
    /*overflow: hidden;*/
-   background:transparent url(/images/navigation.gif) no-repeat 0 0;
+   background:transparent url(/images/navigation_bg.png) no-repeat -70px 0;
 }
 ul.nav li {
    padding:0;
@@ -92,49 +92,48 @@ ul.nav li a {
    display:block;
    text-decoration:none;
    overflow:hidden;
-   background:transparent url(/images/navigation.gif) no-repeat;
+   background:transparent url(/images/navigation.png) no-repeat;
 }
 li.home a {
-   margin-left:31px;
-   width:57px;
-   height:27px;
+   width:56px;
+   height:26px;
 }
 li.why a {
    width:49px;
-   height:27px;
+   height:26px;
 }
 li.contact a {
-   width:69px;
-   height:27px;
+   width:68px;
+   height:26px;
 }
 
 li.home a:link, li.home a:visited {
-   background-position:-31px 0px;
+   background-position:-70px 0px;
 }	 	 	 
 li.home a:hover, li.home a:focus {
-   background-position:-31px -27px;
+   background-position:-70px -26px;
 }
 li.why a:link, li.why a:visited {	
-   background-position:-88px 0px;
+   background-position:-127px 0px;
 }
 li.why a:hover, li.why a:focus {	
-   background-position:-88px -27px;
+   background-position:-127px -26px;
 }
 li.contact a:link, li.contact a:visited {	
-   background-position: -137px 0px;
+   background-position: -176px 0px;
 }
 li.contact a:hover, li.contact a:focus {	
-   background-position: -137px -27px;
+   background-position: -176px -26px;
 }
 
 body.home ul.nav li.home a {
-   background-position:-31px -54px;
+   background-position:-70px -52px;
 }
 body.why ul.nav li.why a {
-   background-position:-88px -54px;
+   background-position:-127px -52px;
 }
 body.contact ul.nav li.contact a {
-   background-position:-137px -54px;
+   background-position:-176px -52px;
 }
 
 
@@ -198,8 +197,8 @@ copy style */
    color: <%=  @c_b_w3%>
 }
 
-a {text-decoration: none; border-bottom: 1px dotted <%= @c_a_k1%>; color:<%= @c_a_w1%>;}
-a:hover, a:focus {text-decoration: none; border-bottom: 1px solid <%= @c_a_w1%>; color:<%= @c_a_w1%>; background-color: <%= @c_b_k1%>;}
+a {text-decoration: none; outline:none; border-bottom: 1px dotted <%= @c_a_k1%>; color:<%= @c_a_w1%>;}
+a:hover, a:focus {text-decoration: none; outline:none; border-bottom: 1px solid <%= @c_a_w1%>; color:<%= @c_a_w1%>; background-color: <%= @c_b_k1%>;}
 .navigation a {text-decoration: none; border-bottom: none; color:<%= @c_a_w5%>;}
 
 h1, h2, h3, h4, h5, h6 {color:<%= @c_a_w5%>;}
