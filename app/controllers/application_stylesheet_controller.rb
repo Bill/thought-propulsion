@@ -49,15 +49,15 @@ class ApplicationStylesheetController < ApplicationController
     @c_a_k4 = '#320302'
     @c_a_k5 = '#000000'
 
-    @c_t = '#597eaa'
-    @c_t_w1 = '#7a98bb'
-    @c_t_w2 = '#9bb2cc'
-    @c_t_w3 = '#bdcbdd'
-    @c_t_w4 = '#dee5ee'
+    @c_t = '#7eadde'
+    @c_t_w1 = '#98bde5'
+    @c_t_w2 = '#b2ceeb'
+    @c_t_w3 = '#cbdef2'
+    @c_t_w4 = '#e5eff8'
 
-    @c_t_k1 = '#476588'
-    @c_t_k2 = '#354c66'
-    @c_t_k3 = '#243244'
-    @c_t_k4 = '#121922'
+    @c_t_k1 = '#658ab2'
+    @c_t_k2 = '#4c6885'
+    @c_t_k3 = '#324559'
+    @c_t_k4 = '#19232c'
   end
 end

@@ -2,37 +2,12 @@
 top-level elements */
 
 html, body {
-   height: 100%;
-}
-
-body {
-   background-color: <%= @c_b %>;
+   height:100%;
+   background-color:<%= @c_b %>;
    margin:0;
 }
 
-.no-alerts {
-   background: <%= @c_b %> url(/images/header.png) repeat-x top left;
-   color:<%= @c_b_w4%>
-}
-
-.alerts {
-   background:<%= @c_t_k1%>;
-   border-bottom: solid <%= @c_t_k5%> 2px;
-}
-
-.no-alerts, .alerts, .foot {
-   margin:0;
-   width:100%;
-   min-width:830px;
-}
-
-.content {
-   min-height: 100%;
-   height: auto !important;
-   height: 100%;
-   margin: 0 0 20px 0;
-   position: relative;
-}
+.page {position:relative; min-height:100%;margin:0;}
 
 .head {
    background: url(/images/header_icon.png) no-repeat top left;
@@ -41,13 +16,39 @@ body {
    position:relative;
 }
 
-.foot { 
-   background-color:<%= @c_a %>;
-   color:<%= @c_b %>;
-   height:20px;
+.no-alerts {
+   background:<%= @c_b %> url(/images/header.png) repeat-x top left;
+   color:<%= @c_b_w4%>;
+}
+
+.alerts {
+   background:<%= @c_t_k1%>;
+   border-bottom: solid <%= @c_t_k5%> 2px;
+}
+
+.no-alerts, .alerts, .foot, .bottom {
+   margin:0;
    width:100%;
-   border-top:1px solid <%= @c_a_k5%>;
-   position:relative;
+   min-width:830px;
+}
+
+.content  {
+   padding-bottom:5em;
+}
+
+.bottom {
+   background: url(/images/footer.png) repeat-x top left;
+   position:absolute;
+   bottom:0;
+   height:40px;
+}
+
+.foot { 
+   background: url(/images/footer_icon.png) no-repeat top left;
+   color:<%= @c_a %>;
+   position:absolute;
+   bottom:0;
+   height:40px;
 }
 
 
@@ -64,8 +65,8 @@ navigation elements */
 }
 
 .login {
+   margin-left:260px;
    color:<%= @c_a_w4%>;
-   left:220px;
    bottom:4px;
    position:absolute;
 }
@@ -76,9 +77,9 @@ ul.nav {
    left:0;
    bottom:0;
    width:411px;
-   height:27px;
+   height:26px;
    /*overflow: hidden;*/
-   background:transparent url(/images/navigation.gif) no-repeat 0 0;
+   background:transparent url(/images/navigation_bg.png) no-repeat -70px 0;
 }
 ul.nav li {
    padding:0;
@@ -92,49 +93,48 @@ ul.nav li a {
    display:block;
    text-decoration:none;
    overflow:hidden;
-   background:transparent url(/images/navigation.gif) no-repeat;
+   background:transparent url(/images/navigation.png) no-repeat;
 }
 li.home a {
-   margin-left:31px;
-   width:57px;
-   height:27px;
+   width:56px;
+   height:26px;
 }
 li.why a {
    width:49px;
-   height:27px;
+   height:26px;
 }
 li.contact a {
-   width:69px;
-   height:27px;
+   width:68px;
+   height:26px;
 }
 
 li.home a:link, li.home a:visited {
-   background-position:-31px 0px;
+   background-position:-71px 0px;
 }	 	 	 
 li.home a:hover, li.home a:focus {
-   background-position:-31px -27px;
+   background-position:-71px -26px;
 }
 li.why a:link, li.why a:visited {	
-   background-position:-88px 0px;
+   background-position:-127px 0px;
 }
 li.why a:hover, li.why a:focus {	
-   background-position:-88px -27px;
+   background-position:-127px -26px;
 }
 li.contact a:link, li.contact a:visited {	
-   background-position: -137px 0px;
+   background-position: -176px 0px;
 }
 li.contact a:hover, li.contact a:focus {	
-   background-position: -137px -27px;
+   background-position: -176px -26px;
 }
 
 body.home ul.nav li.home a {
-   background-position:-31px -54px;
+   background-position:-71px -52px;
 }
 body.why ul.nav li.why a {
-   background-position:-88px -54px;
+   background-position:-127px -52px;
 }
 body.contact ul.nav li.contact a {
-   background-position:-137px -54px;
+   background-position:-176px -52px;
 }
 
 
@@ -151,22 +151,22 @@ alerts */
 
 .alerts .alert {
    border:none;
-   color: <%= @c_t_w4%>;
+   color:<%= @c_t_w4%>;
    font-size:1.2em; /*these three properties are from screen.css large rule*/
    line-height:2.5em;
    margin-bottom:1.25em;
 }
 
 .alerts .error {
-   background: url(/images/error.png) no-repeat 0 center;
+   background:url(/images/error.png) no-repeat 0 center;
 }
 
 .alerts .warn {
-   background: url(/images/warn.png) no-repeat 0 center;
+   background:url(/images/warn.png) no-repeat 0 center;
 }
 
 .alerts .inform {
-   background: url(/images/inform.png) no-repeat 0 center;
+   background:url(/images/inform.png) no-repeat 0 center;
 }
 
 
@@ -177,53 +177,68 @@ copy style */
 .content {margin-top:2em;}
 .content h1 {
    min-height:36px;
-   margin:1em 0 0.5em -36px;
-   padding:0 13px 0 36px;
-   background: url(/images/banner_chevron.png) top left;
-}
+   margin:1.5em 0 0.2em -36px;
+   padding:0 0 0 36px;
+   background:url(/images/banner.png) top left;
+   border-left:<%= @c_a %> 1px solid;
+   border-bottom:<%= @c_a_k2%> 1px dotted;
+   }
+
+.intro {
+   margin:1em 0 3.5em -36px;
+   padding:0 0 0 36px;
+   background:url(/images/banner.png) no-repeat left top;
+   height:200px;
+   width:470px;
+   border-left:<%= @c_a %> 1px solid;
+   border-bottom:<%= @c_a_k2%> 1px dotted;
+   }
+
+.intro p {
+   color:<%= @c_a_w2%>;
+   font-size:130%;
+   line-height:2;
+   padding:20px 20px 0 0;
+   }
 
 .new_user h1 {
-   background: url(/images/banner.png) top left;
-}
+   background:url(/images/banner.png) top left;
+   }
 
 .trademark {
-   vertical-align: baseline;
-   font-size: 0.6em;
-   position: relative;
-   top: -0.4em;
-   color: <%=  @c_b_w1%>
-}
+   vertical-align:baseline;
+   font-size:0.6em;
+   position:relative;
+   top:-0.4em;
+   color:<%=  @c_b_w1%>
+   }
 
-.no-alerts .trademark {
-   color: <%=  @c_b_w3%>
-}
+.no-alerts .trademark {color:<%=  @c_b_w4%>}
 
-a {text-decoration: none; border-bottom: 1px dotted <%= @c_a_k1%>; color:<%= @c_a_w1%>;}
-a:hover, a:focus {text-decoration: none; border-bottom: 1px solid <%= @c_a_w1%>; color:<%= @c_a_w1%>; background-color: <%= @c_b_k1%>;}
+a {text-decoration: none; outline:none; border-bottom: 1px dotted <%= @c_a_k1%>; color:<%= @c_a_w1%>;}
+a:hover, a:focus {text-decoration: none; outline:none; border-bottom: 1px solid <%= @c_a_w1%>; color:<%= @c_a_w1%>; background-color: <%= @c_b_k1%>;}
 .navigation a {text-decoration: none; border-bottom: none; color:<%= @c_a_w5%>;}
 
 h1, h2, h3, h4, h5, h6 {color:<%= @c_a_w5%>;}
 h1 { font-size: 2em; line-height: 1.4; margin-bottom: -.1em; }
 img { float:left; margin:0; }
+.whiteout {color:<%= @c_a_w5%>;}
 
 
 
 /* -------------------------------------------------------------- 
 login style */
 
-div, form {
-   display:inline;
-}
 
 #openid_url {
-   background: url(/images/login-bg.gif) no-repeat <%= @c_a_w5%> 5px;
-   padding-left: 25px;
+   background:url(/images/login-bg.gif) no-repeat <%= @c_a_w5%> 5px;
+   padding-left:25px;
    color:<%= @c_a_k5%>;
-   border: 1px solid <%= @c_b_w2%>;
+   border:1px solid <%= @c_b_k2%>;
    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
    font-size:10px;
    width:100px;
-   margin:0px;
+
 }
 
 .button {
@@ -231,7 +246,8 @@ div, form {
    font-size:10px;
    background-color:<%= @c_a_w5%>;
    color:#23201F;
-   border:1px solid <%= @c_b_w2%>;
+   border:1px solid <%= @c_b_k2%>;
+
 }
 
 
@@ -239,35 +255,25 @@ div, form {
 /* -------------------------------------------------------------- 
 vcard Contact style */
 
-.vcard h1 {
-   min-height:36px;
-   margin:1em 0 0.5em -36px;
-   padding:0 13px 0 36px;
-   background: url(/images/banner_email.png) top left;
+.vcard h1 {background: url(/images/banner_email.png) top left;}
+.vcard h1 a {text-decoration:none; color:<%= @c_a_w5%>; border-bottom:none; background-color:transparent;
 }
 
-.vcard h1 a {text-decoration: none; color:<%= @c_a_w5%>; border-bottom: none; background-color: transparent;
-}
-
-.adr {
-   display: block;
-}
+.adr {display:block;}
 
 /*
 There's nowhere to put this word in the markup without polluting the pertinent
 hcard structure, so we'll stick it into the presentation.
 */
-.tel .type:after {
-   content: ' phone: ';
-}
+.tel .type:after {content: ' phone: ';}
 
 
 
 /* -------------------------------------------------------------- 
 forms */
 .form-table p {
-   padding: 0;
-   margin: 0;
+   padding:0;
+   margin:0;
 }
 .form-table th {
    background:none;
@@ -275,10 +281,10 @@ forms */
    vertical-align:top;
 }
 .form-table th, .form-table td {
-   border-bottom: 1px dotted <%=@c_b_w1%>;
+   border-bottom:1px dotted <%=@c_b_w1%>;
 }
 .form-table tr.last th, .form-table tr.last td {
-   border-bottom: none;
+   border-bottom:none;
 }
 /* .fieldWithErrors is applied automatically by the Rails framework when a field has errors.
 see also: Blueprint CSS screen.css rules for .error and friends (I made this rule match that one)
