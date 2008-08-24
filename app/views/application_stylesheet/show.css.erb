@@ -174,6 +174,11 @@ alerts */
 /* -------------------------------------------------------------- 
 copy style */
 
+a {text-decoration: none; outline:none; border:none; color:<%= @c_a_w1%>;}
+h1, h2, h3, h4, h5, h6 {color:<%= @c_a_w5%>;}
+h1 { font-size: 2em; line-height: 1.4; margin-bottom: -.1em; }
+img {margin:0;}
+
 .content {margin-top:2em;}
 .content h1 {
    min-height:36px;
@@ -183,7 +188,17 @@ copy style */
    border-left:<%= @c_a %> 1px solid;
    border-bottom:<%= @c_a_k2%> 1px dotted;
    }
-
+.content img {
+   background:#3E4F4F none repeat scroll 0 0;
+   border:1px dashed #4E6973;
+   float:left;
+   margin:7px 12px 10px 0;
+   padding:7px;
+   vertical-align:sub;
+   }
+.content a {text-decoration: none; outline:none; border-bottom: 1px dotted <%= @c_a_k1%>; color:<%= @c_a_w1%>;}
+.content a:hover, a:focus {text-decoration: none; outline:none; border-bottom: 1px solid <%= @c_a_w1%>; color:<%= @c_a_w1%>; background-color: <%= @c_b_k1%>;}
+   
 .intro {
    margin:1em 0 3.5em -36px;
    padding:0 0 0 36px;
@@ -214,20 +229,8 @@ copy style */
 
 .no-alerts .trademark {color:<%=  @c_b_w4%>}
 
-a {text-decoration: none; outline:none; border-bottom: 1px dotted <%= @c_a_k1%>; color:<%= @c_a_w1%>;}
-a:hover, a:focus {text-decoration: none; outline:none; border-bottom: 1px solid <%= @c_a_w1%>; color:<%= @c_a_w1%>; background-color: <%= @c_b_k1%>;}
 .navigation a {text-decoration: none; border-bottom: none; color:<%= @c_a_w5%>;}
 
-h1, h2, h3, h4, h5, h6 {color:<%= @c_a_w5%>;}
-h1 { font-size: 2em; line-height: 1.4; margin-bottom: -.1em; }
-img {
-background:#3E4F4F none repeat scroll 0 0;
-border:1px dashed #4E6973;
-float:left;
-margin:7px 12px 10px 0;
-padding:7px;
-vertical-align:sub;
-}
 .whiteout {color:<%= @c_a_w5%>;}
 
 
