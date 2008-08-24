@@ -15,4 +15,12 @@ module ApplicationHelper
     "iPhone &amp; Web Apps Built About You"
   end
   
+  def google_search_link_to( term, options={})
+    link_to term, google_search_url_for( term), options
+  end
+  
+  def google_search_url_for( term)
+    "http://www.google.com/search?q=#{term}"
+  end
+  
 end
