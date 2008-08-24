@@ -29,8 +29,14 @@ module ApplicationHelper
   end
   
   def co_branding_link( product_name, image_name)
+    # override for Amazon Web Services in accordance w/ their ToS: http://www.amazon.com/gp/browse.html?node=360388011
+    if( product_name == 'Amazon Web Services')
+      url = 'http://aws.amazon.com'
+    else
+      url = google_search_url_for( product_name)
+    end
     product_class = product_name.gsub(/\s+/, '-').downcase
-    link_to image_tag( image_name, :class => "external #{product_class}"), google_search_url_for( product_name)
+    link_to image_tag( image_name, :class => "external #{product_class}"), url
   end
   
   private
