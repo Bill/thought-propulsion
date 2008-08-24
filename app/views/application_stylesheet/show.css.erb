@@ -179,7 +179,7 @@ copy style */
    min-height:36px;
    margin:1.5em 0 0.2em -36px;
    padding:0 0 0 36px;
-   background:url(/images/banner.png) top left;
+   background:url(/images/banner.png) top left no-repeat;
    border-left:<%= @c_a %> 1px solid;
    border-bottom:<%= @c_a_k2%> 1px dotted;
    }
@@ -220,7 +220,14 @@ a:hover, a:focus {text-decoration: none; outline:none; border-bottom: 1px solid 
 
 h1, h2, h3, h4, h5, h6 {color:<%= @c_a_w5%>;}
 h1 { font-size: 2em; line-height: 1.4; margin-bottom: -.1em; }
-img { float:left; margin:0; }
+img {
+background:#3E4F4F none repeat scroll 0 0;
+border:1px dashed #4E6973;
+float:left;
+margin:7px 12px 10px 0;
+padding:7px;
+vertical-align:sub;
+}
 .whiteout {color:<%= @c_a_w5%>;}
 
 
@@ -298,6 +305,12 @@ see also: Blueprint CSS screen.css rules for .error and friends (I made this rul
 
 .instructions { color:<%=@c_b_w1%>}
 
+/* -------------------------------------------------------------- 
+leadership */
+.leadership img.avatar {
+   width:80px;
+}
+
 
 /* -------------------------------------------------------------- 
 co-branding */
@@ -331,6 +344,5 @@ co-branding */
    width:80px;
 }
 .tasty-technologies img.amazon-web-services {
-   width:127px; /*per AWS ToS: http://www.amazon.com/gp/browse.html?node=360388011 */
+   width:127px; /*minimum width per AWS ToS: http://www.amazon.com/gp/browse.html?node=360388011 */
 }
-

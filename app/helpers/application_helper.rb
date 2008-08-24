@@ -41,7 +41,7 @@ module ApplicationHelper
       url = google_search_url_for( product_name)
     end
     product_class = product_name.gsub(/\s+/, '-').downcase
-    link_to image_tag( image_name, :class => "external #{product_class}"), url
+    link_to image_tag( image_name, :class => "external #{product_class}", :alt => product_name), url, :title => product_name
   end
   
   private
