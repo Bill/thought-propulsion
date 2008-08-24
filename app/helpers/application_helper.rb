@@ -15,13 +15,18 @@ module ApplicationHelper
     "iPhone &amp; Web Apps Built About You"
   end
 
-  def external_google_search_link_to( term, options={})
-    options[:class] = add_class( options[:class])
-    google_search_link_to term, options
+  def external_link_to( term, options={}, html_options={})
+    html_options[:class] = add_class( html_options[:class])
+    link_to term, options, html_options
+  end
+  
+  def external_google_search_link_to( term, html_options={})
+    html_options[:class] = add_class( html_options[:class])
+    google_search_link_to term, html_options
   end
 
-  def google_search_link_to( term, options={})
-    link_to term, google_search_url_for( term), options
+  def google_search_link_to( term, html_options={})
+    link_to term, google_search_url_for( term), html_options
   end
   
   def google_search_url_for( term)
