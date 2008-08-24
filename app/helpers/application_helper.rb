@@ -14,7 +14,12 @@ module ApplicationHelper
   def page_title
     "iPhone &amp; Web Apps Built About You"
   end
-  
+
+  def external_google_search_link_to( term, options={})
+    options[:class] = add_class( options[:class])
+    google_search_link_to term, options
+  end
+
   def google_search_link_to( term, options={})
     link_to term, google_search_url_for( term), options
   end
@@ -26,6 +31,14 @@ module ApplicationHelper
   def co_branding_link( product_name, image_name)
     product_class = product_name.gsub(/\s+/, '-').downcase
     link_to image_tag( image_name, :class => "external #{product_class}"), google_search_url_for( product_name)
+  end
+  
+  private
+  
+  def add_class( classes_string)
+    classes = (classes_string || '').split(' ')
+    classes << 'external' unless classes.include?( 'external')
+    classes.join(' ')
   end
   
 end
