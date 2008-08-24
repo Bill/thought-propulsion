@@ -23,4 +23,9 @@ module ApplicationHelper
     "http://www.google.com/search?q=#{term}"
   end
   
+  def co_branding_link( product_name, image_name)
+    product_class = product_name.gsub(/\s+/, '-').downcase
+    link_to image_tag( image_name, :class => "external #{product_class}"), google_search_url_for( product_name)
+  end
+  
 end
