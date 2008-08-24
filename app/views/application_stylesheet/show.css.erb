@@ -303,46 +303,50 @@ see also: Blueprint CSS screen.css rules for .error and friends (I made this rul
 /* -------------------------------------------------------------- 
 co-branding */
 
-ol.tasty-technologies {
+h1.tasty-technologies {
+   display:none;
+}
+
+.tasty-technologies ol{
    margin:0;
 /*   width:411px; */
 /*   height:27px; */
    /*overflow: hidden;*/
 }
-ol.tasty-technologies li {
+.tasty-technologies ol li {
    padding:0;
    margin:0;
    display:block;
    float:left;
    text-indent:-9999px;	
 }
-ol.tasty-technologies li a {
+.tasty-technologies ol a {
    border:0;
    display:block;
    text-decoration:none;
    overflow:hidden;
 }
-ol.tasty-technologies a {
+.tasty-technologies ol a {
    margin-left:31px;
    width:80px;
    height:72px;
 }
 
-ol.tasty-technologies a image{
+.tasty-technologies ol a image{
    width:80px;
    height:72px;
 }
 
-ol.tasty-technologies a.iphone {
+.tasty-technologies ol a.iphone {
    /* TODO: use iPhone image here after Tristan has extracted the iPhone icon*/
    background:transparent url(/images/rails_logo_remix_big.png) no-repeat;
 }
-ol.tasty-technologies a.openid {
+.tasty-technologies ol a.openid {
    background:transparent url(/images/openid-icon-100x100.png) no-repeat;
 }
-ol.tasty-technologies a.ruby-on-rails {
+.tasty-technologies ol a.ruby-on-rails {
    background:transparent url(/images/rails_logo_remix_big.png) no-repeat;
 }
-ol.tasty-technologies a.amazon-web-services {
+.tasty-technologies ol a.amazon-web-services {
    background:transparent url(/images/PBAWS_LOGO_300px.jpg) no-repeat;
 }
