@@ -93,7 +93,7 @@ div.span-1, div.span-2, div.span-3, div.span-4, div.span-5, div.span-6, div.span
 iphone */
 
 .ihide { display: none;}
-.no-alerts, .alerts, .foot {min-width:320px; width:100%;}
+.no-alerts, .alerts, .foot, .bottom {min-width:320px; width:100%;}
 .login {margin-left:210px;}
 .content h1 {margin:1em 0 0.5em -30px; padding:0 0 0 30px;}  
 .vcard h1 {margin:1em 0 0.5em -30px; padding:0 13px 0 30px;}
@@ -101,5 +101,5 @@ iphone */
 .intro p {font-size:80%;}
 #openid_url {width:100px;}
 ul.nav {background:transparent url(/images/navigation_bg.png) no-repeat -115px 0;}
-
+.foot {background: url(/images/footer_icon.png) no-repeat -45px 0;}
 }

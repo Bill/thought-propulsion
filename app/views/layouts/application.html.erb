@@ -13,6 +13,7 @@
 </head>
 
 <body class='<%=body_class%>'>
+<div class='page'>
    <%= render :partial => 'alerts/show'%>
    <div class='container no-alerts'>
       <div class='span-14'>
@@ -33,10 +34,16 @@
          <div class='span-12 prepend-2 content last'>
             <%= yield %>
          </div>
+            
       </div>
       <div class='span-7 last ihide'> <!--can be thought of as right column, contains only the logo and whitespace-->
          <%= link_to '<img alt="Thought Propulsion" src="/images/logo.png"/>', home_url %>
       </div>
    </div><!--End container-->
+   <div class='bottom'><div class='foot'>
+      <span class='small prepend-2'>&copy; 2008 <%=company_name%>&trade;</span>
+   </div></div>
+hi
+</div>
 </body>
 </html>
