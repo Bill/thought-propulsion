@@ -95,6 +95,10 @@ iphone */
 .ihide { display: none;}
 .no-alerts, .alerts, .foot {min-width:320px; width:100%;}
 .login {margin-left:210px;}
+.content h1 {margin:1em 0 0.5em -30px; padding:0 0 0 30px;}  
+.vcard h1 {margin:1em 0 0.5em -30px; padding:0 13px 0 30px;}
+.intro {width:380px; height:200px; margin:1em 0 3.5em -30px; padding:0 0 0 30px;}
+.intro p {font-size:80%;}
 #openid_url {width:100px;}
 ul.nav {background:transparent url(/images/navigation_bg.png) no-repeat -115px 0;}
 

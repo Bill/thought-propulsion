@@ -108,10 +108,10 @@ li.contact a {
 }
 
 li.home a:link, li.home a:visited {
-   background-position:-70px 0px;
+   background-position:-71px 0px;
 }	 	 	 
 li.home a:hover, li.home a:focus {
-   background-position:-70px -26px;
+   background-position:-71px -26px;
 }
 li.why a:link, li.why a:visited {	
    background-position:-127px 0px;
@@ -127,7 +127,7 @@ li.contact a:hover, li.contact a:focus {
 }
 
 body.home ul.nav li.home a {
-   background-position:-70px -52px;
+   background-position:-71px -52px;
 }
 body.why ul.nav li.why a {
    background-position:-127px -52px;
@@ -177,13 +177,32 @@ copy style */
 .content h1 {
    min-height:36px;
    margin:1em 0 0.5em -36px;
-   padding:0 13px 0 36px;
+   padding:0 0 0 36px;
    background: url(/images/banner_chevron.png) top left;
-}
+   border-top: <%= @c_a_k2%> 1px solid;
+   border-left: <%= @c_a %> 1px solid;
+   }
+
+.intro {
+   margin:1em 0 3.5em -36px;
+   padding:0 0 0 36px;
+   background: url(/images/banner.png) no-repeat left top;
+   height:200px;
+   width:470px;
+   border-top: <%= @c_a_k2%> 1px solid;
+   border-left: <%= @c_a %> 1px solid;
+   }
+
+.intro p {
+   color: <%= @c_a %>;
+   font-size:130%;
+   line-height:2;
+   padding:20px 20px 0 0;
+   }
 
 .new_user h1 {
    background: url(/images/banner.png) top left;
-}
+   }
 
 .trademark {
    vertical-align: baseline;
@@ -191,11 +210,9 @@ copy style */
    position: relative;
    top: -0.4em;
    color: <%=  @c_b_w1%>
-}
+   }
 
-.no-alerts .trademark {
-   color: <%=  @c_b_w3%>
-}
+.no-alerts .trademark {color: <%=  @c_b_w4%>}
 
 a {text-decoration: none; outline:none; border-bottom: 1px dotted <%= @c_a_k1%>; color:<%= @c_a_w1%>;}
 a:hover, a:focus {text-decoration: none; outline:none; border-bottom: 1px solid <%= @c_a_w1%>; color:<%= @c_a_w1%>; background-color: <%= @c_b_k1%>;}
@@ -204,6 +221,7 @@ a:hover, a:focus {text-decoration: none; outline:none; border-bottom: 1px solid 
 h1, h2, h3, h4, h5, h6 {color:<%= @c_a_w5%>;}
 h1 { font-size: 2em; line-height: 1.4; margin-bottom: -.1em; }
 img { float:left; margin:0; }
+.whiteout {color: <%= @c_a_w5%>;}
 
 
 
