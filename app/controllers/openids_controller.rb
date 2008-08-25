@@ -12,11 +12,6 @@ class OpenidsController < ApplicationController
     authenticate_with_open_id_url params[:openid_url]
   end
   
-  def finish_registration
-    @user = User.find_by_identity_url( session[:identity_url])
-    redirect_to @user
-  end
-
   #log a user out of the system
   def logout
       reset_session
