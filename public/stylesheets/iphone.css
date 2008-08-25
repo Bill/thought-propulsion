@@ -102,6 +102,6 @@ ul.nav {background:transparent url(/images/navigation_bg.png) no-repeat -115px 0
 .bill, .ruby, .iphone, .security, .farm, .truck, .revolt, .vcard {margin:1em 0 0.2em -40px;}
 .content p {width:400px;}
 .content h1 {min-height:36px; padding: .3em 0 0 160px;}
-.ruby p, .iphone p, .security p, .vcard p {line-height:2; margin:0 1em 0 160px; width:360px; font-size:130%;}
-.bill p, .farm p, .truck p, .revolt p {margin:0 1em 0 170px; width:360px; font-size:130%;}
+.ruby p, .iphone p, .security p, .vcard p, .farm p, .truck p, .revolt p {line-height:2; margin:0 1em 0 160px; width:360px; font-size:130%;}
+.bill p{margin:0 1em 0 170px; width:360px; font-size:130%;}
 }
