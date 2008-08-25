@@ -31,10 +31,10 @@ div.span-1, div.span-2, div.span-3, div.span-4, div.span-5, div.span-6, div.span
 .span-8  { width: 115px;}
 .span-9  { width: 130px;}
 .span-10 { width: 145px;}
-.span-11 { width: 160px;}
-.span-12 { width: 380px;}
-.span-13 { width: 190px;}
-.span-14 { width: 400px;}
+.span-11 { width: 360px;}
+.span-12 { width: 175px;}
+.span-13 { width: 500px;}
+.span-14 { width: 105px;}
 .span-15 { width: 220px;}
 .span-16 { width: 235px;}
 .span-17 { width: 250px;}
@@ -93,13 +93,15 @@ div.span-1, div.span-2, div.span-3, div.span-4, div.span-5, div.span-6, div.span
 iphone */
 
 .ihide { display: none;}
-.no-alerts, .alerts, .foot, .bottom {min-width:320px; width:100%;}
-.login {margin-left:210px;}
-.content h1 {margin:1em 0 0.5em -30px; padding:0 0 0 30px;}  
-.vcard h1 {margin:1em 0 0.5em -30px; padding:0 13px 0 30px;}
-.intro {width:380px; height:200px; margin:1em 0 3.5em -30px; padding:0 0 0 30px;}
-.intro p {font-size:80%;}
+.no-alerts, .alerts, .foot, .bottom {min-width:520px; width:100%;}
+.login {margin-left:210px;}  
 #openid_url {width:100px;}
 ul.nav {background:transparent url(/images/navigation_bg.png) no-repeat -115px 0;}
-.foot {background: url(/images/footer_icon.png) no-repeat -45px 0;}
+.vcard {background:url(/images/icontent_mail.png) no-repeat left top;height:260px;}
+.security {background:url(/images/icontent_security.png) no-repeat left top;height:208px;}
+.bill, .ruby, .iphone, .security, .farm, .truck, .revolt, .vcard {margin:1em 0 0.2em -40px;}
+.content p {width:400px;}
+.content h1 {min-height:36px; padding: .3em 0 0 160px;}
+.ruby p, .iphone p, .security p, .vcard p {line-height:2; margin:0 1em 0 160px; width:360px; font-size:130%;}
+.bill p, .farm p, .truck p, .revolt p {margin:0 1em 0 170px; width:360px; font-size:130%;}
 }
