@@ -16,9 +16,10 @@ class CorkdFormBuilder < ActionView::Helpers::FormBuilder
   def build_shell(field, options)
     @template.capture do
       locals = {
-        :element => yield,
         :label => label(field, options[:label]),
-        :instructions => options[:instructions]
+        # delete instructions options so it's not there by the time we yield
+        :instructions => options.delete(:instructions),
+        :element => yield
       }
       if has_errors_on?(field)
         locals.merge!(:error => error_message(field, options))

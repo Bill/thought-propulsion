@@ -21,6 +21,8 @@ class ApplicationController < ActionController::Base
   
   protected
   
+  helper_method :user_session
+  
   # We sometimes interrupt the user's flow to require a login (or registration). Rather than blindly
   # redirecting to e.g. home after that, if the user was going somewhere to start with, then redirect her
   # there
