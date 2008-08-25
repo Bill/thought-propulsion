@@ -76,10 +76,10 @@ ul.nav {
    margin:0;
    left:0;
    bottom:0;
-   width:411px;
+   width:450px;
    height:26px;
    /*overflow: hidden;*/
-   background:transparent url(/images/navigation_bg.png) no-repeat -70px 0;
+   background:transparent url(/images/navigation_bg.png) no-repeat 0 0;
 }
 ul.nav li {
    padding:0;
@@ -170,54 +170,64 @@ alerts */
 }
 
 
-
 /* -------------------------------------------------------------- 
-copy style */
+content style */
+
+.content{margin:2em 0 0 0;}
+
+.intro {color:<%= @c_a_w5%>;}
+
+.bill {
+   background:url(/images/content_bill.png) no-repeat left top;
+   margin:2em 0 0.2em -80px;
+   width:531px;
+   height:195px;
+   }
+
+.ruby {
+   background:url(/images/content_rails.png) no-repeat left top;
+   margin:2em 0 0.2em -80px;
+   width:531px;
+   height:195px;
+   }
+   
+.iphone {
+   background:url(/images/content_iphone.png) no-repeat left top;
+   margin:2em 0 0.2em -80px;
+   width:531px;
+   height:195px;
+   }
+      
+.security {
+   background:url(/images/content_security.png) no-repeat left top;
+   margin:2em 0 0.2em -80px;
+   width:531px;
+   height:195px;
+   }
+
+.bill p, .ruby p, .iphone p, .security p {
+   color:<%= @c_a_w5%>;
+   line-height:3;
+   margin:0 1em 0 160px;
+}
+
+.intro p{}
+
+.content h1 {
+   min-height:36px;
+   padding: .2em 0 0 160px;
+   }
+
+.content a {text-decoration: none; outline:none; border-bottom: 1px dotted <%= @c_a_k1%>; color:<%= @c_a_w1%>;}
+.content a:hover, a:focus {text-decoration: none; outline:none; border-bottom: 1px solid <%= @c_a_w1%>; color:<%= @c_a_w1%>; background-color: <%= @c_b_k1%>;}
+   
+/* -------------------------------------------------------------- 
+misc. copy style */
 
 a {text-decoration: none; outline:none; border:none; color:<%= @c_a_w1%>;}
 h1, h2, h3, h4, h5, h6 {color:<%= @c_a_w5%>;}
 h1 { font-size: 2em; line-height: 1.4; margin-bottom: -.1em; }
 img {margin:0;}
-
-.content {margin-top:2em;}
-.content h1 {
-   min-height:36px;
-   margin:1.5em 0 0.2em -36px;
-   padding:0 0 0 36px;
-   background:url(/images/banner.png) top left no-repeat;
-   border-left:<%= @c_a %> 1px solid;
-   border-bottom:<%= @c_a_k2%> 1px dotted;
-   }
-.content img {
-   background:#3E4F4F none repeat scroll 0 0;
-   border:1px dashed #4E6973;
-   float:left;
-   margin:7px 12px 10px 0;
-   padding:7px;
-   vertical-align:sub;
-   }
-.content a {text-decoration: none; outline:none; border-bottom: 1px dotted <%= @c_a_k1%>; color:<%= @c_a_w1%>;}
-.content a:hover, a:focus {text-decoration: none; outline:none; border-bottom: 1px solid <%= @c_a_w1%>; color:<%= @c_a_w1%>; background-color: <%= @c_b_k1%>;}
-   
-.intro {
-   margin:1em 0 3.5em -36px;
-   padding:0 0 0 36px;
-   background:url(/images/banner.png) no-repeat left top;
-   width:470px;
-   border-left:<%= @c_a %> 1px solid;
-   border-bottom:<%= @c_a_k2%> 1px dotted;
-   }
-
-.intro p {
-   color:<%= @c_a_w2%>;
-   font-size:130%;
-   line-height:2;
-   padding:20px 20px 0 0;
-   }
-
-.new_user h1 {
-   background:url(/images/banner.png) top left;
-   }
 
 .trademark {
    vertical-align:baseline;
@@ -237,7 +247,6 @@ img {margin:0;}
 
 /* -------------------------------------------------------------- 
 login style */
-
 
 #openid_url {
    background:url(/images/login-bg.gif) no-repeat <%= @c_a_w5%> 5px;
@@ -308,11 +317,6 @@ see also: Blueprint CSS screen.css rules for .error and friends (I made this rul
 
 .instructions { color:<%=@c_b_w1%>}
 
-/* -------------------------------------------------------------- 
-leadership */
-.leadership img.avatar {
-   width:80px;
-}
 
 
 /* -------------------------------------------------------------- 
