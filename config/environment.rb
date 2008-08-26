@@ -28,6 +28,7 @@ Rails::Initializer.run do |config|
   config.gem 'ruby-openid', :lib => 'openid', :version => '2.1.2'
   config.gem 'Bill-route_name_for', :lib => "route_name_for", :source => 'http://gems.github.com', :version => '0.0.1'
   
+  config.gem 'mbleigh-subdomain-fu', :source => "http://gems.github.com/", :lib => "subdomain-fu"  
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
@@ -69,3 +70,16 @@ Rails::Initializer.run do |config|
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
 end
+
+# These are the sizes of the domain (i.e. 0 for localhost, 1 for something.com)
+# for each of your environments
+SubdomainFu.tld_sizes = { :development => 1,
+                          :test => 1,
+                          :production => 1 }
+
+# These are the subdomains that will be equivalent to no subdomain
+SubdomainFu.mirrors = ["www"]
+
+# This is the "preferred mirror" if you would rather show this subdomain
+# in the URL than no subdomain at all.
+SubdomainFu.preferred_mirror = nil
