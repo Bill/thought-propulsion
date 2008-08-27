@@ -1,4 +1,4 @@
 <% corkd_form_for( @twip) do |f| %>
-<%= render :partial => 'twips/edit_fields', :locals => {:f => f}%>
+<%= render :partial => f, :locals => {:readonly => false}%>
 <tr class='last'><th></th><td><%= submit_tag %></td></tr>
 <% end %>

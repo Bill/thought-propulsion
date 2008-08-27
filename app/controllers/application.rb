@@ -92,7 +92,7 @@ class ApplicationController < ActionController::Base
     if( user_is_registered && ( registered_user.admin || user_action_on_resource_authorized))
       true
     else
-      render( :file => "#{RAILS_ROOT}/public/403.html", :status => :forbidden)
+      #render( :file => "#{RAILS_ROOT}/public/403.html", :status => :forbidden)
       false
     end
   end
@@ -118,7 +118,8 @@ class ApplicationController < ActionController::Base
   
   def http_basic_authentication
     authenticate_or_request_with_http_basic do |username, password|
-      username == params[:id] && password == User.find(params[:id]).authenticator
+      # we're using the User's id as the 'username' and the User's authenticator as the password
+      (u = User.find(username)) && u.authenticator == password
     end
   end
 end

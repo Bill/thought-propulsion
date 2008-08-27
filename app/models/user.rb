@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   
   attr_protected :admin, :identity_url
   
-  has_many :twips, :foreign_key => 'owner_id'
+  has_many :twips, :foreign_key => 'owner_id', :dependent => :destroy
 
   def initialize(*args)
     super(*args)

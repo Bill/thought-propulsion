@@ -2,7 +2,7 @@
 <dl><dt>OpenID</dt><dd><%=h @user.identity_url%></dd></dl>
 <p>Your identity has been verified but you're not yet a <%= company_name%> member&mdash;please register:</p>
 <% corkd_form_for( @user) do |f| %>
-<%= render :partial => 'users/edit_fields', :locals => {:f => f}%>
+<%= render :partial => f, :locals => {:readonly => false}%>
 <% 
    unless @captcha.captcha_verified 
       corkd_fields_for @captcha do |captcha|
