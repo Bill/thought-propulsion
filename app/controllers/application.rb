@@ -54,21 +54,34 @@ class ApplicationController < ActionController::Base
   
   helper_method :registered_user
   
+  
+  # The next three methods represent three increasing levels of authentication (they build on one another).
+  # first, is the user authenticated? more properly, the principal is authenticated because there may be
+  # no User object for her yet
   def user_is_authenticated
-    if session[:identity_url].nil?
-      session[:return_to] = (request.ssl? ? 'https' : 'http') + "://#{request.host}#{request.port.blank? ? '' : ':' + request.port.to_s}" + request.request_uri
-      error "Please log in", :after_redirect
-      redirect_to home_url
-      false
-    else
-      true
+    respond_to do |wants|
+      wants.atom { http_basic_authentication}
+      wants.atomserv { http_basic_authentication}
+      wants.html do
+        if session[:identity_url].nil?
+          session[:return_to] = (request.ssl? ? 'https' : 'http') + "://#{request.host}#{request.port.blank? ? '' : ':' + request.port.to_s}" + request.request_uri
+          error "Please log in", :after_redirect
+          redirect_to home_url
+          false
+        else
+          true
+        end
+      end
     end
   end
   
+  # This is the second level of authority: the principal is authenticated and has a User object in the system
   def user_is_registered
     user_is_authenticated && ! registered_user.blank?
   end
   
+  # And finally, the highest authority level: the administrative user. Admin can only be designated via
+  # the console since the attribute is protected and there is no UI to edit it.
   def user_is_admin
      registered_user && registered_user.admin
   end

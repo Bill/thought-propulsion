@@ -7,7 +7,14 @@ class TwipsController < ApplicationController
   before_filter :user_is_admin_or_authorized_for_action, :except => [:create, :new, :index]
 
   def index
-    @twips = registered_user.twips.paginate( :page => params[:page], :order => 'created_at DESC', :per_page => 3)
+    @twips = WillPaginate::Collection.create(params[:page] || 1, 3) do |pager|
+      result = registered_user.twips.find(:all, :limit => pager.per_page, :offset => pager.offset, :order => 'created_at DESC')
+      pager.replace(result)
+      unless pager.total_entries
+        pager.total_entries = registered_user.twips.count
+      end
+    end
+    debugger
     respond_to do |wants|
       wants.atom { render :action => 'index', :layout => false}
       wants.html

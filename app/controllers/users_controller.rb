@@ -2,8 +2,8 @@ class UsersController < ApplicationController
   
   layout 'home'
   
-  before_filter :admin, :only => [:index]
-  before_filter :authenticated, :only => [:create, :new]
+  before_filter :user_is_admin, :only => [:index]
+  before_filter :user_is_authenticated, :only => [:create, :new]
   before_filter :user_is_admin_or_authorized_for_action, :except => [:create, :new, :index]
 
   def new
