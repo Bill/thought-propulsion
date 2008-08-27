@@ -96,7 +96,8 @@ class OpenidsController < ApplicationController
         first_name = parts[0]
         last_name = parts[1] unless parts.size < 2
       end
-      @user = User.new(:identity_url => response.endpoint.claimed_id, :email => registration_info['email'], :first_name => first_name, :last_name => last_name, :zip => registration_info['postcode'], :country => registration_info['country'], :nickname =>  registration_info['nickname'])
+      @user = User.new(:email => registration_info['email'], :first_name => first_name, :last_name => last_name, :zip => registration_info['postcode'], :country => registration_info['country'], :nickname =>  registration_info['nickname'])
+      @user.identity_url = response.endpoint.claimed_id
       associate_authenticated_identity_with_session( @user.identity_url)
       flash[:new_user] = @user
       redirect_to new_user_path

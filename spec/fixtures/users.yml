@@ -1,0 +1,4 @@
+fred:
+    id: 1
+    nickname:   fred
+    identity_url: fred.myopenid.com
