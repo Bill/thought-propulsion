@@ -52,6 +52,8 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :users
   
+  map.resources :twips, :collection => { :service_document => :get}
+  
   map.resource :stylesheets do |stylesheet|
     stylesheet.resource :application, :controller => 'application_stylesheet'
   end

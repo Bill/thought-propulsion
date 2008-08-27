@@ -25,10 +25,11 @@ Rails::Initializer.run do |config|
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "aws-s3", :lib => "aws/s3"
-  config.gem 'ruby-openid', :lib => 'openid', :version => '2.1.2'
-  config.gem 'Bill-route_name_for', :lib => "route_name_for", :source => 'http://gems.github.com', :version => '0.0.1'
-  
-  config.gem 'mbleigh-subdomain-fu', :source => "http://gems.github.com/", :lib => "subdomain-fu"  
+  config.gem 'ruby-openid', :lib => 'openid', :version => '~>2.1.2'
+  config.gem 'Bill-route_name_for', :lib => "route_name_for", :source => 'http://gems.github.com', :version => '~>0.0.1'
+  config.gem 'mbleigh-subdomain-fu', :source => "http://gems.github.com/", :lib => "subdomain-fu", :version => '~>0.0.2'
+  config.gem 'mislav-will_paginate', :lib => 'will_paginate', :version => '~> 2.3.2'
+  # config.gem 'ratom', :version => '~>0.5.1'
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.

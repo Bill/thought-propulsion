@@ -2,16 +2,13 @@ class UsersController < ApplicationController
   
   layout 'home'
   
-  before_filter :authenticated, :only => [:create]
-  before_filter :registered, :except => [:create]
+  before_filter :admin, :only => [:index]
+  before_filter :authenticated, :only => [:create, :new]
+  before_filter :user_is_admin_or_authorized_for_action, :except => [:create, :new, :index]
 
   def new
     @user = flash[:new_user] || User.new
     @captcha = session[:captcha] || Captcha.new
-  end
-  
-  def show
-    @user = User.find( params[:id])
   end
   
   def create
@@ -34,10 +31,33 @@ class UsersController < ApplicationController
       redirect_to new_user_url
     end
   end
+
+  def edit
+    @user = User.find( params[:id])
+  end
+  
+  def update
+    @user = User.find( params[:id])
+    @user.attributes = params[:user]
+    if @user.save
+      inform "settings saved"
+      redirect_to @user
+    else
+      error @user.errors.full_messages
+      redirect_to edit_users_url( @user)
+    end
+  end
+
+  def show
+    @user = User.find( params[:id])
+  end
   
   protected
   def page_title
     @page_title = "Your Account"
   end
   
+  def user_action_on_resource_authorized
+    registered_user.id == params[:id].to_i
+  end
 end

@@ -4,4 +4,8 @@ class User < ActiveRecord::Base
   
   validates_uniqueness_of :identity_url, :nickname
   
+  attr_protected :admin, :identity_url
+  
+  has_many :twips, :foreign_key => 'owner_id'
+  
 end

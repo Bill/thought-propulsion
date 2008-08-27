@@ -21,8 +21,6 @@ class ApplicationController < ActionController::Base
   
   protected
   
-  helper_method :user_session
-  
   # We sometimes interrupt the user's flow to require a login (or registration). Rather than blindly
   # redirecting to e.g. home after that, if the user was going somewhere to start with, then redirect her
   # there
@@ -50,6 +48,44 @@ class ApplicationController < ActionController::Base
     (now_later == :later ? flash : flash.now)[category] = to_array( flash[category]).concat( to_array( msg))
   end
   
+  def registered_user
+    @registered_user
+  end
+  
+  helper_method :registered_user
+  
+  def user_is_authenticated
+    if session[:identity_url].nil?
+      session[:return_to] = (request.ssl? ? 'https' : 'http') + "://#{request.host}#{request.port.blank? ? '' : ':' + request.port.to_s}" + request.request_uri
+      error "Please log in", :after_redirect
+      redirect_to home_url
+      false
+    else
+      true
+    end
+  end
+  
+  def user_is_registered
+    user_is_authenticated && ! registered_user.blank?
+  end
+  
+  def user_is_admin
+     registered_user && registered_user.admin
+  end
+  
+  def user_is_admin_or_authorized_for_action
+    if( user_is_registered && ( registered_user.admin || user_action_on_resource_authorized))
+      true
+    else
+      render( :file => "#{RAILS_ROOT}/public/403.html", :status => :forbidden)
+      false
+    end
+  end
+  
+  # Override in subclasses (controllers). Look at params and return true/false if registered_user
+  # can perform action
+  def user_action_on_resource_authorized
+  end
   
   private
   
@@ -62,21 +98,6 @@ class ApplicationController < ActionController::Base
   end
 
   def load_user
-    @user = User.find_by_identity_url( session[:identity_url]) if session[:identity_url]
-  end
-
-  def authenticated
-    if session[:identity_url].nil?
-      session[:return_to] = (request.ssl? ? 'https' : 'http') + "://#{request.host}#{request.port.blank? ? '' : ':' + request.port.to_s}" + request.request_uri
-      error "Please log in", :after_redirect
-      redirect_to home_url
-      false
-    else
-      true
-    end
-  end
-  
-  def registered
-    authenticated && ! @user.blank?
+    @registered_user = User.find_by_identity_url( session[:identity_url]) if session[:identity_url]
   end
 end

@@ -1,7 +1,3 @@
-<dl><dt>OpenID</dt><dd><%=h @user.identity_url%></dd></dl>
-<dl><dt>Nickname</dt><dd><%=h @user.nickname%></dd></dl>
-<dl><dt>Email</dt><dd><%=h @user.email%></dd></dl>
-<dl><dt>First Name</dt><dd><%=h @user.first_name%></dd></dl>
-<dl><dt>Last Name</dt><dd><%=h @user.last_name%></dd></dl>
-<dl><dt>Country</dt><dd><%=h @user.country%></dd></dl>
-<dl><dt>Zip</dt><dd><%=h @user.zip%></dd></dl>
+<% corkd_form_for( @user) do |f| %>
+<%= render :partial => 'users/edit_fields', :locals => {:f => f, :disabled => true}%>
+<% end %>

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080727194933) do
+ActiveRecord::Schema.define(:version => 20080827005848) do
 
   create_table "open_id_authentication_associations", :force => true do |t|
     t.integer "issued"
@@ -26,14 +26,23 @@ ActiveRecord::Schema.define(:version => 20080727194933) do
     t.string  "salt",       :null => false
   end
 
+  create_table "twips", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "owner_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
-    t.string "identity_url"
-    t.string "nickname"
-    t.string "email"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "zip"
-    t.string "country"
+    t.string  "identity_url"
+    t.string  "nickname"
+    t.string  "email"
+    t.string  "first_name"
+    t.string  "last_name"
+    t.string  "zip"
+    t.string  "country"
+    t.boolean "admin"
   end
 
 end

@@ -11,6 +11,7 @@
    <!--[if IE]><%= stylesheet_link_tag 'blueprint/ie', :media => 'screen, projection', :cache => true %><![endif]-->	
    <%= stylesheet_link_tag 'application', :cache => true %>
    <%= stylesheet_link_tag 'iphone', :media => 'screen', :cache => true %>
+   <%= yield :head %>
 </head>
 
 <body class='<%=body_class%>'>
@@ -25,10 +26,11 @@
                <li class='contact'><%= link_to 'Contact', contact_url %></li>
             </ul>
             <div class='login last'>
-               <% if @user.blank? %>
+               <% if registered_user.blank? %>
                <%= render :partial => 'openids/new'%>
                <% else %>
-               <%= render :partial => 'openids/welcome'%>
+               <%= 
+               render :partial => 'openids/welcome'%> | <%= link_to 'settings', edit_user_url( registered_user)%>
                <% end %>
             </div>
          </div>
