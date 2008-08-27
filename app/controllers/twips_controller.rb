@@ -14,7 +14,6 @@ class TwipsController < ApplicationController
         pager.total_entries = registered_user.twips.count
       end
     end
-    debugger
     respond_to do |wants|
       wants.atom { render :action => 'index', :layout => false}
       wants.html

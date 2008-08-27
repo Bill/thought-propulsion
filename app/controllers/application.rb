@@ -59,11 +59,12 @@ class ApplicationController < ActionController::Base
   # first, is the user authenticated? more properly, the principal is authenticated because there may be
   # no User object for her yet
   def user_is_authenticated
+    result = false
     respond_to do |wants|
-      wants.atom { http_basic_authentication}
-      wants.atomserv { http_basic_authentication}
+      wants.atom { result = http_basic_authentication}
+      wants.atomserv { result = http_basic_authentication}
       wants.html do
-        if session[:identity_url].nil?
+        result = if session[:identity_url].nil?
           session[:return_to] = (request.ssl? ? 'https' : 'http') + "://#{request.host}#{request.port.blank? ? '' : ':' + request.port.to_s}" + request.request_uri
           error "Please log in", :after_redirect
           redirect_to home_url
@@ -73,6 +74,7 @@ class ApplicationController < ActionController::Base
         end
       end
     end
+    result
   end
   
   # This is the second level of authority: the principal is authenticated and has a User object in the system
@@ -112,5 +114,11 @@ class ApplicationController < ActionController::Base
 
   def load_user
     @registered_user = User.find_by_identity_url( session[:identity_url]) if session[:identity_url]
+  end
+  
+  def http_basic_authentication
+    authenticate_or_request_with_http_basic do |username, password|
+      username == params[:id] && password == User.find(params[:id]).authenticator
+    end
   end
 end
