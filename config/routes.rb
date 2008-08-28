@@ -37,6 +37,8 @@ ActionController::Routing::Routes.draw do |map|
 
   # Send the bare URL to the home/index
   map.home '', :controller => 'home'
+  map.logout 'logout', :controller => 'openids', :action => 'logout'
+  map.login 'login', :controller => 'home'
   
   # these three actions are solely for testing the HTML/CSS layout of the alert div
   map.error 'error/:msg', :controller => 'home', :action => 'error'
@@ -46,8 +48,6 @@ ActionController::Routing::Routes.draw do |map|
   map.why 'why', :controller => 'about', :action => 'index'
   map.contact 'contact', :controller => 'contact', :action => 'index'
   
-  map.logout 'logout', :controller => 'openids', :action => 'logout'
-
   map.resource :openid, :member => { :logout => :get }
   
   map.resources :users

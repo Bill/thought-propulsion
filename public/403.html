@@ -25,6 +25,9 @@
   <div class="dialog">
     <h1>You&apos;re not allowed to access that page</h1>
     <p>Perhaps you mistyped the URL.</p>
+    <% unless registered_user%>
+    <p>Otherwise you may have to <%= link_to 'log in', login_path%> to access it.</p>
+    <% end %>
   </div>
 </body>
 </html>

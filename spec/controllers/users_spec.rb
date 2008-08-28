@@ -6,39 +6,51 @@ describe UsersController, '' do
 
   fixtures :users
   
+  before(:each) do
+    request.env['HTTP_ACCEPT'] = 'text/html'
+  end
+  
   describe 'unauthenticated principal' do
 
-    after(:each) do
-      response.response_code.should == 401
-    end
+    describe 'accessing actions that require authentication only' do
+
+      after(:each) do
+        response.response_code.should == 302
+      end
   
-    it 'should not see new User form' do
-      get 'new'
-    end
+      it 'should not see new User form' do
+        get 'new'
+      end
 
-    it 'should be able to post to User create form' do
-      post 'create'
+      it 'should not be able to post to User create form' do
+        post 'create'
+      end
     end
+    
+    describe 'accessing actions that require authentication and registration' do
 
-    it 'should be able to see User show form' do
-      get 'show/1'
-    end
+      after(:each) do
+        response.response_code.should == 403
+      end
 
-    it 'should be able to see User edit form' do
-      get '/1/edit'
-    end
+      it 'should not be able to see User show form' do
+        get 'show/1'
+      end
 
-    it 'should be able to post to User update form' do
-      post 'update/1'
-    end
-  
+      it 'should not be able to see User edit form' do
+        get '/1/edit'
+      end
+
+      it 'should not be able to post to User update form' do
+        post 'update/1'
+      end
+    end  
   end # 'unauthenticated principal'
 
   describe 'authenticated principal' do
 
     before(:each) do
       mock_valid_authentication
-      request.env['HTTP_ACCEPT'] = 'text/html'
     end
 
     it 'should start with a new User object' do

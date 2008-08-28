@@ -4,4 +4,4 @@
 <%= corkd_form.text_field :last_name, :instructions => '', :readonly=>readonly %>
 <%= corkd_form.text_field :country, :instructions => '', :readonly=>readonly  %>
 <%= corkd_form.text_field :zip, :instructions => '', :readonly=>readonly  %>
-<%= corkd_form.text_field :authenticator, :instructions => "This is a password you can use to access your account from tools that require passwords. Your username for such services is '#{corkd_form.object.id}'", :readonly=>readonly  %>
+<%= corkd_form.text_field :authenticator, :instructions => "This is a random password you can use to access your account from tools that require passwords. Your username for such services is '#{corkd_form.object.id}'", :readonly=>readonly  %>

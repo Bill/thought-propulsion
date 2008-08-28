@@ -2,9 +2,9 @@ class UsersController < ApplicationController
   
   layout 'home'
   
-  before_filter :user_is_admin, :only => [:index]
-  before_filter :user_is_authenticated, :only => [:create, :new]
-  before_filter :user_is_admin_or_authorized_for_action, :except => [:create, :new, :index]
+  before_filter :filter_user_is_admin, :only => [:index]
+  before_filter :filter_user_is_authenticated, :only => [:new, :create]
+  before_filter :filter_user_is_admin_or_authorized_for_action, :except => [:new, :create, :index]
 
   def new
     @user = flash[:new_user] || User.new
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       error @user.errors.full_messages
-      redirect_to edit_users_url( @user)
+      render :action => 'edit'
     end
   end
 

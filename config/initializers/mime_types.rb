@@ -5,4 +5,4 @@
 # Mime::Type.register_alias "text/html", :iphone
 
 # twipl
-Mime::Type.register 'application/atomserv+xml', :atomserv
+Mime::Type.register 'application/atomsvc+xml', :atomsvc

@@ -2,9 +2,9 @@ class TwipsController < ApplicationController
   
   layout 'home'
   
-  before_filter :user_is_admin, :only => [:index]
-  before_filter :user_is_registered, :only => [:create, :new]
-  before_filter :user_is_admin_or_authorized_for_action, :except => [:create, :new, :index]
+  before_filter :filter_user_is_admin, :only => [:index]
+  before_filter :filter_user_is_registered, :only => [:create, :new]
+  before_filter :filter_user_is_admin_or_authorized_for_action, :except => [:create, :new, :index]
 
   def index
     @twips = WillPaginate::Collection.create(params[:page] || 1, 3) do |pager|
@@ -67,7 +67,7 @@ class TwipsController < ApplicationController
   
   def service_document
     respond_to do |wants|
-      wants.atomserv { render :action => 'service_document', :layout => false}
+      wants.atomsvc { render :action => 'service_document', :layout => false}
     end
   end
   

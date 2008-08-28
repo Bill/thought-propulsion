@@ -4,17 +4,13 @@ module ApplicationHelper
   include CorkdFormHelper
   
   def body_class
-    route_name_for :controller => params[:controller], :action => params[:action]
+    route_name_for request.request_uri, {}
   end
   
   def company_name
     "Thought Propulsion<span class='trademark'>&trade;</span>"
   end
   
-  def page_title
-    "iPhone &amp; Web Apps Built About You"
-  end
-
   def external_link_to( term, options={}, html_options={})
     html_options[:class] = add_class( html_options[:class])
     link_to term, options, html_options
