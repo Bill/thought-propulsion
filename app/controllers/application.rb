@@ -117,9 +117,11 @@ class ApplicationController < ActionController::Base
   end
   
   def http_basic_authentication
+    result = false
     authenticate_or_request_with_http_basic do |username, password|
       # we're using the User's id as the 'username' and the User's authenticator as the password
-      (u = User.find(username)) && u.authenticator == password
+      result = (u = User.find(username)) && u.authenticator == password
     end
+    result
   end
 end

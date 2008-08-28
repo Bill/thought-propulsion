@@ -16,8 +16,12 @@ class Captcha
   
   def initialize( h = {})
     %w( captcha captcha_session captcha_verified).each do |name|
-      send "#{name}=".to_sym, h[name] unless h[name].blank?
+      send "#{name}=".to_sym, h[name.to_sym] if h.has_key?(name.to_sym)
     end
     self.captcha_session ||= Nonce.generate
+  end
+  
+  def attributes
+    %w( captcha captcha_session captcha_verified).inject({}){|memo,name| memo[name] = send("#{name}".to_sym); memo }
   end
 end

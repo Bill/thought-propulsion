@@ -11,9 +11,6 @@
    <!--[if IE]><%= stylesheet_link_tag 'blueprint/ie', :media => 'screen, projection', :cache => true %><![endif]-->	
    <%= stylesheet_link_tag 'application', :cache => true %>
    <%= stylesheet_link_tag 'iphone', :media => 'screen', :cache => true %>
-   <link href='<%= twips_url%>' title="Thought Propulsion - Atom" type="application/atom+xml" rel="alternate"/>
-   <link href='<%= twips_url%>' title="Thought Propulsion - Atom" type="application/atom+xml" rel="service.post"/>
-   <%= yield :head %>
 </head>
 
 <body class='<%=body_class%>'>

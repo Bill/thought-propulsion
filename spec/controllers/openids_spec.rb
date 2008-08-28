@@ -10,9 +10,24 @@ describe OpenidsController, 'receiving valid authentication for unregistered pri
     mock_valid_authentication
   end
   
-  it 'should render new form' do
+  it 'should set identity_url' do
+    post 'openid_authentication_callback'
+    assigns[:user].identity_url.should == 'fred'
+  end
+
+  it 'should redirect to new User form' do
     post 'openid_authentication_callback'
     response.should redirect_to( new_user_path)
+  end
+
+  it 'should set User in flash' do
+    post 'openid_authentication_callback'
+    flash[:new_user].should_not == nil
+  end
+
+  it 'should set User.identity_url in flash' do
+    post 'openid_authentication_callback'
+    flash[:new_user].identity_url.should == 'fred'
   end
   
   def mock_valid_authentication
