@@ -9,7 +9,18 @@ Spec::Runner.configure do |config|
   # If you're not using ActiveRecord you should remove these
   # lines, delete config/database.yml and disable :active_record
   # in your config/boot.rb
-  config.use_transactional_fixtures = true
+  
+  #
+  # I wish I didn't have to do this but for now it's necessary to avoid errors like this when 
+  # running rake spec:lib:
+  # SQLite3::SQLException in 'DomainName domain name validator should reject invalid labels like one with an uppercase character'
+  # SQL logic error or missing database
+  #
+  # See:
+  # http://havegnuwilltravel.apesseekingknowledge.net/2008/01/rspeconrails-sqlite3-error.html
+  # http://www.nabble.com/Re%3A-An-error-on-edge-at--r-2767-p13370152.html
+  #
+  config.use_transactional_fixtures = false
   config.use_instantiated_fixtures  = false
   config.fixture_path = RAILS_ROOT + '/spec/fixtures/'
 
@@ -46,12 +57,5 @@ Spec::Runner.configure do |config|
   # For more information take a look at Spec::Example::Configuration and Spec::Runner
 end
 
-# TODO: I have no idea why rspec doesn't have a block-oriented builder but I couldn't find one 
-# so I rolled my own
-def mock_builder( name)
-  m = mock(name)
-  yield m
-  m
-end
 # require 'ruby-debug'
 # Debugger.start

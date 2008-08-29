@@ -17,7 +17,7 @@ module Spec
 
     def run; \
       return true if run?; \
-      result = rspec_options.run_examples; \
+     result = rspec_options.run_examples; \
       @run = true; \
       result; \
     end

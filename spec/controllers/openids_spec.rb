@@ -31,10 +31,10 @@ describe OpenidsController, 'receiving valid authentication for unregistered pri
   end
   
   def mock_valid_authentication
-    openid_response = mock_builder( 'response' ) do |r|
+    openid_response = returning( mock( 'response' ) ) do |r|
       r.stubs(:status).returns(OpenID::Consumer::SUCCESS)
       r.stubs(:extension_response).returns( HashWithIndifferentAccess.new(:email => 'whatever'))
-      endpoint = mock_builder( 'endpoint') do |e|
+      endpoint = returning( mock( 'endpoint' ) ) do |e|
         e.stubs(:claimed_id).returns('fred')        
       end
       r.stubs(:endpoint).returns(endpoint)
