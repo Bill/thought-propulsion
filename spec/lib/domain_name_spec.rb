@@ -102,6 +102,6 @@ describe DomainName, 'domain name validator' do
   end
   
   def chars( howmany, choices)
-    (1..howmany).collect{ choices[rand choices.length].chr}.join
+    (1..howmany).collect{ choices[rand( choices.length ) ].chr}.join
   end
 end

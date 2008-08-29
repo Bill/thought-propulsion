@@ -21,5 +21,7 @@ config.action_controller.allow_forgery_protection    = false
 # ActionMailer::Base.deliveries array.
 config.action_mailer.delivery_method = :test
 
+config.plugins = [ :'rspec-rails']
+
 # require 'ruby-debug'
 # Debugger.start
