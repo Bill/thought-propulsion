@@ -1,5 +1,7 @@
 module DomainName
   
+  LABEL_INSTRUCTIONS = 'may contain only lowercase letters, digits, underscores and hyphens. Max length is 63'
+  
   def valid_domain?( domain)
     # stealing specs from Chris Reinhardt's Regexp-Common-dns module on CPAN
     # claims it's a pragmatic combination of rfc1035, and rfc2181

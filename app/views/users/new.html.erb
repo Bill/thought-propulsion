@@ -1,5 +1,4 @@
 <h1>Create a <%=company_name%> Account</h1>
-<dl><dt>OpenID</dt><dd><%=h @user.identity_url%></dd></dl>
 <p>Your identity has been verified but you're not yet a <%= company_name%> member&mdash;please register:</p>
 <% corkd_form_for( @user) do |f| %>
 <%= render :partial => f, :locals => {:readonly => false}%>

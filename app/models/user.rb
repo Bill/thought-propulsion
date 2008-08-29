@@ -1,15 +1,36 @@
 class User < ActiveRecord::Base
   
-  validates_presence_of :identity_url, :nickname
+  validates_presence_of :identity_url, :normalized_identity_url, :nickname
   
-  validates_uniqueness_of :identity_url, :nickname
+  validates_uniqueness_of :normalized_identity_url, :nickname
   
-  attr_protected :admin, :identity_url
+  validates_each :nickname do | record, attr, value | 
+    record.errors.add attr, DomainName::LABEL_INSTRUCTIONS unless DomainName::valid_label?( value)
+  end
+  
+  attr_protected :admin, :identity_url, :normalized_identity_url
   
   has_many :twips, :foreign_key => 'owner_id', :dependent => :destroy
 
   def initialize(*args)
     super(*args)
     self.authenticator ||= Nonce.generate
+  end
+  
+  def identity_url=(url)
+    super
+    self[:normalized_identity_url] = normalize_url(url)
+  end
+  
+  protected
+  
+  def normalize_url( url)
+    # see http://gbiv.com/protocols/uri/rfc/rfc3986.html#scheme
+    scheme = /[[:alpha:]]([[:alpha:]]|[[:digit:]]|\+|\-|\.)*:/.match url
+    if scheme
+      url
+    else
+      'http://' + url
+    end
   end
 end
