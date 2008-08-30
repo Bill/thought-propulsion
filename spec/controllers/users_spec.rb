@@ -44,7 +44,7 @@ describe UsersController, '' do
       it 'should not be able to post to User update form' do
         post 'update/1'
       end
-    end  
+    end
   end # 'unauthenticated principal'
 
   describe 'authenticated principal' do
@@ -55,7 +55,7 @@ describe UsersController, '' do
 
     it 'should start with a new User object' do
       get 'new'
-      assigns[:user].should_not == nil
+      assigns[:user].nil?.should == false
     end
 
     describe 'presenting valid captcha' do
@@ -141,22 +141,45 @@ describe UsersController, '' do
 
     describe 'registered user' do
       describe 'when looking for her own profile' do
-        it 'should see show form'
-        it 'should see edit form'
-        it 'should be able to update attributes'
+        it 'should see show form' do
+          get 'show', :id => users(:fred).id
+          response.should be_success
+        end
+        it 'should see edit form' do
+          get 'edit', :id => users(:fred).id
+          response.should be_success
+        end
+        it 'should be able to update attributes' do
+          post 'update', {:id => users(:fred).id, :nickname => 'freddo'}
+          response.should redirect_to( user_path(users(:fred)))
+        end
       end
       describe "when looking for someone else's profile" do
-        it 'should not see show form'
-        it 'should not see edit form'
-        it 'should not be able to edit attributes'
+        it 'should not see show form' do
+          get 'show', :id => users(:sally).id
+          response.should_not be_success
+        end
+        it 'should not see edit form' do
+          get 'edit', :id => users(:sally).id
+          response.should_not be_success
+        end
+        it 'should not be able to edit attributes' do
+          post 'update', :id => users(:sally).id, :nickname => 'freddo'
+          response.headers["Status"].should == "403 Forbidden"
+        end
       end
+      
+      def mock_valid_authentication
+        session[:identity_url] = users(:fred).identity_url # matches user in fixtures
+      end
+      
     end # 'registered user'
 
     describe 'administrator' do
     end # 'administrator'
 
     def mock_valid_authentication
-      session[:identity_url] = 'not-fred.myopenid.com'
+      session[:identity_url] = 'not-fred.myopenid.com' # does NOT match user in fixtures
     end
 
   end # 'authenticated principal

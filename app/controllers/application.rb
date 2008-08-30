@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   # We sometimes interrupt the user's flow to require a login (or registration). Rather than blindly
   # redirecting to e.g. home after that, if the user was going somewhere to start with, then redirect her
   # there
-  def return_to_or_redirect( default_destination)
+  def redirect_to_original_destination( default_destination = home_path)
     redirect_to session[:return_to] || default_destination
     session[:return_to] = nil # I know no other way to "clear" a slot in the session!
   end
@@ -46,6 +46,6 @@ class ApplicationController < ActionController::Base
   private
 
   def load_user
-    @registered_user = User.find_by_identity_url( session[:identity_url]) if session[:identity_url]
+      @registered_user = User.with_same_identity( User.new { |user| user.identity_url = session[:identity_url] }).find(:first) if session[:identity_url]
   end
 end

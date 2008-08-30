@@ -1,4 +1,8 @@
 fred:
-    id: 1
     nickname:   fred
-    identity_url: fred.myopenid.com
+    identity_url: http://fred.myopenid.com
+    normalized_identity_url: http://fred.myopenid.com
+sally:
+    nickname:   sally
+    identity_url: http://sally.myopenid.com
+    normalized_identity_url: http://sally.myopenid.com

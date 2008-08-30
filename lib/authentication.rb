@@ -1,5 +1,7 @@
 module Authentication
   
+  protected
+  
   # The next three methods represent three increasing levels of authentication (they build on one another).
   # first, is the user authenticated? more properly, the principal is authenticated because there may be
   # no User object for her yet
@@ -34,7 +36,10 @@ module Authentication
     end
   end
   
-  protected
+  def associate_authenticated_identity_with_session(identity_url)
+      session[:identity_url] = identity_url
+  end
+  
   
   def http_basic_authentication
     result = false

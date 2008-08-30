@@ -26,12 +26,7 @@ class OpenidsController < ApplicationController
     
     case openid_response.status
     when OpenID::Consumer::SUCCESS
-      @user = User.find_by_identity_url( openid_response.endpoint.claimed_id)
-      if @user.nil?
-        after_successful_authentication_of_unregistered_principal( openid_response)
-      else
-        after_successful_authentication( @user)
-      end
+      after_successful_authentication( openid_response)
     when OpenID::Consumer::FAILURE
       after_unsuccessful_authentication( "Verification of #{ openid_response.endpoint.nil? || openid_response.endpoint.claimed_id.blank? ? 'OpenID' : openid_response.endpoint.claimed_id} failed: #{openid_response.message}")
     when OpenID::Consumer::CANCEL
@@ -82,13 +77,7 @@ class OpenidsController < ApplicationController
       redirect_to home_url
     end
     
-    def after_successful_authentication( member)
-      associate_authenticated_identity_with_session(member.identity_url)
-      return_to_or_redirect( url_for(:controller => 'home', :action => 'index', :only_path => false))
-    end
-    
-    # OpenID authentication succeeded but this principal is not yet registered with Lumeno.us... help her sign up
-    def after_successful_authentication_of_unregistered_principal( response)
+    def after_successful_authentication( response)
       registration_info = response.extension_response('http://openid.net/extensions/sreg/1.1', true)
       first_name = last_name = ''
       if registration_info.has_key?('fullname')
@@ -99,18 +88,18 @@ class OpenidsController < ApplicationController
       @user = User.new(:email => registration_info['email'], :first_name => first_name, :last_name => last_name, :zip => registration_info['postcode'], :country => registration_info['country'], :nickname =>  registration_info['nickname'])
       @user.identity_url = response.endpoint.claimed_id
       associate_authenticated_identity_with_session( @user.identity_url)
-      flash[:new_user] = @user
-      redirect_to new_user_path
+      if( User.with_same_identity( @user).count > 0)
+        redirect_to_original_destination
+      else
+        flash[:new_user] = @user
+        redirect_to new_user_path
+      end
     end
     
     def after_unsuccessful_authentication( message)
       reset_session
       error message, :now
       render(:action => 'new')
-    end
-    
-    def associate_authenticated_identity_with_session(identity_url)
-        session[:identity_url] = identity_url
     end
 
     def page_title
