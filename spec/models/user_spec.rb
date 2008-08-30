@@ -51,6 +51,14 @@ describe User do
         @user.identity_url = 'foo.bar.com/x/y/z?foo=x&bar=y'
         @user.normalized_identity_url.should == 'http://foo.bar.com/x/y/z?foo=x&bar=y'
       end
+      it 'when URL has trailing backslash' do
+        @user.identity_url = 'foo.bar.com/'
+        @user.normalized_identity_url.should == 'http://foo.bar.com'
+      end
+      it 'when URL has trailing no trailing backslash' do
+        @user.identity_url = 'foo.bar.com'
+        @user.normalized_identity_url.should == 'http://foo.bar.com'
+      end
     end
 
   end
