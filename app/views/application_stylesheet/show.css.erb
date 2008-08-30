@@ -56,9 +56,9 @@ navigation elements */
 }
 
 div.login {
-   margin-left:260px;
    color:<%= @c_a_w4%>;
    bottom:4px;
+   left:260px;
    position:absolute;
 }
 
@@ -144,8 +144,8 @@ alerts */
    border:none;
    color:<%= @c_t_w4%>;
    font-size:1.2em; /*these three properties are from screen.css large rule*/
-   line-height:2.5em;
-   margin-bottom:1.25em;
+   line-height:1.3em;
+   margin: 1.25em 0;
 }
 
 .alerts .error {
@@ -277,20 +277,20 @@ img {margin:0;}
 /* -------------------------------------------------------------- 
 login style */
 
-#openid_url {
-   background:url(/images/login-bg.gif) no-repeat <%= @c_a_w5%> 5px;
+.openid_url {
+   background:url(/images/login-bg.gif) no-repeat 5px;
    padding-left:25px;
+   width:100px;
+}
+
+input.openid_url {
+   background-color: <%= @c_a_w5%>;
    color:<%= @c_a_k5%>;
    border:1px solid <%= @c_b_k2%>;
-   font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
-   font-size:10px;
    width:100px;
-
 }
 
 .button {
-   font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
-   font-size:10px;
    background-color:<%= @c_a_w5%>;
    color:#23201F;
    border:1px solid <%= @c_b_k2%>;

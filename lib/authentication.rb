@@ -1,4 +1,8 @@
 module Authentication
+
+  def self.included (other)
+    other.helper_method :authenticated_identity_url
+  end
   
   protected
   
@@ -34,6 +38,10 @@ module Authentication
         redirect_to home_url
       end
     end
+  end
+  
+  def authenticated_identity_url
+    session[:identity_url]
   end
   
   def associate_authenticated_identity_with_session(identity_url)
