@@ -128,8 +128,6 @@ body.contact ul.nav li.contact a {
    background-position:-176px -52px;
 }
 
-
-
 /* -------------------------------------------------------------- 
 alerts */
 
@@ -162,7 +160,7 @@ alerts */
 
 
 /* -------------------------------------------------------------- 
-content style */
+main content style */
 
 .content{margin:2em 0 0 0;}
 
@@ -240,12 +238,18 @@ content style */
 .content h1 {
    color:<%= @c_a_w2%>;
    min-height:36px;
-   padding: .3em 0 0 160px;
    }
 
 .content a {text-decoration: none; outline:none; border-bottom: 1px dotted <%= @c_a_k1%>; color:<%= @c_a_w1%>;}
 .content a:hover, a:focus {text-decoration: none; outline:none; border-bottom: 1px solid <%= @c_a_w1%>; color:<%= @c_a_w1%>; background-color: <%= @c_b_k1%>;}
-   
+
+/* -------------------------------------------------------------- 
+Thought Propulsion Corporate Pages */
+
+body.home .content h1, body.why .content h1, body.contact .content h1 {
+   padding: .3em 0 0 160px;
+   }
+
 /* -------------------------------------------------------------- 
 misc. copy style */
 
