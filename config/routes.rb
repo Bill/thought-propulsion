@@ -36,14 +36,16 @@ ActionController::Routing::Routes.draw do |map|
   # See how all your routes lay out with "rake routes"
 
   # Send the bare URL to the home/index
+  map.home '', :controller => 'twipl_home', :conditions => { :host => /.*twipl.com$/}
   map.home '', :controller => 'home'
+  
   map.logout 'logout', :controller => 'openids', :action => 'logout'
   map.login 'login', :controller => 'home'
   
   # these three actions are solely for testing the HTML/CSS layout of the alert div
   map.error 'error/:msg', :controller => 'home', :action => 'error'
-  map.error 'warn/:msg', :controller => 'home', :action => 'warn'
-  map.error 'inform/:msg', :controller => 'home', :action => 'inform'
+  map.warn 'warn/:msg', :controller => 'home', :action => 'warn'
+  map.inform 'inform/:msg', :controller => 'home', :action => 'inform'
   
   map.why 'why', :controller => 'about', :action => 'index'
   map.contact 'contact', :controller => 'contact', :action => 'index'
@@ -51,7 +53,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :openid, :member => { :logout => :get }
   
   map.resources :users
-  
+
   map.resources :twips, :collection => { :service_document => :get}
   
   map.resource :stylesheets do |stylesheet|

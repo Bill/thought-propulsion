@@ -35,7 +35,7 @@ Rails::Initializer.run do |config|
   # in vendor/plugins are loaded in alphabetical order.
   # :all can be used as a placeholder for all plugins not explicitly named
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
-  config.plugins = [ :open_id_authentication, :nested_layouts, :'rspec-rails', :'seed-fu']
+  config.plugins = [ :open_id_authentication, :nested_layouts, :'rspec-rails', :'seed-fu', :request_routing]
 
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
@@ -71,16 +71,3 @@ Rails::Initializer.run do |config|
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
 end
-
-# These are the sizes of the domain (i.e. 0 for localhost, 1 for something.com)
-# for each of your environments
-SubdomainFu.tld_sizes = { :development => 1,
-                          :test => 1,
-                          :production => 1 }
-
-# These are the subdomains that will be equivalent to no subdomain
-SubdomainFu.mirrors = ["www"]
-
-# This is the "preferred mirror" if you would rather show this subdomain
-# in the URL than no subdomain at all.
-SubdomainFu.preferred_mirror = nil
