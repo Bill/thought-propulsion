@@ -1,1 +1,1 @@
-welcome <%= render :partial => 'openids/openid'%> | <%= link_to 'logout', logout_url%>
+welcome <%= render :partial => 'openids/openid'%> | <%= link_to 'register', {:controller=>'openids', :action=>'create', :openid_url=> authenticated_identity_url }, :method=>:post%> | <%= link_to 'logout', logout_url%>
