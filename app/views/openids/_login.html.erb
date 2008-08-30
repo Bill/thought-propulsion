@@ -1,0 +1,7 @@
+<% if authenticated_identity_url.blank? %>
+<%= render :partial => 'openids/new'%>
+<% elsif registered_user.blank? %>
+<%= render :partial => 'openids/welcome_unregistered'%>
+<% else %>
+<%= render :partial => 'openids/welcome'%>
+<% end %>
