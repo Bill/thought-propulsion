@@ -36,7 +36,7 @@ ActionController::Routing::Routes.draw do |map|
   # See how all your routes lay out with "rake routes"
 
   # Send the bare URL to the home/index
-  map.home '', :controller => 'twipl_home', :conditions => { :host => /.*twipl.com$/}
+  map.home '', :controller => 'twipl_home', :conditions => { :host => /.*\.twipl.com$/}
   map.home '', :controller => 'home'
   
   map.logout 'logout', :controller => 'openids', :action => 'logout'
