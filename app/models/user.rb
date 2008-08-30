@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   
-  validates_presence_of :identity_url, :normalized_identity_url, :nickname
+  validates_presence_of :identity_url, :normalized_identity_url
   
   validates_uniqueness_of :normalized_identity_url, :nickname
   
