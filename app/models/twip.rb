@@ -5,7 +5,7 @@ class Twip < ActiveRecord::Base
   attr_protected :owner
 
   # TODO: add conditions
-  named_scope :access_public, {}
+  named_scope :access_public, { :conditions => {:public => true}}
   # TODO: add conditions
   named_scope :access_shared_with, lambda{ |viewer_openid| {}}
   
@@ -13,6 +13,5 @@ class Twip < ActiveRecord::Base
   # But since named_scopes can only be combined through conjunction (not disjunction), and since
   # there's no way to negate one of these things on the fly I had to combine them for the caller
   # TODO: add conditions
-  named_scope :access_public_or_shared_with, lambda{ |viewer_openid| {}}
-  
+  named_scope :access_public_or_shared_with, lambda{ |viewer_openid| { :conditions => {:public => true}}}
 end
