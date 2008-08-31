@@ -1,19 +1,13 @@
 class TwipsController < ApplicationController
   
   layout 'home'
-  
-  before_filter :filter_user_is_admin, :only => [:index]
+
+  # no filter on index (filtering that action is all about access control on a per-record basis)
   before_filter :filter_user_is_registered, :only => [:create, :new]
   before_filter :filter_user_is_admin_or_authorized_for_action, :except => [:create, :new, :index]
-
+  
   def index
-    @twips = WillPaginate::Collection.create(params[:page] || 1, 3) do |pager|
-      result = registered_user.twips.find(:all, :limit => pager.per_page, :offset => pager.offset, :order => 'created_at DESC')
-      pager.replace(result)
-      unless pager.total_entries
-        pager.total_entries = registered_user.twips.count
-      end
-    end
+    @twips = authorized_twip_summary_for_user_and_viewer
     respond_to do |wants|
       wants.atom { render :action => 'index', :layout => false}
       wants.html
@@ -76,4 +70,20 @@ class TwipsController < ApplicationController
   def user_action_on_resource_authorized
     Twip.find( params[:id]).owner == registered_user
   end
+  
+  def authorized_twip_summary_for_user_and_viewer
+    WillPaginate::Collection.create(params[:page] || 1, 3) do |pager|
+      publisher = User.for_host( request.host).find(:first)
+      viewer = authenticated_identity_url
+      if( publisher)
+        visible = publisher.twips.access_public_or_shared_with( viewer)
+        this_page = visible.find(:all, :limit => pager.per_page, :offset => pager.offset, :order => 'created_at DESC')
+        pager.replace( this_page )
+      end
+      unless pager.total_entries
+        pager.total_entries = 0
+      end
+    end
+  end
+
 end

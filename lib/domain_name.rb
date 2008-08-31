@@ -18,6 +18,13 @@ module DomainName
     !!( match = label.match( /([[:lower:]]|[[:digit:]]|-|_)+/) ) && match[0].length == label.length
   end
   
+  # if com and net are top-level domains, then labels at the other end of the name are bottom-level ones
+  # this routine takes a domain name and returns the left-most label
+  def bottom_label( domain)
+    domain.split('.')[0]
+  end
+  
   module_function :valid_domain?
   module_function :valid_label?
+  module_function :bottom_label
 end

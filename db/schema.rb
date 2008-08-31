@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080829181648) do
+ActiveRecord::Schema.define(:version => 20080831013555) do
 
   create_table "open_id_authentication_associations", :force => true do |t|
     t.integer "issued"
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(:version => 20080829181648) do
     t.string   "title"
     t.text     "body"
     t.integer  "owner_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "public",     :default => false
+  end
+
+  create_table "twips_viewers", :force => true do |t|
+    t.integer  "twip_id"
+    t.string   "viewer_openid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
