@@ -12,6 +12,7 @@ nested_layouts          - gives Rails nested layouts
 open_id_authentication  - name says it all
 request_routing         - * patched * version of Dan Webb's request_routing (I added :host condition)
 seed-fu                 - defines rake task for initializing database data "rake db:seed"
+criteria_query          - lets us do disjunctive conditions (OR) on ActiveRecord
 
 In development and test these are used:
 

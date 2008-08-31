@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080831013555) do
+ActiveRecord::Schema.define(:version => 20080831124243) do
 
   create_table "open_id_authentication_associations", :force => true do |t|
     t.integer "issued"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20080831013555) do
     t.boolean "admin"
     t.string  "normalized_identity_url"
     t.string  "authenticator"
+    t.string  "alternate_domain"
   end
 
 end

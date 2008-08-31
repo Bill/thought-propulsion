@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new( params[:user])
     @user.identity_url = session[:identity_url]
+    @user.set_sensitive_parameters( params[:user], registered_user, authenticated_identity_url)
     # captcha may be valid before user is. in that case captcha parameters will not be present but
     # captcha in session will be present and valid
     @captcha = params[:captcha] ? Captcha.new( params[:captcha]) : session[:captcha]
@@ -39,6 +40,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find( params[:id])
     @user.attributes = params[:user]
+    @user.set_sensitive_parameters( params[:user], registered_user, authenticated_identity_url)
     if @user.save
       inform "settings saved"
       redirect_to @user
@@ -53,6 +55,7 @@ class UsersController < ApplicationController
   end
   
   protected
+  
   def page_title
     @page_title = "Your Account"
   end

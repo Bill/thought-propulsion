@@ -1,5 +1,9 @@
 module Authorization
 
+  def self.included(other)
+    other.helper_method :user_is_registered, :user_is_admin, :user_is_admin_or_authorized_for_action
+  end
+
   # This is the second level of authority: the principal is authenticated and has a User object in the system
   def filter_user_is_registered
     unless( user_is_registered)
