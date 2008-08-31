@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :twips, :foreign_key => 'owner_id', :dependent => :destroy
   
   named_scope :with_same_identity, lambda{ |user| { :conditions => { :normalized_identity_url => user.normalized_identity_url}}}
+  named_scope :for_host, lambda{ |host_from_request| { :conditions => { :nickname => DomainName.bottom_label(host_from_request)}}}
 
   def initialize( *args)
     super( *args)
