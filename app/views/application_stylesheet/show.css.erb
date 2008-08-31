@@ -76,74 +76,50 @@ main content style */
 
 
 /* -------------------------------------------------------------- 
+misc. copy style */
+
+a {text-decoration: none; outline:none; border:none; color:<%= @c_a_w1%>;}
+h1, h2, h3, h4, h5, h6 {color:<%= @c_a_w5%>;}
+h1 { font-size: 2em; line-height: 1.5; margin-bottom:0; }
+h2 { font-size: 1.4em; line-height: 1.5; margin-bottom:0; }
+img {margin:0;}
+
+.trademark {
+   vertical-align:baseline;
+   font-size:0.6em;
+   position:relative;
+   top:-0.4em;
+   color:<%=  @c_b_w1%>;
+   }
+
+.foot .small {margin:0; padding-left:35px;}
+.foot .trademark {color:<%=  @c_b_w1%>;}
+.no-alerts .trademark {color:<%=  @c_b_w4%>;}
+
+.navigation a {text-decoration: none; border-bottom: none; color:<%= @c_a_w5%>;}
+.space {margin-top:1.5em; margin-bottom:1.5em;padding-top:1.5em; padding-bottom:1.5em;}
+
+
+
+/* -------------------------------------------------------------- 
 navigation elements */
 
-ul.nav {
-   position:absolute;
-   margin:0;
-   left:0;
-   bottom:0;
-   width:510px;
-   height:26px;
-   /*overflow: hidden;*/
-   background:transparent url(/images/navigation_bg.png) no-repeat 0 0;
-}
-ul.nav li {
-   padding:0;
-   margin:0;
-   display:block;
-   float:left;
-   text-indent:-9999px;	
-}
-ul.nav li a {
-   border:0;
-   display:block;
-   text-decoration:none;
-   overflow:hidden;
-   background:transparent url(/images/navigation.png) no-repeat;
-}
-
-li.home a {
-   width:56px;
-   height:26px;
-}
-li.why a {
-   width:49px;
-   height:26px;
-}
-li.contact a {
-   width:78px;
-   height:26px;
-}
-
-li.home a:link, li.home a:visited {
-   background-position:-71px 0px;
-}	 	 	 
-li.home a:hover, li.home a:focus {
-   background-position:-71px -26px;
-}
-li.why a:link, li.why a:visited {	
-   background-position:-127px 0px;
-}
-li.why a:hover, li.why a:focus {	
-   background-position:-127px -26px;
-}
-li.contact a:link, li.contact a:visited {	
-   background-position: -176px 0px;
-}
-li.contact a:hover, li.contact a:focus {	
-   background-position: -176px -26px;
-}
-
-body.home ul.nav li.home a {
-   background-position:-71px -52px;
-}
-body.why ul.nav li.why a {
-   background-position:-127px -52px;
-}
-body.contact ul.nav li.contact a {
-   background-position:-176px -52px;
-}
+ul.nav {position:absolute;margin:0;left:0;bottom:0;width:510px;height:26px;
+/*overflow: hidden;*/background:transparent url(/images/navigation_bg.png) no-repeat 0 0;}
+ul.nav li {padding:0;margin:0;display:block;float:left;text-indent:-9999px;}
+ul.nav li a {border:0;display:block;text-decoration:none;overflow:hidden;background:transparent url(/images/navigation.png) no-repeat;}
+li.home a {width:56px;height:26px;}
+li.why a {width:49px;height:26px;}
+li.contact a {width:78px;height:26px;}
+li.home a:link, li.home a:visited {background-position:-71px 0px;}	 	 	 
+li.home a:hover, li.home a:focus {background-position:-71px -26px;}
+li.why a:link, li.why a:visited {background-position:-127px 0px;}
+li.why a:hover, li.why a:focus {background-position:-127px -26px;}
+li.contact a:link, li.contact a:visited {background-position: -176px 0px;}
+li.contact a:hover, li.contact a:focus {background-position: -176px -26px;}
+body.home ul.nav li.home a {background-position:-71px -52px;}
+body.why ul.nav li.why a {background-position:-127px -52px;}
+body.contact ul.nav li.contact a {background-position:-176px -52px;}
 
 
 
@@ -178,31 +154,6 @@ alerts */
    background:url(/images/inform.png) no-repeat 0 center;
 }
 
-
-
-/* -------------------------------------------------------------- 
-misc. copy style */
-
-a {text-decoration: none; outline:none; border:none; color:<%= @c_a_w1%>;}
-h1, h2, h3, h4, h5, h6 {color:<%= @c_a_w5%>;}
-h1 { font-size: 2em; line-height: 1.5; margin-bottom:0; }
-h2 { font-size: 1.4em; line-height: 1.5; margin-bottom:0; }
-img {margin:0;}
-
-.trademark {
-   vertical-align:baseline;
-   font-size:0.6em;
-   position:relative;
-   top:-0.4em;
-   color:<%=  @c_b_w1%>;
-   }
-
-.foot .small {margin:0; padding-left:35px;}
-.foot .trademark {color:<%=  @c_b_w1%>;}
-.no-alerts .trademark {color:<%=  @c_b_w4%>;}
-
-.navigation a {text-decoration: none; border-bottom: none; color:<%= @c_a_w5%>;}
-.space {margin-top:1.5em; margin-bottom:1.5em;padding-top:1.5em; padding-bottom:1.5em;}
 
 
 /* -------------------------------------------------------------- 
