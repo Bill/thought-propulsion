@@ -17,30 +17,26 @@
 <div class='page'>
    <%= render :partial => 'alerts/show'%>
    <div class='container no-alerts'>
-      <div class='span-13'>
-         <div class='span-13 head last'>
-            <ul class='nav prepend-2'>
+      <div class='span-14'>
+         <div class='span-14 head last'>
+            <ul class=' span-13 prepend-1 nav last'>
                <li class='home'><%= link_to 'Home', home_url %></li>
                <li class='why'><%= link_to 'Why', why_url%></li>
                <li class='contact'><%= link_to 'Contact', contact_url %></li>
+               <div class='login'><%= render :partial => 'openids/login'%></div>
             </ul>
-            <div class='login last'>
-               <%= render :partial => 'openids/login'%>
-            </div>
          </div>
-         <div class='span-11 prepend-2 content last'>
+         <div class='span-14 content last'>
             <%= yield %>
          </div>
-            
       </div>
-      <div class='span-7 prepend-1 last ihide'> <!--can be thought of as right column, contains only the logo and whitespace-->
+      <div class='span-6 prepend-1 last ihide'> <!--can be thought of as right column, contains only the logo and whitespace-->
          <%= link_to '<img alt="Thought Propulsion" src="/images/logo.png"/>', home_url %>
       </div>
    </div><!--End container-->
    <div class='foot'>
       <span class='small'>&copy; 2008 <%=company_name%></span>
    </div>
-.
 </div>
 </body>
 </html>

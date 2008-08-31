@@ -26,7 +26,7 @@ class ApplicationStylesheetController < ApplicationController
     # The purpose of these variables, however is to allow you to change the palette
     # without having to search and replace everything in the CSS.
     @c_b = '#1F2323'
-    @c_b_w1 = '#4c4f4f'
+    @c_b_w1 = '#2c2c2c'
     @c_b_w2 = '#797b7b'
     @c_b_w3 = '#a5a7a7'
     @c_b_w4 = '#d2d3d3'

@@ -26,14 +26,14 @@ html, body {
    border-bottom: solid <%= @c_t_k5%> 2px;
 }
 
-.no-alerts, .alerts, .foot, .bottom {
+.no-alerts, .alerts{
    margin:0;
    width:100%;
    min-width:830px;
 }
 
 .content  {
-   padding-bottom:5em;
+   padding:2em 0 5em 0;
 }
 
 .foot { 
@@ -45,88 +45,83 @@ html, body {
 
 
 /* -------------------------------------------------------------- 
+main content style */
+
+.intro {margin-top:1.5em; margin-bottom:1.5em;padding-top:1.5em;}
+.intro p {line-height:3;}
+.icon {}
+
+.vcard {margin-top:1.5em; margin-bottom:1.5em;padding-top:1.5em;}
+
+.bg {
+   background: <%= @c_b_w1%> url(/images/content_copy.png) repeat-y left top;
+   border-top: 2px solid <%= @c_a_k5%>;
+   border-bottom: 2px solid <%= @c_a_k5%>;
+   border-right: 2px solid <%= @c_a_k5%>;
+   }
+
+.extend-foot {
+   position:absolute;
+   bottom:0;
+   left:0;
+   height:20em;
+   background:<%= @c_b_w1%>;
+   text-align:left;
+   }
+
+.content a {text-decoration: none; outline:none; border-bottom: 1px dotted <%= @c_a_k1%>; color:<%= @c_a_w1%>;}
+.content a:hover, .content a:focus {text-decoration: none; outline:none; border-bottom: 1px solid <%= @c_a_w1%>; color:<%= @c_a_w1%>; background-color: <%= @c_b_k1%>;}
+.icon a, .icon a:hover, .icon a:focus {text-decoration: none; outline:none; border-bottom: none; color:<%= @c_a_w2%>; background-color:transparent;}
+
+
+
+/* -------------------------------------------------------------- 
+misc. copy style */
+
+a {text-decoration: none; outline:none; border:none; color:<%= @c_a_w1%>;}
+h1, h2, h3, h4, h5, h6 {color:<%= @c_a_w5%>;}
+h1 { font-size: 2em; line-height: 1.5; margin-bottom:0; }
+h2 { font-size: 1.4em; line-height: 1.5; margin-bottom:0; }
+img {margin:0;}
+
+.trademark {
+   vertical-align:baseline;
+   font-size:0.6em;
+   position:relative;
+   top:-0.4em;
+   color:<%=  @c_b_w1%>;
+   }
+
+.foot .small {margin:0; padding-left:35px;}
+.foot .trademark {color:<%=  @c_b_w1%>;}
+.no-alerts .trademark {color:<%=  @c_b_w4%>;}
+
+.navigation a {text-decoration: none; border-bottom: none; color:<%= @c_a_w5%>;}
+.space {margin-top:1.5em; margin-bottom:1.5em;padding-top:1.5em; padding-bottom:1.5em;}
+
+
+
+/* -------------------------------------------------------------- 
 navigation elements */
 
-.navigation {
-   font-weight:bold;
-   word-spacing:15px;
-   left:10px;
-   bottom:4px;
-   position:absolute;
-}
+ul.nav {position:absolute;margin:0;left:0;bottom:0;width:510px;height:26px;
+/*overflow: hidden;*/background:transparent url(/images/navigation_bg.png) no-repeat 0 0;}
+ul.nav li {padding:0;margin:0;display:block;float:left;text-indent:-9999px;}
+ul.nav li a {border:0;display:block;text-decoration:none;overflow:hidden;background:transparent url(/images/navigation.png) no-repeat;}
+li.home a {width:56px;height:26px;}
+li.why a {width:49px;height:26px;}
+li.contact a {width:78px;height:26px;}
+li.home a:link, li.home a:visited {background-position:-71px 0px;}	 	 	 
+li.home a:hover, li.home a:focus {background-position:-71px -26px;}
+li.why a:link, li.why a:visited {background-position:-127px 0px;}
+li.why a:hover, li.why a:focus {background-position:-127px -26px;}
+li.contact a:link, li.contact a:visited {background-position: -176px 0px;}
+li.contact a:hover, li.contact a:focus {background-position: -176px -26px;}
+body.home ul.nav li.home a {background-position:-71px -52px;}
+body.why ul.nav li.why a {background-position:-127px -52px;}
+body.contact ul.nav li.contact a {background-position:-176px -52px;}
 
-div.login {
-   color:<%= @c_a_w4%>;
-   bottom:4px;
-   left:260px;
-   position:absolute;
-}
 
-ul.nav {
-   position:absolute;
-   margin:0;
-   left:0;
-   bottom:0;
-   width:450px;
-   height:26px;
-   /*overflow: hidden;*/
-   background:transparent url(/images/navigation_bg.png) no-repeat 0 0;
-}
-ul.nav li {
-   padding:0;
-   margin:0;
-   display:block;
-   float:left;
-   text-indent:-9999px;	
-}
-ul.nav li a {
-   border:0;
-   display:block;
-   text-decoration:none;
-   overflow:hidden;
-   background:transparent url(/images/navigation.png) no-repeat;
-}
-li.home a {
-   width:56px;
-   height:26px;
-}
-li.why a {
-   width:49px;
-   height:26px;
-}
-li.contact a {
-   width:68px;
-   height:26px;
-}
-
-li.home a:link, li.home a:visited {
-   background-position:-71px 0px;
-}	 	 	 
-li.home a:hover, li.home a:focus {
-   background-position:-71px -26px;
-}
-li.why a:link, li.why a:visited {	
-   background-position:-127px 0px;
-}
-li.why a:hover, li.why a:focus {	
-   background-position:-127px -26px;
-}
-li.contact a:link, li.contact a:visited {	
-   background-position: -176px 0px;
-}
-li.contact a:hover, li.contact a:focus {	
-   background-position: -176px -26px;
-}
-
-body.home ul.nav li.home a {
-   background-position:-71px -52px;
-}
-body.why ul.nav li.why a {
-   background-position:-127px -52px;
-}
-body.contact ul.nav li.contact a {
-   background-position:-176px -52px;
-}
 
 /* -------------------------------------------------------------- 
 alerts */
@@ -144,6 +139,7 @@ alerts */
    font-size:1.2em; /*these three properties are from screen.css large rule*/
    line-height:1.3em;
    margin: 1.25em 0;
+   min-height:30px;
 }
 
 .alerts .error {
@@ -159,146 +155,26 @@ alerts */
 }
 
 
-/* -------------------------------------------------------------- 
-main content style */
-
-.content{margin:2em 0 0 0;}
-
-.intro {color:<%= @c_a_w5%>;}
-
-.bill {
-   background:url(/images/content_bill.png) no-repeat left top;
-   margin:5em 0 0.2em -80px;
-   width:531px;
-   height:195px;
-   }
-
-.web {
-   background:url(/images/content_web.png) no-repeat left top;
-   margin:5em 0 0.2em -80px;
-   width:531px;
-   height:259px;
-   }
-   
-.iphone {
-   background:url(/images/content_iphone.png) no-repeat left top;
-   margin:5em 0 0.2em -80px;
-   width:531px;
-   height:195px;
-   }
-      
-.security {
-   background:url(/images/content_security.png) no-repeat left top;
-   margin:5em 0 0.2em -80px;
-   width:531px;
-   height:195px;
-   }
-
-.farm {
-   background:url(/images/content_farm.png) no-repeat left top;
-   margin:5em 0 0.2em -80px;
-   width:531px;
-   min-height:195px;
-   }
-
-.truck {
-   background:url(/images/content_truck.png) no-repeat left top;
-   margin:5em 0 0.2em -80px;
-   width:531px;
-   min-height:195px;
-   }
-
-.revolt {
-   background:url(/images/content_revolt.png) no-repeat left top;
-   margin:5em 0 0.2em -80px;
-   width:531px;
-   min-height:195px;
-   }
-
-.vcard {
-   background:url(/images/content_mail.png) no-repeat left top;
-   margin:5em 0 0.2em -80px;
-   width:531px;
-   height:195px;
-   }
-
-.web p, .iphone p, .security p, .vcard p, .farm p, .truck p, .revolt p {
-   color:<%= @c_a_w5%>;
-   line-height:3;
-   margin:0 1em 0 160px;
-}
-
-.bill p{
-   color:<%= @c_a_w5%>;
-   margin:0 1em 0 170px;
-}
-
-.intro p{}
-
-.content h1 {
-   color:<%= @c_a_w2%>;
-   min-height:36px;
-   }
-
-.content a {text-decoration: none; outline:none; border-bottom: 1px dotted <%= @c_a_k1%>; color:<%= @c_a_w1%>;}
-.content a:hover, a:focus {text-decoration: none; outline:none; border-bottom: 1px solid <%= @c_a_w1%>; color:<%= @c_a_w1%>; background-color: <%= @c_b_k1%>;}
-
-/* -------------------------------------------------------------- 
-Thought Propulsion Corporate Pages */
-
-body.home .content h1, body.why .content h1, body.contact .content h1 {
-   padding: .3em 0 0 160px;
-   }
-
-/* -------------------------------------------------------------- 
-misc. copy style */
-
-a {text-decoration: none; outline:none; border:none; color:<%= @c_a_w1%>;}
-h1, h2, h3, h4, h5, h6 {color:<%= @c_a_w5%>;}
-h1 { font-size: 2em; line-height: 1.4; margin-bottom: -.1em; }
-img {margin:0;}
-
-.trademark {
-   vertical-align:baseline;
-   font-size:0.6em;
-   position:relative;
-   top:-0.4em;
-   color:<%=  @c_b_w1%>
-   }
-   
-.foot .trademark {
-      color:<%=  @c_b_w1%>
-      }
-
-.no-alerts .trademark {color:<%=  @c_b_w4%>}
-
-.navigation a {text-decoration: none; border-bottom: none; color:<%= @c_a_w5%>;}
-
-.whiteout {color:<%= @c_a_w5%>;}
-
-
 
 /* -------------------------------------------------------------- 
 login style */
+
+.login {
+   color:<%= @c_b_w4%>;
+   margin-top:3px;
+   }
 
 .openid_url {
    background:url(/images/login-bg.gif) no-repeat 5px;
    padding-left:25px;
    width:100px;
-}
-
-input.openid_url {
-   background-color: <%= @c_a_w5%>;
-   color:<%= @c_a_k5%>;
-   border:1px solid <%= @c_b_k2%>;
-   width:100px;
+   background-color:<%= @c_a_w5%>;
 }
 
 .button {
    background-color:<%= @c_a_w5%>;
    color:#23201F;
    border:1px solid <%= @c_b_k2%>;
-
 }
 
 
@@ -306,7 +182,7 @@ input.openid_url {
 /* -------------------------------------------------------------- 
 vcard Contact style */
 
-.vcard h1 a, .vcard h1 a:hover, .vcard h1 a:focus {text-decoration: none; outline:none; border-bottom: none; color:<%= @c_a_w2%>; background-color:transparent;}
+.vcard h1 a, .vcard h1 a:hover, .vcard h1 a:focus {text-decoration: none; outline:none; border-bottom: none; color:<%= @c_a_w5%>; background-color:transparent;}
 .adr {display:block;}
 
 /*
@@ -345,7 +221,7 @@ see also: Blueprint CSS screen.css rules for .error and friends (I made this rul
    border:none;
 }
 
-.instructions { color:<%=@c_b_w1%>}
+.instructions { color:<%=@c_b_w4%>}
 
 
 
