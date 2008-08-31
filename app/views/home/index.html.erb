@@ -2,18 +2,11 @@
    <h1><%= company_name %> is go for burn</h1><p>in <%=link_to 'Portland Oregon', contact_url %> handcrafting sweet digital machines.</p>
 </div>
 
-<div class='span-14 space'>
 <div class='span-13 prepend-1'>
    <div class="span-2 icon"><a href="http://#"><img src="/images/icon_rails.png" alt="Rails Application Development" /></a></div>
    <div class="span-2 icon"><a href="http://#"><img src="/images/icon_iphone.png" alt="iPhone Application Development" /></a></div>
    <div class="span-5 icon"><a href="http://#"><img src="/images/icon_amazon.png" alt="Amazon Development" /></a></div>
    <div class="span-2 append-2 last icon"><a href="http://#"><img src="/images/icon_openid.png" alt="OpenID Security Development" /></a></div>
-   <div class='icon span-2'><%= link_to '<img src="/images/icon_bill.png" alt="Bill" />', contact_url %></div>
-      <div class='span-11 last'>
-         <h1>Bill Burcham is our Main Engine</h1>
-         <p>He has the skills of five space ninja.</p>
-   </div>
-</div>
 </div>
 
 <div class='span-14 bg space'>
@@ -28,7 +21,13 @@
    <p>We know security. Moving to <%= external_google_search_link_to 'OpenID'%>? We can help. Whether you need an innovative security solution for your new project or a security assessment for an existing one <%= company_name %> is your pal.</p>
 </div>
 </div>
-
+<div class='span-13 prepend-1'>
+<div class='icon span-2'><%= link_to '<img src="/images/icon_bill.png" alt="Bill" />', contact_url %></div>
+   <div class='span-11 last'>
+      <h1>Bill Burcham is our Main Engine</h1>
+      <p>He has the skills of five space ninja.</p>
+</div>
+</div>
 <div class='hide'>
 <%= co_branding_link('iPhone', 'rails_logo_remix_big.png') %>
 <%= co_branding_link('OpenID', 'openid-icon-100x100.png') %>
