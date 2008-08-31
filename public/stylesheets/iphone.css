@@ -22,16 +22,18 @@ div.span-1, div.span-2, div.span-3, div.span-4, div.span-5, div.span-6, div.span
 
 /* Use these classes to set the width of a column. */
 .span-1  { width: 10px;}
-.span-2  { width: 25px;}
+/*.span-2  { width: 25px;} */
+.span-2  { width: 70px;}
 .span-3  { width: 40px;}
 .span-4  { width: 55px;}
-.span-5  { width: 70px;}
+/*.span-5  { width: 70px;} */
+.span-5  { width: 190px;}
 .span-6  { width: 85px;}
 .span-7  { width: 100px;}
 .span-8  { width: 115px;}
 .span-9  { width: 130px;}
 .span-10 { width: 145px;}
-.span-11 { width: 360px;}
+.span-11 { width: 370px;}
 .span-12 { width: 175px;}
 .span-13 { width: 500px;}
 .span-14 { width: 105px;}
@@ -93,15 +95,7 @@ div.span-1, div.span-2, div.span-3, div.span-4, div.span-5, div.span-6, div.span
 iphone */
 
 .ihide { display: none;}
-.no-alerts, .alerts, .foot, .bottom {min-width:520px; width:100%;}
-.login {margin-left:210px;}  
-#openid_url {width:100px;}
-ul.nav {background:transparent url(/images/navigation_bg.png) no-repeat -115px 0;}
-.vcard {background:url(/images/icontent_mail.png) no-repeat left top;height:260px;}
-.security {background:url(/images/icontent_security.png) no-repeat left top;height:208px;}
-.bill, .web, .iphone, .security, .farm, .truck, .revolt, .vcard {margin:1em 0 0.2em -40px;}
-.content p {width:400px;}
-.content h1 {min-height:36px; padding: .3em 0 0 160px;}
-.ruby p, .iphone p, .security p, .vcard p, .farm p, .truck p, .revolt p {line-height:2; margin:0 1em 0 160px; width:360px; font-size:130%;}
-.bill p{margin:0 1em 0 170px; width:360px; font-size:130%;}
+.no-alerts, .alerts, .foot {min-width:520px; width:100%;}
+.intro {margin-top:1.5em; margin-bottom:1.5em;padding-top:1.5em;}
+.intro p {line-height:2;}
 }

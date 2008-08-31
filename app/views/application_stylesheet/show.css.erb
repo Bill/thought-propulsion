@@ -26,7 +26,7 @@ html, body {
    border-bottom: solid <%= @c_t_k5%> 2px;
 }
 
-.no-alerts, .alerts, .foot{
+.no-alerts, .alerts{
    margin:0;
    width:100%;
    min-width:830px;
@@ -58,6 +58,15 @@ main content style */
    border-top: 2px solid <%= @c_a_k5%>;
    border-bottom: 2px solid <%= @c_a_k5%>;
    border-right: 2px solid <%= @c_a_k5%>;
+   }
+
+.extend-foot {
+   position:absolute;
+   bottom:0;
+   left:0;
+   height:20em;
+   background:<%= @c_b_w1%>;
+   text-align:left;
    }
 
 .content a {text-decoration: none; outline:none; border-bottom: 1px dotted <%= @c_a_k1%>; color:<%= @c_a_w1%>;}
@@ -184,11 +193,12 @@ img {margin:0;}
    font-size:0.6em;
    position:relative;
    top:-0.4em;
-   color:<%=  @c_b_w1%>
+   color:<%=  @c_b_w1%>;
    }
-   
-.foot .trademark {color:<%=  @c_b_w1%>}
-.no-alerts .trademark {color:<%=  @c_b_w4%>}
+
+.foot .small {margin:0; padding-left:35px;}
+.foot .trademark {color:<%=  @c_b_w1%>;}
+.no-alerts .trademark {color:<%=  @c_b_w4%>;}
 
 .navigation a {text-decoration: none; border-bottom: none; color:<%= @c_a_w5%>;}
 .space {margin-top:1.5em; margin-bottom:1.5em;padding-top:1.5em; padding-bottom:1.5em;}
@@ -199,20 +209,14 @@ login style */
 
 .login {
    color:<%= @c_b_w4%>;
-   margin:3px;
+   margin-top:3px;
    }
 
 .openid_url {
    background:url(/images/login-bg.gif) no-repeat 5px;
    padding-left:25px;
    width:100px;
-}
-
-input.openid_url {
    background-color:<%= @c_a_w5%>;
-   color:<%= @c_a_k5%>;
-   border:1px solid <%= @c_b_k2%>;
-   width:100px;
 }
 
 .button {
