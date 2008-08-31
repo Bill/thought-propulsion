@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
   # purchase additional ones.
   def twipl_domain
     # this logic needs to be the inverse of the logic in the :for_host named scope
-    nickname + case ENV['RAILS_ENV']
+    (nickname || '') + case ENV['RAILS_ENV']
     when 'development': '.dev.twipl.com'
     when 'test': '.test.twipl.com'
     when 'staging': '.staging.twipl.com'
