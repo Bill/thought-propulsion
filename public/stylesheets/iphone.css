@@ -1,5 +1,5 @@
 @media only screen and (max-device-width: 480px) {
-
+html p {-webkit-text-size-adjust:170%}
 /*
    == STRUCTURE: ========================
     * Page width:            310 px
