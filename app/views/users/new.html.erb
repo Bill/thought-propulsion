@@ -1,5 +1,8 @@
-<h1>Create a <%=company_name%> Account</h1>
-<p>Your identity has been verified but you're not yet a <%= company_name%> member&mdash;please you start using the site in a <%= link_to 'limited way', home_url%> now, or you can go ahead and complete your registration for an enhanced experience:</p>
+<div class='span-13 prepend-1 bg space intro'>
+   <h1>Create a <%=company_name%> Account</h1>
+</div>
+<div class='span-13 prepend-1'>
+<p>Your identity has been verified but you're not yet a <%= company_name%> member &mdash; you can start using the site in a <%= link_to 'limited way', home_url%> now, or you can go ahead and complete your registration for an enhanced experience:</p>
 <% corkd_form_for( @user) do |f| %>
 <%= render :partial => f, :locals => {:readonly => false}%>
 <% 
@@ -15,3 +18,4 @@
 <% unless @captcha.captcha_verified %>
 <p><img src="http://captchator.com/captcha/image/<%= @captcha.captcha_session %>"/></p>
 <%end%>
+</div>
