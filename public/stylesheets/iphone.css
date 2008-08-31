@@ -97,6 +97,5 @@ iphone */
 
 .ihide { display: none;}
 .no-alerts, .alerts, .foot {min-width:520px; width:100%;}
-.intro {margin-top:1.5em; margin-bottom:1.5em;padding-top:1.5em;}
-.intro p {line-height:2;}
+.head {background: url(/images/header_icon_iphone.png) no-repeat top left;}
 }
