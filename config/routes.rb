@@ -55,12 +55,12 @@ ActionController::Routing::Routes.draw do |map|
   
   # that second condition (for blog…) is a special case to allow the Thought Propulsion blog
   # to be handled by Twipl.
-  map.with_options :conditions => { :host => /(.*\.twipl.com$)|(blog((.)|(.dev.)|(.staging.))thoughtpropulsion.com)/} do | twipl |
+  map.with_options :conditions => { :host => /((.+\.)?twipl.com$)|(blog((.)|(.dev.)|(.staging.))thoughtpropulsion.com$)/} do | twipl |
     twipl.home '', :controller => 'twipl_home'
     twipl.resources :twips, :collection => { :service_document => :get}
   end
   
-  map.with_options :conditions => { :host => /.*\.thoughtpropulsion.com$/} do | thoughtpropulsion |
+  map.with_options :conditions => { :host => /(.+\.)?thoughtpropulsion.com$/} do | thoughtpropulsion |
     thoughtpropulsion.home '', :controller => 'home'
     thoughtpropulsion.why 'why', :controller => 'about', :action => 'index'
     thoughtpropulsion.contact 'contact', :controller => 'contact', :action => 'index'
