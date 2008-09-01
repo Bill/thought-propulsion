@@ -55,17 +55,17 @@ ActionController::Routing::Routes.draw do |map|
 
   # blog.thoughtpropulsion.com is a special case since it's powered by twipl but lives under
   # the thoughtpropulsion.com domain
-  map.with_options :conditions => { :host => /^blog.thoughtpropulsion.com$/} do | blog |
+  map.with_options :conditions => { :host => /^blog\.(((dev)|(staging))\.)?thoughtpropulsion.com$/}, :layout => 'home' do | blog |
     blog.connect '', :controller => 'twips'
   end
 
-  map.with_options :conditions => { :host => /(.+\.)?thoughtpropulsion.com$/} do | thoughtpropulsion |
+  map.with_options :conditions => { :host => /^(((www)|(dev)|(staging))\.)?thoughtpropulsion.com$/}, :layout => 'home' do | thoughtpropulsion |
     thoughtpropulsion.home '', :controller => 'home'
     thoughtpropulsion.why 'why', :controller => 'about', :action => 'index'
     thoughtpropulsion.contact 'contact', :controller => 'contact', :action => 'index'
   end
   
-  map.with_options :conditions => { :host => /(.+\.)?twipl.com$/} do | twipl |
+  map.with_options :conditions => { :host => /^((www)|(dev)|(staging))?twipl.com$/}, :layout => 'twipl_home' do | twipl |
     twipl.home '', :controller => 'twipl_home'
     twipl.resources :twips, :collection => { :service_document => :get}
   end
@@ -73,7 +73,9 @@ ActionController::Routing::Routes.draw do |map|
   # custom domains under twipl.com as well as foreign domain mappings (for twipl)
   # This is where the public comes to read posts authored by twipl users.
   # So we want to map the twipl listing to the root so readers don't have to go to /twips
-  map.connect '', :controller => 'twips'
+  map.with_options :conditions => { :host => /(.+\.)twipl.com$/}, :layout => 'twipl_home' do | twiplpowered |
+    twiplpowered.connect '', :controller => 'twips'
+  end
   
 
   # Do not install the default routes at all since that would cause e.g. a request to 

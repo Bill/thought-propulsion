@@ -5,7 +5,9 @@ class TwipsController < TwiplApplicationController
   before_filter :filter_user_is_admin_or_authorized_for_action, :except => [:create, :new, :index]
   
   def index
-    @twips = authorized_twip_summary_for_user_and_viewer
+    publisher = User.for_host( request.host).find(:first)
+    (render( :file => "#{RAILS_ROOT}/public/404.html", :status => 404) and return) unless publisher
+    @twips = authorized_twip_summary_for_publisher_and_viewer( publisher)
     respond_to do |wants|
       wants.atom { render :action => 'index', :layout => false}
       wants.html
@@ -73,9 +75,8 @@ class TwipsController < TwiplApplicationController
     Twip.find( params[:id]).owner == registered_user
   end
   
-  def authorized_twip_summary_for_user_and_viewer
+  def authorized_twip_summary_for_publisher_and_viewer( publisher)
     WillPaginate::Collection.create(params[:page] || 1, 3) do |pager|
-      publisher = User.for_host( request.host).find(:first)
       viewer = authenticated_identity_url
       if( publisher)
         visible = publisher.twips.access_public_or_shared_with( viewer)

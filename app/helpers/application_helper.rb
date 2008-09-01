@@ -11,6 +11,11 @@ module ApplicationHelper
     "Thought Propulsion<span class='trademark'>&trade;</span>"
   end
   
+  # override in your application's helper
+  def product_name
+    ''
+  end
+  
   def external_link_to( term, options={}, html_options={})
     html_options[:class] = add_class( html_options[:class])
     link_to term, options, html_options
