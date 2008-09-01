@@ -1,7 +1,5 @@
-class TwipsController < ApplicationController
+class TwipsController < TwiplApplicationController
   
-  layout 'home'
-
   # no filter on index (filtering that action is all about access control on a per-record basis)
   before_filter :filter_user_is_registered, :only => [:create, :new]
   before_filter :filter_user_is_admin_or_authorized_for_action, :except => [:create, :new, :index]
@@ -66,6 +64,10 @@ class TwipsController < ApplicationController
   end
   
   protected
+  
+  def page_title
+    super + ' | Twip'
+  end
   
   def user_action_on_resource_authorized
     Twip.find( params[:id]).owner == registered_user

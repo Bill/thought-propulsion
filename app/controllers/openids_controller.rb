@@ -1,7 +1,5 @@
 class OpenidsController < ApplicationController
 
-  layout 'home'
-  
   include ApplicationHelper # to get company_name method
   
   def new
@@ -58,7 +56,7 @@ class OpenidsController < ApplicationController
           response.add_extension(sreg_request)
   
           return_to = url_for(:action=> 'openid_authentication_callback')
-          trust_root = url_for(:controller=>'openids')
+          trust_root = home_url
           redirect_url = response.redirect_url(trust_root, return_to)
           redirect_to( redirect_url)
           return
@@ -103,6 +101,6 @@ class OpenidsController < ApplicationController
     end
 
     def page_title
-      @page_title = "Signup"
+      super + ' | Sign Up'
     end
 end

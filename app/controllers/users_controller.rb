@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
   
-  layout 'home'
-  
   before_filter :filter_user_is_admin, :only => [:index]
   before_filter :filter_user_is_authenticated, :only => [:new, :create]
   before_filter :filter_user_is_admin_or_authorized_for_action, :except => [:new, :create, :index]
@@ -57,7 +55,7 @@ class UsersController < ApplicationController
   protected
   
   def page_title
-    @page_title = "Your Account"
+    super + ' | Your Account'
   end
   
   def user_action_on_resource_authorized

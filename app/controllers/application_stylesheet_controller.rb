@@ -3,6 +3,8 @@
 # define basic dimensions and then compute derived dimensions from those.
 class ApplicationStylesheetController < ApplicationController
   
+  layout false
+  
   def show
     
     define_palette

@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
 
   def initialize( *args)
     super( *args)
-    self.authenticator ||= Nonce.generate
+    self.authenticator ||= Propel::Nonce.generate
   end
 
   def set_sensitive_parameters( user_parameters, registered_user, authenticated_identity_url)

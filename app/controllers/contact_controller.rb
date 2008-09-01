@@ -1,6 +1,4 @@
-class ContactController < ApplicationController
-  
-  layout 'home'
+class ContactController < ThoughtPropulsionApplicationController
   
   def index
     @vcard = {
@@ -22,8 +20,9 @@ class ContactController < ApplicationController
   end
   
   protected
+  
   def page_title
-    @page_title = "Contact"
+    super + ' | Contact'
   end
   
 end

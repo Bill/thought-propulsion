@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-   <%= yield 'head'%>
+   <title><%= page_title %></title>
    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
    <meta name = "viewport" content = "width = device-width, initial-scale = 0.6">
    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -11,6 +11,7 @@
    <!--[if IE]><%= stylesheet_link_tag 'blueprint/ie', :media => 'screen, projection', :cache => true %><![endif]-->	
    <%= stylesheet_link_tag 'application', :cache => true %>
    <%= stylesheet_link_tag 'iphone', :media => 'screen', :cache => true %>
+   <%= yield 'head'%>
 </head>
 
 <body class='<%=body_class%>'>

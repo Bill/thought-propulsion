@@ -18,7 +18,7 @@ class Captcha
     %w( captcha captcha_session captcha_verified).each do |name|
       send "#{name}=".to_sym, h[name.to_sym] if h.has_key?(name.to_sym)
     end
-    self.captcha_session ||= Nonce.generate
+    self.captcha_session ||= Propel::Nonce.generate
   end
   
   def attributes

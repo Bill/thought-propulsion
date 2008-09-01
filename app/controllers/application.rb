@@ -31,8 +31,9 @@ class ApplicationController < ActionController::Base
     session[:return_to] = nil # I know no other way to "clear" a slot in the session!
   end
   
+  # override in subclasses to append a controller-specific tail onto the site-specific head of the page title
   def page_title
-    @page_title = "iPhone &amp; Web Apps Built About You"
+    ''
   end
   
   helper_method :page_title

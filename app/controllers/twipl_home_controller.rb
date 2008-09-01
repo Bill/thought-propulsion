@@ -1,4 +1,4 @@
-class TwiplHomeController < ApplicationController
+class TwiplHomeController < TwiplApplicationController
   
   layout 'twipl_home'
   
@@ -8,7 +8,7 @@ class TwiplHomeController < ApplicationController
   protected
   
   def page_title
-    @page_title = "Authoring Built About You"
+    super + ' | Authoring Built About You'
   end
   
 end

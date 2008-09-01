@@ -1,8 +1,6 @@
-class HomeController < ApplicationController
+class HomeController < ThoughtPropulsionApplicationController
   
   include ActionView::Helpers::SanitizeHelper
-  
-  layout 'home'
   
   def index
   end
@@ -19,5 +17,11 @@ class HomeController < ApplicationController
   def inform
     alert :inform, sanitize( params[:msg])
     render :action => 'index'
+  end
+  
+  protected
+  
+  def page_title
+    super + ' | iPhone &amp; Web Apps Built About You'
   end
 end
