@@ -96,7 +96,9 @@ navigation elements */
 ul.nav {position:absolute;margin:0;left:0;bottom:0;width:510px;height:26px;
 /*overflow: hidden;*/background:transparent url(/images/navigation_bg.png) no-repeat 0 0;}
 ul.nav li {padding:0;margin:0;display:block;float:left;text-indent:-9999px;}
+ul.nav li div {text-indent:0;}
 ul.nav li a {border:0;display:block;text-decoration:none;overflow:hidden;background:transparent url(/images/navigation.png) no-repeat;}
+li.userspace {width:320px;height:26px;}
 li.home a {width:56px;height:26px;}
 li.why a {width:49px;height:26px;}
 li.contact a {width:78px;height:26px;}
@@ -151,6 +153,7 @@ login style */
 .login {
    color:<%= @c_b_w4%>;
    margin-top:3px;
+   float:left;
    }
 
 .openid_url {
