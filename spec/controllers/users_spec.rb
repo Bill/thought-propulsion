@@ -41,9 +41,9 @@ describe UsersController, '' do
         get 'show', :id => 1
       end
 
-      # TODO: hum I can't figure out how to induce UrlRewriter#rewrite_path which calls
-      # RouteSet#generate, to generate the restful edit path like /users/5/edit
-      it 'should not be able to see User edit form'
+      it 'should not be able to see User edit form' do
+        get 'edit', :id => 1
+      end
 
       it 'should not be able to post to User update form' do
         post 'update', :id => 1
