@@ -57,5 +57,9 @@ Spec::Runner.configure do |config|
   # For more information take a look at Spec::Example::Configuration and Spec::Runner
 end
 
+def subs( domain)
+  [domain, "dev.#{domain}", "staging.#{domain}"]
+end
+
 require 'ruby-debug'
 Debugger.start
