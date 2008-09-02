@@ -4,7 +4,7 @@ module ApplicationHelper
   include CorkdFormHelper
   
   def body_class
-    route_name_for request.request_uri, {}
+    route_name_for request.request_uri, :host=>request.host
   end
   
   def company_name
