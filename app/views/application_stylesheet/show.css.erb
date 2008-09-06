@@ -5,7 +5,7 @@ html, body {
    height:100%;
    background-color:<%= @c_b %>;
    margin:0;
-}
+   }
 
 .page {position:relative; min-height:100%;margin:0;}
 
@@ -14,34 +14,34 @@ html, body {
    color:<%= @c_b %>;
    height:90px;
    position:relative;
-}
+   }
 
 .no-alerts {
    background:<%= @c_b %> url(/images/header.png) repeat-x top left;
    color:<%= @c_b_w4%>;
-}
+   }
 
 .alerts {
    background:<%= @c_t_k1%>;
    border-bottom: solid <%= @c_t_k5%> 2px;
-}
+   }
 
 .no-alerts, .alerts{
    margin:0;
    width:100%;
    min-width:830px;
-}
+   }
 
 .content  {
    padding:2em 0 5em 0;
-}
+   }
 
 .foot { 
    color:<%= @c_a %>;
    font-size:.9em;
    position:absolute;
    bottom:0;
-}
+   }
 
 
 
@@ -50,7 +50,6 @@ main content style */
 
 .intro, .vcard {padding-bottom:0em !important;}
 
-
 .feature {
    background: <%= @c_b_w1%> url(/images/feature_lines.png) repeat-y left top;
    border-top: 1px solid <%= @c_a_k5%>;
@@ -58,24 +57,49 @@ main content style */
    border-right: 1px solid <%= @c_a_k5%>;
    margin-top:1.5em; margin-bottom:1.5em;padding-top:1.5em; padding-bottom:1.5em;
    }
-.feature p {margin-right:1em;}
+
 .dark {background: <%= @c_b_k1%> url(/images/feature_lines.png) repeat-y left top;}
 
-.content a {text-decoration: none; outline:none; border-bottom: 1px dotted <%= @c_a_k1%>; color:<%= @c_a_w1%>;}
-.content a:hover, .content a:focus {text-decoration: none; outline:none; border-bottom: 1px solid <%= @c_a_w1%>; color:<%= @c_a_w1%>; background-color: <%= @c_b_k1%>;}
-.icon a, .icon a:hover, .icon a:focus {text-decoration: none; outline:none; border-bottom: none; color:<%= @c_a_w2%>; background-color:transparent;}
 
 
 
 /* -------------------------------------------------------------- 
 misc. copy style */
 
-a {text-decoration: none; outline:none; border:none; color:<%= @c_a_w1%>;}
+a, a:hover, a:focus {
+   text-decoration: none; 
+   outline:none; 
+   border:none; 
+   color:<%= @c_a_w1%>;
+   }
+.content a {
+   border-bottom:1px dotted <%= @c_a_k1%>;
+   }
+.content a:hover, .content a:focus {
+   border-bottom:1px solid <%= @c_a_w1%>; 
+   color:<%= @c_a_w1%>; 
+   background-color: <%= @c_b_k1%>;
+   }
+.feature a:hover, .content a:focus {
+   background-color: <%= @c_b%>;
+   }
+.icon a, .icon a:hover, .icon a:focus {
+   border-bottom: none;
+   background-color:transparent;
+   }
+.login a {
+   border-bottom: 1px dotted <%= @c_a_k1%>; 
+   }
+.login a:hover, .content a:focus {
+   border-bottom: 1px solid <%= @c_a_w1%>; 
+   background-color: <%= @c_b_k1%>;
+   }
+
+.feature p {margin-right:1em;}
+
 h1, h2, h3, h4, h5, h6 {color:<%= @c_a_w5%>;}
 h1 { font-size: 2em; line-height: 1.5; margin-bottom:0; }
 h2 { font-size: 1.4em; line-height: 1.5; margin-bottom:0; }
-img {margin:0;}
-
 .why h1 {background:url(/images/h1_chevron.png) no-repeat 0; padding-left:1em;}
 
 .trademark {
@@ -86,10 +110,9 @@ img {margin:0;}
    color:<%=  @c_b_w1%>;
    }
 
+img {margin:0;}
 .foot .trademark {color:<%=  @c_b_w1%>;}
 .no-alerts .trademark {color:<%=  @c_b_w4%>;}
-
-.navigation a {text-decoration: none; border-bottom: none; color:<%= @c_a_w5%>;}
 .verticalspace {margin-top:1.5em; margin-bottom:1.5em;padding-top:1.5em; padding-bottom:1.5em;}
 
 
@@ -127,7 +150,7 @@ alerts */
    margin:0;
    padding:0 0 0 40px; /* make room on left for image */
    border:none;
-}
+   }
 
 .alerts .alert {
    border:none;
@@ -136,19 +159,19 @@ alerts */
    line-height:1.8em;
    margin: 1.25em 0;
    min-height:2em;
-}
+   }
 
 .alerts .error {
    background:url(/images/error.png) no-repeat 0 center;
-}
+   }
 
 .alerts .warn {
    background:url(/images/warn.png) no-repeat 0 center;
-}
+   }
 
 .alerts .inform {
    background:url(/images/inform.png) no-repeat 0 center;
-}
+   }
 
 
 
@@ -167,13 +190,13 @@ login style */
    background-color:<%= @c_b %>;
    color:<%= @c_b_w4%>;
    border:1px solid <%= @c_b_k4%>;
-}
+   }
 
 .button {
    background-color:<%= @c_b %>;
    color:<%= @c_b_w4%>;
    border:1px solid <%= @c_b_k4%>;
-}
+   }
 
 
 
@@ -193,20 +216,21 @@ hcard structure, so we'll stick it into the presentation.
 
 /* -------------------------------------------------------------- 
 forms */
+
 .form-table p {
    margin:0;
-}
+   }
 .form-table th {
    background:none;
    text-align:right;
    vertical-align:top;
-}
+   }
 .form-table th, .form-table td {
    border-bottom:1px dotted <%=@c_b_w1%>;
-}
+   }
 .form-table tr.last th, .form-table tr.last td {
    border-bottom:none;
-}
+   }
 /* .fieldWithErrors is applied automatically by the Rails framework when a field has errors.
 see also: Blueprint CSS screen.css rules for .error and friends (I made this rule match that one)
 */
@@ -216,7 +240,7 @@ see also: Blueprint CSS screen.css rules for .error and friends (I made this rul
    color: <%=@c_t%>;
    background:none; /* these two properties undo blueprint style*/
    border:none;
-}
+   }
 
 .instructions { color:<%=@c_b_w2%>; padding-top: .3em;}
 
@@ -227,32 +251,32 @@ co-branding */
 
 .tasty-technologies h1 {
    display:none;
-}
+   }
 
 .tasty-technologies ol {
    margin:0;
-}
+   }
 .tasty-technologies ol li {
    display:block;
    float:left;
-}
+   }
 .tasty-technologies ol a {
    border:0;
    display:block;
    text-decoration:none;
-}
+   }
 .tasty-technologies ol a {
    margin-left:31px;
    width:80px;
    height:80px;
-}
+   }
 .tasty-technologies ol a:hover {
    background:none;
-}
+   }
 
 .tasty-technologies img {
    width:80px;
-}
+   }
 .tasty-technologies img.amazon-web-services {
    width:127px; /*minimum width per AWS ToS: http://www.amazon.com/gp/browse.html?node=360388011 */
-}
+   }
