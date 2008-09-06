@@ -57,9 +57,41 @@ Spec::Runner.configure do |config|
   # For more information take a look at Spec::Example::Configuration and Spec::Runner
 end
 
-def subs( domain)
-  [domain, "dev.#{domain}", "staging.#{domain}"]
+# Make this a class so we can instantiate it and apply with_options to it :)
+module Site
+
+  module ExampleGroupExtensions
+    def subs( domain)
+      [domain, "dev.#{domain}", "staging.#{domain}"]
+    end
+    def for_subdomains( domain)
+      subs( domain).each do | d |
+        with_options( :host => d) do | site |
+          yield site, d
+        end
+      end
+    end
+  end
+
+  module ExampleExtensions
+    def route( path, options)
+      begin
+        result = ActionController::Routing::Routes.recognize_path( path, options)
+      rescue ActionController::RoutingError
+      end
+      result
+    end
+  end
 end
 
 require 'ruby-debug'
 Debugger.start
+
+# Thanks to: http://blog.nicksieger.com/articles/2007/01/02/customizing-rspec
+# it was out of date but got me on the right track
+module Spec::Example::ExampleGroupMethods
+  def before_eval
+    extend Site::ExampleGroupExtensions
+    include Site::ExampleExtensions
+  end
+end

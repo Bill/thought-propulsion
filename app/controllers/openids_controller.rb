@@ -90,7 +90,7 @@ class OpenidsController < ApplicationController
         redirect_to_original_destination
       else
         flash[:new_user] = @user
-        redirect_to new_user_path
+        redirect_to :controller => 'users', :action => 'new'
       end
     end
     

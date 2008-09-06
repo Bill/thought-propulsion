@@ -29,7 +29,7 @@ describe OpenidsController do
     end
 
     it 'should redirect to new registration form' do
-      response.should redirect_to( new_user_path)
+      response.should redirect_to( :controller => 'users', :action => 'new')
     end
     
     it 'should not be logged in' do

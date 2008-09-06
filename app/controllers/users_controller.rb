@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+
+  layout proc{ |controller| controller.params[:layout]}
   
   before_filter :filter_user_is_admin, :only => [:index]
   before_filter :filter_user_is_authenticated, :only => [:new, :create]
@@ -65,4 +67,5 @@ class UsersController < ApplicationController
   def user_action_on_resource_authorized
     registered_user.id == params[:id].to_i
   end
+  
 end

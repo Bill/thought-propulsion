@@ -30,48 +30,50 @@ describe UsersController, 'should inherit ApplicationController functionality' d
       # shared_examples_for 'profile management'
       login_and_logout_examples = <<-EOS
       it "route to login on domain \#{domain}" do
-        route( '/login', :method => :get, :host => domain).should_not == nil
+        route( '/login', :method => :get).should_not == nil
       end
       it "route to logout on domain \#{domain}" do
-        route( '/logout', :method => :get, :host => domain).should_not == nil
+        route( '/logout', :method => :get).should_not == nil
       end
       EOS
 
       profile_management_examples = <<-EOS
       it "route to profile on domain \#{domain}" do
-        route( '/profile', :method => :get, :host => domain).should_not == nil
+        route( '/profile', :method => :get).should_not == nil
       end
       EOS
-
-      subs('thoughtpropulsion.com').each do | domain |
+      
+      for_subdomains( 'thoughtpropulsion.com') do | site, domain |
         describe "for Thought Propulsion corporate site on #{domain}" do
           eval login_and_logout_examples
           eval profile_management_examples
           
           it "should route to root on #{domain}" do
-            route( '', :method => :get, :host => domain).should_not == nil
+            route( '', :method => :get).should_not == nil
           end
           it "should route to Why page on #{domain}" do
-            route( '/why', :method => :get, :host => domain).should_not == nil
+            route( '/why', :method => :get).should_not == nil
           end
           it "should route to the Twipl-Powered Thought Propulsion Blog on #{domain}" do
+            # override Site host
             route( '', :method => :get, :host => "blog.#{domain}").should_not == nil
           end
         end
       end
 
-      subs('twipl.com').each do | domain |
+      for_subdomains( 'twipl.com' ) do | site, domain |
         describe "on twipl.com subdomains like #{domain}" do
           eval login_and_logout_examples
           eval profile_management_examples
 
           it "for Twipl product site on #{domain}" do
-            route( '', :method => :get, :host => domain).should_not == nil
+            route( '', :method => :get).should_not == nil
           end
 
           ['sally','fred'].each do | nickname |
             describe "for readers of #{nickname}'s Twips on Twipl-Powered site: #{domain} (under twipl.com)" do
               it "like #{nickname}'s public Twip summary on root of #{domain}" do
+                # override Site host
                 route( '', :method => :get, :host => "#{nickname}.#{domain}").should_not == nil
               end
             end
@@ -96,23 +98,14 @@ describe UsersController, 'should inherit ApplicationController functionality' d
   describe 'when principal is authenticated' do
     before(:each) do
       session[:identity_url] = 'fred.myopenid.com' # matches user in fixtures
-      get 'index'
     end
 
-    it 'should find User for session when session is missing URL scheme' do
-      assigns[:registered_user].nil?.should == false
-    end
-  end
-
-  def route( path, options)
-    if options[:host].kind_of?( Array )
-      result = options[:host].collect{ | h | route( path, options.merge( :host => h) ) }
-    else
-      begin
-        result = ActionController::Routing::Routes.recognize_path( path, options)
-      rescue ActionController::RoutingError
+    for_subdomains( 'thoughtpropulsion.com') do | site, domain |
+      it "should find User for session when session is missing URL scheme from #{domain}" do
+        get 'index'
+        assigns[:registered_user].nil?.should == false
       end
     end
-    result
   end
+
 end
