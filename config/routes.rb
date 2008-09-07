@@ -1,6 +1,5 @@
 envsub, port = Propel::EnvironmentSubdomains::envsub
 envsub = Regexp.escape(envsub) # we're gonna use envsub as part of a Regexp
-debugger
 
 # Since we qualify all our routes on domain patterns, we cannot simply define shared routes at the top
 # of the route set. Instead we have this function we can call in the context of each with_options block
