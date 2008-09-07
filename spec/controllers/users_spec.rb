@@ -10,7 +10,7 @@ describe UsersController, '' do
     request.env['HTTP_ACCEPT'] = 'text/html'
   end
   
-  for_subdomains( 'thoughtpropulsion.com' ) do | site, domain |
+  for_subdomains( 'thoughtpropulsion.com' ) do | domain |
   
     describe 'unauthenticated principal' do
 
@@ -21,7 +21,9 @@ describe UsersController, '' do
         end
 
         it 'should not see new User form' do
-          get 'new'
+          # get path, parameters, headers
+          # um can't call url_for cuz we are not in the context of a request
+          get generate( :action => 'new')
         end
 
         it 'should not be able to post to User create form' do
@@ -190,6 +192,6 @@ describe UsersController, '' do
 
     end # 'authenticated principal
     
-  end # Site
+  end # for_subdomains
 
 end # UsersController top-level context ''

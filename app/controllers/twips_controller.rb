@@ -1,4 +1,6 @@
-class TwipsController < TwiplApplicationController
+class TwipsController < ApplicationController
+  
+  layout proc{ |controller| controller.params[:layout]}
   
   # no filter on index (filtering that action is all about access control on a per-record basis)
   before_filter :filter_user_is_registered, :only => [:create, :new]
@@ -32,11 +34,11 @@ class TwipsController < TwiplApplicationController
     if @twip.save
       inform "new twip created"
       flash[:new_twip] = nil
-      redirect_to @twip
+      redirect_to url_for( :controller => 'twips', :action => 'show', :id => @twip.id)
     else
       error  @twip.errors.full_messages
       flash[:new_twip] = @twip
-      redirect_to new_twips_url
+      redirect_to url_for( :controller => 'twips', :action => 'new')
     end
   end
   
@@ -52,10 +54,10 @@ class TwipsController < TwiplApplicationController
     @twip.attributes = params[:twip]
     if @twip.save
       inform "twip changes saved"
-      redirect_to @twip
+      redirect_to url_for( :controller => 'twips', :action => 'show', :id => @twip.id)
     else
       error @twip.errors.full_messages
-      redirect_to edit_twips_url( @twip)
+      redirect_to url_for( :controller => 'twips', :action => 'edit', :id => @twip.id)
     end
   end
   

@@ -1,6 +1,6 @@
 <div class='span-13 prepend-1 feature vcard'><h1 class="fn org"><%= link_to vcard[:fn], vcard[:url], :class => 'url'%></h1>
 
-<div class='icon span-2'><%= link_to '<img src="/images/icon_mail.png" alt="Bill" />', contact_url %></div>
+<div class='icon span-2'><%= link_to '<img src="/images/icon_mail.png" alt="Bill" />', url_for( :controller => 'contact', :action => 'index') %></div>
 <div class='span-11 last'>
    <div class='addresses'>
    <p class="adr">

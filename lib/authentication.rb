@@ -35,7 +35,7 @@ module Authentication
         session[:return_to] = (request.ssl? ? 'https' : 'http') + "://#{request.host}#{request.port.blank? ? '' : ':' + request.port.to_s}" + request.request_uri
         # seems like this out to be :after_redirect but doing so causes it to not display!
         error msg #, :after_redirect
-        redirect_to home_url
+        redirect_to url_for( '/')
       end
     end
   end

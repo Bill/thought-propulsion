@@ -26,7 +26,8 @@ class ApplicationController < ActionController::Base
   # We sometimes interrupt the user's flow to require a login (or registration). Rather than blindly
   # redirecting to e.g. home after that, if the user was going somewhere to start with, then redirect her
   # there
-  def redirect_to_original_destination( default_destination = home_path)
+  # FIXME: url helper
+  def redirect_to_original_destination( default_destination = url_for( '/' ) )
     redirect_to session[:return_to] || default_destination
     session[:return_to] = nil # I know no other way to "clear" a slot in the session!
   end

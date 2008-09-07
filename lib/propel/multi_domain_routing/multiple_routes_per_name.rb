@@ -32,6 +32,7 @@ module Propel
         when ActionController::Routing::Route: value
         when Array
           return value.first
+          # TODO make this work
           # OK here we go, we have to disambiguate this named route. Let's do it…
           value.find do | route |
             # match = route.generate( options, merged, expire_on)
@@ -42,13 +43,11 @@ module Propel
             
             # use parameter_shell as defaults 
             options = route.parameter_shell.merge( ActionController::Routing::Routes.current_generate_options )
-            
-            params = route.recognize_without_path( options )
+            recall = route.parameter_shell.merge( ActionController::Routing::Routes.current_request_options )
+            params = route.generate( options, recall)
             # this logic is stolen directly from RouteSet#generate but instead of returning "match" we return
             # the corresponding route
-            if params && (!params.is_a?(Array) || params.first)
-              route
-            end
+            params && (!params.is_a?(Array) || params.first)
           end
         else
           raise "MultiDomainRouting expected named route table to contain Routes or Arrays of Routes"

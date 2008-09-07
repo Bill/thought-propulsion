@@ -1,5 +1,5 @@
 <div class='span-13 prepend-1 feature intro'>
-   <p><%= company_name %> is go for burn in <%=link_to 'Portland Oregon', contact_url %> handcrafting sweet digital machines.</p>
+   <p><%= company_name %> is go for burn in <%=link_to 'Portland Oregon', url_for( :controller => 'contact', :action => 'index') %> handcrafting sweet digital machines.</p>
 </div>
 
 <div class='span-13 prepend-1'>
@@ -12,7 +12,7 @@
 <div class='span-14 feature'>
 <div class='span-13 prepend-1'>
    <h1>we create web and iPhone applications</h1>
-   <p>At <%= company_name %> we develop <%= link_to 'joyful', why_url%> Web applications using whizbang technology like <%= external_google_search_link_to 'Ruby on Rails' %> and <%= external_google_search_link_to 'Amazon Elastic Computing Cloud'%>.</p>
+   <p>At <%= company_name %> we develop <%= link_to 'joyful', url_for( :controller => 'about', :action => 'index')%> Web applications using whizbang technology like <%= external_google_search_link_to 'Ruby on Rails' %> and <%= external_google_search_link_to 'Amazon Elastic Computing Cloud'%>.</p>
    <p>Got a native <%= external_google_search_link_to 'iPhone'%> app in mind? We can help with that too.</p>
 </div>
 
@@ -22,7 +22,7 @@
 </div>
 </div>
 <div class='span-13 prepend-1'>
-<div class='icon span-2'><%= link_to '<img src="/images/icon_bill.png" alt="Bill" />', contact_url %></div>
+<div class='icon span-2'><%= link_to '<img src="/images/icon_bill.png" alt="Bill" />', url_for( :controller => 'contact', :action => 'index') %></div>
    <div class='span-11 last'>
       <h2>Bill Burcham is our main propeller</h2>
       <p>His technical blog is <%= link_to 'meme-rocket.com', 'http://meme-rocket.com'%>.</p>

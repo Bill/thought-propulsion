@@ -13,7 +13,8 @@ class OpenidsController < ApplicationController
   #log a user out of the system
   def logout
       reset_session
-      redirect_to home_url
+      # FIXME: url helper
+      redirect_to url_for( '/')
   end
   
   def openid_authentication_callback
@@ -55,8 +56,10 @@ class OpenidsController < ApplicationController
           sreg_request.request_fields(['nickname', 'fullname', 'email', 'postcode', 'country'], false) # optional
           response.add_extension(sreg_request)
   
-          return_to = url_for(:action=> 'openid_authentication_callback')
-          trust_root = home_url
+          return_to = url_for(:action => 'openid_authentication_callback')
+          # This controller is in play for all the throughtpropulsion.com domains as well as the twipl.com ones
+          # set the trust root to the current URL minus the path part
+          trust_root = request.url.split(request.path)[0]
           redirect_url = response.redirect_url(trust_root, return_to)
           redirect_to( redirect_url)
           return
@@ -72,7 +75,7 @@ class OpenidsController < ApplicationController
       end
 
       # we reach this line only if OpenID::DiscoveryFailure was thrown (or if HTTP method was not POST)
-      redirect_to home_url
+      redirect_to url_for( '/')
     end
     
     def after_successful_authentication( response)

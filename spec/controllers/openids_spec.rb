@@ -48,7 +48,7 @@ describe OpenidsController do
     end
     
     it 'should skip registration form' do 
-      response.should redirect_to( home_path)
+      response.should redirect_to( url_for( '/'))
     end
     
     # Seems like this condition is backward but it isn't. In this case, the authenticated

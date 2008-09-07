@@ -4,11 +4,29 @@ module ApplicationHelper
   include CorkdFormHelper
   
   def body_class
-    route_name_for request.request_uri, :host => request.host
+    # TODO: fix this once named routes are working again
+    # route_name_for request.request_uri, :host => request.host
+    case controller
+    when HomeController, TwiplHomeController
+      'home'
+    when AboutController
+      'why'
+    when ContactController
+      'contact'
+    else
+      ''
+    end
   end
   
   def company_name
     "Thought Propulsion<span class='trademark'>&trade;</span>"
+  end
+  
+  # this is just hard to generate because we need to move to another site and make sure we use the appropriate
+  # port number. Maybe when we get the named route helpers working again this can go away.
+  def thoughtpropulsion_url
+    sub, port = Propel::EnvironmentSubdomains::envsub
+    url_for( :controller => 'home', :action => 'index', :host => "#{sub}thoughtpropulsion.com", :port => port)
   end
   
   # override in your application's helper

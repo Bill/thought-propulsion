@@ -43,16 +43,13 @@ class User < ActiveRecord::Base
     super
     self[:normalized_identity_url] = URL.normalize_url(url)
   end
-  
+
   # The domain that this user's Twips are visible (to others) on. Each user starts with this one and may
   # purchase additional ones.
   def twipl_domain
     # this logic needs to be the inverse of the logic in the :for_host named scope
-    (nickname || '') + case ENV['RAILS_ENV']
-    when 'development': '.dev.twipl.com'
-    when 'test': '.test.twipl.com'
-    when 'staging': '.staging.twipl.com'
-    end
+    sub, port = Propel::EnvironmentSubdomains::envsub
+    nickname ? "http://#{nickname}.#{sub}twipl.com#{port ? ":#{port}" : ''}" : '(you must specify a nickname in order to have a subdomain)'
   end
   
 end

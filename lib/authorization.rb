@@ -61,7 +61,8 @@ module Authorization
   def filter_for_condition( message, &block)
     unless( yield block)
       error message, :after_redirect
-      redirect_to home_url
+      # FIXME: url helper
+      redirect_to url_for( '/')
     end
   end
   
