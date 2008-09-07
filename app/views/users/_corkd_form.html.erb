@@ -6,9 +6,9 @@
 <%= corkd_form.text_field :country, :instructions => '', :readonly=>readonly  %>
 <%= corkd_form.text_field :zip, :instructions => '', :readonly=>readonly  %>
 <%= corkd_form.text_field :authenticator, :instructions => "This is a random password you can use to access your account from tools that require passwords. Your username for such services is '#{corkd_form.object.id}'", :readonly=>readonly  %>
+<% blurb = ( (u = corkd_form.object.twipl_url) ? link_to( u, u) : 'you must pick a nickname to receive a Twipl subdomain' ) -%>
 <% if user_is_admin %>
-<%= corkd_form.text_field :alternate_domain, :instructions => "Your Twips will be visible on this domain in addition to your free Twipl domain (#{link_to corkd_form.object.twipl_domain, corkd_form.object.twipl_domain})", :readonly=>readonly  %>
+<%= corkd_form.text_field :alternate_domain, :instructions => "Your public Twips will be visible on this domain in addition to your free Twipl subdomain (#{blurb})", :readonly=>readonly  %>
 <% else%>
-<tr><td colspan = 2>Your public Twips will be visible at your free Twipl domain <%=link_to corkd_form.object.twipl_domain, corkd_form.object.twipl_domain %>
-</td></tr>
+<tr><td colspan = 2>Your public Twips will be visible on your free Twipl subdomain (<%= blurb %>)</td></tr>
 <% end %>

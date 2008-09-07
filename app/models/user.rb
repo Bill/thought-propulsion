@@ -21,7 +21,11 @@ class User < ActiveRecord::Base
   named_scope :for_host, lambda { |host_from_request|
     # using criteriaquery plugin
     q = User.query
-    q.disjunction.nickname_eq( DomainName.bottom_label(host_from_request) ).alternate_domain_eq( host_from_request )
+    if possible_nick = User.twipl_nickname_for_domain(host_from_request)      
+      q.disjunction.nickname_eq( possible_nick).alternate_domain_eq( host_from_request )
+    else
+      q.alternate_domain_eq( host_from_request )
+    end
     q.find_options
   }
 
@@ -44,12 +48,27 @@ class User < ActiveRecord::Base
     self[:normalized_identity_url] = URL.normalize_url(url)
   end
 
+  def twipl_url
+    return unless domain = twipl_domain
+    sub, port = Propel::EnvironmentSubdomains::envsub
+    "http://#{domain}#{port ? ":#{port}" : ''}"
+  end
+
   # The domain that this user's Twips are visible (to others) on. Each user starts with this one and may
   # purchase additional ones.
   def twipl_domain
+    return unless nickname
     # this logic needs to be the inverse of the logic in the :for_host named scope
     sub, port = Propel::EnvironmentSubdomains::envsub
-    nickname ? "http://#{nickname}.#{sub}twipl.com#{port ? ":#{port}" : ''}" : '(you must specify a nickname in order to have a subdomain)'
+    "#{nickname}.#{sub}twipl.com"
+  end
+  
+  # inverse of twipl_domain
+  def self.twipl_nickname_for_domain( domain)
+    sub, port = Propel::EnvironmentSubdomains::envsub
+    sub = Regexp.escape sub
+    /([^\.]+)\.#{sub}twipl.com/.match( domain)
+    $~ ? $~[1] : nil
   end
   
 end

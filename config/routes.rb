@@ -88,7 +88,7 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   # third-party domains powered by twipl
-  map.with_options :layout => 'twipl_home' do | twipl_powered_3p |
+  map.with_options :conditions => { :published_as_alternate_twipl_domain => true }, :layout => 'twipl_home' do | twipl_powered_3p |
     twipl_powered_3p.connect '', :controller => 'twips', :action => 'index', :conditions => {:method => :get}
     twipl_powered_3p.connect '/twips/:id', :controller=>'twips', :action=>'show', :conditions => {:method => :get}
     Propel::UniversalRoutes.define( twipl_powered_3p)
