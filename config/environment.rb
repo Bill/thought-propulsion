@@ -34,7 +34,7 @@ Rails::Initializer.run do |config|
   # in vendor/plugins are loaded in alphabetical order.
   # :all can be used as a placeholder for all plugins not explicitly named
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
-  config.plugins = [ :open_id_authentication, :nested_layouts, :'rspec-rails', :'seed-fu', :request_routing, :criteriaquery]
+  config.plugins = [ :open_id_authentication, :nested_layouts, :'rspec-rails', :'seed-fu', :criteriaquery, :request_routing]
 
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
@@ -69,4 +69,8 @@ Rails::Initializer.run do |config|
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
+  
+  config.after_initialize do
+    require 'propel'
+  end
 end

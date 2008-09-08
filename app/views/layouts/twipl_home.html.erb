@@ -1,5 +1,5 @@
 <% content_for :navigation do -%>
-<li class='home'><%= link_to 'Home', home_url %></li>
+<li class='home'><%= link_to 'Home', url_for( :controller => 'twipl_home', :action => 'index') %></li>
 <li class='userspace'><div class='login'><%= render :partial => 'openids/login'%></div></li>
 <% end -%>
 <% inside_layout 'application' do -%> 

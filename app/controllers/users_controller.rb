@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  # layout proc{ |controller| controller.params[:layout]}
+  layout proc{ | controller | controller.layout }
   
   before_filter :filter_user_is_admin, :only => [:index]
   before_filter :filter_user_is_authenticated, :only => [:new, :create]
@@ -23,7 +26,7 @@ class UsersController < ApplicationController
       flash[:new_user] = nil
       session[:captcha] = nil
       inform "welcome #{@user.nickname}"
-      redirect_to @user
+      redirect_to url_for( :controller => 'users', :action => 'show', :id => @user.id)
     else
       error  @user.errors.full_messages + @captcha.errors.full_messages
       session[:captcha] = @captcha
@@ -41,7 +44,7 @@ class UsersController < ApplicationController
     @user.set_sensitive_parameters( params[:user], registered_user, authenticated_identity_url)
     if @user.save
       inform "settings saved"
-      redirect_to @user
+      redirect_to url_for( :controller => 'users', :action => 'show', :id => @user.id)
     else
       error @user.errors.full_messages
       render :action => 'edit'
@@ -53,7 +56,7 @@ class UsersController < ApplicationController
   end
 
   def profile
-    redirect_to registered_user
+    redirect_to url_for( :controller => 'users', :action => 'edit', :id => registered_user.id)
   end
   
   protected
@@ -65,4 +68,5 @@ class UsersController < ApplicationController
   def user_action_on_resource_authorized
     registered_user.id == params[:id].to_i
   end
+  
 end

@@ -1,1 +1,1 @@
-welcome <%= link_to registered_user.nickname, edit_user_url( registered_user) %>  | <%= link_to 'logout', logout_url %>
+welcome <%= link_to registered_user.nickname, url_for( :controller => 'users', :action => 'edit', :id => registered_user.id) %>  | <%= link_to 'logout', url_for( :controller => 'openids', :action => 'logout') %>

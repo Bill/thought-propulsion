@@ -20,13 +20,28 @@ class ApplicationController < ActionController::Base
   # Uncomment this to filter the contents of submitted sensitive data parameters
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
+
+  # has to be public so it is accessible in the layout (class) method of our subclasses
+  def layout
+    envsub, port = Propel::EnvironmentSubdomains::envsub
+    envsub = Regexp.escape(envsub) # we're gonna use envsub as part of a Regexp
+    
+    # These patterns must match routes.rb
+    case request.host
+    when /^blog\.#{envsub}thoughtpropulsion.com$/, /^#{envsub}thoughtpropulsion.com$/: 'home'
+    when /^#{envsub}twipl.com$/, /(.+\.)#{envsub}twipl.com$/: 'twipl_home'
+    else
+      'twipl_home'
+    end
+  end
   
   protected
   
   # We sometimes interrupt the user's flow to require a login (or registration). Rather than blindly
   # redirecting to e.g. home after that, if the user was going somewhere to start with, then redirect her
   # there
-  def redirect_to_original_destination( default_destination = home_path)
+  # FIXME: url helper
+  def redirect_to_original_destination( default_destination = url_for( '/' ) )
     redirect_to session[:return_to] || default_destination
     session[:return_to] = nil # I know no other way to "clear" a slot in the session!
   end

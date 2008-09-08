@@ -57,9 +57,46 @@ Spec::Runner.configure do |config|
   # For more information take a look at Spec::Example::Configuration and Spec::Runner
 end
 
-def subs( domain)
-  [domain, "dev.#{domain}", "staging.#{domain}"]
+# Make this a class so we can instantiate it and apply with_options to it :)
+module Site
+
+  module ExampleGroupExtensions
+  end
+
+  module ExampleExtensions
+    
+    def recognize_path( path, options)
+      if options[:host].kind_of?( Array )
+        result = options[:host].collect{ | h | route( path, options.merge( :host => h) ) }
+      else
+        begin
+          result = ActionController::Routing::Routes.recognize_path( path, options)
+        rescue ActionController::RoutingError
+        end
+      end
+      result
+    end
+
+    # FIXME: this doesn't work yet
+    def generate(options, recall = {:controller=>'users', :action=>'index', :layout=>'home', :host=>'thoughtpropulsion.com'})
+      controller_string = @controller_class_name.tableize.split('_')[0..-2].join('_')
+      # TODO: handle recall options
+      debugger
+      new_options = {:controller => controller_string}.merge( options )
+      Action:Controller::Routing::Routes.generate( new_options, recall)
+      # route_for( {:controller => controller_string}.merge( options ) )
+    end
+  end
 end
 
 require 'ruby-debug'
 Debugger.start
+
+# Thanks to: http://blog.nicksieger.com/articles/2007/01/02/customizing-rspec
+# it was out of date but got me on the right track
+module Spec::Example::ExampleGroupMethods
+  def before_eval
+    extend Site::ExampleGroupExtensions
+    include Site::ExampleExtensions
+  end
+end
