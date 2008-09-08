@@ -61,14 +61,6 @@ end
 module Site
 
   module ExampleGroupExtensions
-    def subs( domain)
-      [domain, "dev.#{domain}", "staging.#{domain}"]
-    end
-    def for_subdomains( domain)
-      subs( domain).each do | d |
-        yield d
-      end
-    end
   end
 
   module ExampleExtensions
@@ -85,6 +77,7 @@ module Site
       result
     end
 
+    # FIXME: this doesn't work yet
     def generate(options, recall = {:controller=>'users', :action=>'index', :layout=>'home', :host=>'thoughtpropulsion.com'})
       controller_string = @controller_class_name.tableize.split('_')[0..-2].join('_')
       # TODO: handle recall options

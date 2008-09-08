@@ -105,11 +105,9 @@ describe UsersController, 'should inherit ApplicationController functionality' d
       session[:identity_url] = 'fred.myopenid.com' # matches user in fixtures
     end
 
-    for_subdomains( 'thoughtpropulsion.com') do | domain |
-      it "should find User for session when session is missing URL scheme" do
-        get 'index'
-        assigns[:registered_user].nil?.should == false
-      end
+    it "should find User for session when session is missing URL scheme" do
+      get 'index'
+      assigns[:registered_user].nil?.should == false
     end
   end
 
