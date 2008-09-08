@@ -13,6 +13,8 @@ module ApplicationHelper
       'why'
     when ContactController
       'contact'
+    when TwipsController
+      'blog'
     else
       ''
     end
@@ -27,6 +29,22 @@ module ApplicationHelper
   def thoughtpropulsion_url
     sub, port = Propel::EnvironmentSubdomains::envsub
     url_for( :controller => 'home', :action => 'index', :host => "#{sub}thoughtpropulsion.com", :port => port)
+  end
+  
+  # ditto
+  def thoughtpropulsion_blog_url
+    sub, port = Propel::EnvironmentSubdomains::envsub
+    url_for( :controller => 'home', :action => 'index', :host => "blog.#{sub}thoughtpropulsion.com", :port => port)
+  end
+  
+  def thoughtpropulsion_contact_url
+    sub, port = Propel::EnvironmentSubdomains::envsub
+    url_for( :controller => 'contact', :action => 'index', :host => "#{sub}thoughtpropulsion.com", :port => port)
+  end
+  
+  def thoughtpropulsion_why_url
+    sub, port = Propel::EnvironmentSubdomains::envsub
+    url_for( :controller => 'about', :action => 'index', :host => "#{sub}thoughtpropulsion.com", :port => port)
   end
   
   # override in your application's helper
