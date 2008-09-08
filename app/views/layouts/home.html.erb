@@ -1,5 +1,6 @@
 <% content_for :navigation do -%>
 <li class='home'><%= link_to 'Home', thoughtpropulsion_url %></li>
+<li class='blog'><%= link_to 'Why', url_for( :controller => 'about', :action => 'index') %></li>
 <li class='why'><%= link_to 'Why', url_for( :controller => 'about', :action => 'index') %></li>
 <li class='contact'><%= link_to 'Contact', url_for( :controller => 'contact', :action => 'index') %></li>
 <li class='userspace'><div class='login'><%= render :partial => 'openids/login'%></div></li>
