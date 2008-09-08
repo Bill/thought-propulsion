@@ -13,7 +13,7 @@ module Propel::UniversalRoutes
     map.connect 'logout', :controller => 'openids', :action => 'logout', :conditions => {:method => :get}
     map.connect 'profile', :controller => 'users', :action => 'profile', :conditions => {:method => :get}
 
-    # gotta explicitly define each (REST) route in order ot inherit :layout set by with_options
+    # gotta explicitly define each (REST) route in order ot inherit stuff set by with_options
     # see RCB's comments here: http://weblog.jamisbuck.org/2007/1/24/object-with_options
 
     # map.resource :openids
@@ -49,7 +49,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # blog.thoughtpropulsion.com is a special case since it's powered by twipl but lives under
   # the thoughtpropulsion.com domain
-  map.with_options :conditions => { :host => /^blog\.#{envsub}thoughtpropulsion.com$/}, :layout => 'home' do | blog |
+  map.with_options :conditions => { :host => /^blog\.#{envsub}thoughtpropulsion.com$/} do | blog |
     blog.connect '', :controller => 'twips', :action => 'index', :conditions => {:method => :get}
     blog.connect 'why', :controller => 'about', :action => 'index', :conditions => {:method => :get}
     blog.contact 'contact', :controller => 'contact', :action => 'index', :conditions => {:method => :get}
@@ -57,14 +57,14 @@ ActionController::Routing::Routes.draw do |map|
     Propel::UniversalRoutes.define( blog)
   end
 
-  map.with_options :conditions => { :host => /^#{envsub}thoughtpropulsion.com$/}, :layout => 'home' do | thoughtpropulsion |
+  map.with_options :conditions => { :host => /^#{envsub}thoughtpropulsion.com$/} do | thoughtpropulsion |
     thoughtpropulsion.connect '', :controller => 'home', :action => 'index', :conditions => {:method => :get}
     thoughtpropulsion.connect 'why', :controller => 'about', :action => 'index', :conditions => {:method => :get}
     thoughtpropulsion.contact 'contact', :controller => 'contact', :action => 'index', :conditions => {:method => :get}
     Propel::UniversalRoutes.define( thoughtpropulsion)
   end
   
-  map.with_options :conditions => { :host => /^#{envsub}twipl.com$/}, :layout => 'twipl_home' do | twipl |
+  map.with_options :conditions => { :host => /^#{envsub}twipl.com$/} do | twipl |
     twipl.connect '', :controller => 'twipl_home', :action => 'index', :conditions => {:method => :get}
     
     # twipl.resources :twips, :collection => { :service_document => :get}
@@ -82,13 +82,13 @@ ActionController::Routing::Routes.draw do |map|
   # custom domains under twipl.com as well as foreign domain mappings (for twipl)
   # This is where the public comes to read posts authored by twipl users.
   # So we want to map the twipl listing to the root so readers don't have to go to /twips
-  map.with_options :conditions => { :host => /(.+\.)#{envsub}twipl.com$/}, :layout => 'twipl_home' do | twipl_powered |
+  map.with_options :conditions => { :host => /(.+\.)#{envsub}twipl.com$/} do | twipl_powered |
     twipl_powered.connect '', :controller => 'twips', :action => 'index', :conditions => {:method => :get}
     Propel::UniversalRoutes.define( twipl_powered)
   end
   
   # third-party domains powered by twipl
-  map.with_options :conditions => { :published_as_alternate_twipl_domain => true }, :layout => 'twipl_home' do | twipl_powered_3p |
+  map.with_options :conditions => { :published_as_alternate_twipl_domain => true } do | twipl_powered_3p |
     twipl_powered_3p.connect '', :controller => 'twips', :action => 'index', :conditions => {:method => :get}
     twipl_powered_3p.connect '/twips/:id', :controller=>'twips', :action=>'show', :conditions => {:method => :get}
     Propel::UniversalRoutes.define( twipl_powered_3p)

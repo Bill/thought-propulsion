@@ -64,26 +64,34 @@ module Site
     def subs( domain)
       [domain, "dev.#{domain}", "staging.#{domain}"]
     end
-    def for_subdomains( domain, &block)
+    def for_subdomains( domain)
       subs( domain).each do | d |
-        @domain = d
-        instance_eval &block
-        @domain = nil
+        yield d
       end
     end
   end
 
   module ExampleExtensions
-    # like rspec-rails built-in params_from but takes options. also params_from has arguments in reverse order
-    # which is hard to remember if you are from Rails. These two match the corresponding methods in RouteSet
+    
     def recognize_path( path, options)
-      ensure_that_routes_are_loaded
-      ActionController::Routing::Routes.recognize_path( path, options)
+      if options[:host].kind_of?( Array )
+        result = options[:host].collect{ | h | route( path, options.merge( :host => h) ) }
+      else
+        begin
+          result = ActionController::Routing::Routes.recognize_path( path, options)
+        rescue ActionController::RoutingError
+        end
+      end
+      result
     end
-    def generate(options, recall = {})
+
+    def generate(options, recall = {:controller=>'users', :action=>'index', :layout=>'home', :host=>'thoughtpropulsion.com'})
       controller_string = @controller_class_name.tableize.split('_')[0..-2].join('_')
       # TODO: handle recall options
-      route_for( {:controller => controller_string}.merge( options ) )
+      debugger
+      new_options = {:controller => controller_string}.merge( options )
+      Action:Controller::Routing::Routes.generate( new_options, recall)
+      # route_for( {:controller => controller_string}.merge( options ) )
     end
   end
 end

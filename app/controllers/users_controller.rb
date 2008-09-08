@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
-  layout proc{ |controller| controller.params[:layout]}
+  # layout proc{ |controller| controller.params[:layout]}
+  layout proc{ | controller | controller.layout }
   
   before_filter :filter_user_is_admin, :only => [:index]
   before_filter :filter_user_is_authenticated, :only => [:new, :create]

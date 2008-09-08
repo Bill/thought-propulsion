@@ -1,6 +1,7 @@
 class TwipsController < ApplicationController
   
-  layout proc{ |controller| controller.params[:layout]}
+  # layout proc{ |controller| controller.params[:layout]}
+  layout proc{ | controller | controller.layout }
   
   # no filter on index (filtering that action is all about access control on a per-record basis)
   before_filter :filter_user_is_registered, :only => [:create, :new]
