@@ -5,4 +5,5 @@ fred:
 sally:
     nickname:   sally
     identity_url: http://sally.myopenid.com
+    alternate_domain: blog.sally.me
     normalized_identity_url: http://sally.myopenid.com

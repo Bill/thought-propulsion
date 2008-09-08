@@ -4,11 +4,11 @@ module Propel
     # Given the Rails environment, determine which subdomain and port apply
     def envsub
       case ENV['RAILS_ENV']
-      when 'development', 'test'
+      when 'development'
         ['dev.', 3000]
       when 'staging'
         ['staging.', nil]
-      else
+      else # production and test
         ['', nil]
       end
     end
