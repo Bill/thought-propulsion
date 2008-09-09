@@ -16,7 +16,7 @@ criteria_query          - lets us do disjunctive conditions (OR) on ActiveRecord
 
 In development and test these are used:
 
-rspec
+rspec                   - may be replaced by shoulda and flexmock
 rspec-rails
 
 ==== Copyrights ====
