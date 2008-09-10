@@ -99,4 +99,5 @@ iphone */
 .no-alerts, .alerts, .foot {padding:0; min-width:0; width:100%;}
 .head {background: url(/images/header_icon_iphone.png) no-repeat top left;}
 ul.nav {background:transparent url(/images/navigation_bg.png) no-repeat -36px 0;}
+.openid_url {width:185px;}
 }
