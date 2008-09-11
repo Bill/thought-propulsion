@@ -51,8 +51,6 @@ ActionController::Routing::Routes.draw do |map|
   # the thoughtpropulsion.com domain
   map.with_options :conditions => { :host => /^blog\.#{envsub}thoughtpropulsion.com$/} do | blog |
     blog.connect '', :controller => 'twips', :action => 'index', :conditions => {:method => :get}
-    blog.connect 'why', :controller => 'about', :action => 'index', :conditions => {:method => :get}
-    blog.contact 'contact', :controller => 'contact', :action => 'index', :conditions => {:method => :get}
     blog.connect '/twips/:id', :controller=>'twips', :action=>'show', :conditions => {:method => :get}
     Propel::UniversalRoutes.define( blog)
   end

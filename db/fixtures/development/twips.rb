@@ -7,7 +7,14 @@ thoughtpropulsion = User.find_by_nickname 'thoughtpropulsion'
     # title progressively longer
     t.title = Lorem::Base.new('chars', 5 + n).output
     t.body = Lorem::Base.new('paragraphs', 2).output
+    t.public = true
   end
   twip.owner = thoughtpropulsion
   twip.save!
+end
+
+User.seed(:nickname, :normalized_identity_url) do |s|
+  s.nickname = 'thoughtpropulsion'
+  s.identity_url = 'http://meme-rocket.com'
+  s.alternate_domain = 'blog.dev.thoughtpropulsion.com'
 end

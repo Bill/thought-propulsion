@@ -1,7 +1,8 @@
 <% content_for :navigation do -%>
 <li class='home'><%= link_to 'Home', thoughtpropulsion_url %></li>
-<li class='why'><%= link_to 'Why', url_for( :controller => 'about', :action => 'index') %></li>
-<li class='contact'><%= link_to 'Contact', url_for( :controller => 'contact', :action => 'index') %></li>
+<li class='blog'><%= link_to 'Blog', thoughtpropulsion_blog_url %></li>
+<li class='why'><%= link_to 'Why', thoughtpropulsion_why_url %></li>
+<li class='contact'><%= link_to 'Contact', thoughtpropulsion_contact_url %></li>
 <li class='userspace'><div class='login'><%= render :partial => 'openids/login'%></div></li>
 <% end -%>
 <% inside_layout 'application' do -%> 
