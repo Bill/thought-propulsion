@@ -26,7 +26,7 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem 'ruby-openid', :lib => 'openid', :version => '~>2.1.2'
-  config.gem 'Bill-route_name_for', :lib => "route_name_for", :source => 'http://gems.github.com', :version => '~>0.0.3'
+  # config.gem 'Bill-route_name_for', :lib => "route_name_for", :source => 'http://gems.github.com', :version => '~>0.0.3'
   config.gem 'mislav-will_paginate', :lib => 'will_paginate', :version => '~> 2.3.2'
   # I'd like to use 2.5.0 (latest) but ec2-on-rails explicitly requires = 2.4.3. If we don't have this line
   # and 2.5.0 is present on the system then we error out every time we run a cap command (cuz 2.5.0 is loaded)
