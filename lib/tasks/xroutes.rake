@@ -1,6 +1,3 @@
-require 'ruby-debug'
-Debugger.start
-
 desc 'Print out all defined routes in match order, with names.'
 task :xroutes => :environment do
   routes = ActionController::Routing::Routes.routes.collect do |route|

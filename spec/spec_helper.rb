@@ -81,7 +81,6 @@ module Site
     def generate(options, recall = {:controller=>'users', :action=>'index', :layout=>'home', :host=>'thoughtpropulsion.com'})
       controller_string = @controller_class_name.tableize.split('_')[0..-2].join('_')
       # TODO: handle recall options
-      debugger
       new_options = {:controller => controller_string}.merge( options )
       Action:Controller::Routing::Routes.generate( new_options, recall)
       # route_for( {:controller => controller_string}.merge( options ) )
@@ -89,8 +88,8 @@ module Site
   end
 end
 
-require 'ruby-debug'
-Debugger.start
+# require 'ruby-debug'
+# Debugger.start
 
 # Thanks to: http://blog.nicksieger.com/articles/2007/01/02/customizing-rspec
 # it was out of date but got me on the right track
