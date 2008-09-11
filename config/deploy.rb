@@ -10,20 +10,20 @@ set :git_shallow_clone, 1
 set :git_enable_submodules, 1
 
 set :repository,  "git@github.com:Bill/thought-propulsion.git"
-set :branch, "deploy-2"
+set :branch, "deploy"
 
 ssh_options[:paranoid] = false
 
 # NOTE: for some reason Capistrano requires you to have both the public and
 # the private key in the same folder, the public key should have the 
 # extension ".pub".
-ssh_options[:keys] = ["#{ENV['HOME']}/.ssh/your-ec2-key"]
+ssh_options[:keys] = ["#{ENV['HOME']}/.ssh/id_rsa-gsg-keypair"]
 
 # Your EC2 instances. Use the ec2-xxx....amazonaws.com hostname, not
 # any other name (in case you have your own DNS alias) or it won't
 # be able to resolve to the internal IP address.
 # Your EC2 instances
-set :domain, "ec2-72-44-51-203.z-1.compute-1.amazonaws.com"
+set :domain, "ec2-67-202-25-21.compute-1.amazonaws.com"
 
 role :web,      domain
 role :app,      domain
@@ -70,7 +70,7 @@ set :ec2onrails_config, {
   # Any extra RubyGems to install if desired: can be "gemname" or if a 
   # particular version is desired "gemname -v 1.0.1"
   # If you don't want to install extra rubygems then remove this
-  :rubygems => ["ruby-openid -v '>= 2.1.2'", "Bill-route_name_for -v '>= 0.0.3", "mislav-will_paginate -v'>= 2.3.2"],
+  :rubygems => ["ruby-openid -v '>= 2.1.2'", "Bill-route_name_for -v '>= 0.0.3' --source http://gems.github.com", "mislav-will_paginate -v'>= 2.3.2'"],
   
   # Defines the web proxy that will be used.  Choices are :apache or :nginx
   :web_proxy_server => :apache,
