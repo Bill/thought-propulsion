@@ -18,7 +18,7 @@ role :memcache, domain
 
 # EC2 on Rails config. 
 # NOTE: Some of these should be omitted if not needed.
-set :ec2onrails_config, {
+set :ec2onrails_config, fetch(:ec2onrails_config).merge(
   # S3 bucket and "subdir" used by the ec2onrails:db:restore task
   # NOTE: this only applies if you are not using EBS
   :restore_from_bucket => "propel",
@@ -30,7 +30,9 @@ set :ec2onrails_config, {
   # desired.
   # NOTE: this only applies if you are not using EBS
   :archive_to_bucket => "propel",
-  :archive_to_bucket_subdir => "db-archive/#{Time.new.strftime('%Y-%m-%d--%H-%M-%S')}",
-}
+  :archive_to_bucket_subdir => "db-archive/#{Time.new.strftime('%Y-%m-%d--%H-%M-%S')}"
+)
 
+# we stick this at the end here rather than in Capfile so that multistage will work
+# see http://groups.google.com/group/ec2-on-rails-discuss/browse_thread/thread/19b17d0c92b5108
 require 'ec2onrails/recipes'

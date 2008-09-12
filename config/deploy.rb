@@ -77,3 +77,12 @@ set :ec2onrails_config, {
   # /etc/ssl/private/default.key (see :server_config_files_root).
   :enable_ssl => true
 }
+
+namespace :propel do
+  task :pwd, :roles => :app do
+    run 'pwd'
+  end  
+  task :load_schema_and_seed, :roles => :app do
+    run "cd #{File.join( deploy_to, 'current')} && export RAILS_ENV=#{rails_env} && rake db:schema:load db:seed"
+  end
+end
