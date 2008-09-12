@@ -4,12 +4,12 @@
 <head>
    <title><%= page_title %></title>
    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-   <meta name = "viewport" content = "width = device-width, initial-scale = 0.6">
-   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+   <meta name = "viewport" content = "width = device-width, initial-scale = 0.6"/>
+   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
    <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen, projection', :cache => true %>
    <%= stylesheet_link_tag 'blueprint/print', :media => 'print', :cache => true %>
    <!--[if IE]><%= stylesheet_link_tag 'blueprint/ie', :media => 'screen, projection', :cache => true %><![endif]-->	
-   <%= stylesheet_link_tag 'application'%>
+   <link type="text/css" rel="stylesheet" media="screen" href="/stylesheets/application.css"/>
    <%= stylesheet_link_tag 'iphone', :media => 'screen', :cache => true %>
    <%= yield :head %>
 </head>
