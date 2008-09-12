@@ -1,5 +1,5 @@
-# This is a sample Capistrano config file for EC2 on Rails.
-# It should be edited and customized.
+# see the deploy directory for stage-specific recipes
+require 'capistrano/ext/multistage'
 
 set :application, "propel"
 
@@ -10,7 +10,6 @@ set :git_shallow_clone, 1
 set :git_enable_submodules, 1
 
 set :repository,  "git@github.com:Bill/thought-propulsion.git"
-set :branch, "deploy"
 
 ssh_options[:paranoid] = false
 
@@ -19,41 +18,9 @@ ssh_options[:paranoid] = false
 # extension ".pub".
 ssh_options[:keys] = ["#{ENV['HOME']}/.ssh/id_rsa-gsg-keypair"]
 
-# Your EC2 instances. Use the ec2-xxx....amazonaws.com hostname, not
-# any other name (in case you have your own DNS alias) or it won't
-# be able to resolve to the internal IP address.
-# Your EC2 instances
-set :domain, "ec2-67-202-25-21.compute-1.amazonaws.com"
-
-role :web,      domain
-role :app,      domain
-role :db,       domain, :primary => true
-role :memcache, domain
-# role :db,       "ec2-56-xx-xx-xx.z-1.compute-1.amazonaws.com", :primary => true, :ebs_vol_id => 'vol-12345abc'
-# optionally, you can specify Amazon's EBS volume ID if the database is persisted 
-# via Amazon's EBS.  See the main README for more information.
-
-# Whatever you set here will be taken set as the default RAILS_ENV value
-# on the server. Your app and your hourly/daily/weekly/monthly scripts
-# will run with RAILS_ENV set to this value.
-set :rails_env, "staging"
-
 # EC2 on Rails config. 
 # NOTE: Some of these should be omitted if not needed.
 set :ec2onrails_config, {
-  # S3 bucket and "subdir" used by the ec2onrails:db:restore task
-  # NOTE: this only applies if you are not using EBS
-  :restore_from_bucket => "propel",
-  :restore_from_bucket_subdir => "db-archive/2008-09-11--17-50-27",
-  
-  # S3 bucket and "subdir" used by the ec2onrails:db:archive task
-  # This does not affect the automatic backup of your MySQL db to S3, it's
-  # just for manually archiving a db snapshot to a different bucket if 
-  # desired.
-  # NOTE: this only applies if you are not using EBS
-  :archive_to_bucket => "propel",
-  :archive_to_bucket_subdir => "db-archive/#{Time.new.strftime('%Y-%m-%d--%H-%M-%S')}",
-  
   # Set a root password for MySQL. Run "cap ec2onrails:db:set_root_password"
   # to enable this. This is optional, and after doing this the
   # ec2onrails:db:drop task won't work, but be aware that MySQL accepts 
