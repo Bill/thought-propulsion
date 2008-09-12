@@ -43,15 +43,15 @@ set :rails_env, "staging"
 set :ec2onrails_config, {
   # S3 bucket and "subdir" used by the ec2onrails:db:restore task
   # NOTE: this only applies if you are not using EBS
-  :restore_from_bucket => "http://s3.amazonaws.com/propel",
-  :restore_from_bucket_subdir => "database",
+  :restore_from_bucket => "propel",
+  :restore_from_bucket_subdir => "db-archive/2008-09-11--17-50-27",
   
   # S3 bucket and "subdir" used by the ec2onrails:db:archive task
   # This does not affect the automatic backup of your MySQL db to S3, it's
   # just for manually archiving a db snapshot to a different bucket if 
   # desired.
   # NOTE: this only applies if you are not using EBS
-  :archive_to_bucket => "http://s3.amazonaws.com/propel",
+  :archive_to_bucket => "propel",
   :archive_to_bucket_subdir => "db-archive/#{Time.new.strftime('%Y-%m-%d--%H-%M-%S')}",
   
   # Set a root password for MySQL. Run "cap ec2onrails:db:set_root_password"
