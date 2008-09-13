@@ -9,6 +9,7 @@
    <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen, projection', :cache => true %>
    <%= stylesheet_link_tag 'blueprint/print', :media => 'print', :cache => true %>
    <!--[if IE]><%= stylesheet_link_tag 'blueprint/ie', :media => 'screen, projection', :cache => true %><![endif]-->	
+   <!--[if lt IE 7.]><script defer type="text/javascript" src="/javascripts/pngfix.js"></script><![endif]-->
    <%= stylesheet_link_tag 'application', :cache => true %>
    <%= stylesheet_link_tag 'iphone', :media => 'screen', :cache => true %>
    <%= yield :head %>
