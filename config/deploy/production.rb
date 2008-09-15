@@ -6,7 +6,7 @@ set :branch, "deploy"
 # any other name (in case you have your own DNS alias) or it won't
 # be able to resolve to the internal IP address.
 # Your EC2 instances
-set :domain, "ec2-67-202-25-21.compute-1.amazonaws.com"
+set :domain, "ec2-75-101-254-177.compute-1.amazonaws.com"
 
 role :web,      domain
 role :app,      domain
@@ -21,7 +21,7 @@ role :memcache, domain
 set :ec2onrails_config, fetch(:ec2onrails_config).merge(
   # S3 bucket and "subdir" used by the ec2onrails:db:restore task
   # NOTE: this only applies if you are not using EBS
-  :restore_from_bucket => "propel",
+  :restore_from_bucket => "propel-thoughtpropulsion",
   :restore_from_bucket_subdir => "db-archive/2008-09-11--17-50-27",
   
   # S3 bucket and "subdir" used by the ec2onrails:db:archive task
@@ -29,7 +29,7 @@ set :ec2onrails_config, fetch(:ec2onrails_config).merge(
   # just for manually archiving a db snapshot to a different bucket if 
   # desired.
   # NOTE: this only applies if you are not using EBS
-  :archive_to_bucket => "propel",
+  :archive_to_bucket => "propel-thoughtpropulsion",
   :archive_to_bucket_subdir => "db-archive/#{Time.new.strftime('%Y-%m-%d--%H-%M-%S')}"
 )
 

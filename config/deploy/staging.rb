@@ -6,7 +6,7 @@ set :branch, "deploy"
 # any other name (in case you have your own DNS alias) or it won't
 # be able to resolve to the internal IP address.
 # Your EC2 instances
-set :domain, "ec2-75-101-210-134.compute-1.amazonaws.com"
+set :domain, "ec2-75-101-209-197.compute-1.amazonaws.com"
 
 role :web,      domain
 role :app,      domain
