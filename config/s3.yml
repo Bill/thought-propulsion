@@ -5,5 +5,5 @@ staging:
 
 production:
   aws_access_key: 0M1SXDKXYRMZN7DJ7FG2
-  aws_secret_access_key: aNYk9mug2MAIIK5V9GxvpA8MRoOWH7s
+  aws_secret_access_key: aNYk9mug2MAIIK5V9GxvpA8MRoOWH7s/ClPBVAet
   bucket_base_name: propel
