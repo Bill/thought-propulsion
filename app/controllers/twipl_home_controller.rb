@@ -4,11 +4,4 @@ class TwiplHomeController < TwiplApplicationController
   
   def index
   end
-  
-  protected
-  
-  def page_title
-    super + ' | Authoring Built About You'
-  end
-  
 end

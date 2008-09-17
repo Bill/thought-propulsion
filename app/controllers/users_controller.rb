@@ -61,10 +61,6 @@ class UsersController < ApplicationController
   
   protected
   
-  def page_title
-    super + ' | Your Account'
-  end
-  
   def user_action_on_resource_authorized
     registered_user.id == params[:id].to_i
   end

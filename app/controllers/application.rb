@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   
   before_filter :load_user
-  before_filter :page_title
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
@@ -45,13 +44,6 @@ class ApplicationController < ActionController::Base
     redirect_to session[:return_to] || default_destination
     session[:return_to] = nil # I know no other way to "clear" a slot in the session!
   end
-  
-  # override in subclasses to append a controller-specific tail onto the site-specific head of the page title
-  def page_title
-    ''
-  end
-  
-  helper_method :page_title
   
   def registered_user
     @registered_user

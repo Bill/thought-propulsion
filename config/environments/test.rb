@@ -23,7 +23,8 @@ config.action_mailer.delivery_method = :test
 
 config.gem 'lorem'
 
-config.plugins = [ :'rspec-rails']
+# FIXME: have to do this in environment.rb unfortunately
+# config.plugins = [ :'rspec-rails']
 
 # require 'ruby-debug'
 # Debugger.start

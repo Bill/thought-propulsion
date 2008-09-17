@@ -70,10 +70,6 @@ class TwipsController < ApplicationController
   
   protected
   
-  def page_title
-    super + ' | Twip'
-  end
-  
   def user_action_on_resource_authorized
     Twip.find( params[:id]).owner == registered_user
   end

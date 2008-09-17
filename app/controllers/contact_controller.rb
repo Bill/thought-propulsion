@@ -19,11 +19,4 @@ class ContactController < ThoughtPropulsionApplicationController
         }]
     }
   end
-  
-  protected
-  
-  def page_title
-    super + ' | Contact'
-  end
-  
 end

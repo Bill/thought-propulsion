@@ -20,6 +20,46 @@ module ApplicationHelper
     end
   end
   
+  # TODO: I'd like to set these in routes.rb but setting attributes (e.g. :layout) causes reverse route lookup to fail
+  def page_title
+    envsub, port = Propel::EnvironmentSubdomains::envsub
+    envsub = Regexp.escape(envsub) # we're gonna use envsub as part of a Regexp
+    case request.host
+    when /^blog\.#{envsub}thoughtpropulsion.com$/
+      case controller
+      when OpenidsController: 'Thought Propulsion | Sign Up'
+      when UsersController:   'Thought Propulsion | Your Account'
+      else
+        'Thought Propulsion | Blog'
+      end
+    when /^#{envsub}thoughtpropulsion.com$/
+      case controller
+      when OpenidsController: 'Thought Propulsion | Sign Up'
+      when UsersController:   'Thought Propulsion | Your Account'
+      when AboutController:   'Thought Propulsion | Why We Do It'
+      when ContactController: 'Thought Propulsion | Contact'
+      else
+        'Thought Propulsion | iPhone &amp; Web Apps Built About You'
+      end
+    when /^#{envsub}twipl.com$/
+      case controller
+      when OpenidsController: 'Twipl | Sign Up'
+      when UsersController:   'Twipl | Your Account'
+      else
+        'Twipl | Authoring Built About You'
+      end
+    when /((.+)\.)#{envsub}twipl.com$/
+      case controller
+      when OpenidsController: "#{$2} | Sign Up"
+      when UsersController:   "#{$2} | Your Account"
+      else
+        "#{$2} | Powered by Twipl"
+      end
+    else
+      'Powered by Twipl'
+    end
+  end
+  
   def company_name
     "Thought Propulsion<span class='trademark'>&trade;</span>"
   end

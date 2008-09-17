@@ -53,6 +53,7 @@ describe OpenidsController do
       response.should be_redirect
       # TODO: fixme
       # response.should redirect_to( url_for( '/'))
+      # assert_redirected_to url_for( '/')
     end
     
     # Seems like this condition is backward but it isn't. In this case, the authenticated

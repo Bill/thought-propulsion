@@ -18,10 +18,4 @@ class HomeController < ThoughtPropulsionApplicationController
     alert :inform, sanitize( params[:msg])
     render :action => 'index'
   end
-  
-  protected
-  
-  def page_title
-    super + ' | iPhone &amp; Web Apps Built About You'
-  end
 end

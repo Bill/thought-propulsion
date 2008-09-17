@@ -102,8 +102,4 @@ class OpenidsController < ApplicationController
       error message, :now
       render(:action => 'new')
     end
-
-    def page_title
-      super + ' | Sign Up'
-    end
 end
