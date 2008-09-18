@@ -20,7 +20,7 @@ module ApplicationHelper
     end
   end
   
-  # TODO: I'd like to set these in routes.rb but setting attributes (e.g. :layout) causes reverse route lookup to fail
+  # TODO: this value should be set in routes.rb as :page_title (SET_DEFAULT_NOT_IN_PATTERN_FOILS_URL_GENERATION)
   def page_title
     envsub, port = Propel::EnvironmentSubdomains::envsub
     envsub = Regexp.escape(envsub) # we're gonna use envsub as part of a Regexp
@@ -64,6 +64,7 @@ module ApplicationHelper
     "Thought Propulsion<span class='trademark'>&trade;</span>"
   end
   
+  # TODO: this shouldn't be necessary (RAILS_MULTIPLE_ROUTES_PER_NAME_BROKEN)
   # this is just hard to generate because we need to move to another site and make sure we use the appropriate
   # port number. Maybe when we get the named route helpers working again this can go away.
   def thoughtpropulsion_url
@@ -71,17 +72,19 @@ module ApplicationHelper
     url_for( :controller => 'home', :action => 'index', :host => "#{sub}thoughtpropulsion.com", :port => port)
   end
   
-  # ditto
+  # TODO: this shouldn't be necessary (RAILS_MULTIPLE_ROUTES_PER_NAME_BROKEN)
   def thoughtpropulsion_blog_url
     sub, port = Propel::EnvironmentSubdomains::envsub
     url_for( :controller => 'home', :action => 'index', :host => "blog.#{sub}thoughtpropulsion.com", :port => port)
   end
   
+  # TODO: this shouldn't be necessary (RAILS_MULTIPLE_ROUTES_PER_NAME_BROKEN)
   def thoughtpropulsion_contact_url
     sub, port = Propel::EnvironmentSubdomains::envsub
     url_for( :controller => 'contact', :action => 'index', :host => "#{sub}thoughtpropulsion.com", :port => port)
   end
   
+  # TODO: this shouldn't be necessary (RAILS_MULTIPLE_ROUTES_PER_NAME_BROKEN)
   def thoughtpropulsion_why_url
     sub, port = Propel::EnvironmentSubdomains::envsub
     url_for( :controller => 'about', :action => 'index', :host => "#{sub}thoughtpropulsion.com", :port => port)
