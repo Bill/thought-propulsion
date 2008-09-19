@@ -5,7 +5,7 @@ class TwipsController < ApplicationController
   
   # no filter on index (filtering that action is all about access control on a per-record basis)
   before_filter :filter_user_is_registered, :only => [:create, :new]
-  before_filter :filter_user_is_admin_or_authorized_for_action, :except => [:create, :new, :index]
+  before_filter :filter_user_is_admin_or_authorized_for_action, :except => [:create, :new, :index, :show]
   
   before_filter :include_scripts
   
@@ -20,7 +20,8 @@ class TwipsController < ApplicationController
   end
   
   def show
-    @twip = Twip.find( params[:id])
+    viewer = authenticated_identity_url
+    @twip = Twip.access_public_or_shared_with( viewer).find( params[:id])
     respond_to do |wants|
       wants.atom { render :action => 'show', :layout => false}
       wants.html
@@ -33,7 +34,7 @@ class TwipsController < ApplicationController
   
   def create
     @twip = Twip.new( params[:twip])
-    @twip.owner = registered_user
+    @twip.author = registered_user
     if @twip.save
       inform "new twip created"
       flash[:new_twip] = nil
@@ -79,7 +80,7 @@ class TwipsController < ApplicationController
   end
 
   def user_action_on_resource_authorized
-    Twip.find( params[:id]).owner == registered_user
+    Twip.find( params[:id]).author == registered_user
   end
   
   def authorized_twip_summary_for_publisher_and_viewer( publisher)

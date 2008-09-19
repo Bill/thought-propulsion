@@ -88,7 +88,7 @@ class OpenidsController < ApplicationController
       end
       @user = User.new(:email => registration_info['email'], :first_name => first_name, :last_name => last_name, :zip => registration_info['postcode'], :country => registration_info['country'], :nickname =>  registration_info['nickname'])
       @user.identity_url = response.endpoint.claimed_id
-      associate_authenticated_identity_with_session( @user.identity_url)
+      associate_authenticated_identity_with_session( @user.normalized_identity_url)
       if( User.with_same_identity( @user).count > 0)
         redirect_to_original_destination
       else

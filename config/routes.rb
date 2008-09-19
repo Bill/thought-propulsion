@@ -41,6 +41,20 @@ module Propel::UniversalRoutes
   module_function :define
 end
 
+module Propel::TwiplRoutes
+  def define( map)
+    # twipl.resources :twips, :collection => { :service_document => :get}
+    map.connect 'twips/service_document', :controller => 'twips', :action => 'new', :conditions => { :method => 'get'}
+    map.connect '/twips/new', :controller=>'twips', :action=>'new', :conditions => {:method => :get}
+    map.connect '/twips', :controller=>'twips', :action=>'create', :conditions => {:method => :post}
+    map.connect '/twips/:id/edit', :controller=>'twips', :action=>'edit', :conditions => {:method => :get}
+    map.connect '/twips/:id', :controller=>'twips', :action=>'show', :conditions => {:method => :get}
+    map.connect '/twips/:id', :controller=>'twips', :action=>'update', :conditions => {:method => :put}
+    map.connect '/twips', :controller=>'twips', :action=>'index', :conditions => {:method => :get}
+  end
+  module_function :define
+end
+
 ActionController::Routing::Routes.draw do |map|
   
   # The priority is based upon order of creation: first created -> highest priority.
@@ -65,15 +79,7 @@ ActionController::Routing::Routes.draw do |map|
   map.with_options :conditions => { :host => /^#{envsub}twipl.com$/} do | twipl |
     twipl.connect '', :controller => 'twipl_home', :action => 'index', :conditions => {:method => :get}
     
-    # twipl.resources :twips, :collection => { :service_document => :get}
-    twipl.connect 'twips/service_document', :controller => 'twips', :action => 'new', :conditions => { :method => 'get'}
-    twipl.connect '/twips/new', :controller=>'twips', :action=>'new', :conditions => {:method => :get}
-    twipl.connect '/twips', :controller=>'twips', :action=>'create', :conditions => {:method => :post}
-    twipl.connect '/twips/:id/edit', :controller=>'twips', :action=>'edit', :conditions => {:method => :get}
-    twipl.connect '/twips/:id', :controller=>'twips', :action=>'show', :conditions => {:method => :get}
-    twipl.connect '/twips/:id', :controller=>'twips', :action=>'update', :conditions => {:method => :put}
-    twipl.connect '/twips', :controller=>'twips', :action=>'index', :conditions => {:method => :get}
-
+    Propel::TwiplRoutes.define( twipl)
     Propel::UniversalRoutes.define( twipl)
   end
   
@@ -82,13 +88,14 @@ ActionController::Routing::Routes.draw do |map|
   # So we want to map the twipl listing to the root so readers don't have to go to /twips
   map.with_options :conditions => { :host => /(.+\.)#{envsub}twipl.com$/} do | twipl_powered |
     twipl_powered.connect '', :controller => 'twips', :action => 'index', :conditions => {:method => :get}
+    Propel::TwiplRoutes.define( twipl_powered)
     Propel::UniversalRoutes.define( twipl_powered)
   end
   
   # third-party domains powered by twipl
   map.with_options :conditions => { :published_as_alternate_twipl_domain => true } do | twipl_powered_3p |
     twipl_powered_3p.connect '', :controller => 'twips', :action => 'index', :conditions => {:method => :get}
-    twipl_powered_3p.connect '/twips/:id', :controller=>'twips', :action=>'show', :conditions => {:method => :get}
+    Propel::TwiplRoutes.define( twipl_powered_3p)
     Propel::UniversalRoutes.define( twipl_powered_3p)
   end
 

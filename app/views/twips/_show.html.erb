@@ -1,3 +1,5 @@
-<% corkd_form_for( :twip, show, :url => url_for( :controller => 'twips', :action => 'show'), :html => { :method => 'get'} ) do |f| %>
-<%= render :partial => f, :locals => {:readonly => true}%>
-<% end %>
+<div class='twip post'>
+<h1 class='title post-title'><%= link_to show.title, :controller => 'twips', :action=>'show', :id => show.id %></h2>
+<h2 class='authorship'><span class='author'><%= show.author.nickname %></span> | <span class='date'><%= date( show.created_at ) %></span> | <span class='time'><%= time( show.created_at ) %></span></h3>
+<div class='body'><%= show.body %></div>
+</div>

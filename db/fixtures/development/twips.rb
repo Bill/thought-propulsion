@@ -9,7 +9,7 @@ thoughtpropulsion = User.find_by_nickname 'thoughtpropulsion'
     t.body = Lorem::Base.new('paragraphs', 2).output
     t.public = true
   end
-  twip.owner = thoughtpropulsion
+  twip.author = thoughtpropulsion
   twip.save!
 end
 
