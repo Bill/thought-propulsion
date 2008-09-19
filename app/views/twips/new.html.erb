@@ -1,4 +1,4 @@
-<% corkd_form_for( :twip, @twip, :url => url_for( :controller => 'twips', :action => 'create') ) do |f| %>
+<% corkd_form_for( :twip, @twip, :url => url_for( :controller => 'twips', :action => 'create'), :html => { :class => 'yui-skin-sam'} ) do |f| %>
 <%= render :partial => f, :locals => {:readonly => false}%>
 <tr class='last'><th></th><td><%= submit_tag %></td></tr>
 <% end %>

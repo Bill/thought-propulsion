@@ -7,6 +7,8 @@ class TwipsController < ApplicationController
   before_filter :filter_user_is_registered, :only => [:create, :new]
   before_filter :filter_user_is_admin_or_authorized_for_action, :except => [:create, :new, :index]
   
+  before_filter :include_scripts
+  
   def index
     publisher = User.for_host( request.host).find(:first)
     (render( :file => "#{RAILS_ROOT}/public/404.html", :status => 404) and return) unless publisher
@@ -70,6 +72,12 @@ class TwipsController < ApplicationController
   
   protected
   
+  def include_scripts
+    include_tags = render_to_string( :partial => 'editor/head_elements_min' )
+    # um, see e.g. layout.rb line 254 in Rails 2.1.0. content_for variables have the form @content_for_<name>
+    @template.instance_variable_set("@content_for_head", include_tags )
+  end
+
   def user_action_on_resource_authorized
     Twip.find( params[:id]).owner == registered_user
   end

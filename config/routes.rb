@@ -69,7 +69,7 @@ ActionController::Routing::Routes.draw do |map|
     twipl.connect 'twips/service_document', :controller => 'twips', :action => 'new', :conditions => { :method => 'get'}
     twipl.connect '/twips/new', :controller=>'twips', :action=>'new', :conditions => {:method => :get}
     twipl.connect '/twips', :controller=>'twips', :action=>'create', :conditions => {:method => :post}
-    twipl.connect '/twip/:id/edit', :controller=>'twips', :action=>'edit', :conditions => {:method => :get}
+    twipl.connect '/twips/:id/edit', :controller=>'twips', :action=>'edit', :conditions => {:method => :get}
     twipl.connect '/twips/:id', :controller=>'twips', :action=>'show', :conditions => {:method => :get}
     twipl.connect '/twips/:id', :controller=>'twips', :action=>'update', :conditions => {:method => :put}
     twipl.connect '/twips', :controller=>'twips', :action=>'index', :conditions => {:method => :get}
