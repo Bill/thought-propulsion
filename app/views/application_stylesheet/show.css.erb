@@ -117,7 +117,11 @@ h1, h2, h3, h4, h5, h6 {color:<%= @c_a_w5%>;}
 h1 { font-size:2em; line-height:1.5; margin-bottom:0; }
 h2 { font-size:1.4em; line-height:1.5; margin-bottom:0; }
 .why h1 {background:url(/images/h1_chevron.png) no-repeat 0; padding-left:1em;}
-.date h1 {font-size:2em; line-height:1; color:<%= @c_a_w1%>;}
+
+/* Recent Twips Summary view (view recent Twips grouped by day) */
+.date { font-size:1.2em; }
+.day .day { float:left; font-size:1.2em; line-height:1; color:<%= @c_a_w1%>; }
+.date .year { display:none; }
 
 .twip_head h1 a, .vcard h1 a, .vcard h1 a:hover, .vcard h1 a:focus {
    text-decoration: none; 
@@ -126,13 +130,6 @@ h2 { font-size:1.4em; line-height:1.5; margin-bottom:0; }
    color:<%= @c_a_w5%>; 
    background-color:transparent;
    }
-
-.twip_head h1 a:hover, .twip_head h1 a:focus {
-   text-decoration: none; 
-   outline:none; 
-   border-bottom: 1px dotted <%= @c_a_k1%>;
-   color:<%= @c_b_w4%>;
-   background-color:transparent;}
 
 .trademark {
    vertical-align:baseline;
@@ -354,15 +351,17 @@ textarea {
 
 .authorship .date {display:none;}
 
+.authorship {font-size:.9em;}
+
+.authorship .time:after {
+   content: ' | ';
+}
+
 .twip_chat {
    background:transparent url(/images/twip_icon-conversation.png) no-repeat 0 0;
    width:30px;
    height:52px;
-   float:left;
-   margin-right: 10px;
    }
-
-.authorship {font-size:.9em;}
 
 .twip .body {padding-bottom:2em;}
 

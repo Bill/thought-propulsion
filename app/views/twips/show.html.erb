@@ -1,2 +1,1 @@
 <%= render :partial => 'twips/show', :locals => {:show => @twip} %>
-<%= link_to 'edit', :controller => 'twips', :action => 'edit', :id => @twip.id if @twip.author.identity_url == authenticated_identity_url %>

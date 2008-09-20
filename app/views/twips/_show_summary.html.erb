@@ -1,10 +1,10 @@
-<div class='twip post prepend-1'>
-   <div class='span-13 twip_head'>
-      <div class='twip_chat'></div>
+<div class='twip post prepend-1 span-13'>
+   <div class='twip_head span-13  last'>
+      <div class='twip_chat span-1'></div>
       <div class='span-12 last'>
          <h1 class='title post-title'><%= link_to show_summary.title, :controller => 'twips', :action=>'show', :id => show_summary.id %></h1>
-         <h2 class='authorship'><span class='date'><%= date( show_summary.created_at ) %></span><span class='time'><%= time( show_summary.created_at ) %></span> | <span class='author'><%= show_summary.author.nickname %></span></h2>
+         <h2 class='authorship'><span class='date'><%= date( show_summary.created_at ) %></span><%= time( show_summary.created_at ) %><span class='author'><%= show_summary.author.nickname %></span></h2>
       </div>
    </div>
-   <div class='body'><%= show_summary.body %></div>
+   <div class='body span-13 last'><%= show_summary.body %></div>
 </div>

@@ -1,10 +1,11 @@
-<div class='twip post prepend-1'>
-   <div class='span-13 twip_head'>
-      <div class='twip_chat'></div>
+<div class='twip post prepend-1 span-13'>
+   <div class='twip_head span-13  last'>
+      <div class='twip_chat span-1'></div>
       <div class='span-12 last'>
-<h1 class='title post-title'><%= link_to show.title, :controller => 'twips', :action=>'show', :id => show.id %></h1>
-<h2 class='authorship'><span class='date'><%= date( show.created_at ) %></span><span class='time'><%= time( show.created_at ) %></span> | <span class='author'><%= show.author.nickname %></span></h2>
+         <h1 class='title post-title'><%= link_to show.title, :controller => 'twips', :action=>'show', :id => show.id %></h1>
+         <h2 class='authorship'><span class='date'><%= date( show.created_at ) %></span><%= time( show.created_at ) %><span class='author'><%= show.author.nickname %></span></h2>
       </div>
    </div>
-<div class='body'><%= show.body %></div>
+   <div class='body span-13 last'><%= show.body %></div>
+   <%= link_to 'edit', {:controller => 'twips', :action => 'edit', :id => @twip.id} if @twip.author.identity_url == authenticated_identity_url %>
 </div>
