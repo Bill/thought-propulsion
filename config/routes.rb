@@ -65,7 +65,7 @@ ActionController::Routing::Routes.draw do |map|
   # blog.thoughtpropulsion.com is a special case since it's powered by twipl but lives under
   # the thoughtpropulsion.com domain
   map.with_options :conditions => { :host => /^blog\.#{envsub}thoughtpropulsion.com$/} do | blog |
-    blog.connect '', :controller => 'twips', :action => 'index', :conditions => {:method => :get}
+    blog.connect '', :controller=>'days', :action=>'index', :conditions => {:method => :get}
     blog.connect '/twips/:id', :controller=>'twips', :action=>'show', :conditions => {:method => :get}
     Propel::UniversalRoutes.define( blog)
   end
