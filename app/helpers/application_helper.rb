@@ -3,6 +3,19 @@ module ApplicationHelper
   
   include CorkdFormHelper
   
+  def google_analytics_site_identifier
+    # TODO: add twipl.com
+    # TODO: expand this logic to lookup code for the publisher (for Twipl) to cover all Twipl subdomains
+    #       and Twipl user alternate domains too
+    ua_code = case ENV['RAILS_ENV']
+    when 'production'
+      "UA-184449-4" # thoughtpropulsion.com
+    when 'staging'
+      "UA-184449-5" # staging.thoughtpropulsion.com
+    end
+    "var pageTracker = _gat._getTracker('#{ua_code}');"
+  end
+  
   def body_class
     # TODO: fix this once named routes are working again
     # route_name_for request.request_uri, :host => request.host

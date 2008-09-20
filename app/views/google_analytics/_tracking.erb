@@ -1,0 +1,10 @@
+<% if %w(production staging).include? ENV['RAILS_ENV'] -%>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+<%= google_analytics_site_identifier %>
+pageTracker._trackPageview();
+</script>
+<% end -%>
