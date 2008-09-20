@@ -1,7 +1,9 @@
-jQuery( document ).ready( function() {
-	
+google.load("jquery", "1");
+
+google.setOnLoadCallback( function() {
+	jQuery.noConflict();
 	// $ is not defined as jQuery here
-	
+
 	var myEditor = new YAHOO.widget.Editor( 'rich-editor', { 
 		height: '250px', 
 		width: '390px', 
@@ -10,9 +12,10 @@ jQuery( document ).ready( function() {
 		handleSubmit: true
 	}); 
 	myEditor.render();
-	
+
 	( function( $ ) {
 		// put stuff here that needs $ to be jQuery
+
 	})( jQuery );
 
-});
+}); // end on load
