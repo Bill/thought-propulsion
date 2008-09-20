@@ -1,0 +1,5 @@
+<div class='twip post'>
+<h1 class='title post-title'><%= link_to show_summary.title, :controller => 'twips', :action=>'show', :id => show_summary.id %></h2>
+<h2 class='authorship'><span class='author'><%= show_summary.author.nickname %></span><span class='date'><%= date( show_summary.created_at ) %></span><span class='time'><%= time( show_summary.created_at ) %></span></h3>
+<div class='body'><%= show_summary.body %></div>
+</div>

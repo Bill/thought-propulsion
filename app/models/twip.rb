@@ -24,7 +24,7 @@ class Twip < ActiveRecord::Base
   # But since named_scopes can only be combined through conjunction (not disjunction), and since
   # there's no way to negate one of these things on the fly I had to combine them for the caller
   # TODO: add conditions for sharing with other users
-  named_scope :access_public_or_shared_with, lambda{ |viewer_openid| 
+  named_scope :access_public_or_shared_with, lambda{ |viewer_openid | 
     if viewer_openid.blank?
       { :conditions => "public = 't'", :select => 'twips.*'}
     else
