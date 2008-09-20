@@ -118,9 +118,20 @@ h1 { font-size: 2em; line-height: 1.5; margin-bottom:0; }
 h2 { font-size: 1.4em; line-height: 1.5; margin-bottom:0; }
 .why h1 {background:url(/images/h1_chevron.png) no-repeat 0; padding-left:1em;}
 
-.vcard h1 a, .vcard h1 a:hover, .vcard h1 a:focus {text-decoration: none; outline:none; border-bottom: none; color:<%= @c_a_w5%>; background-color:transparent;}
+.twip_head h1 a, .vcard h1 a, .vcard h1 a:hover, .vcard h1 a:focus {
+   text-decoration: none; 
+   outline:none; 
+   border-bottom: none; 
+   color:<%= @c_a_w5%>; 
+   background-color:transparent;
+   }
 
-.twip_head h1 a, .twip_head h1 a:hover, .twip_head h1 a:focus {text-decoration: none; outline:none; border-bottom: none; color:<%= @c_a_w5%>; background-color:transparent;}
+.twip_head h1 a:hover, .twip_head h1 a:focus {
+   text-decoration: none; 
+   outline:none; 
+   border-bottom: 1px dotted <%= @c_a_k1%>;
+   color:<%= @c_b_w4%>;
+   background-color:transparent;}
 
 .trademark {
    vertical-align:baseline;
@@ -350,4 +361,25 @@ textarea {
 
 .twip .body {padding-bottom:2em;}
 
-
+.twip-top {
+   background:transparent url(/images/twip_top.png) no-repeat 0 0;
+   height:11px;
+   width:510px;
+   margin-top:2em;
+   }
+.twip-top-point {
+   background:transparent url(/images/twip_top-point.png) no-repeat 0 0;
+   height:22px;
+   width:510px;
+   margin-top:1em;
+   }
+.twip-content {
+   background:transparent url(/images/twip_mid.png) repeat-y 0 0;
+   width:510px;
+   padding: 0 0 0 1em;
+   }
+.twip-bottom {
+   background:transparent url(/images/twip_bottom.png) no-repeat 0 0;
+   height:11px;
+   width:510px;
+   }
