@@ -1,4 +1,20 @@
 /* -------------------------------------------------------------- 
+
+top-level elements
+main content style
+misc. copy style
+navigation elements
+alerts
+login style
+vcard Contact style
+forms
+co-branding
+twipl
+
+-------------------------------------------------------------- */
+
+
+/* -------------------------------------------------------------- 
 top-level elements */
 
 html, body {
@@ -101,6 +117,10 @@ h1, h2, h3, h4, h5, h6 {color:<%= @c_a_w5%>;}
 h1 { font-size: 2em; line-height: 1.5; margin-bottom:0; }
 h2 { font-size: 1.4em; line-height: 1.5; margin-bottom:0; }
 .why h1 {background:url(/images/h1_chevron.png) no-repeat 0; padding-left:1em;}
+
+.vcard h1 a, .vcard h1 a:hover, .vcard h1 a:focus {text-decoration: none; outline:none; border-bottom: none; color:<%= @c_a_w5%>; background-color:transparent;}
+
+.twip_head h1 a, .twip_head h1 a:hover, .twip_head h1 a:focus {text-decoration: none; outline:none; border-bottom: none; color:<%= @c_a_w5%>; background-color:transparent;}
 
 .trademark {
    vertical-align:baseline;
@@ -207,7 +227,6 @@ login style */
 /* -------------------------------------------------------------- 
 vcard Contact style */
 
-.vcard h1 a, .vcard h1 a:hover, .vcard h1 a:focus {text-decoration: none; outline:none; border-bottom: none; color:<%= @c_a_w5%>; background-color:transparent;}
 .adr {display:block;}
 
 /*
@@ -285,5 +304,50 @@ co-branding */
    width:127px; /*minimum width per AWS ToS: http://www.amazon.com/gp/browse.html?node=360388011 */
    }
 
+
+
+/* -------------------------------------------------------------- 
+twipl */
+
+textarea {
+   height:100%;
+   width:100%;
+   padding:0;
+   margin:0;
+   font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-size:100%;
+   }
+
+#twip_title {
+   background-color:<%= @c_b %>;
+   color:<%= @c_b_w4%>;
+   border:1px solid <%= @c_b_k3%>;
+   }
+
+#twip_body {
+   background-color:<%= @c_b %>;
+   color:<%= @c_b_w4%>;
+   border:1px solid <%= @c_b_k3%>;
+   }
+
+.twip_head {margin:1em 0 1em 0;}
+
+.day .date {
+   background:transparent url(/images/twip_date-tab.png) no-repeat 0 0;
+   padding:0 0 0 30px;
+   margin:1em 0 0 0;
+   height:48px;
+   }
+
+.authorship .date {display:none;}
+
+.twip_chat {
+   background:transparent url(/images/twip_icon-conversation.png) no-repeat 0 0;
+   height:52px;
+   }
+
+.authorship {font-size:.9em;}
+
+.twip .body {padding-bottom:2em;}
 
 
