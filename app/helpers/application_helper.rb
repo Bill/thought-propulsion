@@ -8,7 +8,7 @@ module ApplicationHelper
   end
   
   def date( time)
-    time.strftime( "<span class='month span-1 last'>%b</span><span class='day span-1 last'>%d</span><span class='year'>%Y</span>")
+    time.strftime( "<span class='month span-1 last'>%b</span> <span class='day span-1 last'>%d</span>, <span class='year'>%Y</span>")
   end
   
   def time( time)
