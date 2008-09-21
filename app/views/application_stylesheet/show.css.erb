@@ -332,8 +332,8 @@ textarea {
        
 .twip {margin-bottom:1em;}
 .authorship {
-   margin-bottom:1em;
-   padding-bottom:1em; /* for horizontal rule */
+   margin-bottom:16px;
+   padding-bottom:16px; /* for horizontal rule */
    }
 .twip .body {margin-bottom:2em;}
 
@@ -386,7 +386,12 @@ textarea {
             .day
             .year
 */
-.day h1.date .month {float:left;font-size:62.5%;margin-top:5px;}
+.day {clear:left;}
+.day h1.date .month {
+   float:left;
+   font-size:62.5%;
+   margin-top:7px; /* tweak to fit in background image and baseline align w/ Twip title */
+   }
 .day h1.date .day {float:left;font-size:75%;color:<%= @c_a_w1%>;line-height:1.1;}
 .day h1.date .year {display:none;}
 .day .date {display:none;}
