@@ -114,8 +114,12 @@ a, a:hover, a:focus {
 .feature p {margin-right:1em;}
 
 h1, h2, h3, h4, h5, h6 {color:<%= @c_a_w5%>;}
-h1 { font-size:2em; line-height:1.5; margin-bottom:0; }
-h2 { font-size:1.4em; line-height:1.5; margin-bottom:0; }
+/* 
+NOTE: Careful w/ line-height: use it to determine vert space in multiline heading.
+To deterime vert spacing after heading use margin-bottom
+*/
+h1 { font-size:2em; line-height:1.2; margin-bottom:.3; }
+h2 { font-size:1.4em; line-height:1.2; margin-bottom:.3; }
 .why h1 {background:url(/images/h1_chevron.png) no-repeat 0; padding-left:1em;}
 
 .content h1 a {
@@ -339,12 +343,11 @@ textarea {
        vertical spacing */
        
 .twip {margin-bottom:1em;}
-.twip h2 {
+.authorship {
    margin-bottom:1em;
-   padding-bottom:1em; // for horizontal rule
+   padding-bottom:1em; /* for horizontal rule */
    }
 .twip .body {margin-bottom:2em;}
-
 
 /*     ----------------------------------------------------------
        authorship */
@@ -354,6 +357,7 @@ textarea {
    color: <%= @c_b_w4 %>;
    border-bottom: 1px dashed <%= @c_b_w4 %>;
 }
+
 .reactions {
    float:right;
 }
@@ -394,4 +398,15 @@ textarea {
             .day
             .year
 */
-
+.day h1.date .month {float:left;font-size:62.5%;margin-top:5px;}
+.day h1.date .day {float:left;font-size:75%;color:<%= @c_a_w1%>;line-height:1.1;}
+.day h1.date .year {display:none;}
+.day .date {display:none;}
+.day h1.date {
+   float:left;
+   display:block; /* override rule we just defined */
+   background:transparent url(/images/twip_date-tab.png) no-repeat 0 0;
+   padding:0 20px 0 40px;
+   margin:0 0 0 0;
+   height:48px;
+}

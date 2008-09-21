@@ -65,7 +65,7 @@ ActionController::Routing::Routes.draw do |map|
   # blog.thoughtpropulsion.com is a special case since it's powered by twipl but lives under
   # the thoughtpropulsion.com domain
   map.with_options :conditions => { :host => /^blog\.#{envsub}thoughtpropulsion.com$/} do | blog |
-    blog.connect '', :controller=>'twips', :action=>'index', :conditions => {:method => :get}
+    blog.connect '', :controller=>'days', :action=>'index', :conditions => {:method => :get}
     blog.connect '/twips/:id', :controller=>'twips', :action=>'show', :conditions => {:method => :get}
     Propel::UniversalRoutes.define( blog)
   end
@@ -88,14 +88,14 @@ ActionController::Routing::Routes.draw do |map|
   # This is where the public comes to read posts authored by twipl users.
   # So we want to map the twipl listing to the root so readers don't have to go to /twips
   map.with_options :conditions => { :host => /(.+\.)#{envsub}twipl.com$/} do | twipl_powered |
-    twipl_powered.connect '', :controller=>'twips', :action=>'index', :conditions => {:method => :get}
+    twipl_powered.connect '', :controller=>'days', :action=>'index', :conditions => {:method => :get}
     Propel::TwiplRoutes.define( twipl_powered)
     Propel::UniversalRoutes.define( twipl_powered)
   end
   
   # third-party domains powered by twipl
   map.with_options :conditions => { :published_as_alternate_twipl_domain => true } do | twipl_powered_3p |
-    twipl_powered_3p.connect '', :controller=>'twips', :action=>'index', :conditions => {:method => :get}
+    twipl_powered_3p.connect '', :controller=>'days', :action=>'index', :conditions => {:method => :get}
     Propel::TwiplRoutes.define( twipl_powered_3p)
     Propel::UniversalRoutes.define( twipl_powered_3p)
   end
