@@ -118,11 +118,6 @@ h1 { font-size:2em; line-height:1.5; margin-bottom:0; }
 h2 { font-size:1.4em; line-height:1.5; margin-bottom:0; }
 .why h1 {background:url(/images/h1_chevron.png) no-repeat 0; padding-left:1em;}
 
-/* Recent Twips Summary view (view recent Twips grouped by day) */
-.date { font-size:1.2em; }
-.day .day { display:block;font-size:1.2em; line-height:1; color:<%= @c_a_w1%>; }
-.date .year { display:none; }
-
 .twip h1 a, .vcard h1 a, .vcard h1 a:hover, .vcard h1 a:focus {
    text-decoration: none; 
    outline:none; 
@@ -316,8 +311,8 @@ co-branding */
 
 
 
-/* -------------------------------------------------------------- 
-twipl */
+/* ============================================================== 
+   Twips */
 
 textarea {
    height:100%;
@@ -340,38 +335,31 @@ textarea {
    border:1px solid <%= @c_b_k3%>;
    }
 
-.twip {margin:1em 0 1em 0;}
+/*     ----------------------------------------------------------
+       vertical spacing */
+       
+.twip {margin-bottom:1em;}
+.twip h2 {margin-bottom:1em;}
+.twip .body {margin-bottom:2em;}
 
-.day .date {
-   background:transparent url(/images/twip_date-tab.png) no-repeat 0 0;
-   padding:2px 0 0 40px;
-   margin:1em 0 0 0;
-   height:48px;
-   position: absolute; // take it out of flow so first Twip header will lie just to its right
-   }
 
-.authorship .date {display:none;}
+/*     ----------------------------------------------------------
+       authorship */
 
-.authorship {font-size:.9em;}
-
-.authorship .time:after {
-   content: ' | ';
-}
-
-.twip_chat {
-   background:transparent url(/images/twip_icon-conversation.png) no-repeat 0 0;
-   width:30px;
-   height:52px;
-   }
-
-.twip .body {padding-bottom:2em;}
-
-.twip h2 {
+.authorship {
+   font-size:.9em;
    margin-top: 3px;
    padding-top: 7px;
    border-top: 1px dashed <%= @c_a_w5 %>;
 }
+.authorship .date {display:none;}
+.authorship .time:after {
+   content: ' | ';
+}
 
+/*    -------------------------------------------------------------
+      reaction Twip */
+   
 .twip-top {
    background:transparent url(/images/twip_top.png) no-repeat 0 0;
    height:11px;
@@ -393,4 +381,19 @@ textarea {
    background:transparent url(/images/twip_bottom.png) no-repeat 0 0;
    height:11px;
    width:510px;
+   }
+
+/*    -------------------------------------------------------------- 
+      Recent Twips Summary view (Trips grouped by date) */
+
+.date { font-size:1.2em; }
+.day .day { display:block;font-size:1.2em; line-height:1; color:<%= @c_a_w1%>; }
+.date .year { display:none; }
+
+.day .date {
+   background:transparent url(/images/twip_date-tab.png) no-repeat 0 0;
+   padding:2px 0 0 40px;
+   margin:1em 0 0 0;
+   height:48px;
+   position: absolute; // take it out of flow so first Twip header will lie just to its right
    }
