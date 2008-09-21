@@ -1,0 +1,6 @@
+<div class='twip post prepend-1 span-13 last'>
+      <h1 class='title post-title prepend-1 span-12 last'><%= link_to @twip.title, :controller => 'twips', :action=>'show', :id => @twip.id %></h1>
+      <h2 class='authorship prepend-1 span-12 last'><span class='date'><%= date( @twip.created_at ) %></span><%= time( @twip.created_at ) %><span class='author'><%= @twip.author.nickname %></span></h2>
+   <div class='body span-13 last'><%= yield %></div>
+   <%= link_to 'edit', {:controller => 'twips', :action => 'edit', :id => @twip.id} if @twip.author.identity_url == authenticated_identity_url %>
+</div>
