@@ -20,6 +20,7 @@ module ApplicationHelper
     # TODO: add twipl.com
     # TODO: expand this logic to lookup code for the publisher (for Twipl) to cover all Twipl subdomains
     #       and Twipl user alternate domains too
+    # We'd like to just set this in routes.rb but SET_DEFAULT_NOT_IN_PATTERN_FOILS_URL_GENERATION
     ua_code = case ENV['RAILS_ENV']
     when 'production'
       "UA-184449-4" # thoughtpropulsion.com

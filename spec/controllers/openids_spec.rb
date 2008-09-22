@@ -30,7 +30,7 @@ describe OpenidsController do
 
     it 'should redirect to new registration form' do
       response.should be_redirect
-      # TODO: fixme
+      # # TODO: fixme
       # response.should redirect_to( :controller => 'users', :action => 'new')
     end
     

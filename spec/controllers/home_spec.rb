@@ -83,9 +83,9 @@ describe HomeController, 'should inherit ApplicationController functionality' do
         end
       end
 
-      ## TODO: rspec-rails goes under the covers of route recognition and skips extract_request_environment
-      ## as a result, our custom routing conditions like :published_as_alternate_twipl_domain aren't available
-      ## and so this spec never succeeds
+      # # TODO: rspec-rails goes under the covers of route recognition and skips extract_request_environment
+      # # as a result, our custom routing conditions like :published_as_alternate_twipl_domain aren't available
+      # # and so this spec never succeeds
       # describe "on third-party domain: blog.sally.me" do
       #   before(:each) do
       #     @domain = 'blog.sally.me'
