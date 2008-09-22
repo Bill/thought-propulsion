@@ -2,7 +2,7 @@
 
 require File.dirname(__FILE__) + '/../spec_helper'
 
-describe UsersController, 'should inherit ApplicationController functionality' do
+describe HomeController, 'should inherit ApplicationController functionality' do
 
   integrate_views
 
