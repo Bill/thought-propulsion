@@ -10,5 +10,5 @@
 <% if user_is_admin %>
 <%= corkd_form.text_field :alternate_domain, :instructions => "Your public Twips will be visible on this domain in addition to your free Twipl subdomain (#{blurb})", :readonly=>readonly  %>
 <% else%>
-<tr><td colspan = 2>Your public Twips will be visible on your free Twipl subdomain (<%= blurb %>)</td></tr>
+<tr><td colspan = '2'>Your public Twips will be visible on your free Twipl subdomain (<%= blurb %>)</td></tr>
 <% end %>

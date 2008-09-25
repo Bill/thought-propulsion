@@ -9,7 +9,8 @@ google.setOnLoadCallback( function() {
 		width: '390px', 
 		dompath: true, //Turns on the bar at the bottom 
 		animate: true, //Animates the opening, closing and moving of Editor windows 
-		handleSubmit: true
+		handleSubmit: true,
+		markup: 'xhtml'
 	}); 
 	myEditor.render();
 
