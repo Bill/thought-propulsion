@@ -5,7 +5,7 @@ describe 'twips views' do
   fixtures :users
 
   shared_examples_for 'sanitize' do
-    it 'should elide script tags' do
+    it 'should elide or escape all script tags' do
       response.should_not have_tag('script')
     end
   end
