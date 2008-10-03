@@ -1,0 +1,23 @@
+fred_public_twip:
+  title: dig
+  public: t
+  body: <div>phat phacts</div>
+  author: fred
+
+fred_private_twip:
+  title: sekret
+  public: f
+  body: <div>password is foo</div>
+  author: fred
+
+sally_private_twip:
+  title: she is odd
+  public: f
+  body: <div>but don't tell her</div>
+  author: sally
+  
+sally_public_twip:
+  title: she is smart
+  public: t
+  body: <div>and I don't care who knows it!</div>
+  author: sally

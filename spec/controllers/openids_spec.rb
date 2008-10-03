@@ -6,7 +6,7 @@ describe OpenidsController do
   fixtures :users
   
   before(:each) do
-    mock_valid_authentication
+    stub_valid_authentication
     post 'openid_authentication_callback'
   end
 
@@ -74,11 +74,11 @@ describe OpenidsController do
     end
   end
   
-  def mock_valid_authentication
-    openid_response = returning( mock( 'response' ) ) do |r|
+  def stub_valid_authentication
+    openid_response = returning( stub( 'response' ) ) do |r|
       r.stubs(:status).returns(OpenID::Consumer::SUCCESS)
       r.stubs(:extension_response).returns( HashWithIndifferentAccess.new(:email => 'whatever'))
-      endpoint = returning( mock( 'endpoint' ) ) do |e|
+      endpoint = returning( stub( 'endpoint' ) ) do |e|
         e.stubs(:claimed_id).returns( identity_url)
       end
       r.stubs(:endpoint).returns(endpoint)

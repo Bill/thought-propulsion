@@ -28,7 +28,7 @@ class Twip < ActiveRecord::Base
     if viewer_openid.blank?
       { :conditions => "public = 't'", :select => 'twips.*'}
     else
-      { :conditions => "public = 't' OR identity_url = '#{viewer_openid}'", :select => 'twips.*', :joins => [:author] }
+      { :conditions => ["public = 't' OR identity_url = ?", viewer_openid], :select => 'twips.*', :joins => [:author] }
     end
     }
 end

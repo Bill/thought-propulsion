@@ -54,7 +54,7 @@ describe UsersController, '' do
   describe 'authenticated principal' do
 
     before(:each) do
-      mock_valid_authentication
+      stub_valid_authentication
     end
 
     it 'should start with a new User object' do
@@ -65,7 +65,7 @@ describe UsersController, '' do
     describe 'presenting valid captcha' do
 
       before(:each) do
-        # mock_valid_captcha
+        # stub_valid_captcha
         @captcha = Captcha.new(:captcha => 'CAPTCHA', :captcha_verified=>false)
       end
 
@@ -101,15 +101,15 @@ describe UsersController, '' do
         end
       end
 
-      def mock_valid_captcha
-        session[:captcha] = mock('captcha', :valid? => true, :errors => mock('captcha errors', :full_messages => []), :captcha_verified => true)
+      def stub_valid_captcha
+        session[:captcha] = stub('captcha', :valid? => true, :errors => stub('captcha errors', :full_messages => []), :captcha_verified => true)
       end
     end # 'presenting valid captcha'
 
     describe 'presenting invalid captcha' do
 
       before(:each) do
-        mock_invalid_captcha
+        stub_invalid_captcha
       end
 
       describe 'with all required fields present' do
@@ -138,8 +138,8 @@ describe UsersController, '' do
         end
       end
 
-      def mock_invalid_captcha
-        session[:captcha] = mock('captcha', :valid? => false, :errors => mock('captcha errors', :full_messages => ['bad'], :on => ['bad']), :captcha_verified => false, :captcha => 'test', :captcha_session=>'1')
+      def stub_invalid_captcha
+        session[:captcha] = stub('captcha', :valid? => false, :errors => stub('captcha errors', :full_messages => ['bad'], :on => ['bad']), :captcha_verified => false, :captcha => 'test', :captcha_session=>'1')
       end
     end
 
@@ -177,7 +177,7 @@ describe UsersController, '' do
         end
       end
   
-      def mock_valid_authentication
+      def stub_valid_authentication
         session[:identity_url] = users(:fred).identity_url # matches user in fixtures
       end
   
@@ -186,7 +186,7 @@ describe UsersController, '' do
     describe 'administrator' do
     end # 'administrator'
 
-    def mock_valid_authentication
+    def stub_valid_authentication
       session[:identity_url] = 'not-fred.myopenid.com' # does NOT match user in fixtures
     end
 
