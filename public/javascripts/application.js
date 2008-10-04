@@ -26,7 +26,7 @@ google.setOnLoadCallback( function() {
       draggable: false, 
       buttonType: 'advanced', 
       buttons: [ 
-      { group: 'insertitem', label: 'Insert Item', 
+      { group: 'insertitem', label: 'Insert',
       buttons: [ 
       { type: 'push', label: 'HTML Link CTRL + SHIFT + L', value: 'createlink', disabled: true }, 
       { type: 'push', label: 'Insert Image', value: 'insertimage' } 
@@ -51,7 +51,7 @@ google.setOnLoadCallback( function() {
       ] 
       },*/
       { type: 'separator' },
-      { group: 'textstyle', label: 'Font Style', 
+      { group: 'textstyle', label: 'Style Font',
       buttons: [ 
       { type: 'push', label: 'Bold CTRL + SHIFT + B', value: 'bold' }, 
       { type: 'push', label: 'Italic CTRL + SHIFT + I', value: 'italic' }, 
@@ -68,7 +68,7 @@ google.setOnLoadCallback( function() {
       ] 
       },
       { type: 'separator' }, 
-      { group: 'parastyle', label: 'Paragraph Style', 
+      { group: 'parastyle', label: 'Style Paragraph',
       buttons: [ 
       { type: 'select', label: 'Normal', value: 'heading', disabled: true, 
       menu: [ 
@@ -81,7 +81,7 @@ google.setOnLoadCallback( function() {
     }, 
 
     { type: 'separator' }, 
-    { group: 'alignment', label: 'Alignment', 
+    { group: 'alignment', label: 'Align',
     buttons: [ 
     { type: 'push', label: 'Align Left CTRL + SHIFT + [', value: 'justifyleft' }, 
     { type: 'push', label: 'Align Center CTRL + SHIFT + |', value: 'justifycenter' }, 
@@ -90,7 +90,7 @@ google.setOnLoadCallback( function() {
     ] 
     }, 
     { type: 'separator' }, 
-    { group: 'indentlist', label: 'Indenting and Lists', 
+    { group: 'indentlist', label: 'Indent and List',
     buttons: [ 
     { type: 'push', label: 'Indent', value: 'indent', disabled: true }, 
     { type: 'push', label: 'Outdent', value: 'outdent', disabled: true }, 
