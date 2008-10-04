@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :normalized_identity_url, :nickname
   
   validates_each :alternate_domain do | record, attr, value |
-    record.errors.add attr, "sorry, #{value} is already spoken for" if !value.blank? && User.with_alternate_domain( value).count > 0
+    u = User.with_alternate_domain( value).find(:first)
+    record.errors.add attr, "sorry, #{value} is already spoken for" if !value.blank? && ( u && u != record)
   end
   
   validates_each :nickname do | record, attr, value | 

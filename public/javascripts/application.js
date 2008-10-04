@@ -102,6 +102,8 @@ google.setOnLoadCallback( function() {
   ]}
 
   }); // new YAHOO.widget.Editor(…)
+  
+  yuiImgUploader(myEditor, '/upload_url','param_name');
 
   myEditor.on('toolbarLoaded', function() { 
     var codeConfig = { 
