@@ -26,7 +26,6 @@ google.setOnLoadCallback( function() {
       draggable: false, 
       buttonType: 'advanced', 
       buttons: [ 
-      { type: 'separator' }, 
       { group: 'insertitem', label: 'Insert Item', 
       buttons: [ 
       { type: 'push', label: 'HTML Link CTRL + SHIFT + L', value: 'createlink', disabled: true }, 
