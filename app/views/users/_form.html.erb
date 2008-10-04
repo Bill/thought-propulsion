@@ -1,14 +1,14 @@
-<%= form.text_field :identity_url, :hint => 'your OpenID&mdash;it&apos;s never displayed to other users', :readonly=>true %>
-<%= form.text_field :nickname, :hint => 'this&apos;ll be how folks identify you on this site', :readonly=>readonly %>
-<%= form.text_field :email, :hint => 'you do have one of these, don&apos;t you?', :readonly=>readonly  %>
-<%= form.text_field :first_name,  :hint => '', :readonly=>readonly %>
-<%= form.text_field :last_name, :hint => '', :readonly=>readonly %>
-<%= form.text_field :country, :hint => '', :readonly=>readonly  %>
-<%= form.text_field :zip, :hint => '', :readonly=>readonly  %>
-<%= form.text_field :authenticator, :hint => "This is a random password you can use to access your account from tools that require passwords. Your username for such services is '#{form.object.id}'", :readonly=>readonly  %>
+<%= form.text_field :identity_url, :hint => 'your OpenID&mdash;it&apos;s never displayed to other users' %>
+<%= form.text_field :nickname, :hint => 'this&apos;ll be how folks identify you on this site' %>
+<%= form.text_field :email, :hint => 'you do have one of these, don&apos;t you?'  %>
+<%= form.text_field :first_name,  :hint => '' %>
+<%= form.text_field :last_name, :hint => '' %>
+<%= form.text_field :country, :hint => ''  %>
+<%= form.text_field :zip, :hint => ''  %>
+<%= form.text_field :authenticator, :hint => "This is a random password you can use to access your account from tools that require passwords. Your username for such services is '#{form.object.id}'"  %>
 <% blurb = ( (u = form.object.twipl_url) ? link_to( u, u) : 'you must pick a nickname to receive a Twipl subdomain' ) -%>
 <% if user_is_admin %>
-<%= form.text_field :alternate_domain, :hint => "Your public Twips will be visible on this domain in addition to your free Twipl subdomain (#{blurb})", :readonly=>readonly  %>
+<%= form.text_field :alternate_domain, :hint => "Your public Twips will be visible on this domain in addition to your free Twipl subdomain (#{blurb})"  %>
 <% else%>
 <tr><td colspan = '2'>Your public Twips will be visible on your free Twipl subdomain (<%= blurb %>)</td></tr>
 <% end %>

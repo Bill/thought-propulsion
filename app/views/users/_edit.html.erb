@@ -1,4 +1,7 @@
 <% airbudd_form_for( :user, @user, :url => url_for( :controller => 'users', :action => 'update', :id => @user.id), :html => { :method => 'put'} ) do |f| %>
 <%= render :partial => f, :locals => {:readonly => false}%>
-<tr class='last'><th></th><td><%= submit_tag %></td></tr>
+<% f.buttons do |b| %>
+<%= b.button :save %>
+<%= b.button :cancel, :url => url_for( :controller => 'users', :action => 'show', :id => f.object ) %>
+<% end %>
 <% end %>
