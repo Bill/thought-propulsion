@@ -302,6 +302,16 @@ forms */
 }
 .hint { color:<%=@c_b_w3%>; padding-top: .3em;}
 
+/* now make edit controls inherit style! */
+.object .attribute input[type=text]
+{
+    font-size:inherit;
+    text-align:inherit;
+    font-family:inherit;
+    background-color:inherit;
+    color:inherit;
+    border:1px dotted #ddd;
+}
    
 /* .fieldWithErrors is applied automatically by the Rails framework when a field has errors.
 see also: Blueprint CSS screen.css rules for .error and friends (I made this rule match that one)
