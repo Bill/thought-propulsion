@@ -1,4 +1,6 @@
-<% airbudd_form_for( :user, @user, :field_defaults =>{ :readonly => true }, :url => url_for( :controller => 'users', :action => 'show'), :html => { :method => :get} ) do |f| %>
+<% airbudd_form_for( :user, @user, :no_controls => true, :url => url_for( :controller => 'users', :action => 'show'), :html => { :method => :get} ) do |f| %>
 <%= render :partial => f %>
-<%= f.button :edit, :url => url_for( :controller => 'users', :action => 'edit', :id => f.object ) %>
+<% f.buttons do |b| %>
+<%= b.button :edit, :url => url_for( :controller => 'users', :action => 'edit', :id => f.object ) %>
+<% end %>
 <% end %>

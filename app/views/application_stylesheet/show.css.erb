@@ -249,6 +249,7 @@ hcard structure, so we'll stick it into the presentation.
 /* -------------------------------------------------------------- 
 forms */
 
+/* TODO: remove these once remnants of table-based forms are gone! */
 .form-table p {
    margin:0;
    }
@@ -263,6 +264,24 @@ forms */
 .form-table tr.last th, .form-table tr.last td {
    border-bottom:none;
    }
+
+
+
+.form-table p {
+   margin:0;
+   }
+.form-table th {
+   background:none;
+   text-align:right;
+   vertical-align:top;
+   }
+.form-table th, .form-table td {
+   border-bottom:1px dotted <%=@c_b_w1%>;
+   }
+.form-table tr.last th, .form-table tr.last td {
+   border-bottom:none;
+   }
+
 /* .fieldWithErrors is applied automatically by the Rails framework when a field has errors.
 see also: Blueprint CSS screen.css rules for .error and friends (I made this rule match that one)
 */
