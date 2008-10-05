@@ -264,24 +264,45 @@ forms */
 .form-table tr.last th, .form-table tr.last td {
    border-bottom:none;
    }
+.instructions { color:<%=@c_b_w2%>; padding-top: .3em;}
 
 
+.object .attribute {
+   margin:0 0 10px 0;
+   padding:0 0 10px 0;
+   border-bottom:1px dotted <%=@c_b_w1%>;
+   float:left;margin-right:10px;width:550px; /* span-14 */
+}
 
-.form-table p {
-   margin:0;
-   }
-.form-table th {
+.object .attribute label {
+   font-weight:normal; /* undo screen.css */
+   display:inline-block; /* establish context for em.required… */
+   float:left;margin-right:10px;width:110px; /* span-3 */
    background:none;
    text-align:right;
    vertical-align:top;
-   }
-.form-table th, .form-table td {
-   border-bottom:1px dotted <%=@c_b_w1%>;
-   }
-.form-table tr.last th, .form-table tr.last td {
-   border-bottom:none;
+   color:<%=@c_b_w2%>;
    }
 
+.required { 
+   color:<%=@c_a %>;
+   /* take this out of flow so that label text is right-aligned */
+   position:absolute;
+   padding-left: 3px; /* push out away from label a little */
+}
+
+.object .attribute input {
+   float:left;margin-right:10px;width:230px; /* span-6 */
+}
+
+.object .attribute .hint {
+   display:inline-block;
+   float:left;margin-right:10px;width:230px; /* span-6 */
+   padding-left: 120px; /* prepend-3 */
+}
+.hint { color:<%=@c_b_w3%>; padding-top: .3em;}
+
+   
 /* .fieldWithErrors is applied automatically by the Rails framework when a field has errors.
 see also: Blueprint CSS screen.css rules for .error and friends (I made this rule match that one)
 */
@@ -293,7 +314,6 @@ see also: Blueprint CSS screen.css rules for .error and friends (I made this rul
    border:none;
    }
 
-.instructions { color:<%=@c_b_w2%>; padding-top: .3em;}
 
 
 
