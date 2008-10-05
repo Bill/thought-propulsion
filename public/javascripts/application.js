@@ -91,8 +91,6 @@ google.setOnLoadCallback( function() {
     } // toolbar:
   }); // new YAHOO.widget.Editor(…)
   
-  yuiImgUploader(myEditor, '/upload_url','param_name');
-
   myEditor.on('toolbarLoaded', function() { 
     var codeConfig = { 
       type: 'push', label: 'Edit HTML Code', value: 'editcode' 
@@ -153,6 +151,8 @@ google.setOnLoadCallback( function() {
       }, this, true); 
           
     }, myEditor, true); // myEditor.on(…)
+
+    yuiImgUploader(myEditor, '/upload_url','param_name');
     
     myEditor.render();
 

@@ -26,7 +26,9 @@ function yuiImgUploader(rte, upload_url, upload_image_name) {
   rte.addListener('toolbarLoaded',function() {
     rte.toolbar.addListener ( 'insertimageClick', function(o) {
       try {
-        var imgPanel=new YAHOO.util.Element('yui-editor-panel');
+/* propeller@thoughtpropulsion.com 2008-10-5 looks like it isn't called yui-editor-panel anymore */
+/*        var imgPanel=new YAHOO.util.Element('yui-editor-panel');*/
+        var imgPanel=new YAHOO.util.Element('rich-editor-panel');
         imgPanel.on ( 'contentReady', function() {
           try {
             var Dom=YAHOO.util.Dom;
@@ -37,7 +39,9 @@ function yuiImgUploader(rte, upload_url, upload_image_name) {
               '<a href="#"  id="insertimage_upload_btn" style="width: 20%; margin-left: 10em;">Upload Image</a>'+
               '</label>'; 
           
-            var img_elem=Dom.get('insertimage_url');
+              /* propeller@thoughtpropulsion.com 2008-10-5 not called insertimage_url anymore */
+/*            var img_elem=Dom.get('insertimage_url');*/
+            var img_elem=Dom.get('rich-editor_insertimage_url');
             Dom.getAncestorByTagName(img_elem, 'form').encoding = 'multipart/form-data';
             
             Dom.insertAfter(
@@ -57,11 +61,15 @@ function yuiImgUploader(rte, upload_url, upload_image_name) {
                     var o=eval('('+resp+')');
                     if (o.status=='UPLOADED') {
                       Dom.get('insertimage_upload').value='';
-                      Dom.get('insertimage_url').value=o.image_url;
+                      /* propeller@thoughtpropulsion.com 2008-10-5 not called insertimage_url anymore */
+/*                      Dom.get('insertimage_url').value=o.image_url;*/
+                      Dom.get('rich-editor_insertimage_url').value=o.image_url;
                       // tell the image panel the url changed
                       // hack instead of fireEvent('blur')
                       // which for some reason isn't working
-                      Dom.get('insertimage_url').focus();
+                      /* propeller@thoughtpropulsion.com 2008-10-5 not called insertimage_url anymore */
+/*                      Dom.get('insertimage_url').focus();*/
+                      Dom.get('rich-editor_insertimage_url').focus();
                       Dom.get('insertimage_upload').focus();
                     } else {
                     alert ( "Upload Failed: "+o.status );
