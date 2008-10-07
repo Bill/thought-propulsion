@@ -3,17 +3,22 @@
 </div>
 <div class='span-13 prepend-1'>
 <p>Your identity has been verified but you're not yet a <%= company_name%> member &mdash; you can start using the site in a <%= link_to 'limited way', url_for( '/') %> now, or you can go ahead and complete your registration for an enhanced experience:</p>
-<% corkd_form_for( :user, @user, :url => { :controller => 'users', :action => 'create', :layout => 'home' }) do |f| %>
-<%= render :partial => f, :locals => {:readonly => false}%>
+
+<% airbudd_form_for( :user, @user, :url => url_for( :controller => 'users', :action => 'create'), :layout => 'home') do |f| %>
+<%= render :partial => f %>
 <% 
    unless @captcha.captcha_verified 
-      corkd_fields_for @captcha do |captcha|
+      debugger
+      airbudd_fields_for @captcha do |captcha|
 %>
-<%= captcha.text_field :captcha, :instructions => "Type the characters you see in the picture below to prove you&apos;re a #{ external_link_to 'real person', 'http://en.wikipedia.org/wiki/Turing_test'}." %>
+<%= captcha.text_field :captcha, :hint => "Type the characters you see in the picture below to prove you&apos;re a #{ external_link_to 'real person', 'http://en.wikipedia.org/wiki/Turing_test'}." %>
 <%= hidden_field :captcha, :captcha_session %>
 <%    end%>
 <% end %>
-<tr class='last'><th></th><td><%= submit_tag %></td></tr>
+<% f.buttons do |b| %>
+<%= b.button :save %>
+<%= b.button :cancel, :url => url_for %>
+<% end %>
 <% end %>
 <% unless @captcha.captcha_verified %>
 <p><img src="http://captchator.com/captcha/image/<%= @captcha.captcha_session %>"/></p>
