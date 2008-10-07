@@ -1,4 +1,6 @@
-<% @twip = show # for show_layout -%>
-<% inside_layout 'twips/_show_layout' do -%>
-   <%= show.body %>
+<% airbudd_form_for( :twip, show, :controls => false, :scaffold => false, :html => { :class => 'foogoo'} ) do |b| -%>
+<%    @builder = b # ditto -%>
+<%    inside_layout 'twips/_show_layout' do -%>
+<%=      b.text_area :body, :label => nil, :id => 'rich-editor' %>
+<%    end -%>
 <% end -%>

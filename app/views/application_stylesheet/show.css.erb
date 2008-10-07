@@ -246,10 +246,15 @@ hcard structure, so we'll stick it into the presentation.
 
 
 
-/* -------------------------------------------------------------- 
+/* =================================================================
 forms */
 
+
+/* -----------------------------------------------------------------
+   corkd form style */
+
 /* TODO: remove these once remnants of table-based forms are gone! */
+
 .form-table p {
    margin:0;
    }
@@ -267,14 +272,33 @@ forms */
 .instructions { color:<%=@c_b_w2%>; padding-top: .3em;}
 
 
-.object .attribute {
+/* -----------------------------------------------------------------
+   tweaked Air Budd builder style 
+   controls inherit style */
+
+/* . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+   scaffolding */
+
+/* now make edit controls inherit style! */
+.draft input[type=text]
+{
+    font-size:inherit;
+    text-align:inherit;
+    font-family:inherit;
+    background-color:inherit;
+    color:inherit;
+    width:100%;
+    border:1px dotted #ddd;
+}
+
+.draft .attribute, .published .attribute {
    margin:0 0 10px 0;
    padding:0 0 10px 0;
    border-bottom:1px dotted <%=@c_b_w1%>;
    float:left;margin-right:10px;width:550px; /* span-14 */
 }
 
-.object .attribute label {
+.draft .attribute label, .published .attribute label {
    font-weight:normal; /* undo screen.css */
    display:inline-block; /* establish context for em.required… */
    float:left;margin-right:10px;width:110px; /* span-3 */
@@ -284,41 +308,30 @@ forms */
    color:<%=@c_b_w2%>;
    }
 
-.required { 
+.draft .required { 
    color:<%=@c_a %>;
    /* take this out of flow so that label text is right-aligned */
    position:absolute;
    padding-left: 3px; /* push out away from label a little */
 }
 
-.object .attribute input {
+.draft .attribute input {
    float:left;margin-right:10px;width:230px; /* span-6 */
 }
 
-.object .attribute .hint {
+.draft .attribute .hint {
    display:inline-block;
    float:left;margin-right:10px;width:230px; /* span-6 */
    padding-left: 120px; /* prepend-3 */
 }
-.hint { color:<%=@c_b_w3%>; padding-top: .3em;}
+.draft .hint { color:<%=@c_b_w3%>; padding-top: .3em;}
 
-/* now make edit controls inherit style! */
-.object .attribute input[type=text]
-{
-    font-size:inherit;
-    text-align:inherit;
-    font-family:inherit;
-    background-color:inherit;
-    color:inherit;
-    border:1px dotted #ddd;
-}
-   
 /* .fieldWithErrors is applied automatically by the Rails framework when a field has errors.
 see also: Blueprint CSS screen.css rules for .error and friends (I made this rule match that one)
 */
 .fieldWithErrors input {border:2px solid <%=@c_t_w2%>; background:<%=@c_t_w3%>;}
 
-.content .error { 
+.draft .content .error { 
    color: <%=@c_t%>;
    background:none; /* these two properties undo blueprint style*/
    border:none;

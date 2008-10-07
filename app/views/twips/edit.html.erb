@@ -1,7 +1,10 @@
-<% airbudd_form_for( :twip, @twip, :url => url_for( :controller => 'twips', :action => 'update'), :html => { :method => 'put', :class => 'yui-skin-sam'} ) do |f| %>
-<%= render :partial => f %>
-<% f.buttons do |b| %>
-<%= b.button :save %>
-<%= b.button :cancel, :url => url_for( :controller => 'twips', :action => 'show', :id => f.object ) %>
+<% airbudd_form_for( :twip, @twip, :controls => true, :scaffold => false, :url => url_for( :controller => 'twips', :action => 'update'), :html => { :method => 'put', :class => 'yui-skin-sam draft'} ) do |b| -%>
+<%    @builder = b # ditto -%>
+<%    inside_layout 'twips/_show_layout' do -%>
+<%=      b.text_area :body, :label => nil, :id => 'rich-editor' %>
+<%    end -%>
+<% b.buttons do |b| %>
+<%=   b.button :save %>
+<%=   b.button :cancel, :url => url_for( :controller => 'twips', :action => 'show', :id => b.object ) %>
 <% end %>
-<% end %>
+<% end -%>

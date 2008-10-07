@@ -1,5 +1,19 @@
 <div class='twip post prepend-1'>
-      <h1 class='title post-title'><%= link_to h( @twip.title ), :controller => 'twips', :action=>'show', :id => @twip.id %></h1>
-      <h2 class='authorship span-13 last'><span class='reactions'>0 reactions</span><span class='date'><%= date( @twip.created_at ) %> at </span><%= time( @twip.created_at ) %> <%= link_to 'edit', {:controller => 'twips', :action => 'edit', :id => @twip.id} if @twip.author.identity_url == authenticated_identity_url %> posted by <span class='author'><%= @twip.author.nickname %></span></h2>
-   <div class='body span-13 last'><%= sanitize yield %></div>
+      <h1 class='title post-title'>
+<%=
+if @builder.kind_of?( AirBlade::AirBudd::FormBuilder)
+   @builder.text_field :title, :required => true, :label => nil
+else
+   link_to h( @builder.object.title ), :controller => 'twips', :action=>'show', :id => @builder.object.id
+end
+%>
+      </h1>
+      <h2 class='authorship span-13 last'><span class='reactions'>0 reactions</span><span class='date'><%= date( @builder.object.created_at ) %> at </span><%= time( @builder.object.created_at ) %> <%= link_to 'edit', {:controller => 'twips', :action => 'edit', :id => @builder.object.id} if @builder.object.author.identity_url == authenticated_identity_url %> posted by <span class='author'><%= @builder.object.author.nickname %></span></h2>
+      <div class='body span-13 last'>
+      <% if @builder.kind_of?( AirBlade::AirBudd::DivBuilder) -%>
+      <%= sanitize yield %>
+      <% else -%>
+      <%= yield %>
+      <% end -%>
+      </div>
 </div>
