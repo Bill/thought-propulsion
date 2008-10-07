@@ -30,7 +30,8 @@ class TwipsController < ApplicationController
   end
   
   def new
-    @twip = flash[:new_twip] || Twip.new
+    @twip = Twip.new()
+    @twip.author = registered_user
   end
   
   def create
@@ -42,8 +43,7 @@ class TwipsController < ApplicationController
       redirect_to url_for( :controller => 'twips', :action => 'show', :id => @twip.id)
     else
       error  @twip.errors.full_messages
-      flash[:new_twip] = @twip
-      redirect_to url_for( :controller => 'twips', :action => 'new')
+      render :action => 'new'
     end
   end
   
@@ -62,7 +62,7 @@ class TwipsController < ApplicationController
       redirect_to url_for( :controller => 'twips', :action => 'show', :id => @twip.id)
     else
       error @twip.errors.full_messages
-      redirect_to url_for( :controller => 'twips', :action => 'edit', :id => @twip.id)
+      render :action => 'edit'
     end
   end
   

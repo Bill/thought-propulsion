@@ -44,7 +44,7 @@ end
 module Propel::TwiplRoutes
   def define( map)
     # map.resources :twips, :collection => { :service_document => :get}
-    map.connect 'twips/service_document', :controller => 'twips', :action => 'new', :conditions => { :method => 'get'}
+    map.connect 'twips/service_document', :controller => 'twips', :action => 'service_document', :conditions => { :method => 'get'}
     map.connect '/twips/new', :controller=>'twips', :action=>'new', :conditions => {:method => :get}
     map.connect '/twips', :controller=>'twips', :action=>'create', :conditions => {:method => :post}
     map.connect '/twips/:id/edit', :controller=>'twips', :action=>'edit', :conditions => {:method => :get}

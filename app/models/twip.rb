@@ -5,6 +5,8 @@ class Twip < ActiveRecord::Base
   has_many :twips_viewers, :dependent => :destroy
   
   attr_protected :owner
+  
+  validates_presence_of :title
 
   named_scope :access_public, { :conditions => {:public => true}}
   

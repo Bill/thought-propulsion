@@ -1,5 +1,6 @@
 /* -------------------------------------------------------------- 
 
+undo
 top-level elements
 main content style
 misc. copy style
@@ -13,6 +14,14 @@ twipl
 
 -------------------------------------------------------------- */
 
+
+/* -------------------------------------------------------------- 
+undo */
+
+/* this value from screen.css conflicts with AirBudd FormBuilder's usage so we gotta undo it */
+body .error {
+padding:0;margin-bottom:0;border:none;background:none;color:inherit;border-color:inherit;
+}
 
 /* -------------------------------------------------------------- 
 top-level elements */
@@ -298,7 +307,7 @@ forms */
    float:left;margin-right:10px;width:550px; /* span-14 */
 }
 
-.draft .attribute label, .published .attribute label {
+.draft .attribute label, .published .attribute label, .draft .attribute .feedback {
    font-weight:normal; /* undo screen.css */
    display:inline-block; /* establish context for em.required… */
    float:left;margin-right:10px;width:110px; /* span-3 */
@@ -322,7 +331,7 @@ forms */
 .draft .attribute .hint {
    display:inline-block;
    float:left;margin-right:10px;width:230px; /* span-6 */
-   padding-left: 120px; /* prepend-3 */
+   margin-left: 120px; /* prepend-3 */
 }
 .draft .hint { color:<%=@c_b_w3%>; padding-top: .3em;}
 
@@ -331,11 +340,12 @@ see also: Blueprint CSS screen.css rules for .error and friends (I made this rul
 */
 .fieldWithErrors input {border:2px solid <%=@c_t_w2%>; background:<%=@c_t_w3%>;}
 
-.draft .content .error { 
+.draft .attribute .feedback {
    color: <%=@c_t%>;
-   background:none; /* these two properties undo blueprint style*/
-   border:none;
-   }
+}
+.draft .error { 
+   color: <%=@c_t%>;
+}
 
 
 

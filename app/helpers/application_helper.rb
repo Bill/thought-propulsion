@@ -8,12 +8,12 @@ module ApplicationHelper
   end
   
   def date( time)
-    time.strftime( "<span class='month'>%b</span><span class='day'>%d</span><span class='year'>%Y</span>")
+    time.strftime( "<span class='month'>%b</span><span class='day'>%d</span><span class='year'>%Y</span>") unless time.nil?
   end
   
   def time( time)
     # see http://microformats.org/wiki/datetime-design-pattern
-    "<abbr class='time' title='#{ time.to_s }'>#{time.strftime( '%I:%M %p')}</abbr>"
+    "<abbr class='time' title='#{ time.to_s }'>#{time.strftime( '%I:%M %p')}</abbr>" unless time.nil?
   end
   
   def google_analytics_site_identifier
