@@ -139,7 +139,7 @@ describe UsersController, '' do
       end
 
       def stub_invalid_captcha
-        session[:captcha] = stub('captcha', :valid? => false, :errors => stub('captcha errors', :full_messages => ['bad'], :on => ['bad']), :captcha_verified => false, :captcha => 'test', :captcha_session=>'1')
+        session[:captcha] = stub('captcha', :valid? => false, :errors => stub('captcha errors', :full_messages => ['bad'], :on => ['bad'], :'[]' => ['you did wrong']), :captcha_verified => false, :captcha => 'test', :captcha_session=>'1')
       end
     end
 
