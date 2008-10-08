@@ -5,11 +5,9 @@ author_viewing = (@builder.object.author.identity_url == authenticated_identity_
 <div class='twip post prepend-1'>
       <h1 class='title post-title'>
 <%=
-if @builder.rendering_controls?
-   @builder.text_field( :title, :required => true, :label => nil ) + @builder.feedback( :title)
-else
-   link_to h( @builder.object.title ), :controller => 'twips', :action=>'show', :id => @builder.object.id
-end
+   @builder.text_field( :title, :required => true, :label => nil ) do | value, html_opts |
+      link_to h( value ), :controller => 'twips', :action=>'show', :id => @builder.object.id
+   end + @builder.feedback( :title)
 %>
       </h1>
 <% if @builder.rendering_controls? %>
