@@ -1,3 +1,7 @@
+<% content_for :feature do -%>
+<h1>Your <%=company_name%> Account</h1>
+<% end -%>
+<% inside_layout 'users/_layout' do -%>
 <% airbudd_form_for( :user, @user, :url => url_for( :controller => 'users', :action => 'update', :id => @user.id), :html => { :method => 'put'} ) do |f| %>
 <%= render :partial => f, :locals => {:readonly => false}%>
 <% f.buttons do |b| %>
@@ -5,3 +9,4 @@
 <%= b.button :cancel, :url => url_for( :controller => 'users', :action => 'show', :id => f.object ) %>
 <% end %>
 <% end %>
+<% end -%>

@@ -1,6 +1,11 @@
-<% airbudd_form_for( :user, @user, :controls => false, :url => url_for( :controller => 'users', :action => 'show'), :html => { :method => :get} ) do |f| %>
-<%= render :partial => f %>
-<% f.buttons do |b| %>
-<%= b.button :edit, :url => url_for( :controller => 'users', :action => 'edit', :id => f.object ) %>
-<% end %>
-<% end %>
+<% content_for :feature do -%>
+<h1>Your <%=company_name%> Account</h1>
+<% end -%>
+<% inside_layout 'users/_layout' do -%>
+<%    airbudd_form_for( :user, @user, :controls => false, :url => url_for( :controller => 'users', :action => 'show'), :html => { :method => :get} ) do |f| %>
+<%=      render :partial => f %>
+<%       f.buttons do |b| %>
+<%=         b.button :edit, :url => url_for( :controller => 'users', :action => 'edit', :id => f.object ) %>
+<%       end %>
+<%    end %>
+<% end -%>

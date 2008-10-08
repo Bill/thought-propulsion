@@ -1,14 +1,13 @@
-<div class='span-13 prepend-1 feature intro'>
-   <h1>Create a <%=company_name%> Account</h1>
-</div>
-<div class='span-13 prepend-1'>
+<% content_for :feature do -%>
+<h1>Create a <%=company_name%> Account</h1>
+<% end -%>
+<% inside_layout 'users/_layout' do -%>
 <p>Your identity has been verified but you're not yet a <%= company_name%> member &mdash; you can start using the site in a <%= link_to 'limited way', url_for( '/') %> now, or you can go ahead and complete your registration for an enhanced experience:</p>
 
 <% airbudd_form_for( :user, @user, :url => url_for( :controller => 'users', :action => 'create'), :layout => 'home') do |f| %>
 <%= render :partial => f %>
 <% 
    unless @captcha.captcha_verified 
-      debugger
       airbudd_fields_for @captcha do |captcha|
 %>
 <%= captcha.text_field :captcha, :hint => "Type the characters you see in the picture below to prove you&apos;re a #{ external_link_to 'real person', 'http://en.wikipedia.org/wiki/Turing_test'}." %>
@@ -23,4 +22,4 @@
 <% unless @captcha.captcha_verified %>
 <p><img src="http://captchator.com/captcha/image/<%= @captcha.captcha_session %>"/></p>
 <%end%>
-</div>
+<% end -%>

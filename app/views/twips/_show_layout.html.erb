@@ -1,6 +1,7 @@
 <%
 author_viewing = (@builder.object.author.identity_url == authenticated_identity_url)
 -%>
+<!-- do not give e.g. span-13 class since we want .date to _invade_ the header on twips/index-->
 <div class='twip post prepend-1'>
       <h1 class='title post-title'>
 <%=
@@ -12,7 +13,7 @@ end
 %>
       </h1>
 <% if @builder.rendering_controls? %>
-<p><%= @builder.check_box :public, :instructions => 'check here to tell the whole world' %></p>
+<p><%= @builder.check_box :public, :hint => 'check here to tell the whole world' %></p>
 <% elsif author_viewing %>
 <p><%= @builder.object.public ? 'public' : 'private' %></p>
 <% end %>
