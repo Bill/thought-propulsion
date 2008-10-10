@@ -10,7 +10,7 @@ class ApplicationStylesheetController < ApplicationController
     define_palette
     
     respond_to do |wants|
-      wants.css {}
+      wants.css
     end    
   end
   

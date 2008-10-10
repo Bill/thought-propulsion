@@ -4,22 +4,20 @@
 <% inside_layout 'users/_layout' do -%>
 <p>Your identity has been verified but you're not yet a <%= company_name%> member &mdash; you can start using the site in a <%= link_to 'limited way', url_for( '/') %> now, or you can go ahead and complete your registration for an enhanced experience:</p>
 
-<% airbudd_form_for( :user, @user, :url => url_for( :controller => 'users', :action => 'create'), :layout => 'home') do |f| %>
-<%= render :partial => f %>
+<%    airbudd_form_for( :user, @user, :url => url_for( :controller => 'users', :action => 'create'), :layout => 'home') do |f| %>
+<%=      render :partial => f %>
 <% 
-   unless @captcha.captcha_verified 
-      airbudd_fields_for @captcha do |captcha|
+         unless @captcha.captcha_verified 
+            airbudd_fields_for @captcha do |captcha|
 %>
-<%= captcha.text_field :captcha, :hint => "Type the characters you see in the picture below to prove you&apos;re a #{ external_link_to 'real person', 'http://en.wikipedia.org/wiki/Turing_test'}." %>
-<%= hidden_field :captcha, :captcha_session %>
-<%    end%>
-<% end %>
-<% f.buttons do |b| %>
-<%= b.button :save %>
-<%= b.button :cancel, :url => url_for %>
-<% end %>
-<% end %>
-<% unless @captcha.captcha_verified %>
-<p><img src="http://captchator.com/captcha/image/<%= @captcha.captcha_session %>"/></p>
-<%end%>
-<% end -%>
+<%=         captcha.text_field :captcha, :hint => "Type the characters you see in the picture below to prove you&apos;re a #{ external_link_to 'real person', 'http://en.wikipedia.org/wiki/Turing_test'}." %>
+<p class='captcha'><img src="http://captchator.com/captcha/image/<%= @captcha.captcha_session %>"/></p>
+<%=         hidden_field :captcha, :captcha_session %>
+<%          end%>
+<%       end %>
+<%       f.buttons do |b| %>
+<%=         b.button :save %>
+<%=         b.button :cancel, :url => url_for %>
+<%       end %>
+<%    end # airbudd_form_for %>
+<% end # inside_layout -%>

@@ -21,13 +21,16 @@ google.setOnLoadCallback( function() {
     focusAtStart: true,
     handleSubmit: true,
     markup: 'xhtml',
+    css: '',
+    extracss: '',
+    hiddencss: '',
     toolbar: {
 
       collapse: true, 
       titlebar: 'Editing Your Twip', 
       draggable: false, 
       buttonType: 'advanced', 
-
+      
       buttons: [
         { group: 'insertitem', label: 'Insert',
           buttons: [ 
@@ -154,6 +157,20 @@ google.setOnLoadCallback( function() {
 
     yuiImgUploader(myEditor, '/upload_url','param_name');
     
+    var add_stylesheet = function( path){
+      var head = this._getDoc().getElementsByTagName('head')[0]; 
+      var link = this._getDoc().createElement('link'); 
+      link.setAttribute('rel', 'stylesheet'); 
+      link.setAttribute('type', 'text/css'); 
+      link.setAttribute('href', path); 
+      head.appendChild(link); 
+    }
+    
+    myEditor.on('editorContentLoaded', function() { 
+      add_stylesheet.call( this, '/stylesheets/blueprint/screen.css');
+      add_stylesheet.call( this, '/stylesheets/application.css');
+      }, myEditor, true);
+        
     myEditor.render();
 
   ( function( $ ) {

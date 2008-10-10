@@ -29,6 +29,7 @@ top-level elements */
 html, body {
    height:100%;
    background-color:<%= @c_b %>;
+   color:<%= @c_b_w4%>;
    margin:0;
    }
 
@@ -43,7 +44,6 @@ html, body {
 
 .no-alerts {
    background:<%= @c_b %> url(/images/header.png) repeat-x top left;
-   color:<%= @c_b_w4%>;
    }
 
 .alerts {
@@ -163,7 +163,7 @@ ul.nav li {padding:0;margin:0;display:block;float:left;text-indent:-9999px;}
 ul.nav li div {text-indent:0;}
 ul.nav li div a {display:inline;background:transparent}
 ul.nav li a {border:0;display:block;text-decoration:none;overflow:hidden;background:transparent url(/images/navigation.png) no-repeat;}
-li.userspace {width:455px;height:26px;}
+li.userspace {width:290px;height:26px;}
 li.home a {width:55px;height:26px;}
 li.blog a {width:48px;height:26px;}
 li.why a {width:47px;height:26px;}
@@ -239,6 +239,16 @@ login style */
    border:1px solid <%= @c_b_k4%>;
    }
 
+/* -------------------------------------------------------------- 
+User registration style */
+
+.captcha {
+   margin:0 0 10px 0;
+   padding:0 0 10px 0;
+   float:left;margin-right:10px;width:550px; /* span-14 */
+   margin-left:120px; /* prepend-3*/
+   border-bottom:1px dotted <%=@c_b_w1%>;
+}
 
 
 /* -------------------------------------------------------------- 
@@ -303,8 +313,8 @@ forms */
 .draft .attribute, .published .attribute {
    margin:0 0 10px 0;
    padding:0 0 10px 0;
-   border-bottom:1px dotted <%=@c_b_w1%>;
    float:left;margin-right:10px;width:550px; /* span-14 */
+   border-bottom:1px dotted <%=@c_b_w1%>;
 }
 
 .draft .attribute label, .published .attribute label, .draft .attribute .feedback {
