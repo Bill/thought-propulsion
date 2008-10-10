@@ -30,7 +30,7 @@ module Propel::UniversalRoutes
     # map.resource :stylesheets do |stylesheet|
     #   stylesheet.resource :application, :controller => 'application_stylesheet'
     # end
-    map.connect 'stylesheets/application.css', :controller => 'application_stylesheet', :action => 'show', :format => 'css', :conditions => {:method => :get}
+    map.connect 'stylesheets/application.css', :controller => 'stylesheets', :action => 'application', :format => 'css', :conditions => {:method => :get}
     
     # these three actions are solely for testing the HTML/CSS layout of the alert div
     map.connect 'error/:msg', :controller => 'home', :action => 'error', :conditions => {:method => :get}
