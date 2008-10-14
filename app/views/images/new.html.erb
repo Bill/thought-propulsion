@@ -1,0 +1,4 @@
+<% airbudd_form_for :image, @image, :url=> url_for(:controller => 'images', :action => 'create'), :html => {:method => 'post', :multipart => true} do |f| %>
+<%= file_field_tag :"image[uploaded_data]" %>
+<%= f.submit 'create' %>
+<% end%>

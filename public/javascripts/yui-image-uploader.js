@@ -19,7 +19,7 @@
  {status:'We only allow JPEG Images.'}
 
 */
-function yuiImgUploader(rte, upload_url, upload_image_name) {
+function yuiImgUploader(rte, upload_url, upload_image_name, csrf_protection) {
   // customize the editor img button 
   
   YAHOO.log( "Adding Click Listener" ,'debug');
@@ -34,8 +34,8 @@ function yuiImgUploader(rte, upload_url, upload_image_name) {
             var Dom=YAHOO.util.Dom;
             var label=document.createElement('label');
             label.innerHTML='<strong>Upload:</strong>'+
-              '<input type="file" id="insertimage_upload" name="'+upload_image_name+
-              '" size="10" style="width: 20%" />'+
+              '<input type="file" id="insertimage_upload" name="image['+upload_image_name+']"/>'+
+              '<input type="hidden"  name="authenticity_token" value="'+csrf_protection+'"/>'+
               '<a href="#"  id="insertimage_upload_btn" style="width: 20%; margin-left: 10em;">Upload Image</a>'+
               '</label>'; 
           
@@ -54,6 +54,12 @@ function yuiImgUploader(rte, upload_url, upload_image_name) {
               YAHOO.util.Connect.setForm ( img_elem.form, true, true );
               var c=YAHOO.util.Connect.asyncRequest(
               'POST', upload_url, {
+/*                success: function(o) { alert( "Success");}, */
+                failure: function(o) { 
+                  var x = 1;
+                  alert( "Image upload failed: " + o.statusText + "\nStatus: " + o.status + "\nHeaders: " + o.getAllResponseHeaders + "\nResponse: " + o.responseText);
+                  },
+                timeout: 5000,
                 upload:function(r){
                   try {
                     // strip pre tags if they got added somehow
@@ -72,7 +78,7 @@ function yuiImgUploader(rte, upload_url, upload_image_name) {
                       Dom.get('rich-editor_insertimage_url').focus();
                       Dom.get('insertimage_upload').focus();
                     } else {
-                    alert ( "Upload Failed: "+o.status );
+                      alert( "Image upload failed: " + o.statusText + "\nStatus: " + o.status + "\nHeaders: " + o.getAllResponseHeaders + "\nResponse: " + o.responseText);
                   }
                   
                   } catch ( eee ) {

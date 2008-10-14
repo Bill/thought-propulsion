@@ -1,0 +1,25 @@
+# We use CNAME mapping on S3 so that rather than accessing resources at s3.amazon.com
+# we access them under our own domain.
+development:
+  server: images.dev.twipl.com
+  bucket_name: images.dev.twipl.com
+  access_key_id: 0M1SXDKXYRMZN7DJ7FG2
+  secret_access_key: aNYk9mug2MAIIK5V9GxvpA8MRoOWH7s/ClPBVAet
+
+test:
+  server: images.test.twipl.com
+  bucket_name: images.test.twipl.com
+  access_key_id: 0M1SXDKXYRMZN7DJ7FG2
+  secret_access_key: aNYk9mug2MAIIK5V9GxvpA8MRoOWH7s/ClPBVAet
+
+staging:
+  server: images.staging.twipl.com
+  bucket_name: images.staging.twipl.com
+  access_key_id: 0M1SXDKXYRMZN7DJ7FG2
+  secret_access_key: aNYk9mug2MAIIK5V9GxvpA8MRoOWH7s/ClPBVAet
+
+production:
+  server: images.twipl.com
+  bucket_name: images.twipl.com
+  access_key_id: 0M1SXDKXYRMZN7DJ7FG2
+  secret_access_key: aNYk9mug2MAIIK5V9GxvpA8MRoOWH7s/ClPBVAet

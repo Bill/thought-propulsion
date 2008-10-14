@@ -85,9 +85,6 @@ main content style */
 
 .dark {background: <%= @c_b_k1%> url(/images/feature_lines.png) repeat-y left top;}
 
-
-
-
 /* -------------------------------------------------------------- 
 misc. copy style */
 
@@ -363,8 +360,9 @@ see also: Blueprint CSS screen.css rules for .error and friends (I made this rul
    color: <%=@c_t%>;
 }
 
-
-
+.draft .buttons {
+   padding-left:40px;/*prepend-1*/
+}
 
 /* -------------------------------------------------------------- 
 co-branding */
@@ -415,6 +413,14 @@ textarea {
    font-size:100%;
    }
 
+.twip img {
+   background:<%= @c_b_w1 %> none repeat scroll 0 0;
+   border:1px dashed <%= @c_b_w2%>;
+   margin:7px 12px 10px 0;
+   padding:7px;
+   /*vertical-align:sub;*/
+   }
+   
 /*     ----------------------------------------------------------
        vertical spacing */
        

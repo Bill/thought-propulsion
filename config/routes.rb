@@ -52,6 +52,10 @@ module Propel::TwiplRoutes
     map.connect '/twips/:id', :controller=>'twips', :action=>'show', :conditions => {:method => :get}
     map.connect '/twips/:id', :controller=>'twips', :action=>'update', :conditions => {:method => :put}
     map.connect '/twips', :controller=>'twips', :action=>'index', :conditions => {:method => :get}
+    map.connect '/images/new', :controller=>'images', :action=>'new', :conditions=>{:method=>:get}
+    map.connect '/images/:id', :controller=>'images', :action=>'show', :conditions=>{:method=>:get}
+    map.connect '/images/create', :controller=>'images', :action=>'create', :conditions=>{:method=>:post}    
+    map.connect '/images/create_json', :controller=>'images', :action=>'create_json', :conditions=>{:method=>:post}
   end
   module_function :define
 end

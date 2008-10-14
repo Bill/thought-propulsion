@@ -1,3 +1,9 @@
 [submodule "vendor/plugins/air_budd_form_builder"]
 	path = vendor/plugins/air_budd_form_builder
 	url = git@github.com:Bill/air_budd_form_builder.git
+[submodule "vendor/gems/aws-s3-0.5.1"]
+	path = vendor/gems/aws-s3-0.5.1
+	url = git@github.com:Bill/aws-s3.git
+[submodule "vendor/plugins/attachment_fu"]
+	path = vendor/plugins/attachment_fu
+	url = git@github.com:Bill/attachment_fu.git

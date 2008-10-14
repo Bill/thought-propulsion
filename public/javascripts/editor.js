@@ -22,6 +22,7 @@ addLoad( function() {
     css: '',
     extracss: '',
     hiddencss: '',
+    html: '<html><head><title>{TITLE}</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><base href="' + location.protocol + '//' + location.host + '"><style>{CSS}</style><style>{HIDDEN_CSS}</style><style>{EXTRA_CSS}</style></head><body class="twip" onload="document.body._rteLoaded = true;">{CONTENT}</body></html>',
     toolbar: {
 
       collapse: true, 
@@ -153,7 +154,8 @@ addLoad( function() {
           
     }, myEditor, true); // myEditor.on(…)
 
-    yuiImgUploader(myEditor, '/upload_url','param_name');
+    csrf_protection = jQuery('input[name=authenticity_token]')[0].value
+    yuiImgUploader(myEditor, '/images/create_json','uploaded_data', csrf_protection);
     
     var add_stylesheet = function( path){
       var head = this._getDoc().getElementsByTagName('head')[0]; 

@@ -2,9 +2,9 @@
 <%    @builder = b # ditto -%>
 <%    inside_layout 'twips/_show_layout' do -%>
 <%=      b.text_area :body, :label => nil, :id => 'rich-editor' %>
-<%       b.buttons do |b| %>
-<%=         b.button :save %>
-<%=      b.button :cancel, :url => url_for( :controller => 'twips', :action => 'show', :id => b.object ) %>
-<% end %>
 <%    end -%>
+<%    b.buttons do |b| %>
+<%=      b.button :save %>
+<%=      b.button :cancel, :url => url_for( :controller => 'twips', :action => 'show', :id => b.object ) %>
+<%    end %>
 <% end -%>

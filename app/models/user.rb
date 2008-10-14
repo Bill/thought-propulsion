@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   attr_protected :admin, :identity_url, :normalized_identity_url, :alternate_domain
   
   has_many :twips, :foreign_key => 'owner_id', :dependent => :destroy
+  has_many :images, :foreign_key => 'owner_id', :dependent => :destroy
   
   named_scope :with_same_identity, lambda{ |user| { :conditions => { :normalized_identity_url => user.normalized_identity_url}}}
   

@@ -1,0 +1,2 @@
+<% meta = "#{@image.public ? 'public' : 'private'} Twipl image #{@image.id}" -%>
+<img src="<%= image_src_url( @image )%>" alt="<%= meta %>" title="<%= meta %>"></img>

@@ -15,7 +15,9 @@ class TwipsController < ApplicationController
     (render( :file => "#{RAILS_ROOT}/public/404.html", :status => 404) and return) unless publisher
     @twips = authorized_twip_summary_for_publisher_and_viewer( publisher, authenticated_identity_url)
     respond_to do |wants|
-      wants.atom { render :action => 'index', :layout => false}
+      wants.atom { 
+        render :action => 'index', :layout => false
+        }
       wants.html
     end    
   end
@@ -75,7 +77,7 @@ class TwipsController < ApplicationController
   protected
   
   def include_scripts
-    include_tags = render_to_string( :partial => 'editor/head_elements_min' )
+    include_tags = render_to_string( :partial => 'editor/head_elements' )
     # um, see e.g. layout.rb line 254 in Rails 2.1.0. content_for variables have the form @content_for_<name>
     @template.instance_variable_set("@content_for_head", include_tags )
   end

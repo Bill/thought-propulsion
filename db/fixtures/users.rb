@@ -1,5 +1,9 @@
 # see seed-fu plugin
 %w{
+dev
+staging
+test
+images
 bill
 billb
 billburcham
