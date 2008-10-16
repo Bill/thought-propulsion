@@ -8,7 +8,7 @@ class TwipsController < ApplicationController
   before_filter :filter_user_is_registered, :only => [:create, :new]
   before_filter :filter_user_is_admin_or_authorized_for_action, :except => [:create, :new, :index, :show]
   
-  before_filter :include_scripts
+  before_filter :include_scripts, :only => [:edit, :new]
   
   def index
     publisher = User.for_host( request.host).find(:first)
