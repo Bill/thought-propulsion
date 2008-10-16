@@ -1,6 +1,7 @@
 class ThumbnailImage < ActiveRecord::Base
   
-  has_attachment :content_type => :image, 
+  has_attachment :s3_access => :authenticated_read,
+                 :content_type => :image, 
                  :storage => :s3, 
                  :max_size => 50.kilobytes
   

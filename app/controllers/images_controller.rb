@@ -22,8 +22,11 @@ class ImagesController < ApplicationController
       if image.save
         respond_to do | wants |
           wants.json do
-            render :layout => false, :json => { :status => 'UPLOADED', :image_url => image_src_url( image )} 
-            # otherwise Rails returns application/json and Firefox 3 tries to open an app
+            # render :layout => false, :json => { :status => 'UPLOADED', :image_url => image_src_url( image )} 
+            render :layout => false, :json => { :status => 'UPLOADED', :image_url => url_for(:action=>'show', :id=>image.id)} 
+            # retruning application/json, text/x-json, text/json cause Firefox 3 to try to open an app
+            # returning text/html or application/xhtml+xml causes ampersands (&) in json 
+            # strings to get html_escape (&amp;)
             response.content_type = Mime::HTML
           end
         end
@@ -44,7 +47,8 @@ class ImagesController < ApplicationController
       if image.save
         respond_to do | wants |
           wants.json { 
-            render :layout => false, :json => { :status => 'UPLOADED', :image_url => image_src_url( image )} 
+            # render :layout => false, :json => { :status => 'UPLOADED', :image_url => image_src_url( image )} 
+            render :layout => false, :json => { :status => 'UPLOADED', :image_url => url_for(:action=>'show', :id=>image.id)} 
             }
           wants.html do
             inform "image #{image.id} saved"
@@ -66,6 +70,7 @@ class ImagesController < ApplicationController
   def show
     viewer = authenticated_identity_url
     @image = Image.access_public_or_shared_with( viewer).find( params[:id])
+    redirect_to image_src_url( @image ) unless @image.nil?
   end
   
   protected

@@ -77,7 +77,7 @@ class TwipsController < ApplicationController
   protected
   
   def include_scripts
-    include_tags = render_to_string( :partial => 'editor/head_elements' )
+    include_tags = render_to_string( :partial => 'editor/head_elements_min' )
     # um, see e.g. layout.rb line 254 in Rails 2.1.0. content_for variables have the form @content_for_<name>
     @template.instance_variable_set("@content_for_head", include_tags )
   end

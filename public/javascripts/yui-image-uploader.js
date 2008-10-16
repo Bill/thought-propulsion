@@ -56,15 +56,24 @@ function yuiImgUploader(rte, upload_url, upload_image_name, csrf_protection) {
               'POST', upload_url, {
 /*                success: function(o) { alert( "Success");}, */
                 failure: function(o) { 
-                  var x = 1;
                   alert( "Image upload failed: " + o.statusText + "\nStatus: " + o.status + "\nHeaders: " + o.getAllResponseHeaders + "\nResponse: " + o.responseText);
                   },
                 timeout: 5000,
                 upload:function(r){
+ 
+                  // strip pre tags if they got added somehow
+                  resp=r.responseText.replace( /<pre>/i, '').replace ( /<\/pre>/i, '');
+                  /* var o=eval('('+resp+')');*/
+
                   try {
-                    // strip pre tags if they got added somehow
-                    resp=r.responseText.replace( /<pre>/i, '').replace ( /<\/pre>/i, '');
-                    var o=eval('('+resp+')');
+                    // Use the JSON Utility to parse the data returned from the server 
+                    try { 
+                      o = YAHOO.lang.JSON.parse( resp); 
+                  } 
+                  catch (x) { 
+                    alert("JSON Parse failed!"); 
+                    return; 
+                  }
                     if (o.status=='UPLOADED') {
                       Dom.get('insertimage_upload').value='';
                       /* propeller@thoughtpropulsion.com 2008-10-5 not called insertimage_url anymore */

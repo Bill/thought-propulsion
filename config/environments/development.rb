@@ -18,7 +18,7 @@ config.action_mailer.raise_delivery_errors = false
 
 config.gem 'lorem'
 
-Dependencies.explicitly_unloadable_constants = 'RouteNameFor'
+ActiveSupport::Dependencies.explicitly_unloadable_constants = 'RouteNameFor'
 
 # require 'ruby-debug'
 # Debugger.start
