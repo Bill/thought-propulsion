@@ -1,0 +1,6 @@
+<% content_for :feature do -%>
+<h1>future home of: Create a <%=company_name%> Account</h1>
+<% end -%>
+<% inside_layout 'users/_layout' do -%>
+<p>Your identity has been verified but you're not yet a <%= company_name%> member &mdash; you can start using the site in a <%= link_to 'limited way', url_for( '/') %> now. Soon, you'll be able to use this page to create your own account.</p>
+<% end # inside_layout -%>

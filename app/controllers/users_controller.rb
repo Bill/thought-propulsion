@@ -11,27 +11,36 @@ class UsersController < ApplicationController
   def new
     @user = flash[:new_user] || User.new
     @captcha = session[:captcha] || Captcha.new
+    # Disable registration on production and staging
+    if %w(production staging).include? RAILS_ENV
+      render :template => 'users/new_not'
+    end
   end
   
   def create
-    @user = User.new( params[:user])
-    @user.identity_url = session[:identity_url]
-    @user.set_sensitive_parameters( params[:user], registered_user, authenticated_identity_url)
-    # captcha may be valid before user is. in that case captcha parameters will not be present but
-    # captcha in session will be present and valid
-    @captcha = params[:captcha] ? Captcha.new( params[:captcha]) : session[:captcha]
-    # make sure we run both sets of validations so user sees all errors at once
-    @captcha.valid?
-    @user.valid?
-    if @captcha.valid? && @user.save
-      flash[:new_user] = nil
-      session[:captcha] = nil
-      inform "welcome #{@user.nickname}"
-      redirect_to url_for( :controller => 'users', :action => 'show', :id => @user.id)
+    # Disable registration on production and staging
+    if %w(production staging).include? RAILS_ENV
+      render :template => 'users/new_not'
     else
-      error  @user.errors.full_messages + @captcha.errors.full_messages
-      session[:captcha] = @captcha
-      render :action => 'new'
+      @user = User.new( params[:user])
+      @user.identity_url = session[:identity_url]
+      @user.set_sensitive_parameters( params[:user], registered_user, authenticated_identity_url)
+      # captcha may be valid before user is. in that case captcha parameters will not be present but
+      # captcha in session will be present and valid
+      @captcha = params[:captcha] ? Captcha.new( params[:captcha]) : session[:captcha]
+      # make sure we run both sets of validations so user sees all errors at once
+      @captcha.valid?
+      @user.valid?
+      if @captcha.valid? && @user.save
+        flash[:new_user] = nil
+        session[:captcha] = nil
+        inform "welcome #{@user.nickname}"
+        redirect_to url_for( :controller => 'users', :action => 'show', :id => @user.id)
+      else
+        error  @user.errors.full_messages + @captcha.errors.full_messages
+        session[:captcha] = @captcha
+        render :action => 'new'
+      end
     end
   end
 

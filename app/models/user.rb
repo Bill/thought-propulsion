@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
   end
 
   def set_sensitive_parameters( user_parameters, registered_user, authenticated_identity_url)
-    # if _logged-in_ user is admin then shey can edit any user's alternate_domain
+    # if _logged-in_ user is admin then she can edit any user's alternate_domain
     if( registered_user && registered_user.admin )
       self.alternate_domain = user_parameters[:alternate_domain]
     end
