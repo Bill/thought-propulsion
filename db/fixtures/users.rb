@@ -21,13 +21,16 @@ memerocket
 meme-rocket
 starsatnight
 }.each do |name|
+  # reserve these nicknames by associating them with OpenID's under our own domain
   User.seed(:nickname, :normalized_identity_url) do |s|
     s.nickname = name
-    s.identity_url = "http://#{name}.myopenid.com"
+    s.identity_url = "http://#{name}.thoughtpropulsion.com"
   end
 end
 
-User.seed(:nickname, :normalized_identity_url) do |s|
-  s.nickname = 'thoughtpropulsion'
+User.seed(:nickname) do |s|
+  s.nickname = 'propeller'
   s.identity_url = 'http://meme-rocket.com'
+  envsub, port = Propel::EnvironmentSubdomains::envsub
+  s.alternate_domain = "blog.#{envsub}thoughtpropulsion.com"
 end
