@@ -33,4 +33,5 @@ User.seed(:nickname) do |s|
   s.identity_url = 'http://meme-rocket.com'
   envsub, port = Propel::EnvironmentSubdomains::envsub
   s.alternate_domain = "blog.#{envsub}thoughtpropulsion.com"
+  s.admin = true
 end
