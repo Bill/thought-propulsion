@@ -25,9 +25,9 @@ module Authored
     # TODO: add conditions for sharing with other users
     named_scope :access_public_or_shared_with, lambda{ |viewer_openid | 
       if viewer_openid.blank?
-        { :conditions => "public = 't'", :select => "#{table_name}.*"}
+        { :conditions => ["public = ?", true], :select => "#{table_name}.*"}
       else
-        { :conditions => ["public = 't' OR identity_url = ?", viewer_openid], :select => "#{table_name}.*", :joins => [:author] }
+        { :conditions => ["public = ? OR identity_url = ?", true, viewer_openid], :select => "#{table_name}.*", :joins => [:author] }
       end
     }
   end
