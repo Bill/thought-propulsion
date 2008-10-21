@@ -10,7 +10,7 @@ set :git_shallow_clone, 1
 set :git_enable_submodules, 1
 
 set :repository,  "git@github.com:Bill/thought-propulsion.git"
-set :branch, "deploy"
+# set :branch, "deploy"
 
 ssh_options[:paranoid] = false
 
