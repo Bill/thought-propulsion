@@ -42,7 +42,7 @@ Rails::Initializer.run do |config|
   plugins = [ :open_id_authentication, :nested_layouts, :'seed-fu', :criteriaquery, :request_routing, :air_budd_form_builder, :attachment_fu]
   
   # FIXME: would like to do this in test.rb
-  plugins.concat( [:'rspec-rails' ] ) if config.environment == 'test'
+  plugins.concat( [:'rspec', :'rspec-rails' ] ) if %w(test development).include?( config.environment )
   
   config.plugins = plugins
 
