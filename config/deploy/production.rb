@@ -1,7 +1,5 @@
 set :rails_env, 'production'
 
-set :branch, "deploy"
-
 # Your EC2 instances. Use the ec2-xxx....amazonaws.com hostname, not
 # any other name (in case you have your own DNS alias) or it won't
 # be able to resolve to the internal IP address.
