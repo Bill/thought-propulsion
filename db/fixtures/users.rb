@@ -8,9 +8,9 @@ bill
 billb
 billburcham
 burcham
-propeller
 propel
 joyomi
+thoughtpropulsion
 thought-propulsion
 writerocket
 write-rocket
