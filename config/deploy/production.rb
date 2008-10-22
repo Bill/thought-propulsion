@@ -4,7 +4,7 @@ set :rails_env, 'production'
 # any other name (in case you have your own DNS alias) or it won't
 # be able to resolve to the internal IP address.
 # Your EC2 instances
-set :domain, "ec2-75-101-254-177.compute-1.amazonaws.com"
+set :domain, "ec2-75-101-221-165.compute-1.amazonaws.com"
 
 role :web,      domain
 role :app,      domain
@@ -20,7 +20,7 @@ set :ec2onrails_config, fetch(:ec2onrails_config).merge(
   # S3 bucket and "subdir" used by the ec2onrails:db:restore task
   # NOTE: this only applies if you are not using EBS
   :restore_from_bucket => "propel-thoughtpropulsion",
-  :restore_from_bucket_subdir => "db-archive/2008-09-11--17-50-27",
+  :restore_from_bucket_subdir => "db-archive/2008-10-21--16-24-35",
   
   # S3 bucket and "subdir" used by the ec2onrails:db:archive task
   # This does not affect the automatic backup of your MySQL db to S3, it's
