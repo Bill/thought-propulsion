@@ -27,5 +27,5 @@ config.gem 'lorem'
 # FIXME: have to do this in environment.rb unfortunately
 # config.plugins = [ :'rspec-rails']
 
-# require 'ruby-debug'
-# Debugger.start
+require 'ruby-debug'
+Debugger.start

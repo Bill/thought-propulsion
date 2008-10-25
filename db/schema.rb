@@ -9,7 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081011014016) do
+ActiveRecord::Schema.define(:version => 20081024205240) do
+
+  create_table "image_placements", :force => true do |t|
+    t.integer  "twip_id"
+    t.integer  "image_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "images", :force => true do |t|
     t.integer  "parent_id"

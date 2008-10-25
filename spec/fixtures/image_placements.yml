@@ -1,0 +1,10 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+for_fred_public_twip:
+  twip: fred_public_twip
+  image: freds
+  
+for_fred_private_twip:
+  twip: fred_private_twip
+  image: freds
+  

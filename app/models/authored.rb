@@ -1,4 +1,27 @@
 module Authored
+
+  module ClassMethods
+    # Unfortunately named_scopes don't work for in-memory ActiveRecords (before they've been successfully
+    # saved). So we need a parallel set of methods that work for in-memory objects
+    def access_shared_with?( viewer_openid)
+      # TODO: add conditions for sharing with other users
+      if viewer_openid.blank?
+        false
+      else
+        author.identity_url == viewer_openid
+      end
+    end
+    
+    def access_public_or_shared_with?( viewer_openid)
+      # TODO: add conditions for sharing with other users
+      if viewer_openid.blank?
+        public
+      else
+        public || author.identity_url == viewer_openid
+      end
+    end
+  end
+
   def authored
     
     belongs_to :author, :class_name => 'User', :foreign_key => 'owner_id'
@@ -30,5 +53,7 @@ module Authored
         { :conditions => ["public = ? OR identity_url = ?", true, viewer_openid], :select => "#{table_name}.*", :joins => [:author] }
       end
     }
+
+    include ClassMethods
   end
 end # Authored

@@ -34,6 +34,7 @@ Rails::Initializer.run do |config|
   config.gem 'capistrano', :version => '2.4.3'
   # config.gem 'ratom', :version => '~>0.5.1'
   config.gem 'aws-s3', :lib => 'aws/s3', :version => '~>0.5.1'
+  config.gem 'libxml-ruby', :lib => 'xml/libxml', :version => '~> 0.8.3'
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
@@ -79,8 +80,10 @@ Rails::Initializer.run do |config|
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
+  config.active_record.observers = :twip_observer
   
   config.after_initialize do
     require 'propel'
+    require 'libxml_helper'
   end
 end
