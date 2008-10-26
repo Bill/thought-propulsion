@@ -4,8 +4,8 @@ class TwipObserver < ActiveRecord::Observer
     # twip.body is not necessarily a well-formed XML document since it may have multiple roots.
     # put those under a root so libxml will be happy
     content = "<root>#{twip.body}</root>".to_libxml_doc.root
-    image_placements = (content/'//@href').map do | href |
-      id = href.inner_xml[ /\/image_placements\/(\d+)/, 1]
+    image_placements = (content/'//img/@src').map do | href |
+      id = href.inner_xml[ /.*\/image_placements\/(\d+)\/?$/, 1]
       ImagePlacement.find( id) unless id.nil?
     end.compact
     twip.image_placements = image_placements

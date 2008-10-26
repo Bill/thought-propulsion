@@ -155,7 +155,7 @@ addLoad( function() {
     }, myEditor, true); // myEditor.on(…)
 
     csrf_protection = jQuery('input[name=authenticity_token]')[0].value
-    yuiImgUploader(myEditor, '/images/create_json','uploaded_data', csrf_protection);
+    yuiImgUploader(myEditor, '/image_placements/create_json','uploaded_data', csrf_protection);
     
     var add_stylesheet = function( path){
       var head = this._getDoc().getElementsByTagName('head')[0]; 

@@ -1,10 +1,12 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe ImagePlacement do
+
+  fixtures :images
+
   before(:each) do
     @valid_attributes = {
-      :twip_id => "1",
-      :image_id => "1"
+      :image_id => images(:freds).id
     }
   end
 

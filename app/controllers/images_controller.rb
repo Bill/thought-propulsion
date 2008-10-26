@@ -18,21 +18,16 @@ class ImagesController < ApplicationController
   # rather than just calling create, since YUI Editor sets the accept header to text/html
   # and expects text/html back, which would cause the create action to render HTML.
   def create_json
-    _create do | image |
-      if image.save
-        respond_to do | wants |
-          wants.json do
-            # render :layout => false, :json => { :status => 'UPLOADED', :image_url => image_src_url( image )} 
-            render :layout => false, :json => { :status => 'UPLOADED', :image_url => url_for(:action=>'show', :id=>image.id)} 
-            # retruning application/json, text/x-json, text/json cause Firefox 3 to try to open an app
-            # returning text/html or application/xhtml+xml causes ampersands (&) in json 
-            # strings to get html_escape (&amp;)
-            response.content_type = Mime::HTML
-          end
-        end
-      else
-        respond_to do | wants |
-          wants.json do 
+    respond_to do | wants |
+      wants.json do
+        _create do | image |
+          if image.save
+              render :layout => false, :json => { :status => 'UPLOADED', :image_url => url_for(:action=>'show', :id=>image.id)} 
+              # returning application/json, text/x-json, text/json cause Firefox 3 to try to open an app
+              # returning text/html or application/xhtml+xml causes ampersands (&) in json 
+              # strings to get html_escape (&amp;)
+              response.content_type = Mime::HTML
+          else
             render :layout => false, :json => { :status => 'FAILED'}
             # otherwise Rails returns application/json and Firefox 3 tries to open an app
             response.content_type = Mime::HTML
@@ -46,10 +41,9 @@ class ImagesController < ApplicationController
     _create do | image |
       if image.save
         respond_to do | wants |
-          wants.json { 
-            # render :layout => false, :json => { :status => 'UPLOADED', :image_url => image_src_url( image )} 
+          wants.json do
             render :layout => false, :json => { :status => 'UPLOADED', :image_url => url_for(:action=>'show', :id=>image.id)} 
-            }
+          end
           wants.html do
             inform "image #{image.id} saved"
             redirect_to :action => 'show', :id => image.id

@@ -55,7 +55,7 @@ module Propel::TwiplRoutes
     map.connect '/images/new', :controller=>'images', :action=>'new', :conditions=>{:method=>:get}
     map.connect '/images/:id', :controller=>'images', :action=>'show', :conditions=>{:method=>:get}
     map.connect '/images/create', :controller=>'images', :action=>'create', :conditions=>{:method=>:post}    
-    map.connect '/images/create_json', :controller=>'images', :action=>'create_json', :conditions=>{:method=>:post}
+    map.connect '/image_placements/create_json', :controller=>'image_placements', :action=>'create_json', :conditions=>{:method=>:post}
     map.connect '/image_placements/:id', :controller=>'image_placements', :action=>'show', :conditions=>{:method=>:get}
   end
   module_function :define
