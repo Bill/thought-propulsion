@@ -1,6 +1,7 @@
 class ThumbnailImage < ActiveRecord::Base
   
-  has_attachment :s3_access => :authenticated_read,
+  has_attachment :processor => 'ImageScience',
+                 :s3_access => :authenticated_read,
                  :content_type => :image, 
                  :storage => :s3, 
                  :max_size => 50.kilobytes
