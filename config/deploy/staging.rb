@@ -4,7 +4,7 @@ set :rails_env, 'staging'
 # any other name (in case you have your own DNS alias) or it won't
 # be able to resolve to the internal IP address.
 # Your EC2 instances
-set :domain, "ec2-67-202-0-170.compute-1.amazonaws.com"
+set :domain, "ec2-67-202-31-117.compute-1.amazonaws.com"
 
 role :web,      domain
 role :app,      domain
