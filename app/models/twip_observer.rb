@@ -1,8 +1,3 @@
-# FIXME: shouldn't have to require that here, but if I don't then during EC2 Cap deploy
-# I get errors because in Twip authored isn't defined. Apparently, initializers aren't called
-# in some cases
-require 'authored'
-
 class TwipObserver < ActiveRecord::Observer
   def before_validation( twip )
     # scan content for ImagePlacements
