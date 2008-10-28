@@ -1,7 +1,3 @@
-require 'ruby-debug'
-Debugger.start
-debugger
-
 # see the deploy directory for stage-specific recipes
 require 'capistrano/ext/multistage'
 
