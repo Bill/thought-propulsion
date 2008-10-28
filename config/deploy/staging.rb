@@ -33,4 +33,4 @@ set :ec2onrails_config, fetch(:ec2onrails_config).merge(
 
 # we stick this at the end here rather than in Capfile so that multistage will work
 # see http://groups.google.com/group/ec2-on-rails-discuss/browse_thread/thread/19b17d0c92b5108
-require 'ec2onrails/recipes'
+# require 'ec2onrails/recipes'

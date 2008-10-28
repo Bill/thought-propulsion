@@ -31,7 +31,7 @@ Rails::Initializer.run do |config|
   # I'd like to use 2.5.0 (latest) but ec2-on-rails explicitly requires = 2.4.3. If we don't have this line
   # and 2.5.0 is present on the system then we error out every time we run a cap command (cuz 2.5.0 is loaded)
   # before =2.4.3 is required.
-  config.gem 'capistrano', :version => '2.4.3'
+  # config.gem 'capistrano', :version => '2.4.3'
   # config.gem 'ratom', :version => '~>0.5.1'
   config.gem 'aws-s3', :lib => 'aws/s3', :version => '~>0.5.1'
   config.gem 'libxml-ruby', :lib => 'xml/libxml', :version => '~> 0.8.3'
@@ -41,7 +41,7 @@ Rails::Initializer.run do |config|
   # in vendor/plugins are loaded in alphabetical order.
   # :all can be used as a placeholder for all plugins not explicitly named
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
-  plugins = [ :open_id_authentication, :nested_layouts, :'seed-fu', :criteriaquery, :request_routing, :air_budd_form_builder, :attachment_fu]
+  plugins = [ :open_id_authentication, :nested_layouts, :'seed-fu', :criteriaquery, :request_routing, :air_budd_form_builder, :attachment_fu, :authored]
   
   # FIXME: would like to do this in test.rb
   plugins.concat( [:'rspec', :'rspec-rails' ] ) if %w(test development).include?( config.environment )
