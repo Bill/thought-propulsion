@@ -1,5 +1,9 @@
 set :rails_env, 'production'
 
+# workaround for ImageScience problem:
+#  http://groups.google.com/group/ec2-on-rails-discuss/browse_thread/thread/ae7c45c2205b21fe?hl=en
+ENV['HOME'] = '/mnt/app'
+
 # Your EC2 instances. Use the ec2-xxx....amazonaws.com hostname, not
 # any other name (in case you have your own DNS alias) or it won't
 # be able to resolve to the internal IP address.
@@ -33,4 +37,4 @@ set :ec2onrails_config, fetch(:ec2onrails_config).merge(
 
 # we stick this at the end here rather than in Capfile so that multistage will work
 # see http://groups.google.com/group/ec2-on-rails-discuss/browse_thread/thread/19b17d0c92b5108
-# require 'ec2onrails/recipes'
+require 'ec2onrails/recipes'

@@ -1,5 +1,14 @@
 # Settings specified here will take precedence over those in config/environment.rb
 
+# workaround for ImageScience (RubyInline) problem:
+#  http://groups.google.com/group/ec2-on-rails-discuss/browse_thread/thread/ae7c45c2205b21fe?hl=en
+# http://www.viget.com/extend/rubyinline-in-shared-rails-environments/
+temp = Tempfile.new('ruby_inline', '/tmp')  
+dir = temp.path  
+temp.delete  
+Dir.mkdir(dir, 0755)  
+ENV['INLINEDIR'] = dir 
+
 # The production environment is meant for finished, "live" apps.
 # Code is not reloaded between requests
 config.cache_classes = true
