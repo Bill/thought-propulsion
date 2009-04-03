@@ -1,12 +1,14 @@
 set :rails_env, 'staging'
 
-set :branch, "deploy"
+# workaround for ImageScience problem:
+#  http://groups.google.com/group/ec2-on-rails-discuss/browse_thread/thread/ae7c45c2205b21fe?hl=en
+ENV['HOME'] = '/mnt/app' 
 
 # Your EC2 instances. Use the ec2-xxx....amazonaws.com hostname, not
 # any other name (in case you have your own DNS alias) or it won't
 # be able to resolve to the internal IP address.
 # Your EC2 instances
-set :domain, "ec2-67-202-19-228.compute-1.amazonaws.com"
+set :domain, "ec2-67-202-34-210.compute-1.amazonaws.com"
 
 role :web,      domain
 role :app,      domain
@@ -21,8 +23,8 @@ role :memcache, domain
 set :ec2onrails_config, fetch(:ec2onrails_config).merge(
   # S3 bucket and "subdir" used by the ec2onrails:db:restore task
   # NOTE: this only applies if you are not using EBS
-  :restore_from_bucket => "propel-staging",
-  :restore_from_bucket_subdir => "db-archive/2008-09-11--17-50-27",
+  :restore_from_bucket => "propel-thoughtpropulsion",
+  :restore_from_bucket_subdir => "database",
   
   # S3 bucket and "subdir" used by the ec2onrails:db:archive task
   # This does not affect the automatic backup of your MySQL db to S3, it's

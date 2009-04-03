@@ -10,6 +10,7 @@ set :git_shallow_clone, 1
 set :git_enable_submodules, 1
 
 set :repository,  "git@github.com:Bill/thought-propulsion.git"
+# set :branch, "deploy"
 
 ssh_options[:paranoid] = false
 
@@ -32,12 +33,12 @@ set :ec2onrails_config, {
   # Any extra Ubuntu packages to install if desired
   # If you don't want to install extra packages then remove this.
   # :packages => ["logwatch", "imagemagick"],
-  :packages => ["logwatch"],
+  :packages => ["logwatch", "libfreeimage-dev", 'libxml2-dev'],
   
   # Any extra RubyGems to install if desired: can be "gemname" or if a 
   # particular version is desired "gemname -v 1.0.1"
   # If you don't want to install extra rubygems then remove this
-  :rubygems => ["ruby-openid -v '>= 2.1.2'", "mislav-will_paginate -v'>= 2.3.2' --source http://gems.github.com", "capistrano -v '2.4.3'"],
+  :rubygems => ["rails -v '2.1.2'", "ruby-openid -v '>= 2.1.2'", "mislav-will_paginate -v'>= 2.3.2' --source http://gems.github.com", "image_science -v '>= 1.1.3'", "libxml-ruby -v '>= 0.8.3'"],
   
   # Defines the web proxy that will be used.  Choices are :apache or :nginx
   :web_proxy_server => :apache,

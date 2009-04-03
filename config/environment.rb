@@ -5,7 +5,7 @@
 # ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.1.1' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.1.2' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -27,22 +27,24 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem 'ruby-openid', :lib => 'openid', :version => '~>2.1.2'
   # config.gem 'Bill-route_name_for', :lib => "route_name_for", :source => 'http://gems.github.com', :version => '~>0.0.3'
-  config.gem 'mislav-will_paginate', :lib => 'will_paginate', :version => '~>2.3.2'
+  config.gem 'mislav-will_paginate', :lib => 'will_paginate', :version => '~>2.3.2', :source => 'http://gems.github.com'
   # I'd like to use 2.5.0 (latest) but ec2-on-rails explicitly requires = 2.4.3. If we don't have this line
   # and 2.5.0 is present on the system then we error out every time we run a cap command (cuz 2.5.0 is loaded)
   # before =2.4.3 is required.
   config.gem 'capistrano', :version => '2.4.3'
   config.gem 'ratom', :lib => 'atom', :version => '~>0.5.1'
   config.gem 'aws-s3', :lib => 'aws/s3', :version => '~>0.5.1'
+  config.gem 'libxml-ruby', :lib => 'xml/libxml', :version => '~> 0.8.3'
+  config.gem 'image_science', :version => '~> 1.1.3'
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
   # :all can be used as a placeholder for all plugins not explicitly named
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
-  plugins = [ :open_id_authentication, :nested_layouts, :'seed-fu', :criteriaquery, :request_routing, :air_budd_form_builder, :attachment_fu]
+  plugins = [ :open_id_authentication, :nested_layouts, :'seed-fu', :criteriaquery, :request_routing, :air_budd_form_builder, :attachment_fu, :authored]
   
   # FIXME: would like to do this in test.rb
-  plugins.concat( [:'rspec-rails' ] ) if config.environment == 'test'
+  plugins.concat( [:'rspec', :'rspec-rails' ] ) if %w(test development).include?( config.environment )
   
   config.plugins = plugins
 
@@ -79,8 +81,10 @@ Rails::Initializer.run do |config|
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
+  config.active_record.observers = :twip_observer
   
   config.after_initialize do
     require 'propel'
+    require 'libxml_helper'
   end
 end

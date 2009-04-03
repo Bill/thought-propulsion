@@ -1,0 +1,12 @@
+freds:
+  author: fred
+  filename: self-portrait.jpg
+  
+public:
+  author: fred
+  filename: prospective.jpg
+  public: true
+  
+sallys:
+  author: sally
+  filename: pony.jpg
