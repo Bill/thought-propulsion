@@ -32,7 +32,7 @@ Rails::Initializer.run do |config|
   # and 2.5.0 is present on the system then we error out every time we run a cap command (cuz 2.5.0 is loaded)
   # before =2.4.3 is required.
   config.gem 'capistrano', :version => '2.4.3'
-  # config.gem 'ratom', :version => '~>0.5.1'
+  config.gem 'ratom', :lib => 'atom', :version => '~>0.5.1'
   config.gem 'aws-s3', :lib => 'aws/s3', :version => '~>0.5.1'
 
   # Only load the plugins named here, in the order given. By default, all plugins 
