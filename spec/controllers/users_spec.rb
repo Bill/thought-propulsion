@@ -173,7 +173,7 @@ describe UsersController, '' do
         end
         it 'should not be able to edit attributes' do
           put 'update', :id => users(:sally).id, :nickname => 'freddo'
-          response.headers["Status"].should == "403 Forbidden"
+          response.status.should == "403 Forbidden"
         end
       end
   
