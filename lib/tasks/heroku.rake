@@ -8,5 +8,9 @@ namespace 'propel' do
       puts `git submodule update 2>&1`
     end
     
+    desc 'ls'
+    task :ls do
+      puts `ls`
+    end
   end
 end
