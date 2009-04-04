@@ -23,9 +23,9 @@ config.action_mailer.delivery_method = :test
 
 config.gem 'mocha', :version => '~> 0.9.1'
 config.gem 'lorem'
-
-# FIXME: have to do this in environment.rb unfortunately
-# config.plugins = [ :'rspec-rails']
+config.gem 'cucumber', :version => '>= 0.1.13'
+config.gem "rspec", :lib => false, :version => ">= 1.2.0" 
+config.gem "rspec-rails", :lib => false, :version => ">= 1.2.0"
 
 require 'ruby-debug'
 Debugger.start

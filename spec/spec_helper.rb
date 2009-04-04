@@ -1,8 +1,8 @@
 # This file is copied to ~/spec when you run 'ruby script/generate rspec'
 # from the project root directory.
-ENV["RAILS_ENV"] = "test"
-require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
-require 'spec'
+ENV["RAILS_ENV"] ||= 'test'
+require File.dirname(__FILE__) + "/../config/environment" unless defined?(RAILS_ROOT)
+require 'spec/autorun'
 require 'spec/rails'
 
 module Site
@@ -36,18 +36,7 @@ Spec::Runner.configure do |config|
   # If you're not using ActiveRecord you should remove these
   # lines, delete config/database.yml and disable :active_record
   # in your config/boot.rb
-  
-  #
-  # I wish I didn't have to do this but for now it's necessary to avoid errors like this when 
-  # running rake spec:lib:
-  # SQLite3::SQLException in 'DomainName domain name validator should reject invalid labels like one with an uppercase character'
-  # SQL logic error or missing database
-  #
-  # See:
-  # http://havegnuwilltravel.apesseekingknowledge.net/2008/01/rspeconrails-sqlite3-error.html
-  # http://www.nabble.com/Re%3A-An-error-on-edge-at--r-2767-p13370152.html
-  #
-  config.use_transactional_fixtures = false
+  config.use_transactional_fixtures = true
   config.use_instantiated_fixtures  = false
   config.fixture_path = RAILS_ROOT + '/spec/fixtures/'
 
@@ -75,8 +64,10 @@ Spec::Runner.configure do |config|
   # RSpec uses it's own mocking framework by default. If you prefer to
   # use mocha, flexmock or RR, uncomment the appropriate line:
   #
+  # config.mock_with :mocha
   # config.mock_with :flexmock
   # config.mock_with :rr
+  #
   
   config.mock_with :mocha
   
@@ -86,8 +77,4 @@ Spec::Runner.configure do |config|
   # For more information take a look at Spec::Example::Configuration and Spec::Runner
   
   config.include Site::ExampleExtensions
-    
 end
-
-# require 'ruby-debug'
-# Debugger.start

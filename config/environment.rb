@@ -34,7 +34,7 @@ Rails::Initializer.run do |config|
   config.gem 'capistrano', :version => '2.4.3'
   config.gem 'ratom', :lib => 'atom', :version => '~>0.5.1'
   config.gem 'aws-s3', :lib => 'aws/s3', :version => '~>0.5.1'
-  config.gem 'libxml-ruby', :lib => 'xml/libxml', :version => '~> 0.8.3'
+  config.gem 'libxml-ruby', :lib => 'xml/libxml', :version => '~> 1.1.3'
   config.gem 'image_science', :version => '~> 1.1.3'
 
   # Only load the plugins named here, in the order given. By default, all plugins 
@@ -42,9 +42,6 @@ Rails::Initializer.run do |config|
   # :all can be used as a placeholder for all plugins not explicitly named
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
   plugins = [ :open_id_authentication, :nested_layouts, :'seed-fu', :criteriaquery, :request_routing, :air_budd_form_builder, :attachment_fu, :authored]
-  
-  # FIXME: would like to do this in test.rb
-  plugins.concat( [:'rspec', :'rspec-rails' ] ) if %w(test development).include?( config.environment )
   
   config.plugins = plugins
 

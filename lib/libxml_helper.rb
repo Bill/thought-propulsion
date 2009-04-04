@@ -87,8 +87,7 @@ class Array
 end
 class String
   def to_libxml_doc
-    xp = XML::Parser.new
-    xp.string = self
+    xp = XML::Parser.new( XML::Parser::Context.string(self) )
     return xp.parse
   end
 end

@@ -1,6 +1,6 @@
 if RAILS_ENV == 'development'
 
-  require 'plugins/rspec/lib/spec/rake/spectask'
+  require 'spec/rake/spectask'
 
   namespace 'propel' do
     desc "Run rcov (coverage analysis) on specs"
