@@ -1,4 +1,4 @@
-class UserMigrate < ActiveRecord::Migration
+class UserCreate < ActiveRecord::Migration
   def self.up
     create_table :users do |t|
       t.string :identity_url

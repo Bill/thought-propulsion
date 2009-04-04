@@ -82,7 +82,6 @@ ActiveRecord::Schema.define(:version => 20081024205240) do
     t.string  "zip"
     t.string  "country"
     t.boolean "admin"
-    t.string  "normalized_identity_url"
     t.string  "authenticator"
     t.string  "alternate_domain"
   end
