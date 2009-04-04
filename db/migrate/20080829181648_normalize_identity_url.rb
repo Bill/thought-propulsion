@@ -1,6 +1,6 @@
 class NormalizeIdentityUrl < ActiveRecord::Migration
   def self.up
-    # add_column :users, :normalized_identity_url, :string
+    add_column :users, :normalized_identity_url, :string
     User.reset_column_information
     Incrementally.process( User) do |user|
       # normalize nicknames

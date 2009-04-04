@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20081024205240) do
     t.string  "country"
     t.boolean "admin"
     t.string  "authenticator"
+    t.string  "normalized_identity_url"
     t.string  "alternate_domain"
   end
 
