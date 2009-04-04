@@ -1,0 +1,11 @@
+<% airbudd_form_for @article, :controls => false do |f| %>
+<%=
+      f.text_field :title, :required => true, :name => "Article's Title" do | value, html_opts |
+         link_to h( value ), article_url( @article)
+      end
+%>
+  <% f.buttons do |b| %>
+    <%= b.save %>
+    <%= b.cancel :url => articles_path %>
+  <% end %>
+<% end %>
