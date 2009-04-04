@@ -2,7 +2,7 @@ class Image < ActiveRecord::Base
   
   authored
 
-  has_attachment :processor => 'ImageScience',
+  has_attachment :processor => 'Rmagick', # use ImageScience for EC2 On Rails
                  :s3_access => :authenticated_read,
                  :content_type => :image, 
                  :storage => :s3, 
