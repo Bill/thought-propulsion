@@ -28,16 +28,16 @@ describe HomeController, 'should inherit ApplicationController functionality' do
       # # so instead I had to find another way
       shared_examples_for 'login and logout' do
         it "route to login" do
-          recognize_path( '/login', :method => :get, :host => @domain).should_not == nil
+          recognize_path( '/login', :method => :get, :host => 'www.' + @domain).should_not == nil
         end
         it "route to logout" do
-          recognize_path( '/logout', :method => :get, :host => @domain).should_not == nil
+          recognize_path( '/logout', :method => :get, :host => 'www.' + @domain).should_not == nil
         end
       end
       
       shared_examples_for 'profile management' do
         it "route to profile" do
-          recognize_path( '/profile', :method => :get, :host => @domain).should_not == nil
+          recognize_path( '/profile', :method => :get, :host => 'www.' + @domain).should_not == nil
         end
       end
 
@@ -50,10 +50,10 @@ describe HomeController, 'should inherit ApplicationController functionality' do
         it_should_behave_like 'profile management'
 
         it "should route to root" do
-          recognize_path( '', :method => :get, :host => @domain).should_not == nil
+          recognize_path( '', :method => :get, :host => 'www.' + @domain).should_not == nil
         end
         it "should route to Why page" do
-          recognize_path( '/why', :method => :get, :host => @domain).should_not == nil
+          recognize_path( '/why', :method => :get, :host => 'www.' + @domain).should_not == nil
         end
         it "should route to the Twipl-Powered Thought Propulsion Blog" do
           # override Site host
