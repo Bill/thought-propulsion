@@ -21,11 +21,13 @@ config.action_controller.allow_forgery_protection    = false
 # ActionMailer::Base.deliveries array.
 config.action_mailer.delivery_method = :test
 
+config.gem 'image_science', :version => '~> 1.1.3'
 config.gem 'mocha', :version => '~> 0.9.1'
 config.gem 'lorem'
 config.gem 'cucumber', :version => '>= 0.1.13'
 config.gem "rspec", :lib => false, :version => ">= 1.2.0" 
 config.gem "rspec-rails", :lib => false, :version => ">= 1.2.0"
+
 
 require 'ruby-debug'
 Debugger.start

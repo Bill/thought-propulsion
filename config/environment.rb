@@ -35,7 +35,6 @@ Rails::Initializer.run do |config|
   config.gem 'ratom', :lib => 'atom', :version => '~>0.5.1'
   config.gem 'aws-s3', :lib => 'aws/s3', :version => '~>0.5.1'
   config.gem 'libxml-ruby', :lib => 'xml/libxml', :version => '~> 1.1.3'
-  config.gem 'image_science', :version => '~> 1.1.3'
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
