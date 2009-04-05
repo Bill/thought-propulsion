@@ -96,25 +96,25 @@ module ApplicationHelper
   # port number. Maybe when we get the named route helpers working again this can go away.
   def thoughtpropulsion_url
     sub, port = Propel::EnvironmentSubdomains::envsub
-    url_for( :controller => 'home', :action => 'index', :host => "#{sub}thoughtpropulsion.com", :port => port)
+    url_for_silent_port( :controller => 'home', :action => 'index', :host => "www.#{sub}thoughtpropulsion.com", :port => port)
   end
   
   # TODO: this shouldn't be necessary (RAILS_MULTIPLE_ROUTES_PER_NAME_BROKEN)
   def thoughtpropulsion_blog_url
     sub, port = Propel::EnvironmentSubdomains::envsub
-    url_for( :controller => 'home', :action => 'index', :host => "blog.#{sub}thoughtpropulsion.com", :port => port)
+    url_for_silent_port( :controller => 'home', :action => 'index', :host => "blog.#{sub}thoughtpropulsion.com", :port => port)
   end
   
   # TODO: this shouldn't be necessary (RAILS_MULTIPLE_ROUTES_PER_NAME_BROKEN)
   def thoughtpropulsion_contact_url
     sub, port = Propel::EnvironmentSubdomains::envsub
-    url_for( :controller => 'contact', :action => 'index', :host => "#{sub}thoughtpropulsion.com", :port => port)
+    url_for_silent_port( :controller => 'contact', :action => 'index', :host => "www.#{sub}thoughtpropulsion.com", :port => port)
   end
   
   # TODO: this shouldn't be necessary (RAILS_MULTIPLE_ROUTES_PER_NAME_BROKEN)
   def thoughtpropulsion_why_url
     sub, port = Propel::EnvironmentSubdomains::envsub
-    url_for( :controller => 'about', :action => 'index', :host => "#{sub}thoughtpropulsion.com", :port => port)
+    url_for_silent_port( :controller => 'about', :action => 'index', :host => "www.#{sub}thoughtpropulsion.com", :port => port)
   end
   
   # override in your application's helper
@@ -149,6 +149,11 @@ module ApplicationHelper
     end
     product_class = product_name.gsub(/\s+/, '-').downcase
     link_to image_tag( image_name, :class => "external #{product_class}", :alt => product_name), url, :title => product_name
+  end
+  
+  def url_for_silent_port( opts)
+    opts.delete(:port) if opts.has_key?( :port) && opts[:port] == nil
+    url_for( opts)
   end
   
   private

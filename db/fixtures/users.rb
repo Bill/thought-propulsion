@@ -1,3 +1,8 @@
+# usage (in development): rake db:seed RAILS_ENV=development
+# if you don't pass the RAILS_ENV it assumes productions which is um wrong.
+
+envsub, port = Propel::EnvironmentSubdomains::envsub
+
 # see seed-fu plugin
 %w{
 dev
@@ -30,7 +35,7 @@ end
 
 User.seed(:nickname) do |s|
   s.nickname = 'propeller'
-  s.identity_url = 'http://meme-rocket.com'
+  s.identity_url = 'http://memerocket.com'
   envsub, port = Propel::EnvironmentSubdomains::envsub
   s.alternate_domain = "blog.#{envsub}thoughtpropulsion.com"
   s.admin = true
