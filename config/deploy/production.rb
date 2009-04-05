@@ -8,7 +8,7 @@ ENV['HOME'] = '/mnt/app'
 # any other name (in case you have your own DNS alias) or it won't
 # be able to resolve to the internal IP address.
 # Your EC2 instances
-set :domain, "ec2-75-101-221-165.compute-1.amazonaws.com"
+set :domain, "ec2-67-202-28-187.compute-1.amazonaws.com"
 
 role :web,      domain
 role :app,      domain
