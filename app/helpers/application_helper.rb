@@ -59,7 +59,7 @@ module ApplicationHelper
       else
         'Thought Propulsion | Blog'
       end
-    when /^#{envsub}thoughtpropulsion.com$/
+    when /^www.#{envsub}thoughtpropulsion.com$/
       case controller
       when OpenidsController: 'Thought Propulsion | Sign Up'
       when UsersController:   'Thought Propulsion | Your Account'
