@@ -14,6 +14,11 @@
    <!--[if IE]><%= stylesheet_link_tag 'blueprint/ie', :media => 'screen, projection', :cache => true %><![endif]-->	
    <!--[if lt IE 7.]><script defer type="text/javascript" src="/javascripts/pngfix.js"></script><![endif]-->
    <%= stylesheet_link_tag 'application', :media => 'screen' %>
+   <%= javascript_include_tag 'code-highlighter/code_highlighter'%>
+   <%= javascript_include_tag 'code-highlighter/css'%>
+   <%= javascript_include_tag 'code-highlighter/html'%>
+   <%= javascript_include_tag 'code-highlighter/javascript'%>
+   <%= javascript_include_tag 'code-highlighter/ruby'%>
    <%= stylesheet_link_tag 'iphone', :media => 'screen' %>
 </head>
 <body class='<%=body_class%> yui-skin-sam'>

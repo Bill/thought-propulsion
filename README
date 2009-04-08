@@ -4,7 +4,7 @@ This is a Rails application that implements thoughtpropulsion.com and twipl.com.
 
 ==== It's Made Of ====
 
-Rails 2.1.0 (Gems) plus a number of other gems (run rake gems to see the list and rake gems:install to install them).
+Rails 2.3.2 (Gems) plus a number of other gems (run rake gems to see the list and rake gems:install to install them).
 
 It uses these plugins:
 
@@ -14,14 +14,13 @@ request_routing         - Dan Webb's request_routing
 seed-fu                 - defines rake task for initializing database data "rake db:seed"
 criteria_query          - lets us do disjunctive conditions (OR) on ActiveRecord
 
-In development and test these are used:
+It has these other components included as source-code copies:
 
-rspec                   - may be replaced by shoulda and flexmock
-rspec-rails
+Dan Webb's JavaScript Code Highlighter from http://svn.danwebb.net/external/CodeHighlighter/trunk/ in public/javascripts/code-highlighter
 
 ==== Copyrights ====
 
-This product is Copyright (c) 2008 Thought Propulsion™.
+This product is Copyright (c) 2009 Thought Propulsion™.
 
 seed-fu is Copyright (c) 2008 Michael Bleigh, released under the MIT license
 

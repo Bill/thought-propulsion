@@ -517,3 +517,67 @@ textarea {
    left: -9999px; 
    position: absolute; 
 }
+
+/* --------------------------------------------------------------
+   Code
+*/
+pre {
+   overflow:auto;
+}
+code {
+   font-family: Monaco, Courier, monotype;
+}
+
+/* --------------------------------------------------------------
+   Code Highlighting
+*/
+ 
+/** RUBY / JAVASCRIPT are default **/
+code span.comment {
+	color: #BD48B3;
+}
+ 
+code span.string {
+	color: #99FF00;
+}
+ 
+code span.brackets {
+	
+}
+ 
+code span.symbol {
+	color: #6BCFF7;
+}
+ 
+code span.keywords {
+	color: <%= @c_a_w1%>;
+}
+ 
+code span.erb {
+	background: #333;
+}
+ 
+code span.symbol {
+      color: #07DFFC;
+}
+ 
+/** HTML **/
+code.html span.tag {
+	color: #fff;
+}
+ 
+code.html span.attribute {
+	color: #FFD500;
+}
+ 
+code.html span.string {
+	color: #99FF00;
+}
+ 
+code.html span.comment {
+	color: #999;
+}
+ 
+code.html span.doctype {
+	color: #D7FF80;
+}

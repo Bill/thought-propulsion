@@ -1,15 +1,48 @@
 namespace 'propel' do
   namespace 'heroku' do
 
-    # usage rake propel:heroku:update_git_submodules 
-    desc 'Heroku does not automatically update submodules so we have to do it ourselves'
+    # usage (locally): rake propel:heroku:initialize
+    desc 'local task to set up a brand new Heroku instance'
+    task :initialize do
+      `heroku create thoughtpropulsion`
+      %w( www.thoughtpropulsion.com blog.thoughtpropulsion.com propeller.twipl.com).each do | domain |
+        `heroku domains:add --app thoughtpropulsion '#{domain}'`
+      end
+      `git push heroku master`
+      `heroku rake --app thoughtpropulsion db:migrate`
+      `heroku db:push --app thoughtpropulsion 'mysql://root:WAE8YVL3oGMH@localhost/thoughtpropulsion'`
+    end
+    
+    desc 'local task to set up heroku domains'
+    task :configure_domains do
+      %w( www.thoughtpropulsion.com blog.thoughtpropulsion.com propeller.twipl.com).each do | domain |
+        puts `heroku domains:add --app thoughtpropulsion '#{domain}'`
+      end
+    end
+    
+    desc 'local task to create and download a Heroku bundle'
+    task :snapshot_bundle do
+      timestamp = `date -u '+%Y-%m-%d-%H-%M'`.chomp
+      bundle_name = "bundle-#{timestamp}"
+      `heroku bundles:capture --app thoughtpropulsion '#{bundle_name}'`
+      # poll for completion
+      begin
+        bundles = `heroku bundles --app thoughtpropulsion`
+      end while bundles.match(/complete/).nil?
+      %w(download destroy).each do | action |
+        `heroku bundles:#{action} --app thoughtpropulsion '#{bundle_name}'`
+      end
+    end
+
+    # usage (remotely): heroku rake propel:heroku:update_git_submodules 
+    desc 'remote task to have Heroku update git submodules'
     task :update_git_submodules do
       puts `git submodule init 2>&1`
       puts `git submodule update 2>&1`
     end
     
     namespace :db do
-      desc "Purges the tables of a postgres DB" 
+      desc "remote task to purge the tables of the Heroku (PostgreSQL) database" 
       task :purge do
         load 'config/environment.rb'
         abcs = ActiveRecord::Base.configurations
