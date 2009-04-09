@@ -534,11 +534,11 @@ code {
  
 /** RUBY / JAVASCRIPT are default **/
 code span.comment {
-	color: #BD48B3;
+	color: <%= @c_b%>;
 }
  
 code span.string {
-	color: #99FF00;
+	color: <%= @c_c_w2%>;
 }
  
 code span.brackets {
@@ -546,40 +546,37 @@ code span.brackets {
 }
  
 code span.symbol {
-	color: #6BCFF7;
+	color: <%= @c_c%>;
 }
  
 code span.keywords {
 	color: <%= @c_b_w1%>;
 }
- 
+
+# not yet implemented by highlighter
 code span.erb {
-	background: #333;
-}
- 
-code span.symbol {
-      color: #07DFFC;
+   # could set background here
 }
  
 /** HTML **/
 code.html span.tag {
-	color: #fff;
+   color: <%= @c_b_w1%>;
 }
  
 code.html span.attribute {
-	color: #FFD500;
+	color: <%= @c_c%>;
 }
  
 code.html span.string {
-	color: #99FF00;
+	color: <%= @c_c_w2%>;
 }
  
 code.html span.comment {
-	color: #999;
+	color: <%= @c_b%>;
 }
  
 code.html span.doctype {
-	color: #D7FF80;
+	color: <%= @c_b_w4%>;
 }
 
 /* --------------------------------------------------------------
