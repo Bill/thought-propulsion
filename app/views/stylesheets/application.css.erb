@@ -531,10 +531,21 @@ code {
 /* --------------------------------------------------------------
    Code Highlighting
 */
- 
-/** RUBY / JAVASCRIPT are default **/
+
 code span.comment {
 	color: <%= @c_b%>;
+}
+
+code span.keywords,
+code span.tag,
+code span.selectors {
+	color: <%= @c_b_w1%>;
+}
+
+code span.symbol,
+code span.attribute,
+code span.properties {
+	color: <%= @c_c%>;
 }
  
 code span.string {
@@ -542,42 +553,26 @@ code span.string {
 }
  
 code span.brackets {
-	
 }
  
-code span.symbol {
-	color: <%= @c_c%>;
-}
- 
-code span.keywords {
-	color: <%= @c_b_w1%>;
-}
 
 # not yet implemented by highlighter
 code span.erb {
    # could set background here
 }
  
-/** HTML **/
-code.html span.tag {
-   color: <%= @c_b_w1%>;
-}
- 
-code.html span.attribute {
-	color: <%= @c_c%>;
-}
- 
-code.html span.string {
-	color: <%= @c_c_w2%>;
-}
- 
-code.html span.comment {
-	color: <%= @c_b%>;
-}
- 
-code.html span.doctype {
+code span.doctype {
 	color: <%= @c_b_w4%>;
 }
+
+/** CSS **/
+
+code.css span.units {
+}
+
+code.css span.urls {
+}
+
 
 /* --------------------------------------------------------------
    Swatches for development
