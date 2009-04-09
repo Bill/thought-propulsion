@@ -28,8 +28,8 @@ top-level elements */
 
 body {
    height:100%;
-   background-color:<%= @c_b %>;
-   color:<%= @c_b_w4%>;
+   background-color:<%= @c_a %>;
+   color:<%= @c_a_w4%>;
    margin:0;
    }
 
@@ -37,18 +37,18 @@ body {
 
 .head {
    background: url(/images/header_icon.png) no-repeat top left;
-   color:<%= @c_b %>;
+   color:<%= @c_a %>;
    height:90px;
    position:relative;
    }
 
 .no-alerts {
-   background:<%= @c_b %> url(/images/header.png) repeat-x top left;
+   background:<%= @c_a %> url(/images/header.png) repeat-x top left;
    }
 
 .alerts {
-   background:<%= @c_t_k1%>;
-   border-bottom: solid <%= @c_t_k5%> 2px;
+   background:<%= @c_c_k1%>;
+   border-bottom: solid <%= @c_c_k5%> 2px;
    }
 
 .no-alerts, .alerts{
@@ -62,7 +62,7 @@ body {
    }
 
 .foot { 
-   color:<%= @c_a %>;
+   color:<%= @c_b %>;
    font-size:.9em;
    position:absolute;
    bottom:0;
@@ -76,14 +76,14 @@ main content style */
 .intro, .vcard {padding-bottom:0em !important;}
 
 .feature {
-   background: <%= @c_b_w1%> url(/images/feature_lines.png) repeat-y left top;
-   border-top: 1px solid <%= @c_a_k5%>;
-   border-bottom: 2px solid <%= @c_a_k5%>;
-   border-right: 1px solid <%= @c_a_k5%>;
+   background: <%= @c_a_w1%> url(/images/feature_lines.png) repeat-y left top;
+   border-top: 1px solid <%= @c_b_k5%>;
+   border-bottom: 2px solid <%= @c_b_k5%>;
+   border-right: 1px solid <%= @c_b_k5%>;
    margin-top:1.5em; margin-bottom:1.5em;padding-top:1.5em; padding-bottom:1.5em;
    }
 
-.dark {background: <%= @c_b_k1%> url(/images/feature_lines.png) repeat-y left top;}
+.dark {background: <%= @c_a_k1%> url(/images/feature_lines.png) repeat-y left top;}
 
 /* -------------------------------------------------------------- 
 misc. copy style */
@@ -92,34 +92,34 @@ a, a:hover, a:focus {
    text-decoration: none; 
    outline:none; 
    border:none; 
-   color:<%= @c_a_w1%>;
+   color:<%= @c_b_w1%>;
    }
 .content a {
-   border-bottom:1px dotted <%= @c_a_k1%>;
+   border-bottom:1px dotted <%= @c_b_k1%>;
    }
 .content a:hover, .content a:focus {
-   border-bottom:1px solid <%= @c_a_w1%>; 
-   color:<%= @c_a_w1%>; 
-   background-color: <%= @c_b_k1%>;
+   border-bottom:1px solid <%= @c_b_w1%>; 
+   color:<%= @c_b_w1%>; 
+   background-color: <%= @c_a_k1%>;
    }
 .feature a:hover, .content a:focus {
-   background-color: <%= @c_b%>;
+   background-color: <%= @c_a%>;
    }
 .icon a, .icon a:hover, .icon a:focus {
    border-bottom: none;
    background-color:transparent;
    }
 .login a {
-   border-bottom: 1px dotted <%= @c_a_k1%>; 
+   border-bottom: 1px dotted <%= @c_b_k1%>; 
    }
 .login a:hover, .content a:focus {
-   border-bottom: 1px solid <%= @c_a_w1%>; 
-   background-color: <%= @c_b_k1%>;
+   border-bottom: 1px solid <%= @c_b_w1%>; 
+   background-color: <%= @c_a_k1%>;
    }
 
 .feature p {margin-right:1em;}
 
-h1, h2, h3, h4, h5, h6 {color:<%= @c_a_w5%>;}
+h1, h2, h3, h4, h5, h6 {color:<%= @c_b_w5%>;}
 /* 
 NOTE: Careful w/ line-height: use it to determine vert space in multiline heading.
 To deterime vert spacing after heading use margin-bottom
@@ -132,7 +132,7 @@ h2 { font-size:1.4em; line-height:1.2; margin-bottom:.3; }
    text-decoration: none; 
    outline:none; 
    border-bottom: none; 
-   color:<%= @c_a_w5%>; 
+   color:<%= @c_b_w5%>; 
    background-color:transparent;
    }
 
@@ -141,12 +141,12 @@ h2 { font-size:1.4em; line-height:1.2; margin-bottom:.3; }
    font-size:0.6em;
    position:relative;
    top:-0.4em;
-   color:<%=  @c_b_w1%>;
+   color:<%=  @c_a_w1%>;
    }
 
 img {margin:0;}
-.foot .trademark {color:<%=  @c_b_w1%>;}
-.no-alerts .trademark {color:<%=  @c_b_w4%>;}
+.foot .trademark {color:<%=  @c_a_w1%>;}
+.no-alerts .trademark {color:<%=  @c_a_w4%>;}
 .verticalspace {margin-top:1.5em; margin-bottom:1.5em;padding-top:1.5em; padding-bottom:1.5em;}
 
 
@@ -192,7 +192,7 @@ alerts */
 
 .alerts .alert {
    border:none;
-   color:<%= @c_t_w4%>;
+   color:<%= @c_c_w4%>;
    font-size:1.2em; /*these three properties are from screen.css large rule*/
    line-height:1.8em;
    margin: 1.25em 0;
@@ -217,7 +217,7 @@ alerts */
 login style */
 
 .login {
-   color:<%= @c_b_w4%>;
+   color:<%= @c_a_w4%>;
    margin-top:3px;
    }
 
@@ -225,15 +225,15 @@ login style */
    background:url(/images/login-bg.gif) no-repeat 5px;
    padding-left:25px;
    width:200px;
-   background-color:<%= @c_b %>;
-   color:<%= @c_b_w4%>;
-   border:1px solid <%= @c_b_k4%>;
+   background-color:<%= @c_a %>;
+   color:<%= @c_a_w4%>;
+   border:1px solid <%= @c_a_k4%>;
    }
 
 .button {
-   background-color:<%= @c_b %>;
-   color:<%= @c_b_w4%>;
-   border:1px solid <%= @c_b_k4%>;
+   background-color:<%= @c_a %>;
+   color:<%= @c_a_w4%>;
+   border:1px solid <%= @c_a_k4%>;
    }
 
 /* -------------------------------------------------------------- 
@@ -244,7 +244,7 @@ User registration style */
    padding:0 0 10px 0;
    float:left;margin-right:10px;width:550px; /* span-14 */
    margin-left:120px; /* prepend-3*/
-   border-bottom:1px dotted <%=@c_b_w1%>;
+   border-bottom:1px dotted <%=@c_a_w1%>;
 }
 
 
@@ -280,12 +280,12 @@ forms */
    vertical-align:top;
    }
 .form-table th, .form-table td {
-   border-bottom:1px dotted <%=@c_b_w1%>;
+   border-bottom:1px dotted <%=@c_a_w1%>;
    }
 .form-table tr.last th, .form-table tr.last td {
    border-bottom:none;
    }
-.instructions { color:<%=@c_b_w2%>; padding-top: .3em;}
+.instructions { color:<%=@c_a_w2%>; padding-top: .3em;}
 
 
 /* -----------------------------------------------------------------
@@ -317,7 +317,7 @@ forms */
    margin:0 0 10px 0;
    padding:0 0 10px 0;
    float:left;margin-right:10px;width:550px; /* span-14 */
-   border-bottom:1px dotted <%=@c_b_w1%>;
+   border-bottom:1px dotted <%=@c_a_w1%>;
 }
 
 .draft .attribute label, .published .attribute label, .draft .attribute .feedback {
@@ -327,11 +327,11 @@ forms */
    background:none;
    text-align:right;
    vertical-align:top;
-   color:<%=@c_b_w2%>;
+   color:<%=@c_a_w2%>;
    }
 
 .draft .required { 
-   color:<%=@c_a %>;
+   color:<%=@c_b %>;
    /* take this out of flow so that label text is right-aligned */
    position:absolute;
    padding-left: 3px; /* push out away from label a little */
@@ -346,18 +346,18 @@ forms */
    float:left;margin-right:10px;width:230px; /* span-6 */
    margin-left: 120px; /* prepend-3 */
 }
-.draft .hint { color:<%=@c_b_w3%>; padding-top: .3em;}
+.draft .hint { color:<%=@c_a_w3%>; padding-top: .3em;}
 
 /* .fieldWithErrors is applied automatically by the Rails framework when a field has errors.
 see also: Blueprint CSS screen.css rules for .error and friends (I made this rule match that one)
 */
-.fieldWithErrors input {border:2px solid <%=@c_t_w2%>; background:<%=@c_t_w3%>;}
+.fieldWithErrors input {border:2px solid <%=@c_c_w2%>; background:<%=@c_c_w3%>;}
 
 .draft .attribute .feedback {
-   color: <%=@c_t%>;
+   color: <%=@c_c%>;
 }
 .draft .error { 
-   color: <%=@c_t%>;
+   color: <%=@c_c%>;
 }
 
 .draft .buttons {
@@ -414,8 +414,8 @@ textarea {
    }
 
 .twip img {
-   background:<%= @c_b_w1 %> none repeat scroll 0 0;
-   border:1px dashed <%= @c_b_w2%>;
+   background:<%= @c_a_w1 %> none repeat scroll 0 0;
+   border:1px dashed <%= @c_a_w2%>;
    margin:7px 12px 10px 0;
    padding:7px;
    /*vertical-align:sub;*/
@@ -436,8 +436,8 @@ textarea {
 
 .authorship {
    font-size:.9em;
-   color: <%= @c_b_w3 %>;
-   border-bottom: 1px dashed <%= @c_b_w3 %>;
+   color: <%= @c_a_w3 %>;
+   border-bottom: 1px dashed <%= @c_a_w3 %>;
 }
 
 .reactions {
@@ -486,7 +486,7 @@ textarea {
    font-size:62.5%;
    margin-top:7px; /* tweak to fit in background image and baseline align w/ Twip title */
    }
-.day h1.date .day {float:left;font-size:75%;color:<%= @c_a_w1%>;line-height:1.1;}
+.day h1.date .day {float:left;font-size:75%;color:<%= @c_b_w1%>;line-height:1.1;}
 .day h1.date .year {display:none;}
 .day .date {display:none;}
 .day h1.date {
@@ -550,7 +550,7 @@ code span.symbol {
 }
  
 code span.keywords {
-	color: <%= @c_a_w1%>;
+	color: <%= @c_b_w1%>;
 }
  
 code span.erb {
