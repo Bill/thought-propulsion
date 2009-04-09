@@ -1,0 +1,9 @@
+<li class='color span-2 <%=  show_swatch_counter == total - 1 ? ' last' : '' %>'>
+   <% unless show_swatch.last.blank? -%>
+      <span class='css-color'><%= show_swatch.last.to_s %></span>
+   <% end -%>
+      <span class='sample' style='background-color:<%= show_swatch.last.to_s %>;'></span>
+   <% unless show_swatch.last.blank? -%>
+      <span class='variable'>@<%= show_swatch.first.to_s %></span>
+   <% end -%>
+</li>

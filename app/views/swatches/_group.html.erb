@@ -1,0 +1,4 @@
+<h1><%= name %></h1>
+<ol class='span-22'>
+   <%= render :partial => 'show_swatch', :collection => colors, :locals => {:total => colors.size } %>
+</ol>

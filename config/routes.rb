@@ -37,6 +37,9 @@ module Propel::UniversalRoutes
     # can't call this 'warn' because it conflicts w/ some Rails method somewhere
     map.connect 'warn/:msg', :controller => 'home', :action => 'warn', :conditions => {:method => :get}
     map.connect 'inform/:msg', :controller => 'home', :action => 'inform', :conditions => {:method => :get}
+    
+    # development utilities
+    map.connect '/swatches', :controller => 'swatches', :action => 'index', :conditions => {:method => :get}
   end
   module_function :define
 end

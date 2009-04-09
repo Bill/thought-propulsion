@@ -15,8 +15,8 @@ author_viewing = (@builder.object.author.identity_url == authenticated_identity_
 <% elsif author_viewing %>
 <p><%= @builder.object.public ? 'public' : 'private' %></p>
 <% end %>
-      <h2 class='authorship span-13 last'><span class='reactions'>0 reactions</span><span class='date'><%= date( @builder.object.created_at ) %></span> <%= (t = time( @builder.object.created_at )) ? "at #{t} " : nil %><%= link_to( 'edit', :controller => 'twips', :action => 'edit', :id => @builder.object.id ) if ! @builder.object.new_record? && author_viewing %> posted by <span class='author'><%= @builder.object.author.nickname %></span></h2>
-      <div class='body span-13 last'>
+      <h2 class='authorship'><span class='reactions'>0 reactions</span><span class='date'><%= date( @builder.object.created_at ) %></span> <%= (t = time( @builder.object.created_at )) ? "at #{t} " : nil %><%= link_to( 'edit', :controller => 'twips', :action => 'edit', :id => @builder.object.id ) if ! @builder.object.new_record? && author_viewing %> posted by <span class='author'><%= @builder.object.author.nickname %></span></h2>
+      <div class='body'>
 <% if @builder.rendering_controls? -%>
 <%=   yield %>
 <% else -%>

@@ -42,6 +42,8 @@ module ApplicationHelper
       'contact'
     when TwipsController
       'blog'
+    when SwatchesController
+      'swatch'
     else
       ''
     end

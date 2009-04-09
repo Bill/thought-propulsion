@@ -1,0 +1,9 @@
+<% inside_layout 'swatches/_layout' do -%>
+<div class='swatches'>
+   <%= render :partial => 'group', :locals => { :name => 'Base Color', :colors => @base_colors } %>
+   <hr/>
+   <%= render :partial => 'group', :locals => { :name => 'Analogous Color', :colors =>  @analogous_colors } %>
+   <hr/>
+   <%= render :partial => 'group', :locals => { :name => 'Complementary Color', :colors => @complementary_colors } %>
+<div>
+<% end -%>

@@ -26,7 +26,7 @@ padding:0;margin-bottom:0;border:none;background:none;color:inherit;border-color
 /* -------------------------------------------------------------- 
 top-level elements */
 
-html, body {
+body {
    height:100%;
    background-color:<%= @c_b %>;
    color:<%= @c_b_w4%>;
@@ -492,7 +492,7 @@ textarea {
 .day h1.date {
    float:left;
    display:block; /* override rule we just defined */
-   background:transparent url(/images/twip_date-tab.png) no-repeat 0 0;
+   background:transparent url(/images/twip_date-tab.png) no-repeat 0px top;
    padding:0 20px 0 40px;
    margin:0 0 0 0;
    height:48px;
@@ -580,4 +580,40 @@ code.html span.comment {
  
 code.html span.doctype {
 	color: #D7FF80;
+}
+
+/* --------------------------------------------------------------
+   Swatches for development
+*/
+body.swatch {
+   background-color: #000000;
+}
+.swatch .container {
+   width: 870px; /* span-22 width */
+   background-image: none;
+   background-color: #000000;
+}
+.swatches {
+   margin-top:100px;
+   text-align:center;
+}
+.swatches h1 {
+   margin-bottom:16px;
+}
+.swatches hr {
+   background:none;
+}
+.swatches ol {
+   margin:0; /* undo blueprint reset */
+   margin-bottom:16px;
+}
+li.color {
+   list-style-type: none;
+}
+.color .sample {
+   height:70px;
+   display:block;
+}
+.color .variable {
+   display:block;
 }

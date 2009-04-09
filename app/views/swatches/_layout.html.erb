@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <title>Swatches</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+   <meta name = "viewport" content = "width = device-width, initial-scale = 0.6"/>
+   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+   <%= yield :head %>
+   <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen, projection' %>
+   <%= stylesheet_link_tag 'blueprint/print', :media => 'print' %>
+   <!--[if IE]><%= stylesheet_link_tag 'blueprint/ie', :media => 'screen, projection', :cache => true %><![endif]-->	
+   <!--[if lt IE 7.]><script defer type="text/javascript" src="/javascripts/pngfix.js"></script><![endif]-->
+   <%= stylesheet_link_tag 'application', :media => 'screen' %>
+   <%= stylesheet_link_tag 'iphone', :media => 'screen' %>
+</head>
+<body class='<%=body_class%>'>
+   <div class='page'>
+      <%= render :partial => 'alerts/show'%>
+      <div class='container content'>
+               <%= yield %>
+      </div><!--End container-->
+      <div class='prepend-1 foot'>&copy; 2009 <%=company_name%></div>
+   </div>
+   <%= render :partial => 'google_analytics/tracking'%>
+</body>
+</html>

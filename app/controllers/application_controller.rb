@@ -27,8 +27,8 @@ class ApplicationController < ActionController::Base
     
     # These patterns must match routes.rb
     case request.host
-    when /^blog\.#{envsub}thoughtpropulsion.com$/, /^#{envsub}thoughtpropulsion.com$/: 'home'
-    when /^#{envsub}twipl.com$/, /(.+\.)#{envsub}twipl.com$/: 'twipl_home'
+    when /^blog\.#{envsub}thoughtpropulsion.com$/, /^www.#{envsub}thoughtpropulsion.com$/: 'home'
+    when /^www.#{envsub}twipl.com$/, /(.+\.)#{envsub}twipl.com$/: 'twipl_home'
     else
       'twipl_home'
     end
