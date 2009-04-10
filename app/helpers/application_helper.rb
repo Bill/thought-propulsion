@@ -21,13 +21,14 @@ module ApplicationHelper
     # TODO: expand this logic to lookup code for the publisher (for Twipl) to cover all Twipl subdomains
     #       and Twipl user alternate domains too
     # We'd like to just set this in routes.rb but SET_DEFAULT_NOT_IN_PATTERN_FOILS_URL_GENERATION
-    ua_code = case ENV['RAILS_ENV']
+    ua_code, domain = case ENV['RAILS_ENV']
     when 'production'
-      "UA-184449-4" # thoughtpropulsion.com
+      ["UA-184449-4","thoughtpropulsion.com"]
     when 'staging'
-      "UA-184449-5" # staging.thoughtpropulsion.com
+      ["UA-184449-5", "staging.thoughtpropulsion.com"]
     end
-    "var pageTracker = _gat._getTracker('#{ua_code}');"
+    "var pageTracker = _gat._getTracker('#{ua_code}');\
+    pageTracker._setDomainName('.#{domain}');"
   end
   
   def body_class
