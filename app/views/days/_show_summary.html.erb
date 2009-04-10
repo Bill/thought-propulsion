@@ -1,4 +1,4 @@
 <div class='day'>
-<h1 class='date prepend-1 span-1'><%= date( show_summary.date ) %></h1>
-<%= render :partial => 'twips/show_summary', :collection => show_summary.twips %>
+<h1 class='date prepend-1 span-1'><%= date( show_summary.first ) %></h1>
+<%= render :partial => 'twips/show_summary', :collection => show_summary.last %>
 </div>

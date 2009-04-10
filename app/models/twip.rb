@@ -10,5 +10,4 @@ class Twip < ActiveRecord::Base
   
   validates_presence_of :title
   validates_associated :image_placements
-  
 end
