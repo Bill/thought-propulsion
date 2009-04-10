@@ -14,7 +14,7 @@ class TwipsController < ApplicationController
     publisher = User.for_host( request.host).find(:first)
     (render( :file => "#{RAILS_ROOT}/public/404.html", :status => 404) and return) unless publisher
     @twips = authorized_twip_summary_for_publisher_and_viewer( publisher, authenticated_identity_url)
-    @days = @twips.sort_by( &:created_at).group_by{|t| t.created_at.to_date }
+    @days = @twips.sort_by( &:created_at).reverse.group_by{|t| t.created_at.to_date }
     respond_to do |wants|
       wants.atom { render :action => 'index', :layout => false }
       wants.html { render :template => 'days/index' }
