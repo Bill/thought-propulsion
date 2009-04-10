@@ -38,7 +38,7 @@ set :ec2onrails_config, {
   # Any extra RubyGems to install if desired: can be "gemname" or if a 
   # particular version is desired "gemname -v 1.0.1"
   # If you don't want to install extra rubygems then remove this
-  :rubygems => ["rails -v '2.1.2'", "ruby-openid -v '>= 2.1.2'", "mislav-will_paginate -v'>= 2.3.2' --source http://gems.github.com", "image_science -v '>= 1.1.3'", "libxml-ruby -v '>= 0.8.3'"],
+  :rubygems => ["rails -v '2.3.2'", "ruby-openid -v '>= 2.1.2'", "mislav-will_paginate -v'>= 2.3.8' --source http://gems.github.com", "image_science -v '>= 1.1.3'", "libxml-ruby -v '>= 0.8.3'"],
   
   # Defines the web proxy that will be used.  Choices are :apache or :nginx
   :web_proxy_server => :apache,

@@ -92,9 +92,9 @@ class TwipsController < ApplicationController
         visible = publisher.twips.access_public_or_shared_with( viewer)
         this_page = visible.find(:all, :limit => pager.per_page, :offset => pager.offset, :order => 'created_at DESC')
         pager.replace( this_page )
-      end
-      unless pager.total_entries
-        pager.total_entries = 0
+        unless pager.total_entries
+          pager.total_entries = visible.count
+        end
       end
     end
   end

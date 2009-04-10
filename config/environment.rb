@@ -27,7 +27,7 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem 'ruby-openid', :lib => 'openid', :version => '~>2.1.2'
   # config.gem 'Bill-route_name_for', :lib => "route_name_for", :source => 'http://gems.github.com', :version => '~>0.0.3'
-  config.gem 'mislav-will_paginate', :lib => 'will_paginate', :version => '~>2.3.2', :source => 'http://gems.github.com'
+  config.gem 'mislav-will_paginate', :lib => 'will_paginate', :version => '~>2.3.8', :source => 'http://gems.github.com'
   config.gem 'ratom', :lib => 'atom', :version => '~>0.5.1'
   config.gem 'aws-s3', :lib => 'aws/s3', :version => '~>0.5.1'
   config.gem 'libxml-ruby', :lib => 'xml/libxml', :version => '~> 1.1.3'
@@ -35,10 +35,7 @@ Rails::Initializer.run do |config|
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
   # :all can be used as a placeholder for all plugins not explicitly named
-  # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
-  plugins = [ :open_id_authentication, :nested_layouts, :'seed-fu', :criteriaquery, :request_routing, :air_budd_form_builder, :attachment_fu, :authored]
-  
-  config.plugins = plugins
+  config.plugins = [ :open_id_authentication, :nested_layouts, :'seed-fu', :criteriaquery, :request_routing, :air_budd_form_builder, :attachment_fu, :authored]
 
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )

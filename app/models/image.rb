@@ -2,9 +2,13 @@ class Image < ActiveRecord::Base
   
   authored
 
-  PROCESSOR = (ENV["RAILS_ENV"] == 'test' ? 'ImageScience' : 'Rmagick')
+  # PROCESSOR is set by a custom Rails initializer (see the /config/initializers directory)
 
-  has_attachment :processor => PROCESSOR,
+  def self.processor
+    %w(production staging).include?( ENV['RAILS_ENV'] ) ? 'Rmagick' : 'ImageScience'
+  end
+
+  has_attachment :processor => processor,
                  :s3_access => :authenticated_read,
                  :content_type => :image, 
                  :storage => :s3, 
@@ -15,8 +19,8 @@ class Image < ActiveRecord::Base
   
   validates_as_attachment
   
-  
   # TODO: use attr_protected :owner once it doesn't clash with attachment-fu
   #   <RuntimeError: Declare either attr_protected or attr_accessible for Image, but not both.>
   # attr_protected :owner
+  
 end

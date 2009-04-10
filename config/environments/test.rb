@@ -28,6 +28,5 @@ config.gem 'cucumber', :version => '>= 0.1.13'
 config.gem "rspec", :lib => false, :version => ">= 1.2.0" 
 config.gem "rspec-rails", :lib => false, :version => ">= 1.2.0"
 
-
 require 'ruby-debug'
 Debugger.start

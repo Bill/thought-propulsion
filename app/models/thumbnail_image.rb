@@ -1,6 +1,8 @@
 class ThumbnailImage < ActiveRecord::Base
   
-  has_attachment :processor => Image::PROCESSOR,
+  # PROCESSOR is set by a custom Rails initializer (see the /config/initializers directory)
+  
+  has_attachment :processor => Image::processor,
                  :s3_access => :authenticated_read,
                  :content_type => :image, 
                  :storage => :s3, 

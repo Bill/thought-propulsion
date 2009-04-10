@@ -1,5 +1,5 @@
 ruby-openid --version '~>2.1.2'
-mislav-will_paginate --version '~>2.3.2' --source 'http://gems.github.com'
+mislav-will_paginate --version '~>2.3.8' --source 'http://gems.github.com'
 ratom --version '~>0.5.1'
 aws-s3 --version '~>0.5.1'
 libxml-ruby --version '~> 1.1.3'

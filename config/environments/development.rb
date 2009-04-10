@@ -19,8 +19,7 @@ config.action_mailer.raise_delivery_errors = false
 config.gem 'lorem'
 config.gem 'image_science', :version => '~> 1.1.3'
 
-
 ActiveSupport::Dependencies.explicitly_unloadable_constants = 'RouteNameFor'
 
-require 'ruby-debug'
-Debugger.start
+# require 'ruby-debug'
+# Debugger.start
