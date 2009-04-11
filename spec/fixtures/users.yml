@@ -7,3 +7,8 @@ sally:
     identity_url: http://sally.myopenid.com
     alternate_domain: blog.sally.me
     normalized_identity_url: http://sally.myopenid.com
+propeller:
+    nickname:   propeller
+    identity_url: http://memerocket.com
+    alternate_domain: blog.thoughtpropulsion.com
+    normalized_identity_url: http://memerocket.com

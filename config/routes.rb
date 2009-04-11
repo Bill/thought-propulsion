@@ -70,15 +70,6 @@ ActionController::Routing::Routes.draw do |map|
 
   # See how all your routes lay out with "rake routes"
 
-  # blog.thoughtpropulsion.com is a special case since it's powered by twipl but lives under
-  # the thoughtpropulsion.com domain
-  map.with_options :conditions => { :host => /^blog\.#{envsub}thoughtpropulsion.com$/} do | blog |
-    blog.connect '', :controller=>'twips', :action=>'index', :conditions => {:method => :get}
-    blog.connect '/twips/:id', :controller=>'twips', :action=>'show', :conditions => {:method => :get}
-    map.connect '/image_placements/:id', :controller=>'image_placements', :action=>'show', :conditions=>{:method=>:get}    
-    Propel::UniversalRoutes.define( blog)
-  end
-
   map.with_options :conditions => { :host => /^www\.#{envsub}thoughtpropulsion.com$/} do | thoughtpropulsion |
     thoughtpropulsion.connect '', :controller => 'home', :action => 'index', :conditions => {:method => :get}
     thoughtpropulsion.connect 'why', :controller => 'about', :action => 'index', :conditions => {:method => :get}

@@ -5,22 +5,27 @@ require File.dirname(__FILE__) + "/../config/environment" unless defined?(RAILS_
 require 'spec/autorun'
 require 'spec/rails'
 
+# Inject request information for route recogition
+# based on Olivier El Mekki's (http://blog.olivier-elmekki.com/) comment here (http://www.smallroomsoftware.com/articles/2007/2/10/rails-routing-based-on-hostname)
+module Spec
+  module Rails
+    module Example
+      class ControllerExampleGroup
+        # simulates extract_request_environment hook
+        def params_from( method, path, options )
+          ensure_that_routes_are_loaded
+          ActionController::Routing::Routes.recognize_path(path, {:method => method}.merge!( options ) )
+        rescue ActionController::RoutingError # swallow these and return nil
+        end
+      end
+    end
+  end
+end
+
 module Site
 
   module ExampleExtensions
     
-    def recognize_path( path, options)
-      if options[:host].kind_of?( Array )
-        result = options[:host].collect{ | h | route( path, options.merge( :host => h) ) }
-      else
-        begin
-          result = ActionController::Routing::Routes.recognize_path( path, options)
-        rescue ActionController::RoutingError
-        end
-      end
-      result
-    end
-
     # FIXME: this doesn't work yet
     def generate(options, recall = {:controller=>'users', :action=>'index', :layout=>'home', :host=>'thoughtpropulsion.com'})
       controller_string = @controller_class_name.tableize.split('_')[0..-2].join('_')
