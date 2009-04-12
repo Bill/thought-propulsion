@@ -30,7 +30,7 @@ describe OpenidsController do
 
     it 'should redirect to new registration form' do
       response.should be_redirect
-      # # TODO: fixme
+      # # TODO: fixme. Currently, rspec-rails redirect_to doesn't work when routes have :conditions
       # response.should redirect_to( :controller => 'users', :action => 'new')
     end
     
