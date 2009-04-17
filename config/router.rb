@@ -87,22 +87,24 @@ Merb::Router.prepare do |r|
         to( :controller => 'image_placements', :action => 'create_json')
     end
     
-    def twipl_syndication(r)
-      r.match('/', :method => 'get').
-        to( :controller => 'twips', :action => 'index').
-          name( :twips_index)
+    def twipl_syndicated(r)
       r.default( :controller => 'twips') do
+      # * odd * in order to have / and /.atom match at this level I must match '/(.:format)' yet
+      # to match /twips and /twips/.atom I must match '(/.:format)' under /twips (see twips block below)
+      r.match('/(.:format)', :method => 'get').
+        to( :action => 'index').
+          name( :twips_index)
         r.match( '/twips') do | twips |
-          twips.match('/', :method => 'get').
-            to( :action => 'index')
+          twips.match('(/.:format)', :method => 'get').
+            to( :action => 'index').name('twips')
           twips.match( '/:id', :method => 'get').
-            to( :action => 'show')
+            to( :action => 'show').name('twip')
         end
       end
       r.match('/images/:id', :method => 'get').
         to( :controller => 'images', :action => 'show')
       r.match('/image_placements/:id', :method => 'get').
-        to( :controller => 'image_placements', :action => 'show')
+        to( :controller => 'image_placements', :action => 'show').name('image_placement')
     end
   end
 
@@ -143,7 +145,7 @@ Merb::Router.prepare do |r|
     openids( r )
     users( r )
     twipl_authenticated( r )
-    twipl_syndication( r )
+    twipl_syndicated( r )
   end
   
   # ----------------------------------------------------------
@@ -153,7 +155,7 @@ Merb::Router.prepare do |r|
     openids( r )
     users( r )
     twipl_authenticated( r )
-    twipl_syndication( r )
+    twipl_syndicated( r )
   end
 
   

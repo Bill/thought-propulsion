@@ -1,0 +1,6 @@
+<% content_for :head do -%>
+<%=  tag(:link, :rel => "alternate",
+	  :type => "application/atom+xml",
+	  :href => twips_url(:format => :atom)) %>
+<% end -%>
+<%=   yield %>

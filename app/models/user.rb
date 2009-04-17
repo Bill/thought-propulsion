@@ -56,6 +56,12 @@ class User < ActiveRecord::Base
     "http://#{domain}#{port ? ":#{port}" : ''}"
   end
 
+  # What's the most primary domain that this User publishes on. Right now we pick the most specific one.
+  # When we support syndication for reals, we'll want let the user pick her "best" domain.
+  def best_domain
+    alternate_domain || twipl_domain
+  end
+
   # The domain that this user's Twips are visible (to others) on. Each user starts with this one and may
   # purchase additional ones.
   def twipl_domain

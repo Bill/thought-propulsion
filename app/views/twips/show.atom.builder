@@ -1,1 +1,1 @@
-xml << render( :partial => 'show', :locals => {:show => @twip})
+render( :partial => 'show', :locals => {:show => @twip})

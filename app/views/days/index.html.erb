@@ -1,2 +1,4 @@
+<% inside_layout 'twips/_twips_list_layout' do -%>
 <%= render :partial => 'days/show_summary', :collection => @days %>
 <%= will_paginate @twips, :prev_label => '&lt; Newer', :next_label => 'Older &gt;', :class => 'pagination' %>
+<% end -%>

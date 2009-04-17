@@ -11,12 +11,12 @@ class TwipsController < ApplicationController
   before_filter :include_scripts, :only => [:edit, :new]
   
   def index
-    publisher = User.for_host( request.host).find(:first)
-    (render( :file => "#{RAILS_ROOT}/public/404.html", :status => 404) and return) unless publisher
-    @twips = authorized_twip_summary_for_publisher_and_viewer( publisher, authenticated_identity_url)
+    @publisher = User.for_host( request.host).find(:first)
+    (render( :file => "#{RAILS_ROOT}/public/404.html", :status => 404) and return) unless @publisher
+    @twips = authorized_twip_summary_for_publisher_and_viewer( @publisher, authenticated_identity_url)
     @days = @twips.sort_by( &:created_at).reverse.group_by{|t| t.created_at.to_date }
     respond_to do |wants|
-      wants.atom { render :action => 'index', :layout => false }
+      wants.atom
       wants.html { render :template => 'days/index' }
     end
   end
@@ -80,7 +80,7 @@ class TwipsController < ApplicationController
     # um, see e.g. layout.rb line 254 in Rails 2.1.0. content_for variables have the form @content_for_<name>
     @template.instance_variable_set("@content_for_head", include_tags )
   end
-
+  
   def user_action_on_resource_authorized
     Twip.find( params[:id]).author == registered_user
   end
