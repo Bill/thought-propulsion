@@ -7,6 +7,3 @@
 [submodule "vendor/plugins/attachment_fu"]
 	path = vendor/plugins/attachment_fu
 	url = git@github.com:Bill/attachment_fu.git
-[submodule "vendor/plugins/merb_routing"]
-	path = vendor/plugins/merb_routing
-	url = git@github.com:Bill/merb_routing.git
