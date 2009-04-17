@@ -15,7 +15,7 @@ namespace 'propel' do
     
     desc 'local task to set up heroku domains'
     task :configure_domains do
-      %w( www.thoughtpropulsion.com blog.thoughtpropulsion.com propeller.twipl.com).each do | domain |
+      %w( www.thoughtpropulsion.com blog.thoughtpropulsion.com propeller.twipl.com www.twipl.com).each do | domain |
         puts `heroku domains:add --app thoughtpropulsion '#{domain}'`
       end
     end
