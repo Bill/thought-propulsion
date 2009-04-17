@@ -1,19 +1,19 @@
 envsub, port = Propel::EnvironmentSubdomains::envsub
 envsub = Regexp.escape(envsub) # we're gonna use envsub as part of a Regexp
 
+module RequestMethods
+  # boolean: is the current request on a domain that a Twipl users has registered as an alternate domain?
+  def alternate_domain
+    !! User.for_host( host).find(:first)
+  end
+end
+module ActionController
+  Request.class_eval "include(RequestMethods)"
+end
+
 # FIXME: the need to have the explicit block parameter "r" is already deprecated in merb core but my plugin uses
 # an older version of merb. Remove all these r's and r.'s once we're up to date.
 Merb::Router.prepare do |r|
-  
-  module RequestMethods
-    # boolean: is the current request on a domain that a Twipl users has registered as an alternate domain?
-    def alternate_domain
-      !! User.for_host( host).find(:first)
-    end
-  end
-  module ActionController
-    Request.class_eval "include(RequestMethods)"
-  end
   
   Merb::Router.extensions do
     
