@@ -28,7 +28,7 @@ describe TwipsController do
 
     before(:each) do
       request.env['HTTP_ACCEPT'] = 'text/html'
-      controller.use_rails_error_handling! # ask Rails to turn exceptions into HTTP status codes
+      rescue_action_in_public! # tell Rails to turn exceptions into HTTP status codes
     end
 
     describe 'to a registered principal' do

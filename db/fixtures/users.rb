@@ -5,6 +5,7 @@ envsub, port = Propel::EnvironmentSubdomains::envsub
 
 # see seed-fu plugin
 %w{
+www
 dev
 staging
 test

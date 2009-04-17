@@ -26,23 +26,28 @@ describe 'twips views' do
     @twip.author = users(:fred)
   end
 
-
-  describe '/twips/_show' do
+  describe 'a saved Twip' do
     before(:each) do
-      render :partial => '/twips/show', :locals => { :show => @twip}
+      @twip.save.should == true
+    end
+    
+    describe '/twips/_show' do
+      before(:each) do
+        render :partial => '/twips/show', :locals => { :show => @twip}
+      end
+
+      it_should_behave_like 'sanitize'
+      it_should_behave_like 'allow HTML'
     end
 
-    it_should_behave_like 'sanitize'
-    it_should_behave_like 'allow HTML'
-  end
+    describe '/twips/_show_summary' do
+      before(:each) do
+        render :partial => '/twips/show_summary', :locals => { :show_summary => @twip}
+      end
 
-  describe '/twips/_show_summary' do
-    before(:each) do
-      render :partial => '/twips/show_summary', :locals => { :show_summary => @twip}
+      it_should_behave_like 'sanitize'
+      it_should_behave_like 'allow HTML'
     end
-
-    it_should_behave_like 'sanitize'
-    it_should_behave_like 'allow HTML'
   end
   
 end

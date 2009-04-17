@@ -5,38 +5,6 @@ require File.dirname(__FILE__) + "/../config/environment" unless defined?(RAILS_
 require 'spec/autorun'
 require 'spec/rails'
 
-# Inject request information for route recogition
-# based on Olivier El Mekki's (http://blog.olivier-elmekki.com/) comment here (http://www.smallroomsoftware.com/articles/2007/2/10/rails-routing-based-on-hostname)
-module Spec
-  module Rails
-    module Example
-      class ControllerExampleGroup
-        # simulates extract_request_environment hook
-        def params_from( method, path, options )
-          ensure_that_routes_are_loaded
-          ActionController::Routing::Routes.recognize_path(path, {:method => method}.merge!( options ) )
-        rescue ActionController::RoutingError # swallow these and return nil
-        end
-      end
-    end
-  end
-end
-
-module Site
-
-  module ExampleExtensions
-    
-    # FIXME: this doesn't work yet
-    def generate(options, recall = {:controller=>'users', :action=>'index', :layout=>'home', :host=>'thoughtpropulsion.com'})
-      controller_string = @controller_class_name.tableize.split('_')[0..-2].join('_')
-      # TODO: handle recall options
-      new_options = {:controller => controller_string}.merge( options )
-      Action:Controller::Routing::Routes.generate( new_options, recall)
-      # route_for( {:controller => controller_string}.merge( options ) )
-    end
-  end
-end
-
 Spec::Runner.configure do |config|
   # If you're not using ActiveRecord you should remove these
   # lines, delete config/database.yml and disable :active_record
@@ -81,5 +49,4 @@ Spec::Runner.configure do |config|
   # 
   # For more information take a look at Spec::Example::Configuration and Spec::Runner
   
-  config.include Site::ExampleExtensions
 end

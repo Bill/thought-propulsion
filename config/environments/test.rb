@@ -28,5 +28,9 @@ config.gem 'cucumber', :version => '>= 0.1.13'
 config.gem "rspec", :lib => false, :version => ">= 1.2.0" 
 config.gem "rspec-rails", :lib => false, :version => ">= 1.2.0"
 
+config.after_initialize do
+  require 'propel/rspec-rails/params_from_with_options'
+end
+
 require 'ruby-debug'
 Debugger.start
