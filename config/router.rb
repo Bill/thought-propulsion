@@ -115,6 +115,8 @@ Merb::Router.prepare do |r|
   r.match('/stylesheets/application.css', :method => 'get').
     to( :controller => 'stylesheets', :action => 'application').
       name( :application_stylesheet)
+  r.match('/swatches', :method => 'get').
+    to( :controller => 'swatches', :action => 'index')
   
   # ----------------------------------------------------------
   # Thought Propulsion(TM) home rules
