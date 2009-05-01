@@ -68,7 +68,7 @@ module AWS
         end
       end
 
-      def virtual_hosting_url_for(virtual_hosting_domain, path, options = {})
+      def virtual_hosting_url_for(path, virtual_hosting_domain, options = {})
         authenticate = options.delete(:authenticated)
         # Default to true unless explicitly false
         authenticate = true if authenticate.nil? 
