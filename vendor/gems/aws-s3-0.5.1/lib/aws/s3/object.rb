@@ -291,7 +291,7 @@ module AWS
           connection.url_for(path!(bucket, name, options), options) # Do not normalize options
         end
 
-        def virtual_hosting_url_for( virtual_hosting_domain, name, bucket=nil, options={})
+        def virtual_hosting_url_for( virtual_hosting_domain, name, options={})
           connection.virtual_hosting_url_for( virtual_hosting_domain, "/#{name}", options) # Do not normalize options
         end
         

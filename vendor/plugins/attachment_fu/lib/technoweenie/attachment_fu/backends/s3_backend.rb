@@ -245,7 +245,7 @@ module Technoweenie # :nodoc:
           options   = args.extract_options!
           virtual_hosting_domain = args.shift
           thumbnail = args.shift
-          S3Object.virtual_hosting_url_for(virtual_hosting_domain, full_filename(thumbnail), nil, options)
+          S3Object.virtual_hosting_url_for(virtual_hosting_domain, full_filename(thumbnail), options)
         end
 
         def create_temp_file
