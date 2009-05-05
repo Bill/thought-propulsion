@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
 
-  # can't just grab param since SET_DEFAULT_NOT_IN_PATTERN_FOILS_URL_GENERATION
-  # layout proc{ |controller| controller.params[:layout]}
-  layout proc{ | controller | controller.layout }
+  layout proc{ |controller| controller.params[:layout]}
   
   before_filter :filter_user_is_admin, :only => [:index]
   before_filter :filter_user_is_authenticated, :only => [:new, :create]

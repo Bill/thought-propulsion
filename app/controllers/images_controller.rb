@@ -2,9 +2,7 @@ class ImagesController < ApplicationController
   
   include ImagesHelper # image_src_url
   
-  # can't just grab param since SET_DEFAULT_NOT_IN_PATTERN_FOILS_URL_GENERATION
-  # layout proc{ |controller| controller.params[:layout]}
-  layout proc{ | controller | controller.layout }
+  layout proc{ |controller| controller.params[:layout]}
 
   before_filter :filter_user_is_registered, :only => [:create, :create_json, :new]
   before_filter :filter_user_is_admin_or_authorized_for_action, :except => [:create, :create_json, :new, :show]

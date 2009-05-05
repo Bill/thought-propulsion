@@ -20,20 +20,6 @@ class ApplicationController < ActionController::Base
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
 
-  # has to be public so it is accessible in the layout (class) method of our subclasses
-  def layout
-    envsub, port = Propel::EnvironmentSubdomains::envsub
-    envsub = Regexp.escape(envsub) # we're gonna use envsub as part of a Regexp
-    
-    # These patterns must match routes.rb
-    case request.host
-    when /^blog\.#{envsub}thoughtpropulsion.com$/, /^www.#{envsub}thoughtpropulsion.com$/: 'home'
-    when /^www.#{envsub}twipl.com$/, /(.+\.)#{envsub}twipl.com$/: 'twipl_home'
-    else
-      'twipl_home'
-    end
-  end
-  
   protected
   
   # We sometimes interrupt the user's flow to require a login (or registration). Rather than blindly

@@ -106,9 +106,15 @@ Merb::Router.prepare do |r|
       r.match('/image_placements/:id', :method => 'get').
         to( :controller => 'image_placements', :action => 'show').name('image_placement')
     end
+    
+    def twipl_powered(r)
+      openids( r )
+      users( r )
+      twipl_authenticated( r )
+      twipl_syndicated( r )
+    end
   end
 
-  
   # ----------------------------------------------------------
   # all applications get these rules
   #
@@ -117,49 +123,59 @@ Merb::Router.prepare do |r|
       name( :application_stylesheet)
   r.match('/swatches', :method => 'get').
     to( :controller => 'swatches', :action => 'index')
+
+  # fallback layout is thoughtpropulsion layout ('home')
+  r.default( :layout => 'home') do
   
-  # ----------------------------------------------------------
-  # Thought Propulsion(TM) home rules
-  #
-  r.match( :host => /^www\.#{envsub}thoughtpropulsion\.com$/) do
-    r.match('/', :method => 'get').
-      to( :controller => 'home', :action => 'index', :foo => 'BAR').
-        name( :home)
-    r.match('/why', :method => 'get').
-      to( :controller => 'about', :action => 'index').
-        name( :why)
-    r.match('/contact', :method => 'get').
-      to( :controller => 'contact', :action => 'index').
-        name( :contact)
-  end
+    # ----------------------------------------------------------
+    # Thought Propulsion(TM) home rules
+    #
+    r.match( :host => /^www\.#{envsub}thoughtpropulsion\.com$/) do
+      r.match('/', :method => 'get').
+        to( :controller => 'home', :action => 'index', :foo => 'BAR').
+          name( :home)
+      r.match('/why', :method => 'get').
+        to( :controller => 'about', :action => 'index').
+          name( :why)
+      r.match('/contact', :method => 'get').
+        to( :controller => 'contact', :action => 'index').
+          name( :contact)
+    end
 
-  # ----------------------------------------------------------
-  # Twipl home
-  #
-  r.match( :host => /^www\.#{envsub}twipl\.com$/) do
-    twipl( r )
-  end
+    # ----------------------------------------------------------
+    # Twipl-powered Thought Propulsion blog
+    #
+    r.match( :host => /^blog\.#{envsub}thoughtpropulsion\.com$/) do
+      twipl_powered(r)
+    end
 
-  # ----------------------------------------------------------
-  # Twipl-Powered(TM) free domain (subdomain of twipl.com)
-  #
-  r.match( :host => /^.+#{envsub}twipl\.com$/) do
-    openids( r )
-    users( r )
-    twipl_authenticated( r )
-    twipl_syndicated( r )
-  end
+    # most twipl-powered sites get twipl layout
+    r.default( :layout => 'twipl_home') do
+      
+      # ----------------------------------------------------------
+      # Twipl home
+      #
+      r.match( :host => /^www\.#{envsub}twipl\.com$/) do
+        twipl( r )
+      end
+
+      # ----------------------------------------------------------
+      # Twipl-Powered(TM) free domain (subdomain of twipl.com)
+      #
+      r.match( :host => /^.+#{envsub}twipl\.com$/) do
+        twipl_powered(r)
+      end
   
-  # ----------------------------------------------------------
-  # Twipl-Powered(TM) third-party domain
-  #
-  r.match( :alternate_domain => true) do
-    openids( r )
-    users( r )
-    twipl_authenticated( r )
-    twipl_syndicated( r )
-  end
+      # ----------------------------------------------------------
+      # Twipl-Powered(TM) third-party domain
+      #
+      r.match( :alternate_domain => true) do
+        twipl_powered(r)
+      end
+      
+    end # twipl_home layout
 
+  end # home layout
   
   # ----------------------------------------------------------
   # Catch-all. Uncomment for debugging.
