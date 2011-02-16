@@ -30,7 +30,14 @@ describe HomeController, 'should inherit ApplicationController functionality' do
         it "route to login" do
           params_from( :get, '/login', :host => @domain).should_not == nil
         end
-        it "route to logout" do
+        # TODO get route_for working!
+        # it 'route for login' do
+        #   # session.host! 'dev.twipl.com' # can't get at session this way!
+        #   # session[:host] = 'dev.twipl.com' # doesn't work!
+        # 
+        #     route_for( :controller => 'twipl_home', :action => 'index', :host => @domain).should == '/login'
+        #   end
+          it "route to logout" do
           params_from( :get, '/logout', :host => @domain).should_not == nil
         end
       end

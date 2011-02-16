@@ -20,7 +20,7 @@
       <div class='container content'>
                <%= yield %>
       </div><!--End container-->
-      <div class='prepend-1 foot'>&copy; 2009 <%=company_name%></div>
+      <div class='prepend-1 foot'>&copy; <%= Time.now.year.to_s %> <%=company_name%></div>
    </div>
    <%= render :partial => 'google_analytics/tracking'%>
 </body>
